@@ -1,0 +1,47 @@
+@startuml BarcodeArchitecture_Final
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title 바코드 생성 시스템 아키텍처 (생성 흐름 강조)
+
+' === 1. 🏭 조립 (Factory) 영역 (TOP) ===
+Boundary(CreationLayer, "1. 조립 (Factory) 영역") {
+    Component(Factory, "BarcodeStrategyFactory", "Strategy Factory")
+    Component(Assembler, "BarcodeAssembler", "Helper Factory")
+}
+
+' === 2. 🧱 바코드 생성 전략 묶음 (MIDDLE) ===
+Boundary(BarcodeStrategyBundle, "2. 바코드 생성 전략 묶음 (Contexts)") {
+    Component(IBS, "IBarcodeStrategy", "Interface")
+    Component(EAN13S, "EAN13Strategy", "Impl. / Context")
+    Component(ITF14S, "ITF14Strategy", "Impl. / Context")
+}
+
+' === 3. ⚙️ 체크 디지트 전략 묶음 (BOTTOM) ===
+Boundary(CheckDigitStrategyBundle, "3. 체크 디지트 계산 전략 묶음 (Helpers)") {
+    Component(ICDS, "ICheckDigitStrategy", "Interface")
+    Component(EAN13CDS, "EAN13CheckDigitStrategy", "Impl. / Strategy")
+    Component(ITF14CDS, "ITF14CheckDigitStrategy", "Impl. / Strategy")
+}
+
+Component(Client, "TestClient", "Client Code")
+
+' --- Relationships (수직 배치와 흐름) ---
+Factory -down-> Assembler : calls
+Factory -down-> EAN13S : creates & injects helper
+Factory -down-> ITF14S : creates & injects helper
+
+Assembler -down-> EAN13CDS : creates
+Assembler -down-> ITF14CDS : creates
+
+EAN13S -down-> ICDS : depends on
+ITF14S -down-> ICDS : depends on
+
+Client -up-> Factory : requests strategy
+
+' 인터페이스 구현 관계
+IBS <|-- EAN13S
+IBS <|-- ITF14S
+ICDS <|-- EAN13CDS
+ICDS <|-- ITF14CDS
+
+@enduml

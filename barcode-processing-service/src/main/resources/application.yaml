@@ -1,0 +1,34 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: barcode-processing-service
+  
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: barcode-processing-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.value.default.type: com.barcode.barcode_processing_service.dto.BarcodeEvent
+  
+  # Redis Streams 설정
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+# Redis Streams 설정
+redis:
+  stream:
+    key: barcode:stream
+    consumer-group: barcode-persistence-group
+
+logging:
+  level:
+    com.barcode.processing: DEBUG
+    org.springframework.kafka: INFO    

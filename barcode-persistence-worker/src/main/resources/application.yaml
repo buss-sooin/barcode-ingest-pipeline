@@ -1,0 +1,55 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: barcode-persistence-worker
+  
+  # MySQL 설정
+  datasource:
+    url: jdbc:mysql://localhost:3306/delivery
+    username: delivery_user
+    password: delivery_pass
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+  
+  # JPA 설정
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        jdbc:
+          batch_size: 100
+        order_inserts: true
+        order_updates: true
+  
+  # Redis Streams 설정
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+# Redis Streams 설정
+redis:
+  stream:
+    key: barcode:stream
+    consumer-group: barcode-persistence-group
+    consumer-name: worker-${random.uuid}  # 각 인스턴스 고유 이름
+
+# Worker 설정
+worker:
+  batch-size: 100
+  poll-interval: 1000
+  block-time: 5000  # Streams block 대기 시간 (ms)
+
+logging:
+  level:
+    com.barcode.worker: DEBUG
+    org.hibernate.SQL: DEBUG

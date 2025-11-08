@@ -1,0 +1,15 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: barcode-scanner-service
+
+app:
+  scanner:
+    device-id: "SEOUL-CENTER-PC-001" 
+    batch-size-limit: 250
+
+logging:
+  level:
+    com.barcode.scanner: DEBUG
