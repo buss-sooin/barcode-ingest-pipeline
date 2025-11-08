@@ -19,7 +19,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.barcode.barcode_persistence_worker.entity.BarcodeEntity;
+import com.barcode.barcode_persistence_worker.entity.DeviceCenterMappingEntity;
 import com.barcode.barcode_persistence_worker.repository.BarcodeRepository;
+import com.barcode.barcode_persistence_worker.repository.DeviceCenterMappingRepository;
 
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -32,6 +34,7 @@ public class RedisStreamConsumer {
     
     private final RedisTemplate<String, String> redisTemplate;
     private final BarcodeRepository barcodeRepository;
+    private final DeviceCenterMappingRepository deviceMappingRepository;
     
     @Value("${redis.stream.key}")
     private String streamKey;
@@ -112,11 +115,18 @@ public class RedisStreamConsumer {
     
     private BarcodeEntity mapToEntity(MapRecord<String, Object, Object> record) {
         Map<Object, Object> value = record.getValue();
-        
+
+        String deviceId = (String) value.get("deviceId");
+
+        String centerId = deviceMappingRepository.findByDeviceId(deviceId)
+            .map(DeviceCenterMappingEntity::getCenterId)
+            .orElseThrow(() -> new IllegalStateException("Unknown deviceId: " + deviceId));
+
         return BarcodeEntity.builder()
             .internalBarcodeId((String) value.get("internalBarcodeId"))
             .originalBarcode((String) value.get("originalBarcode"))
-            .deviceId((String) value.get("centerId"))
+            .deviceId(deviceId)
+            .centerId(centerId)
             .scanTime(Instant.parse((String) value.get("scanTime")))
             .processedTime(Instant.parse((String) value.get("processedTime")))
             .savedTime(Instant.now())

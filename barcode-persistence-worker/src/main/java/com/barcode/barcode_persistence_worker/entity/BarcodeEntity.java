@@ -36,6 +36,9 @@ public class BarcodeEntity {
     @Column(nullable = false, length = 100)
     private String originalBarcode;
     
+    @Column(nullable = false)
+    private String centerId;
+
     @Column(nullable = false, length = 50)
     private String deviceId;
     
