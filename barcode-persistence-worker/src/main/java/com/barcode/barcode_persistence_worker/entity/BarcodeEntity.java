@@ -50,5 +50,6 @@ public class BarcodeEntity {
     
     @Column(nullable = false)
     private Instant savedTime;
+    
 }
 

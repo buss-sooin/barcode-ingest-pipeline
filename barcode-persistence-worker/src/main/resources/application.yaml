@@ -7,20 +7,26 @@ spring:
   
   # MySQL 설정
   datasource:
-    url: jdbc:mysql://localhost:3306/delivery
-    username: delivery_user
-    password: delivery_pass
+    url: jdbc:mysql://localhost:3306/delivery?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul
+    username: ${DB_USERNAME:delivery_user}
+    password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 20
       minimum-idle: 5
       connection-timeout: 30000
   
+  sql:
+    init:
+      mode: always
+      encoding: UTF-8
+
   # JPA 설정
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: true
+    defer-datasource-initialization: true
     properties:
       hibernate:
         format_sql: true
@@ -51,5 +57,5 @@ worker:
 
 logging:
   level:
-    com.barcode.worker: DEBUG
+    com.barcode.barcode_persistence_worker: DEBUG
     org.hibernate.SQL: DEBUG

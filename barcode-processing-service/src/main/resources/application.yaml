@@ -30,5 +30,5 @@ redis:
 
 logging:
   level:
-    com.barcode.processing: DEBUG
+    com.barcode.barcode_processing_service: DEBUG
     org.springframework.kafka: INFO    

@@ -55,8 +55,7 @@ public class RedisStreamConsumer {
     public void initialize() {
         try {
             // Consumer Group 생성 (이미 있으면 무시)
-            redisTemplate.opsForStream()
-                .createGroup(streamKey, consumerGroup);
+            redisTemplate.opsForStream().createGroup(streamKey, consumerGroup);
             log.info("✅ Created consumer group: {}", consumerGroup);
         } catch (Exception e) {
             log.info("ℹ️ Consumer group already exists: {}", consumerGroup);
@@ -116,19 +115,22 @@ public class RedisStreamConsumer {
     private BarcodeEntity mapToEntity(MapRecord<String, Object, Object> record) {
         Map<Object, Object> value = record.getValue();
 
+        String internalBarcodeId = (String) value.get("internalBarcodeId");
+        String originalBarcode = (String) value.get("originalBarcode");
         String deviceId = (String) value.get("deviceId");
-
         String centerId = deviceMappingRepository.findByDeviceId(deviceId)
             .map(DeviceCenterMappingEntity::getCenterId)
             .orElseThrow(() -> new IllegalStateException("Unknown deviceId: " + deviceId));
+        Long scanTime = Long.parseLong((String) value.get("scanTime"));
+        Long processedTime = Long.parseLong((String) value.get("processedTime"));
 
         return BarcodeEntity.builder()
-            .internalBarcodeId((String) value.get("internalBarcodeId"))
-            .originalBarcode((String) value.get("originalBarcode"))
+            .internalBarcodeId(internalBarcodeId)
+            .originalBarcode(originalBarcode)
             .deviceId(deviceId)
             .centerId(centerId)
-            .scanTime(Instant.parse((String) value.get("scanTime")))
-            .processedTime(Instant.parse((String) value.get("processedTime")))
+            .scanTime(Instant.ofEpochMilli(scanTime))
+            .processedTime(Instant.ofEpochMilli(processedTime))
             .savedTime(Instant.now())
             .build();
     }

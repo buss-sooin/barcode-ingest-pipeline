@@ -1,5 +1,7 @@
 package com.barcode.barcode_ingest_service.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,16 +26,15 @@ public class BarcodeIngestController {
     private final BarcodeProducer barcodeProducer;
     
     @PostMapping("/barcode")
-    public ResponseEntity<String> ingestBarcode(@RequestBody @Valid ScannerApiRequest request) {
-        log.info("📥 Received barcode ingest request: {}", request);
+    public ResponseEntity<String> ingestBarcode(@RequestBody @Valid List<ScannerApiRequest> requests) {
+        log.info("📥 Received {} barcode requests", requests.size());
         
-        // Request → Event 변환 (불변 객체 생성)
-        BarcodeIngestRequest event = request.toIngestRequest();
+        for (ScannerApiRequest request : requests) {
+            BarcodeIngestRequest event = request.toIngestRequest();
+            barcodeProducer.sendBarcodeEvent(event);
+        }
         
-        // Kafka로 전송
-        barcodeProducer.sendBarcodeEvent(event);
-        
-        return ResponseEntity.ok("Barcode event ingested: " + event.barcode());
+        return ResponseEntity.ok("Ingested " + requests.size() + " barcodes");
     }
     
     @GetMapping("/health")

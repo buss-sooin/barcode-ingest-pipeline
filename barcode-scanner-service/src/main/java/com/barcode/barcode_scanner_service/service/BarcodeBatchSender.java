@@ -30,15 +30,16 @@ public class BarcodeBatchSender {
     private final int BATCH_SIZE_LIMIT;
     private static final long TIME_TRIGGER_MS = 1000L;
     private final BlockingQueue<BarcodeRequest> buffer = new LinkedBlockingQueue<>();
-    private final ApiGatewayTransmitter transmitter;
+    
     private final DeviceConfig deviceConfig;
+    private final ApiGatewayTransmitter transmitter;
     private final BarcodeService barcodeService;
     
     public BarcodeBatchSender(DeviceConfig deviceConfig, ApiGatewayTransmitter transmitter, BarcodeService barcodeService) {
         this.deviceConfig = deviceConfig;
         this.transmitter = transmitter;
-        this.BATCH_SIZE_LIMIT = deviceConfig.batchSizeLimit(); 
         this.barcodeService = barcodeService;
+        this.BATCH_SIZE_LIMIT = deviceConfig.batchSizeLimit(); 
 
         log.info("📢 BarcodeBatchSender 초기화 완료. DeviceID: {}, 배치 크기: {}, 시간 트리거: {}ms",
         deviceConfig.deviceId(), BATCH_SIZE_LIMIT, TIME_TRIGGER_MS);

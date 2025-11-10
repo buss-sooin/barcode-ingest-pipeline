@@ -1,6 +1,6 @@
 package com.barcode.barcode_persistence_worker.entity;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,7 +19,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DeviceCenterMappingEntity {
+public class DeviceCenterMappingEntity extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -31,6 +32,5 @@ public class DeviceCenterMappingEntity {
     private String centerId;
     
     private String centerName;
-    
-    private LocalDateTime updatedTime;
+
 }
