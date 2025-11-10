@@ -54,7 +54,6 @@ public class RedisStreamConsumer {
     @PostConstruct
     public void initialize() {
         try {
-            // Consumer Group 생성 (이미 있으면 무시)
             redisTemplate.opsForStream().createGroup(streamKey, consumerGroup);
             log.info("✅ Created consumer group: {}", consumerGroup);
         } catch (Exception e) {
@@ -65,7 +64,6 @@ public class RedisStreamConsumer {
     @Scheduled(fixedDelayString = "${worker.poll-interval}")
     public void processBatch() {
         try {
-            // Redis Streams에서 읽기
             List<MapRecord<String, Object, Object>> records = redisTemplate.opsForStream()
                 .read(
                     Consumer.from(consumerGroup, consumerName),
@@ -80,32 +78,7 @@ public class RedisStreamConsumer {
             }
             
             log.info("📥 Read {} messages from Redis Stream", records.size());
-            
-            // MySQL에 배치 저장
-            List<BarcodeEntity> entities = new ArrayList<>();
-            List<RecordId> processedIds = new ArrayList<>();
-            
-            for (MapRecord<String, Object, Object> record : records) {
-                try {
-                    BarcodeEntity entity = mapToEntity(record);
-                    entities.add(entity);
-                    processedIds.add(record.getId());
-                } catch (Exception e) {
-                    log.error("❌ Failed to map record: {}", record.getId(), e);
-                }
-            }
-            
-            // 배치 저장
-            if (!entities.isEmpty()) {
-                barcodeRepository.saveAll(entities);
-                log.info("💾 Saved {} barcodes to MySQL", entities.size());
-                
-                // ACK (처리 완료)
-                redisTemplate.opsForStream()
-                    .acknowledge(streamKey, consumerGroup, 
-                        processedIds.toArray(new RecordId[0]));
-                log.info("✅ Acknowledged {} messages", processedIds.size());
-            }
+            processAndSaveRecords(records);
             
         } catch (Exception e) {
             log.error("❌ Error processing batch", e);
@@ -135,10 +108,7 @@ public class RedisStreamConsumer {
             .build();
     }
     
-    /**
-     * Pending List 재처리 (실패한 메시지)
-     */
-    @Scheduled(fixedDelay = 60000)  // 1분마다
+    @Scheduled(fixedDelay = 60000)
     public void processPendingMessages() {
         try {
             PendingMessagesSummary summary = redisTemplate.opsForStream()
@@ -148,19 +118,50 @@ public class RedisStreamConsumer {
                 log.warn("⚠️ Found {} pending messages, reprocessing...", 
                     summary.getTotalPendingMessages());
                 
-                // Pending 메시지 읽기
-                List<MapRecord<String, Object, Object>> pendingRecords = 
+                List<MapRecord<String, Object, Object>> claimedRecords = 
                     redisTemplate.opsForStream()
-                        .read(
-                            Consumer.from(consumerGroup, consumerName),
-                            StreamReadOptions.empty().count(100),
-                            StreamOffset.create(streamKey, ReadOffset.from("0-0"))
+                        .claim(
+                            streamKey,
+                            consumerGroup,
+                            consumerName,
+                            Duration.ofMinutes(5)
                         );
                 
-                // 재처리 로직 (processBatch와 동일)
+                if (claimedRecords == null || claimedRecords.isEmpty()) {
+                    return;
+                }
+                
+                log.info("🔄 Claimed {} pending messages for reprocessing", claimedRecords.size());
+                processAndSaveRecords(claimedRecords);
             }
         } catch (Exception e) {
             log.error("❌ Error processing pending messages", e);
         }
     }
+
+    private void processAndSaveRecords(List<MapRecord<String, Object, Object>> records) {
+        List<BarcodeEntity> entities = new ArrayList<>();
+        List<RecordId> processedIds = new ArrayList<>();
+        
+        for (MapRecord<String, Object, Object> record : records) {
+            try {
+                BarcodeEntity entity = mapToEntity(record);
+                entities.add(entity);
+                processedIds.add(record.getId());
+            } catch (Exception e) {
+                log.error("❌ Failed to map record: {}", record.getId(), e);
+            }
+        }
+        
+        if (!entities.isEmpty()) {
+            barcodeRepository.saveAll(entities);
+            log.info("💾 Saved {} barcodes to MySQL", entities.size());
+            
+            redisTemplate.opsForStream()
+                .acknowledge(streamKey, consumerGroup, 
+                    processedIds.toArray(new RecordId[0]));
+            log.info("✅ Acknowledged {} messages", processedIds.size());
+        }
+    }
+
 }
