@@ -20,9 +20,7 @@ public class BarcodeController {
 
     @PostMapping("/barcode")
     public ResponseEntity<String> receiveBarcode(@RequestBody ClientScanRequest clientRequest) {
-        
         barcodeBatchSender.addBarcodeToBuffer(clientRequest);
-        
         return ResponseEntity.ok("Barcode received and buffered successfully.");
     }
 

@@ -5,23 +5,22 @@ spring:
   application:
     name: barcode-persistence-worker
   
-  # MySQL 설정
   datasource:
-    url: jdbc:mysql://localhost:3306/delivery?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul
-    username: ${DB_USERNAME:delivery_user}
-    password: ${DB_PASSWORD}
+    url: ${DB_URL}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 20
       minimum-idle: 5
       connection-timeout: 30000
+      register-mbeans: true # Hikari 커넥션 풀 메트릭 활성화
   
   sql:
     init:
       mode: always
       encoding: UTF-8
 
-  # JPA 설정
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -36,10 +35,10 @@ spring:
         order_inserts: true
         order_updates: true
   
-  # Redis Streams 설정
   data:
     redis:
-      host: localhost
+      # Redis 접속 주소 설정: localhost(127.0.0.1) or redis (Docker Service Name)
+      host: 127.0.0.1
       port: 6379
 
 # Redis Streams 설정
@@ -47,13 +46,20 @@ redis:
   stream:
     key: barcode:stream
     consumer-group: barcode-persistence-group
-    consumer-name: worker-${random.uuid}  # 각 인스턴스 고유 이름
+    consumer-name: worker-${random.uuid}
 
 # Worker 설정
 worker:
   batch-size: 100
   poll-interval: 1000
-  block-time: 5000  # Streams block 대기 시간 (ms)
+  block-time: 5000
+
+# Prometheus Actuator 설정
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
 
 logging:
   level:
