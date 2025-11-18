@@ -25,8 +25,8 @@ public class BarcodeIngestController {
     
     private final BarcodeProducer barcodeProducer;
     
-    @PostMapping("/barcode")
-    public ResponseEntity<String> ingestBarcode(@RequestBody @Valid List<ScannerApiRequest> requests) {
+    @PostMapping("/barcodes")
+    public ResponseEntity<String> ingestBarcodes(@RequestBody @Valid List<ScannerApiRequest> requests) {
         log.info("📥 Received {} barcode requests", requests.size());
         
         for (ScannerApiRequest request : requests) {
@@ -35,6 +35,16 @@ public class BarcodeIngestController {
         }
         
         return ResponseEntity.ok("Ingested " + requests.size() + " barcodes");
+    }
+
+    @PostMapping("/barcode")
+    public ResponseEntity<String> ingestBarcode(@RequestBody @Valid ScannerApiRequest request) {
+        log.info("📥 Received barcode request: {}", request.barcode());
+        
+        BarcodeIngestRequest event = request.toIngestRequest();
+        barcodeProducer.sendBarcodeEvent(event);
+        
+        return ResponseEntity.ok("Ingested barcode {}" + request.barcode());
     }
     
     @GetMapping("/health")

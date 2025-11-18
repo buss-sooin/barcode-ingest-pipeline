@@ -7,8 +7,11 @@ spring:
 
 app:
   scanner:
-    device-id: "SEOUL-CENTER-PC-001" 
+    device-id: "SEOUL-CENTER-PC-001"
     batch-size-limit: 250
+
+retry:
+  max-queue-size: 10000  # 재시도 큐 최대 크기 (메모리 보호)
 
 logging:
   level:

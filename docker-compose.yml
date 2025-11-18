@@ -24,10 +24,8 @@ services:
       KAFKA_LOG_RETENTION_HOURS: 168
       KAFKA_COMPRESSION_TYPE: 'snappy'
       CLUSTER_ID: 'MkU3OEVBNTcwNTJENDM2Qk'
-    volumes:
-      # 초기화 스크립트 마운트: MySQL 컨테이너가 시작 시 /docker-entrypoint-initdb.d/ 내의 *.sql을 자동 실행
-      - ./mysql-init/init_exporter_user.sql:/docker-entrypoint-initdb.d/init_exporter_user.sql
-      # - kafka-data:/var/lib/kafka/data
+    # volumes:
+    #   - kafka-data:/var/lib/kafka/data
 
   mysql:
     networks: [monitoring-net]
@@ -38,28 +36,19 @@ services:
     command: 
       --character-set-server=utf8mb4 
       --collation-server=utf8mb4_unicode_ci
+      --plugin-load-add=mysql_native_password.so
+      --performance-schema=ON
+      --slow-query-log=1
+      --slow-query-log-file=/var/log/mysql/mysql-slow.log
+      --long-query-time=0.01
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    # volumes:
+    volumes:
+      - ./mysql-init/init_exporter_user.sql:/docker-entrypoint-initdb.d/init_exporter_user.sql
     #   - mysql-data:/var/lib/mysql
-
-  mysqld-exporter:
-      image: prom/mysqld-exporter:latest
-      container_name: mysqld-exporter
-      environment:
-        DATA_SOURCE_NAME: ${MYSQL_USER}:${MYSQL_PASSWORD}@tcp(${MYSQL_DATABASE}:3306)/
-      command:
-        - "--mysqld.username=${MYSQL_USER}:${MYSQL_PASSWORD}"
-        - "--mysqld.address=mysql:3306"
-      ports:
-        - "9104:9104"
-      networks:
-        - monitoring-net
-      depends_on:
-        - mysql
 
   redis:
     networks: [monitoring-net]

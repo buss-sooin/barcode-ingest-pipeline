@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestClient;
 
 import com.barcode.barcode_scanner_service.dto.BarcodeRequest;
 
@@ -16,8 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class ApiGatewayTransmitter {
 
-    // private static final String API_GATEWAY_URL = "/ingest/barcode";
-    private final RestClient restClient; 
+    private final FailureRetryService failureRetryService;
 
     @Async 
     public void transmitBatch(List<BarcodeRequest> batch) {
@@ -26,23 +24,13 @@ public class ApiGatewayTransmitter {
             return;
         }
 
-        try {
-            restClient.post()
-                    //   .uri(API_GATEWAY_URL) 
-                    .body(batch)
-                    .retrieve()
-                    .toBodilessEntity(); 
-            
-            log.info("✅ 바코드 배치 전송 성공. 전송 건수: {} 건, 첫 번째 DeviceID: {}",
-            batch.size(),
-            batch.get(0).deviceId());
+        log.info("📤 바코드 배치 전송 시작. 전송 건수: {} 건", batch.size());
 
-        } catch (Exception e) {
-            log.error("❌ 바코드 배치 전송 실패! 전송 건수: {} 건, 에러: {}", 
-                    batch.size(), 
-                    e.getMessage(), 
-                    e);
+        for (BarcodeRequest request : batch) {
+            failureRetryService.sendWithRetry(request);
         }
+        
+        log.info("✅ 바코드 배치 전송 완료. 전송 건수: {} 건", batch.size());
     }
 
 }
