@@ -54,6 +54,7 @@ Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입�
 ### 2.1. 동기식 I/O 결합(Synchronous Coupling)의 구조적 문제
 
 기존 아키텍처는 `barcode-scheduler` (클라이언트)가 `delivery-monolith` (API)를 호출하고, Monolith가 DB에 **데이터를 저장하고 커밋이 완료될 때까지** 응답을 대기하는 전형적인 동기식 구조였습니다. 
+**![구형 아키텍처 다이어그램]<img width="766" height="345" alt="Image" src="https://github.com/user-attachments/assets/ecf6aaf1-d958-440c-a0e7-8d20d7e9c19a" />**
 
 * **문제의 본질:** **배송 모놀리스** 내의 DB 접근 코드는 **트랜잭션 커밋 완료** 시점까지 HTTP 요청을 처리하는 스레드를 **Blocking** 했습니다. 이는 DB의 쓰기 Latency(I/O 지연)가 곧바로 클라이언트의 API 응답 시간으로 전이되는 구조적 결함이었습니다.
 * **운영적 결과:** 이 구조적 결함이 챕터 I에서 언급된 **'4시간의 물류 대기 시간'**을 유발한 근본 원인이었습니다.
@@ -65,6 +66,7 @@ Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입�
 JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 모니터링한 결과, 기존 동기식 아키텍처의 비효율성은 다음 두 가지 핵심 지표에서 명확하게 드러났습니다.
 
 #### 1. Latency 혁신적 개선: API 스레드 I/O 대기 시간 제거 증명
+**![Latency 비교 차트]<img width="710" height="305" alt="Image" src="https://github.com/user-attachments/assets/49fbe0ac-f77d-41f9-80af-5d5d9f7727fb" />**
 
 * **지표:** API 평균 응답 시간
 * **결과:** 구형 아키텍처는 **40.08ms**에 달했으나, 신형 아키텍처는 **8.58ms**로 측정되어 **약 4.7배** 성능이 개선되었습니다.
@@ -72,6 +74,7 @@ JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 �
     * **동시성 개선의 핵심 근거:** 구형 시스템에서 API 응답 시간의 대부분은 DB I/O를 기다리는 **스레드 Blocking 시간**이었습니다. 비동기 구조로 전환하여 이 Blocking 시간(약 $31.5 \text{ms}$)을 응답 경로에서 **완전히 제거**함으로써, API 스레드가 즉시 풀에 반환되어 **서버의 동시 요청 처리 능력(Concurrency)**이 I/O 제약에서 해방되었음을 입증합니다.
 
 #### 2. DB 물리적 I/O 효율성 증대: Batch Insert 효과
+**![DB Data Writes QPS 비교 차트]<img width="709" height="305" alt="Image" src="https://github.com/user-attachments/assets/0b408c80-cd49-4479-ba5b-458be392831a" />**
 
 * **지표:** `rate(mysql_global_status_innodb_data_writes{job="mysql_central"}[1m])` (초당 데이터 쓰기 횟수)
 * **결과:** 구형 DB의 피크 시 Data Writes 횟수(123 QPS)가 신형 DB(80 QPS) 대비 **약 35%** 높게 측정되었습니다.
@@ -97,7 +100,7 @@ JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 �
 
 신형 아키텍처는 **Decoupling**과 **비동기 부하 분산**을 핵심 목표로 설계되었습니다. 바코드 데이터는 API Gateway를 거쳐 Ingest Service로 유입된 후, DB 작업과는 완전히 분리되어 Worker에 의해 비동기적으로 처리됩니다.
 
-
+**![신형 인제스트 파이프라인 다이어그램]<img width="275" height="502" alt="Image" src="https://github.com/user-attachments/assets/93e44410-73ea-44fc-ba8e-001919a56c2b" />**
 
 **(참고:** 성능 시뮬레이션은 API Gateway와 NGINX의 부하를 제외하고 Ingest Service부터 Worker까지의 순수 처리 성능을 측정하는 데 집중했습니다. **API Gateway (Spring Cloud Gateway)**는 로컬 환경의 자원 제약으로 인해 성능 고려 사항에서 제외되었습니다.)
 
