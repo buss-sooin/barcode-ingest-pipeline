@@ -1,6 +1,6 @@
 # 🛡️ 물류 스캔 데이터 처리: 장애 복구 및 멱등성 보장 아키텍처
 
-본 문서는 Kafka와 Redis Streams를 활용하여 **고성능 데이터 수집**을 달성하는 동시에, 시스템 장애 발생 시 **데이터의 무결성(Integrity)과 순서(Ordering)**를 보장하는 핵심 메커니즘을 설명합니다.
+본 문서는 Kafka와 Redis Streams를 활용하여 **고성능 데이터 수집**을 달성하는 동시에, 시스템 장애 발생 시 **데이터의 무결성 (Integrity)과 순서 (Ordering)**를 보장하는 핵심 메커니즘을 설명합니다.
 
 ---
 
@@ -10,7 +10,7 @@
 
 **\[모듈러 모놀리스 진화\] 피크 부하(Peak Load) 처리에 최적화된 고성능 바코드 인제스트 파이프라인 구축**
 
-Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입하여 **기존 동기식 DB 병목 현상과 시스템 동시성(Concurrency) 문제**를 해결하고, 대규모 물량 처리 환경에 적합한 **Exactly-Once 논리**를 보장하는 견고한 시스템을 구축했습니다.
+Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입하여 **기존 동기식 DB 병목 현상과 시스템 동시성 (Concurrency) 문제**를 해결하고, 대규모 물량 처리 환경에 적합한 **Exactly-Once 논리**를 보장하는 견고한 시스템을 구축했습니다.
 
 ---
 
@@ -18,9 +18,9 @@ Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입�
 
 본 프로젝트는 전 직장 **팀프레시 새벽 배송** 팀 근무 당시 겪었던 심각한 운영 이슈에서 비롯되었습니다.
 
-* **문제 상황:** 고객사 프로모션 및 명절 등 **피크 부하(Peak Load)** 시점에 대량의 바코드 스캔 데이터가 유입되면서, 기존 **배송 모놀리스 시스템의 자원 사용량이 임계치를 초과**했습니다.
+* **문제 상황:** 고객사 프로모션 및 명절 등 **피크 부하 (Peak Load)** 시점에 대량의 바코드 스캔 데이터가 유입되면서, 기존 **배송 모놀리스 시스템의 자원 사용량이 임계치를 초과**했습니다.
 * **치명적 결과:** 동기식으로 설계된 모놀리스의 DB 처리 지연이 **물류 센터의 바코드 스캔 스케줄러까지 묶어두면서** 최종적으로 **최대 4시간에 달하는 물류 작업 대기 시간**을 발생시켰습니다. 이는 새벽 배송의 생명인 **정시성**을 심각하게 위협하는 핵심 장애 요인이었습니다.
-* **문제 의식:** 이 문제의 근본 원인을 **동기식 I/O 결합(Synchronous Coupling)**에서 찾았으며, 시스템의 처리량(Throughput)과 안정성을 혁신적으로 개선하기 위해 아키텍처 전환을 추진했습니다.
+* **문제 의식:** 이 문제의 근본 원인을 **동기식 I/O 결합 (Synchronous Coupling)**에서 찾았으며, 시스템의 처리량 (Throughput)과 안정성을 혁신적으로 개선하기 위해 아키텍처 전환을 추진했습니다.
 
 ---
 
@@ -28,7 +28,7 @@ Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입�
 
 | 구분 | 문제점 (기존 아키텍처) | 해결 목표 (신형 아키텍처) |
 | :--- | :--- | :--- |
-| **병목 원인** | `delivery-monolith`의 **동기식 DB 커밋 대기** 및 스레드 Blocking | **비동기 핸드오프(Handoff)**를 통한 Latency 분리 |
+| **병목 원인** | `delivery-monolith`의 **동기식 DB 커밋 대기** 및 스레드 Blocking | **비동기 핸드오프 (Handoff)**를 통한 Latency 분리 |
 | **시스템 부하** | DB I/O Latency에 따른 API 서버의 **동시성 저하** 및 자원 고갈 | **DB 부하 분산** 및 **Batch Insert**를 통한 I/O 효율성 극대화 |
 | **데이터 무결성** | 분산 환경 전환 시 **메시지 중복 및 유실** 위험 | **Exactly-Once 논리** 및 **장애 복구 메커니즘** 구축 |
 
@@ -37,7 +37,7 @@ Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입�
 ### 1.4. 아키텍처 개념 (Modular Monolith Rationale)
 
 * **설계 접근:** 본 프로젝트는 **'바코드 인제스트' 도메인**만을 분리하여 고성능 파이프라인으로 재구성했습니다.
-* **개념적 배경:** API(`barcode-ingest-service`)와 DB 처리(`barcode-persistence-worker`)를 **Kafka/Redis 기반의 메시지**로 분리하여 **기능적 모듈화**를 달성했습니다. 이는 모놀리스의 안정성을 유지하며 특정 기능을 고도화하는 **모듈러 모놀리스**의 진화적 장점을 구현한 사례입니다.
+* **개념적 배경:** API(`barcode-ingest-service`)와 DB 처리(`barcode-persistence-worker`)를 **Kafka/Redis 기반의 메시지**로 분리하여 **기능적 모듈화**를 달성했습니다. 이는 모놀리스의 안정성을 유지하며 특정 기능을 고도화하는 **모듈러 모놀리스 (Modular Monolith)**의 진화적 장점을 구현한 사례입니다.
     
 
 ---
@@ -47,17 +47,17 @@ Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입�
 
 ### 2.0. 분석 대상 아키텍처 재현 범위 (Disclaimer)
 
-본 챕터에서 분석하는 구형 아키텍처 코드는 퇴사 후 **아키텍처 관점의 문제점 및 병목 구간**을 증명하기 위해 **기억과 경험에 의존하여 재현한 프로젝트**입니다. 모든 디테일한 기능이 복원된 것은 아니며, 동기식 결합(Synchronous Coupling)으로 인한 Latency 폭증 문제를 유발했던 **핵심 구조 및 로직**에 초점을 맞춰 증명에 사용되었음을 미리 밝힙니다.
+본 챕터에서 분석하는 구형 아키텍처 코드는 퇴사 후 **아키텍처 관점의 문제점 및 병목 구간**을 증명하기 위해 **기억과 경험에 의존하여 재현한 프로젝트**입니다. 모든 디테일한 기능이 복원된 것은 아니며, **동기식 결합 (Synchronous Coupling)**으로 인한 Latency 폭증 문제를 유발했던 **핵심 구조 및 로직**에 초점을 맞춰 증명에 사용되었음을 미리 밝힙니다.
 
 ---
 
-### 2.1. 동기식 I/O 결합(Synchronous Coupling)의 구조적 문제
+### 2.1. 동기식 I/O 결합 (Synchronous Coupling)의 구조적 문제
 
-기존 아키텍처는 `barcode-scheduler` (클라이언트)가 `delivery-monolith` (API)를 호출하고, Monolith가 DB에 **데이터를 저장하고 커밋이 완료될 때까지** 응답을 대기하는 전형적인 동기식 구조였습니다. 
+기존 아키텍처는 `barcode-scheduler` (클라이언트)가 `delivery-monolith` (API)를 호출하고, Monolith가 DB에 **데이터를 저장하고 커밋이 완료될 때까지** 응답을 대기하는 전형적인 동기식 구조였습니다.
 <img width="766" height="345" alt="Image" src="https://github.com/user-attachments/assets/ecf6aaf1-d958-440c-a0e7-8d20d7e9c19a" />
 
-* **문제의 본질:** **배송 모놀리스** 내의 DB 접근 코드는 **트랜잭션 커밋 완료** 시점까지 HTTP 요청을 처리하는 스레드를 **Blocking** 했습니다. 이는 DB의 쓰기 Latency(I/O 지연)가 곧바로 클라이언트의 API 응답 시간으로 전이되는 구조적 결함이었습니다.
-* **운영적 결과:** 이 구조적 결함이 챕터 I에서 언급된 **'4시간의 물류 대기 시간'**을 유발한 근본 원인이었습니다.
+* **문제의 본질:** **배송 모놀리스** 내의 DB 접근 코드는 **트랜잭션 커밋 완료** 시점까지 HTTP 요청을 처리하는 스레드를 **Blocking** 했습니다. 이는 DB의 쓰기 Latency (지연)가 곧바로 클라이언트의 API 응답 시간으로 전이되는 구조적 결함이었습니다.
+* **운영적 결과:** 이 구조적 결함이 챕터 I에서 언급된 **'4시간의 물류 작업 대기 시간'**을 유발한 근본 원인이었습니다.
 
 ---
 
@@ -67,29 +67,31 @@ JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 �
 
 #### 1. Latency 혁신적 개선: API 스레드 I/O 대기 시간 제거 증명
 <img width="710" height="305" alt="Image" src="https://github.com/user-attachments/assets/49fbe0ac-f77d-41f9-80af-5d5d9f7727fb" />
+**(그래프 해석: `worker-service`는 신형 아키텍처의 Ingest API, `delivery-monolith`는 구형 아키텍처의 모놀리스 API 응답 시간을 나타냄)**
 
 * **지표:** API 평균 응답 시간
 * **결과:** 구형 아키텍처는 **40.08ms**에 달했으나, 신형 아키텍처는 **8.58ms**로 측정되어 **약 4.7배** 성능이 개선되었습니다.
 * **기술적 의미:**
-    * **동시성 개선의 핵심 근거:** 구형 시스템에서 API 응답 시간의 대부분은 DB I/O를 기다리는 **스레드 Blocking 시간**이었습니다. 비동기 구조로 전환하여 이 Blocking 시간(약 $31.5 \text{ms}$)을 응답 경로에서 **완전히 제거**함으로써, API 스레드가 즉시 풀에 반환되어 **서버의 동시 요청 처리 능력(Concurrency)**이 I/O 제약에서 해방되었음을 입증합니다.
+    * **동시성 개선의 핵심 근거:** 구형 시스템에서 API 응답 시간의 대부분은 DB I/O를 기다리는 **스레드 Blocking 시간**이었습니다. 비동기 구조로 전환하여 이 Blocking 시간 (약 $31.5 \text{ms}$)을 응답 경로에서 **완전히 제거**함으로써, API 스레드가 즉시 풀에 반환되어 **서버의 동시 요청 처리 능력 (Concurrency)**이 I/O 제약에서 해방되었음을 입증합니다.
 
 #### 2. DB 물리적 I/O 효율성 증대: Batch Insert 효과
 <img width="709" height="305" alt="Image" src="https://github.com/user-attachments/assets/0b408c80-cd49-4479-ba5b-458be392831a" />
+**(그래프 해석: `mysql`은 신형 아키텍처의 DB, `mysql_central`은 구형 아키텍처의 DB 부하를 나타냄)**
 
 * **지표:** `rate(mysql_global_status_innodb_data_writes{job="mysql_central"}[1m])` (초당 데이터 쓰기 횟수)
-* **결과:** 구형 DB의 피크 시 Data Writes 횟수(123 QPS)가 신형 DB(80 QPS) 대비 **약 35%** 높게 측정되었습니다.
+* **결과:** 구형 DB의 피크 시 Data Writes 횟수 (123 QPS)가 신형 DB (80 QPS) 대비 **약 35%** 높게 측정되었습니다.
 * **기술적 의미:** 비동기 Worker의 **Batch Insert 최적화** 전략이 성공적으로 적용되어, 요청 하나당 발생하던 비효율적인 물리적 Disk I/O 부하를 획기적으로 줄여 DB 리소스 효율성을 높였음을 증명합니다.
 
 ---
 
-### 2.3. Batch Insert를 넘어선 Decoupling의 가치 (Concurrency Resiliency)
+### 2.3. Batch Insert를 넘어선 Decoupling (결합 해제)의 가치 (Concurrency Resiliency)
 
 일반적으로 DB 성능 개선을 위해 **Batch Insert**를 구형 아키텍처에 적용할 수 있으며, 이는 **물리적 I/O 횟수**를 줄여 Latency를 부분적으로 개선합니다. 그러나 이는 구조적 결함을 해결하지 못합니다.
 
-* **구형 시스템의 취약점:** Batch Insert를 사용하더라도, DB 트랜잭션 처리 중 발생하는 **예외적인 I/O 지연 시간**은 **API 스레드에 그대로 전이**되어 Latency와 Concurrency를 불안정하게 만듭니다. **피크 부하 시 스레드 스타베이션**의 위험은 여전히 존재합니다.
-* **신형 시스템의 강점:** 비동기 아키텍처는 **DB의 성능 변동성**으로부터 API 서버를 완전히 격리합니다. API 서버의 응답 시간은 오직 메시징 시스템(Kafka/Redis)의 Latency에만 의존하며, 이는 **DB Latency 대비 수 배 빠른 속도($8.58 \text{ms}$)로 안정적**입니다.
+* **구형 시스템의 취약점:** Batch Insert를 사용하더라도, DB 트랜잭션 처리 중 발생하는 **예외적인 I/O 지연 시간**은 **API 스레드에 그대로 전이**되어 Latency와 Concurrency를 불안정하게 만듭니다. **피크 부하 시 스레드 스타베이션 (Thread Starvation)**의 위험은 여전히 존재합니다.
+* **신형 시스템의 강점:** 비동기 아키텍처는 **DB의 성능 변동성**으로부터 API 서버를 완전히 격리합니다. API 서버의 응답 시간은 오직 메시징 시스템 (Kafka/Redis)의 Latency에만 의존하며, 이는 **DB Latency 대비 수 배 빠른 속도**로 안정적입니다.
 
-따라서, 성능 개선뿐만 아니라 **시스템의 근본적인 안정성(Resiliency)을 확보**하기 위해 Decoupling은 올바른 건축적 결정이었습니다.
+따라서, 성능 개선뿐만 아니라 **시스템의 근본적인 안정성 (Resiliency)**을 확보하기 위해 Decoupling은 올바른 **아키텍처적 결정 (Architectural Decision)**이었습니다.
 
 ---
 ---
@@ -113,24 +115,24 @@ JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 �
 | 컴포넌트 | 역할 | 기술적 의의 |
 | :--- | :--- | :--- |
 | **Ingest Service** | 외부 요청 수신 및 **즉시 Kafka로 전달 (Handoff)** | API Latency를 DB I/O에서 분리하여 **Blocking 시간을 제거** |
-| **Kafka** | 대규모 트래픽의 **1차 Queue 역할** 및 데이터 유실 방지 | High Throughput 및 영구 보존(Persistence)을 통한 **최초 데이터 무결성** 보장 |
-| **Processing Service** | Kafka Consumer로서 메시지를 읽어 Redis Streams에 기록 | **중복 메시지 필터링(Redis Set 활용)** 및 Streams를 통한 **세분화된 분배** |
+| **Kafka** | 대규모 트래픽의 **1차 Queue 역할** 및 데이터 유실 방지 | High Throughput 및 영구 보존 (Persistence)을 통한 **최초 데이터 무결성** 보장 |
+| **Processing Service** | Kafka Consumer로서 메시지를 읽어 Redis Streams에 기록 | **중복 메시지 필터링 (Redis Set 활용)** 및 Streams를 통한 **세분화된 분배** |
 | **Redis Streams** | Worker 간의 **메시지 분배 및 순서 보장** 역할 | Consumer Group 기능을 통해 **XACK/XCLAIM 기반의 장애 복구 메커니즘** 구현 |
 | **Persistence Worker** | Redis Streams로부터 메시지를 읽어 DB에 저장 | DB Batch Insert를 수행하여 **물리적 I/O 횟수를 절감**하고 효율 극대화 |
 
 ### 3.3. 주요 데이터 흐름 (Decoupling 상세)
 
-1.  **Ingest (Decoupling):** Scanner 요청 → (Nginx/Gateway) → **Ingest Service**는 바코드 데이터를 Kafka에 메시지로 생산(Produce) 후 클라이언트에게 즉시 응답을 반환합니다. (응답 시간: $8.58 \text{ms}$)
+1.  **Ingest (Decoupling):** Scanner 요청 → (Nginx/Gateway) → **Ingest Service**는 DB 커밋 대기 없이, 수신한 바코드 데이터를 고속으로 Kafka에 메시지 생산 (Produce) 후 클라이언트에게 **즉시 응답을 반환**하여 I/O Latency를 분리합니다. (평균 응답 시간: $8.58 \text{ms}$)
 2.  **Queueing (Isolation):** Kafka에 쌓인 메시지는 **Processing Service**로 전달됩니다.
 3.  **Distribution (Ordering/Resiliency):** Processing Service는 메시지를 Redis Streams에 기록하며, Streams는 Consumer Group 기능을 통해 **다수의 Persistence Worker**에게 메시지를 병렬적으로 분배합니다.
-4.  **Persistence (Efficiency/Idempotency):** Worker들은 Streams에서 메시지를 읽어 **Batch Insert**로 DB에 저장하고, 저장 성공 시 `XACK`으로 승인합니다. 이 과정에서 **DB의 Unique Index**를 활용하여 데이터의 **최종 멱등성(Exactly-Once 논리)**을 보장합니다.
+4.  **Persistence (Efficiency/Idempotency):** Worker들은 Streams에서 메시지를 읽어 **Batch Insert**로 DB에 저장하고, 저장 성공 시 `XACK`으로 승인합니다. 이 과정에서 **DB의 Unique Index**를 활용하여 데이터의 **최종 멱등성 (Exactly-Once 논리)**을 보장합니다.
 
 ---
 ---
 
 ## IV. 🔑 기술적인 고찰: 데이터 무결성 및 복구 메커니즘
 
-비동기 분산 시스템의 가장 큰 도전 과제는 **데이터의 무결성(Integrity)**과 **Exactly-Once 논리**를 보장하는 것입니다. 처리량(Throughput) 개선을 넘어, 장애 발생 시 데이터 손실이나 중복 없이 작업을 지속할 수 있도록 다음과 같은 다중 안전장치를 설계하고 구현했습니다.
+비동기 분산 시스템의 가장 큰 도전 과제는 **데이터의 무결성 (Integrity)**과 **Exactly-Once 논리**를 보장하는 것입니다. 처리량 (Throughput) 개선을 넘어, 장애 발생 시 데이터 손실이나 중복 없이 작업을 지속할 수 있도록 다음과 같은 다중 안전장치를 설계하고 구현했습니다.
 
 ### 4.1. 멱등성 (Idempotency) 달성을 위한 핵심 매커니즘
 
@@ -139,20 +141,20 @@ JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 �
 | 매커니즘 | 관련 시스템 | 핵심 로직 | 보장되는 사항 |
 | :--- | :--- | :--- | :--- |
 | **순서 보장 (Ordering)** | **Redis Streams (단일 파티션)** | Kafka의 데이터는 단일 Redis Streams 파티션에 저장되며, Worker들은 **단일 Consumer Group**으로 이 파티션을 처리합니다. | **[데이터 순서]** Kafka에 기록된 순서대로 Redis Streams를 통해 Worker에게 전달됨을 보장합니다. |
-| **메시지 추적 (Tracking)** | **Redis Streams (Message ID)** | Redis Streams의 고유 메시지 ID(`Stream_ID`)를 사용하여 **어디까지 처리했는지**를 정확히 추적합니다. | **[처리 위치]** Worker의 작업 경계가 명확히 식별되어 정확한 지점부터 재처리가 가능합니다. |
+| **메시지 추적 (Tracking)** | **Redis Streams (Message ID)** | Redis Streams의 고유 메시지 ID (`Stream_ID`)를 사용하여 **어디까지 처리했는지**를 정확히 추적합니다. | **[처리 위치]** Worker의 작업 경계가 명확히 식별되어 정확한 지점부터 재처리가 가능합니다. |
 | **장애 복구 (Delivery)** | **Redis Streams (XACK, XCLAIM)** | Worker가 메시지 처리를 완료하면 **`XACK`**을 보내고, 정해진 시간 동안 승인되지 않은 메시지는 **`XCLAIM`**을 통해 다른 Worker에게 재할당되어 **재처리**됩니다. | **[최소 1회 처리]** 시스템 장애 발생 시에도 메시지가 **최소 한 번 이상** 처리되도록 보장합니다. |
-| **중복 방지 (멱등성)** | **DB Unique Index** | JPA 저장 시 **`internalBarcodeId`** 컬럼에 **UNIQUE 인덱스**를 설정하여 DB 수준에서 **중복 저장을 원천 차단**합니다. | **[최종 보장]** 재전송된 메시지가 DB에 도달하더라도, DB의 **UNIQUE 제약 조건**이 두 번째 쿼리를 **실패(무시)**시키므로, 최종적으로 **데이터는 한 번만 저장됨**을 보장합니다. |
+| **중복 방지 (멱등성)** | **DB Unique Index** | JPA 저장 시 **`internalBarcodeId`** 컬럼에 **UNIQUE 인덱스**를 설정하여 DB 수준에서 **중복 저장을 원천 차단**합니다. | **[최종 보장]** 재전송된 메시지가 DB에 도달하더라도, DB의 **UNIQUE 제약 조건**이 두 번째 쿼리를 **실패 (무시)**시키므로, 최종적으로 **데이터는 한 번만 저장됨**을 보장합니다. |
 
 ### 4.2. 멱등성 보장 상호작용 및 결론
 
-시스템은 메시징 계층에서 **"최소 1회 처리(At-Least-Once)"**를 목표로 장애 상황에 적극적으로 대응하고, 영속성 계층에서 **"정확히 1회 처리(Exactly-Once 논리)"**를 최종적으로 확정합니다.
+시스템은 메시징 계층에서 **"최소 1회 처리 (At-Least-Once)"**를 목표로 장애 상황에 적극적으로 대응하고, 영속성 계층에서 **"정확히 1회 처리 (Exactly-Once 논리)"**를 최종적으로 확정합니다.
 
 * **메시징 계층 (Redis Streams):** Worker 장애 시 `XCLAIM` 기능을 통해 미처리 메시지를 정확히 파악하여 안전한 **재전송을 유도**합니다.
 * **영속성 계층 (DB Unique Index):** 재전송 과정에서 발생할 수 있는 중복 메시지를 **데이터베이스의 고유 제약 조건**으로 필터링하여, 데이터 손상을 방지하고 최종 데이터 무결성을 유지합니다.
 
 ### 4.3. 장애 시나리오 및 복구 분석
 
-핵심 서비스의 일시적인 다운(2~3시간 이내) 및 복구 상황에 대한 복구 메커니즘 동작을 분석했습니다.
+핵심 서비스의 일시적인 다운 (2~3시간 이내) 및 복구 상황에 대한 복구 메커니즘 동작을 분석했습니다.
 
 | 시나리오 | 발생 장애 | 복구 메커니즘 동작 | 데이터 무결성 결과 |
 | :--- | :--- | :--- | :--- |
@@ -165,25 +167,25 @@ JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 �
 
 ## V. 📈 정량적 성과 분석 및 기술적 의미 해석
 
-본 프로젝트는 구조적인 동기식 결합(Coupling)을 해소하고 비동기 기반의 인제스트 파이프라인을 구축함으로써, 근본적인 동시성 문제였던 **'4시간의 물류 대기 시간'** 문제를 성공적으로 해결했음을 정량적 지표를 통해 입증합니다.
+본 프로젝트는 구조적인 **동기식 결합 (Coupling)**을 해소하고 비동기 기반의 인제스트 파이프라인을 구축함으로써, 근본적인 동시성 문제였던 **'4시간의 물류 대기 시간'** 문제를 성공적으로 해결했음을 정량적 지표를 통해 입증합니다.
 
 ### 5.1. 핵심 지표별 성과 요약
 
 | 지표 | 구형 동기식 아키텍처 | 신형 비동기 아키텍처 | 개선율 | 기술적 기여 |
 | :--- | :--- | :--- | :--- | :--- |
-| **API 평균 응답 시간 (Latency)** | **40.08ms** | **8.58ms** | **약 4.7배 개선** | 스레드 Blocking 시간(I/O 대기) 제거를 통한 동시성(Concurrency) 획기적 증대 |
+| **API 평균 응답 시간 (Latency)** | **40.08ms** | **8.58ms** | **약 4.7배 개선** | 스레드 Blocking 시간 (I/O 대기) 제거를 통한 동시성 (Concurrency) 획기적 증대 |
 | **DB 물리적 I/O (Data Writes QPS)** | **123 QPS** | **80 QPS** | **약 35% 절감** | Persistence Worker의 Batch Insert 전략 성공적 적용 및 DB 부하 절감 |
 
 ### 5.2. 기술적 의미 해석
 
 #### 1. Concurrency (동시성) 및 Throughput (처리량) 혁신
 
-가장 결정적인 성과는 **API Latency를 4.7배 단축**시킨 것입니다. 이는 DB I/O($\approx 31.5 \text{ms}$)를 기다리느라 낭비되던 API 스레드의 대기 시간을 Kafka로의 핸드오프(Handoff)로 대체했음을 의미합니다. 결과적으로, API 서버의 동시 요청 처리 능력이 DB 성능 제약에서 벗어나게 되었으며, 이는 피크 부하 시에도 안정적인 대용량 트래픽 처리가 가능함을 뜻합니다.
+가장 결정적인 성과는 **API Latency를 4.7배 단축**시킨 것입니다. 이는 DB I/O ($\approx 31.5 \text{ms}$)를 기다리느라 낭비되던 API 스레드의 대기 시간을 Kafka로의 **핸드오프 (Handoff)**로 대체했음을 의미합니다. 결과적으로, API 서버의 동시 요청 처리 능력이 DB 성능 제약에서 벗어나게 되었으며, 이는 피크 부하 시에도 안정적인 대용량 트래픽 처리가 가능함을 뜻합니다.
 
 #### 2. Resiliency (시스템 안정성) 확보 및 위험 분리
 
-새로운 아키텍처는 DB의 성능 변동성으로부터 API 서버를 완전히 격리함으로써 시스템의 **안정성(Resiliency)**을 근본적으로 확보했습니다. DB에 장애가 발생하더라도, Ingest Service는 Kafka에 데이터를 계속 쌓으며 8.58ms의 안정적인 응답 시간을 유지합니다. **DB Layer와 API Layer의 장애 도메인이 분리**되어 한 쪽의 문제가 전체 시스템 마비로 이어지는 위험을 제거했습니다.
+새로운 아키텍처는 DB의 성능 변동성으로부터 API 서버를 완전히 격리함으로써 시스템의 **안정성 (Resiliency)**을 근본적으로 확보했습니다. DB에 장애가 발생하더라도, Ingest Service는 Kafka에 데이터를 계속 쌓으며 8.58ms의 안정적인 응답 시간을 유지합니다. **DB Layer와 API Layer의 장애 도메인이 분리**되어 한 쪽의 문제가 전체 시스템 마비로 이어지는 위험을 제거했습니다.
 
 #### 3. 모듈형 아키텍처의 확장성 기여
 
-'바코드 인제스트' 도메인만을 모듈화하고 비동기 파이프라인으로 분리함으로써, 해당 도메인의 성능 개선이 다른 모놀리스 서비스에 미치는 영향을 최소화했습니다. 이는 향후 트래픽 증가에 따라 Ingest Service나 Persistence Worker의 인스턴스만 독립적으로 확장할 수 있는 **수평적 확장성(Horizontal Scalability)**을 확보한 중요한 아키텍처적 진전입니다.
+'바코드 인제스트' 도메인만을 모듈화하고 비동기 파이프라인으로 분리함으로써, 해당 도메인의 성능 개선이 다른 모놀리스 서비스에 미치는 영향을 최소화했습니다. 이는 향후 트래픽 증가에 따라 Ingest Service나 Persistence Worker의 인스턴스만 독립적으로 확장할 수 있는 **수평적 확장성 (Horizontal Scalability)**을 확보한 중요한 **아키텍처적 진전 (Architectural Advancement)**입니다.
