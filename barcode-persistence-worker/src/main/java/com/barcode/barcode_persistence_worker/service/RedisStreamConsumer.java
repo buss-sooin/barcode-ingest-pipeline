@@ -42,7 +42,10 @@ public class RedisStreamConsumer {
     @Value("${redis.stream.consumer-group}")
     private String consumerGroup;
     
-    @Value("${redis.stream.consumer-name}")
+    // @Value("${redis.stream.consumer-name}")
+    // private String consumerName;
+
+    @Value("${worker.consumer-name}")  // 설정에서 주입
     private String consumerName;
     
     @Value("${worker.batch-size}")

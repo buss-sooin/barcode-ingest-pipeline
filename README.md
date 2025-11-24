@@ -20,7 +20,7 @@ Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입�
 
 * **문제 상황:** 고객사 프로모션 및 명절 등 **피크 부하 (Peak Load)** 시점에 대량의 바코드 스캔 데이터가 유입되면서, 기존 **배송 모놀리스 시스템의 자원 사용량이 임계치를 초과**했습니다.
 * **치명적 결과:** 동기식으로 설계된 모놀리스의 DB 처리 지연이 **물류 센터의 바코드 스캔 스케줄러까지 묶어두면서** 최종적으로 **최대 4시간에 달하는 물류 작업 대기 시간**을 발생시켰습니다. 이는 새벽 배송의 생명인 **정시성**을 심각하게 위협하는 핵심 장애 요인이었습니다.
-* **문제 의식:** 이 문제의 근본 원인을 **동기식 I/O 결합 (Synchronous Coupling)**에서 찾았으며, 시스템의 처리량 (Throughput)과 안정성을 혁신적으로 개선하기 위해 아키텍처 전환을 추진했습니다.
+* **문제 의식:** 이 문제의 근본 원인을 **동기식 I/O 결합 (Synchronous Coupling)**에서 찾았으며, 시스템의 처리량 (Throughput)과 안정성을 개선하기 위해 아키텍처 전환을 추진했습니다.
 
 ---
 
@@ -47,13 +47,13 @@ Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입�
 
 ### 2.0. 분석 대상 아키텍처 재현 범위 (Disclaimer)
 
-본 챕터에서 분석하는 구형 아키텍처 코드는 퇴사 후 **아키텍처 관점의 문제점 및 병목 구간**을 증명하기 위해 **기억과 경험에 의존하여 재현한 프로젝트**입니다. 모든 디테일한 기능이 복원된 것은 아니며, **동기식 결합 (Synchronous Coupling)**으로 인한 Latency 폭증 문제를 유발했던 **핵심 구조 및 로직**에 초점을 맞춰 증명에 사용되었음을 미리 밝힙니다.
+본 챕터에서 분석하는 구형 아키텍처 코드는 퇴사 후 **아키텍처 관점의 문제점 및 병목 구간**을 증명하기 위해 **기억과 경험에 의존하여 재현한 프로젝트**입니다. 모든 디테일한 기능이 복원된 것은 아니며, **동기식 결합 (Synchronous Coupling)**으로 인한 Latency 폭증 문제를 유발했던 **핵심 구조 및 로직**에 초점을 맞춰 증명에 사용되었음을 미리 밝힙니다. **[구형 아키텍처 소스코드 보기](https://github.com/buss-sooin/barcode-old-pipeline)**
 
 ---
 
 ### 2.1. 동기식 I/O 결합 (Synchronous Coupling)의 구조적 문제
 
-기존 아키텍처는 `barcode-scheduler` (클라이언트)가 `delivery-monolith` (API)를 호출하고, Monolith가 DB에 **데이터를 저장하고 커밋이 완료될 때까지** 응답을 대기하는 전형적인 동기식 구조였습니다.
+기존 아키텍처는 `barcode-scheduler` (클라이언트)가 **[구형 아키텍처](https://github.com/buss-sooin/barcode-old-pipeline)** (API)를 호출하고, Monolith가 DB에 **데이터를 저장하고 커밋이 완료될 때까지** 응답을 대기하는 전형적인 동기식 구조였습니다.
 <img width="766" height="345" alt="Image" src="https://github.com/user-attachments/assets/ecf6aaf1-d958-440c-a0e7-8d20d7e9c19a" />
 
 * **문제의 본질:** **배송 모놀리스** 내의 DB 접근 코드는 **트랜잭션 커밋 완료** 시점까지 HTTP 요청을 처리하는 스레드를 **Blocking** 했습니다. 이는 DB의 쓰기 Latency (지연)가 곧바로 클라이언트의 API 응답 시간으로 전이되는 구조적 결함이었습니다.
@@ -65,9 +65,11 @@ Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입�
 
 JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 모니터링한 결과, 기존 동기식 아키텍처의 비효율성은 다음 두 가지 핵심 지표에서 명확하게 드러났습니다.
 
-#### 1. Latency 혁신적 개선: API 스레드 I/O 대기 시간 제거 증명
-<img width="710" height="305" alt="Image" src="https://github.com/user-attachments/assets/49fbe0ac-f77d-41f9-80af-5d5d9f7727fb" />
-**(그래프 해석: `worker-service`는 신형 아키텍처의 Ingest API, `delivery-monolith`는 구형 아키텍처의 모놀리스 API 응답 시간을 나타냄)**
+#### 1. Latency 개선 효과: API 스레드 I/O 대기 시간 제거 증명
+
+<img width="1414" height="629" alt="Image" src="https://github.com/user-attachments/assets/da5df572-d6de-4a08-a305-89450cb79e43" />
+
+**(그래프 해석: **Ingest Service** (신형 아키텍처 API)와 `delivery-monolith` (구형 아키텍처 API)의 평균 응답 시간을 비교함.)**
 
 * **지표:** API 평균 응답 시간
 * **결과:** 구형 아키텍처는 **40.08ms**에 달했으나, 신형 아키텍처는 **8.58ms**로 측정되어 **약 4.7배** 성능이 개선되었습니다.
@@ -75,8 +77,10 @@ JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 �
     * **동시성 개선의 핵심 근거:** 구형 시스템에서 API 응답 시간의 대부분은 DB I/O를 기다리는 **스레드 Blocking 시간**이었습니다. 비동기 구조로 전환하여 이 Blocking 시간 (약 $31.5 \text{ms}$)을 응답 경로에서 **완전히 제거**함으로써, API 스레드가 즉시 풀에 반환되어 **서버의 동시 요청 처리 능력 (Concurrency)**이 I/O 제약에서 해방되었음을 입증합니다.
 
 #### 2. DB 물리적 I/O 효율성 증대: Batch Insert 효과
-<img width="709" height="305" alt="Image" src="https://github.com/user-attachments/assets/0b408c80-cd49-4479-ba5b-458be392831a" />
-**(그래프 해석: `mysql`은 신형 아키텍처의 DB, `mysql_central`은 구형 아키텍처의 DB 부하를 나타냄)**
+
+<img width="1417" height="627" alt="Image" src="https://github.com/user-attachments/assets/1dec2c89-2aa4-4533-aa37-8afc48fc70e5" />
+
+**(그래프 해석: **Persistence Worker** (신형 아키텍처)의 DB 부하와 `delivery-monolith` (구형 아키텍처)의 DB 부하를 비교함.)**
 
 * **지표:** `rate(mysql_global_status_innodb_data_writes{job="mysql_central"}[1m])` (초당 데이터 쓰기 횟수)
 * **결과:** 구형 DB의 피크 시 Data Writes 횟수 (123 QPS)가 신형 DB (80 QPS) 대비 **약 35%** 높게 측정되었습니다.
@@ -173,12 +177,12 @@ JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 �
 
 | 지표 | 구형 동기식 아키텍처 | 신형 비동기 아키텍처 | 개선율 | 기술적 기여 |
 | :--- | :--- | :--- | :--- | :--- |
-| **API 평균 응답 시간 (Latency)** | **40.08ms** | **8.58ms** | **약 4.7배 개선** | 스레드 Blocking 시간 (I/O 대기) 제거를 통한 동시성 (Concurrency) 획기적 증대 |
+| **API 평균 응답 시간 (Latency)** | **40.08ms** | **8.58ms** | **약 4.7배 개선** | 스레드 Blocking 시간 (I/O 대기) 제거를 통한 동시성 (Concurrency) **개선 효과** |
 | **DB 물리적 I/O (Data Writes QPS)** | **123 QPS** | **80 QPS** | **약 35% 절감** | Persistence Worker의 Batch Insert 전략 성공적 적용 및 DB 부하 절감 |
 
 ### 5.2. 기술적 의미 해석
 
-#### 1. Concurrency (동시성) 및 Throughput (처리량) 혁신
+#### 1. Concurrency (동시성) 및 Throughput (처리량) 개선 효과
 
 가장 결정적인 성과는 **API Latency를 4.7배 단축**시킨 것입니다. 이는 DB I/O ($\approx 31.5 \text{ms}$)를 기다리느라 낭비되던 API 스레드의 대기 시간을 Kafka로의 **핸드오프 (Handoff)**로 대체했음을 의미합니다. 결과적으로, API 서버의 동시 요청 처리 능력이 DB 성능 제약에서 벗어나게 되었으며, 이는 피크 부하 시에도 안정적인 대용량 트래픽 처리가 가능함을 뜻합니다.
 
@@ -189,3 +193,12 @@ JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 �
 #### 3. 모듈형 아키텍처의 확장성 기여
 
 '바코드 인제스트' 도메인만을 모듈화하고 비동기 파이프라인으로 분리함으로써, 해당 도메인의 성능 개선이 다른 모놀리스 서비스에 미치는 영향을 최소화했습니다. 이는 향후 트래픽 증가에 따라 Ingest Service나 Persistence Worker의 인스턴스만 독립적으로 확장할 수 있는 **수평적 확장성 (Horizontal Scalability)**을 확보한 중요한 **아키텍처적 진전 (Architectural Advancement)**입니다.
+
+### 5.3. 💡 단순 계산의 함정과 아키텍처적 이점 고찰 (실질적인 개선 효과)
+
+정량적 데이터는 API Latency가 **4.7배** 단축되었음을 명확히 보여줍니다. 그러나 이 수치만을 가지고 기존의 **'4시간 소요'** 문제를 단순 비교하는 것에는 **중대한 함정**이 있습니다.
+
+* **단순 계산의 한계:** $4 \text{시간}$의 작업 시간을 $4.7$로 나누면 약 $51 \text{분} 26 \text{초}$라는 결과가 나옵니다. **50분대**라는 시간은 여전히 물류 작업의 **'실시간성'** 측면에서 느리게 느껴질 수 있으며, 이는 아키텍처 개선의 실질적인 가치를 오해하게 만들 수 있습니다.
+* **아키텍처적 이점의 본질 (처리량 붕괴 해소):** 기존 4시간 지연의 근본 원인은 **$40.08 \text{ms}$의 동기식 I/O 대기**가 유발한 **스레드 고갈 및 시스템 처리량(Throughput)의 붕괴**였습니다. 새로운 아키텍처는 **개별 요청**을 DB 종속성에서 완전히 분리(Decoupling)하여, 기존 시스템을 마비시켰던 **'대기열 적체'** 문제를 원천적으로 해소합니다.
+* **수평적 확장과의 결합:** **Ingest Service**와 **Persistence Worker** 모두 인스턴스를 자유롭게 **수평 확장**할 수 있습니다. 즉, 피크 부하 시 요청이 들어오는 족족 **고속 Ingest API**를 통해 처리되고, 대기열(Kafka/Redis)에 쌓인 물량은 **다수의 Worker**가 병렬로 처리합니다.
+* **최종 기대 효과:** 따라서, 이 프로젝트의 실질적인 개선 효과는 단순한 $4.7 \text{배}$의 속도 향상을 넘어, **시스템의 처리 능력 한계를 해제**하고 대규모 물량을 **'실시간 처리에 가까운'** 속도로 안정적으로 소화할 수 있는 **압도적인 처리량 안정성(Throughput Stability)**을 확보했다는 점입니다.

@@ -29,6 +29,13 @@ redis:
     key: barcode:stream
     consumer-group: barcode-persistence-group
 
+# Prometheus Actuator 설정
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
+
 logging:
   level:
     com.barcode.barcode_processing_service: DEBUG

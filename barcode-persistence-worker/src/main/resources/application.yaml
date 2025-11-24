@@ -1,5 +1,5 @@
 server:
-  port: 8085
+  port: ${SERVER_PORT:8085}
 
 spring:
   application:
@@ -46,13 +46,14 @@ redis:
   stream:
     key: barcode:stream
     consumer-group: barcode-persistence-group
-    consumer-name: worker-${random.uuid}
+    # consumer-name: worker-${random.uuid}
 
 # Worker 설정
 worker:
   batch-size: 100
   poll-interval: 1000
   block-time: 5000
+  consumer-name: ${WORKER_NAME:worker-1}
 
 # Prometheus Actuator 설정
 management:
