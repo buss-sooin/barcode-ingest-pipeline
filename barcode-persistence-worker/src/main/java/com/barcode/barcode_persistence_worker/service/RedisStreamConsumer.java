@@ -88,29 +88,6 @@ public class RedisStreamConsumer {
         }
     }
     
-    private BarcodeEntity mapToEntity(MapRecord<String, Object, Object> record) {
-        Map<Object, Object> value = record.getValue();
-
-        String internalBarcodeId = (String) value.get("internalBarcodeId");
-        String originalBarcode = (String) value.get("originalBarcode");
-        String deviceId = (String) value.get("deviceId");
-        String centerId = deviceMappingRepository.findByDeviceId(deviceId)
-            .map(DeviceCenterMappingEntity::getCenterId)
-            .orElseThrow(() -> new IllegalStateException("Unknown deviceId: " + deviceId));
-        Long scanTime = Long.parseLong((String) value.get("scanTime"));
-        Long processedTime = Long.parseLong((String) value.get("processedTime"));
-
-        return BarcodeEntity.builder()
-            .internalBarcodeId(internalBarcodeId)
-            .originalBarcode(originalBarcode)
-            .deviceId(deviceId)
-            .centerId(centerId)
-            .scanTime(Instant.ofEpochMilli(scanTime))
-            .processedTime(Instant.ofEpochMilli(processedTime))
-            .savedTime(Instant.now())
-            .build();
-    }
-    
     @Scheduled(fixedDelay = 60000)
     public void processPendingMessages() {
         try {
@@ -165,6 +142,29 @@ public class RedisStreamConsumer {
                     processedIds.toArray(new RecordId[0]));
             log.info("✅ Acknowledged {} messages", processedIds.size());
         }
+    }
+
+        private BarcodeEntity mapToEntity(MapRecord<String, Object, Object> record) {
+        Map<Object, Object> value = record.getValue();
+
+        String internalBarcodeId = (String) value.get("internalBarcodeId");
+        String originalBarcode = (String) value.get("originalBarcode");
+        String deviceId = (String) value.get("deviceId");
+        String centerId = deviceMappingRepository.findByDeviceId(deviceId)
+            .map(DeviceCenterMappingEntity::getCenterId)
+            .orElseThrow(() -> new IllegalStateException("Unknown deviceId: " + deviceId));
+        Long scanTime = Long.parseLong((String) value.get("scanTime"));
+        Long processedTime = Long.parseLong((String) value.get("processedTime"));
+
+        return BarcodeEntity.builder()
+            .internalBarcodeId(internalBarcodeId)
+            .originalBarcode(originalBarcode)
+            .deviceId(deviceId)
+            .centerId(centerId)
+            .scanTime(Instant.ofEpochMilli(scanTime))
+            .processedTime(Instant.ofEpochMilli(processedTime))
+            .savedTime(Instant.now())
+            .build();
     }
 
 }
