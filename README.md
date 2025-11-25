@@ -67,23 +67,23 @@ JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 �
 
 #### 1. Latency 개선 효과: API 스레드 I/O 대기 시간 제거 증명
 
-<img width="1414" height="629" alt="Image" src="https://github.com/user-attachments/assets/da5df572-d6de-4a08-a305-89450cb79e43" />
+<img width="1411" height="623" alt="Image" src="https://github.com/user-attachments/assets/8a339dfe-9000-4dcf-92e7-7baa2dee7ee3" />
 
 **(그래프 해석: **Ingest Service** (신형 아키텍처 API)와 `delivery-monolith` (구형 아키텍처 API)의 평균 응답 시간을 비교함.)**
 
 * **지표:** API 평균 응답 시간
-* **결과:** 구형 아키텍처는 **40.08ms**에 달했으나, 신형 아키텍처는 **8.58ms**로 측정되어 **약 4.7배** 성능이 개선되었습니다.
+* **결과:** 구형 아키텍처는 평균 **27.97ms**에 달했으나, 신형 아키텍처는 평균 **6.22ms**로 측정되어 **약 4.5배** 성능이 개선되었습니다.
 * **기술적 의미:**
-    * **동시성 개선의 핵심 근거:** 구형 시스템에서 API 응답 시간의 대부분은 DB I/O를 기다리는 **스레드 Blocking 시간**이었습니다. 비동기 구조로 전환하여 이 Blocking 시간 (약 $31.5 \text{ms}$)을 응답 경로에서 **완전히 제거**함으로써, API 스레드가 즉시 풀에 반환되어 **서버의 동시 요청 처리 능력 (Concurrency)**이 I/O 제약에서 해방되었음을 입증합니다.
+    * **동시성 개선의 핵심 근거:** 구형 시스템에서 API 응답 시간의 대부분은 DB I/O를 기다리는 **스레드 Blocking 시간**이었습니다. 비동기 구조로 전환하여 이 Blocking 시간 (약 $\mathbf{21.75 \text{ms}}$)을 응답 경로에서 **완전히 제거**함으로써, API 스레드가 즉시 풀에 반환되어 **서버의 동시 요청 처리 능력 (Concurrency)**이 I/O 제약에서 해방되었음을 입증합니다.
 
 #### 2. DB 물리적 I/O 효율성 증대: Batch Insert 효과
 
-<img width="1417" height="627" alt="Image" src="https://github.com/user-attachments/assets/1dec2c89-2aa4-4533-aa37-8afc48fc70e5" />
+<img width="1414" height="627" alt="Image" src="https://github.com/user-attachments/assets/c72e00bd-d741-4e48-ac80-71278d8983e4" />
 
 **(그래프 해석: **Persistence Worker** (신형 아키텍처)의 DB 부하와 `delivery-monolith` (구형 아키텍처)의 DB 부하를 비교함.)**
 
 * **지표:** `rate(mysql_global_status_innodb_data_writes{job="mysql_central"}[1m])` (초당 데이터 쓰기 횟수)
-* **결과:** 구형 DB의 피크 시 Data Writes 횟수 (123 QPS)가 신형 DB (80 QPS) 대비 **약 35%** 높게 측정되었습니다.
+* **결과:** 구형 DB의 평균 Data Writes 횟수 (**46.58 QPS**)가 신형 DB (**12.21 QPS**) 대비 **약 73.7%** 절감되었습니다.
 * **기술적 의미:** 비동기 Worker의 **Batch Insert 최적화** 전략이 성공적으로 적용되어, 요청 하나당 발생하던 비효율적인 물리적 Disk I/O 부하를 획기적으로 줄여 DB 리소스 효율성을 높였음을 증명합니다.
 
 ---
@@ -126,7 +126,7 @@ JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 �
 
 ### 3.3. 주요 데이터 흐름 (Decoupling 상세)
 
-1.  **Ingest (Decoupling):** Scanner 요청 → (Nginx/Gateway) → **Ingest Service**는 DB 커밋 대기 없이, 수신한 바코드 데이터를 고속으로 Kafka에 메시지 생산 (Produce) 후 클라이언트에게 **즉시 응답을 반환**하여 I/O Latency를 분리합니다. (평균 응답 시간: $8.58 \text{ms}$)
+1.  **Ingest (Decoupling):** Scanner 요청 → (Nginx/Gateway) → **Ingest Service**는 DB 커밋 대기 없이, 수신한 바코드 데이터를 고속으로 Kafka에 메시지 생산 (Produce) 후 클라이언트에게 **즉시 응답을 반환**하여 I/O Latency를 분리합니다. (평균 응답 시간: $\mathbf{6.22 \text{ms}}$)
 2.  **Queueing (Isolation):** Kafka에 쌓인 메시지는 **Processing Service**로 전달됩니다.
 3.  **Distribution (Ordering/Resiliency):** Processing Service는 메시지를 Redis Streams에 기록하며, Streams는 Consumer Group 기능을 통해 **다수의 Persistence Worker**에게 메시지를 병렬적으로 분배합니다.
 4.  **Persistence (Efficiency/Idempotency):** Worker들은 Streams에서 메시지를 읽어 **Batch Insert**로 DB에 저장하고, 저장 성공 시 `XACK`으로 승인합니다. 이 과정에서 **DB의 Unique Index**를 활용하여 데이터의 **최종 멱등성 (Exactly-Once 논리)**을 보장합니다.
@@ -177,18 +177,18 @@ JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 �
 
 | 지표 | 구형 동기식 아키텍처 | 신형 비동기 아키텍처 | 개선율 | 기술적 기여 |
 | :--- | :--- | :--- | :--- | :--- |
-| **API 평균 응답 시간 (Latency)** | **40.08ms** | **8.58ms** | **약 4.7배 개선** | 스레드 Blocking 시간 (I/O 대기) 제거를 통한 동시성 (Concurrency) **개선 효과** |
-| **DB 물리적 I/O (Data Writes QPS)** | **123 QPS** | **80 QPS** | **약 35% 절감** | Persistence Worker의 Batch Insert 전략 성공적 적용 및 DB 부하 절감 |
+| **API 평균 응답 시간 (Latency)** | **27.97ms** | **6.22ms** | **약 4.5배 개선** | 스레드 Blocking 시간 (I/O 대기) 제거를 통한 동시성 (Concurrency) **개선 효과** |
+| **DB 물리적 I/O (평균 QPS)** | **46.58 QPS** | **12.21 QPS** | **약 73.7% 절감** | Persistence Worker의 Batch Insert 전략 성공적 적용 및 DB 부하 절감 |
 
 ### 5.2. 기술적 의미 해석
 
 #### 1. Concurrency (동시성) 및 Throughput (처리량) 개선 효과
 
-가장 결정적인 성과는 **API Latency를 4.7배 단축**시킨 것입니다. 이는 DB I/O ($\approx 31.5 \text{ms}$)를 기다리느라 낭비되던 API 스레드의 대기 시간을 Kafka로의 **핸드오프 (Handoff)**로 대체했음을 의미합니다. 결과적으로, API 서버의 동시 요청 처리 능력이 DB 성능 제약에서 벗어나게 되었으며, 이는 피크 부하 시에도 안정적인 대용량 트래픽 처리가 가능함을 뜻합니다.
+가장 결정적인 성과는 **API Latency를 4.5배 단축**시킨 것입니다. 이는 DB I/O ($\approx \mathbf{21.75 \text{ms}}$)를 기다리느라 낭비되던 API 스레드의 대기 시간을 Kafka로의 **핸드오프 (Handoff)**로 대체했음을 의미합니다. 결과적으로, API 서버의 동시 요청 처리 능력이 DB 성능 제약에서 벗어나게 되었으며, 이는 피크 부하 시에도 안정적인 대용량 트래픽 처리가 가능함을 뜻합니다.
 
 #### 2. Resiliency (시스템 안정성) 확보 및 위험 분리
 
-새로운 아키텍처는 DB의 성능 변동성으로부터 API 서버를 완전히 격리함으로써 시스템의 **안정성 (Resiliency)**을 근본적으로 확보했습니다. DB에 장애가 발생하더라도, Ingest Service는 Kafka에 데이터를 계속 쌓으며 8.58ms의 안정적인 응답 시간을 유지합니다. **DB Layer와 API Layer의 장애 도메인이 분리**되어 한 쪽의 문제가 전체 시스템 마비로 이어지는 위험을 제거했습니다.
+새로운 아키텍처는 DB의 성능 변동성으로부터 API 서버를 완전히 격리함으로써 시스템의 **안정성 (Resiliency)**을 근본적으로 확보했습니다. DB에 장애가 발생하더라도, Ingest Service는 Kafka에 데이터를 계속 쌓으며 6.22ms의 안정적인 응답 시간을 유지합니다. **DB Layer와 API Layer의 장애 도메인이 분리**되어 한 쪽의 문제가 전체 시스템 마비로 이어지는 위험을 제거했습니다.
 
 #### 3. 모듈형 아키텍처의 확장성 기여
 
@@ -196,9 +196,9 @@ JMeter를 통해 동일한 부하 환경을 조성하고 Prometheus/Grafana로 �
 
 ### 5.3. 💡 단순 계산의 함정과 아키텍처적 이점 고찰 (실질적인 개선 효과)
 
-정량적 데이터는 API Latency가 **4.7배** 단축되었음을 명확히 보여줍니다. 그러나 이 수치만을 가지고 기존의 **'4시간 소요'** 문제를 단순 비교하는 것에는 **중대한 함정**이 있습니다.
+정량적 데이터는 API Latency가 **4.5배** 단축되었음을 명확히 보여줍니다. 그러나 이 수치만을 가지고 기존의 **'4시간 소요'** 문제를 단순 비교하는 것에는 **중대한 함정**이 있습니다.
 
-* **단순 계산의 한계:** $4 \text{시간}$의 작업 시간을 $4.7$로 나누면 약 $51 \text{분} 26 \text{초}$라는 결과가 나옵니다. **50분대**라는 시간은 여전히 물류 작업의 **'실시간성'** 측면에서 느리게 느껴질 수 있으며, 이는 아키텍처 개선의 실질적인 가치를 오해하게 만들 수 있습니다.
-* **아키텍처적 이점의 본질 (처리량 붕괴 해소):** 기존 4시간 지연의 근본 원인은 **$40.08 \text{ms}$의 동기식 I/O 대기**가 유발한 **스레드 고갈 및 시스템 처리량(Throughput)의 붕괴**였습니다. 새로운 아키텍처는 **개별 요청**을 DB 종속성에서 완전히 분리(Decoupling)하여, 기존 시스템을 마비시켰던 **'대기열 적체'** 문제를 원천적으로 해소합니다.
+* **단순 계산의 한계:** $4 \text{시간}$의 작업 시간을 $4.5$로 나누면 약 $53 \text{분} 20 \text{초}$라는 결과가 나옵니다. **50분대**라는 시간은 여전히 물류 작업의 **'실시간성'** 측면에서 느리게 느껴질 수 있으며, 이는 아키텍처 개선의 실질적인 가치를 오해하게 만들 수 있습니다.
+* **아키텍처적 이점의 본질 (처리량 붕괴 해소):** 기존 4시간 지연의 근본 원인은 **$\mathbf{27.97 \text{ms}}$의 동기식 I/O 대기**가 유발한 **스레드 고갈 및 시스템 처리량(Throughput)의 붕괴**였습니다. 새로운 아키텍처는 **개별 요청**을 DB 종속성에서 완전히 분리(Decoupling)하여, 기존 시스템을 마비시켰던 **'대기열 적체'** 문제를 원천적으로 해소합니다.
 * **수평적 확장과의 결합:** **Ingest Service**와 **Persistence Worker** 모두 인스턴스를 자유롭게 **수평 확장**할 수 있습니다. 즉, 피크 부하 시 요청이 들어오는 족족 **고속 Ingest API**를 통해 처리되고, 대기열(Kafka/Redis)에 쌓인 물량은 **다수의 Worker**가 병렬로 처리합니다.
-* **최종 기대 효과:** 따라서, 이 프로젝트의 실질적인 개선 효과는 단순한 $4.7 \text{배}$의 속도 향상을 넘어, **시스템의 처리 능력 한계를 해제**하고 대규모 물량을 **'실시간 처리에 가까운'** 속도로 안정적으로 소화할 수 있는 **압도적인 처리량 안정성(Throughput Stability)**을 확보했다는 점입니다.
+* **최종 기대 효과:** 따라서, 이 프로젝트의 실질적인 개선 효과는 단순한 $4.5 \text{배}$의 속도 향상을 넘어, **시스템의 처리 능력 한계를 해제**하고 대규모 물량을 **'실시간 처리에 가까운'** 속도로 안정적으로 소화할 수 있는 **압도적인 처리량 안정성(Throughput Stability)**을 확보했다는 점입니다.
