@@ -25,6 +25,10 @@ public class BarcodeEventConsumer {
     private final RedisStreamProducer redisStreamProducer;
     private final ReactiveRedisTemplate<String, String> redisTemplate;
     
+    /**
+     * 여기서 예외를 잡아 삼키지 않는다. 예외가 컨테이너까지 전파되어야
+     * 오프셋이 커밋되지 않고 Spring Kafka의 기본 에러 핸들러가 재시도/재소비를 수행한다.
+     */
     @KafkaListener(
         topics = "barcode-events",
         groupId = "barcode-processing-group",
@@ -36,17 +40,13 @@ public class BarcodeEventConsumer {
         @Header(KafkaHeaders.OFFSET) long offset,
         @Header(KafkaHeaders.RECEIVED_KEY) String key
     ) {
-        log.info("📦 Received barcode event - Key: {}, Partition: {}, Offset: {}", 
+        log.info("Received barcode event - Key: {}, Partition: {}, Offset: {}",
             key, partition, offset);
-        log.info("   Barcode: {}, Device: {}, scanTime: {}", 
+        log.info("Barcode: {}, Device: {}, scanTime: {}",
             event.barcode(), event.deviceId(), event.scanTime());
-        
-        try {
-            processEvent(event).block();
-            log.info("✅ Successfully processed barcode: {}", event.barcode());
-        } catch (Exception e) {
-            log.error("❌ Failed to process barcode: {}", event.barcode(), e);
-        }
+
+        processEvent(event).block();
+        log.info("Successfully processed barcode: {}", event.barcode());
     }
     
     private Mono<Void> processEvent(BarcodeEvent event) {
@@ -60,12 +60,12 @@ public class BarcodeEventConsumer {
             .setIfAbsent(duplicateKey, internalBarcode.internalBarcodeId(), Duration.ofDays(7))
             .flatMap(isNew -> {
                 if (Boolean.TRUE.equals(isNew)) {
-                    log.debug("✅ New barcode, proceeding: {}", event.barcode());
+                    log.debug("New barcode, proceeding: {}", event.barcode());
                     // 3. Redis Streams에 추가
                     return redisStreamProducer.addToStream(internalBarcode)
                         .then();
                 } else {
-                    log.warn("⚠️ Duplicate barcode detected: {}", event.barcode());
+                    log.warn("Duplicate barcode detected: {}", event.barcode());
                     return Mono.empty();
                 }
             });
