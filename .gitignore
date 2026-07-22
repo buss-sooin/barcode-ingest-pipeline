@@ -25,3 +25,13 @@ grafana/
 
 # MySQL 초기화 스크립트 (자동 권한 설정 스크립트)
 mysql-init/
+
+# Claude Code 작업용 파일 — 커밋/푸시하지 않음(깃허브에 안 올라감)
+CLAUDE.md
+*-PLAN.md
+TECH-NOTES.md
+.claudeignore
+.worktreeinclude
+
+# worktree 작업 폴더가 메인 git 상태에 뜨지 않도록
+.claude/worktrees/
