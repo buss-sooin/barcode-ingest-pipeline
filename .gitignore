@@ -1,18 +1,18 @@
 # --------------------
-# 🔐 기존 및 민감 정보 (Original & Sensitive Files)
+# 기존 및 민감 정보 (Original & Sensitive Files)
 # --------------------
 config.save
 .env
 
 # --------------------
-# 💻 IDE/Build Files (Spring Boot / Gradle 표준 제외 항목)
+# IDE/Build Files (Spring Boot / Gradle 표준 제외 항목)
 # --------------------
 .gradle/
 build/
 .vscode/
 
 # --------------------
-# 📊 모니터링 및 로컬 전용 인프라 설정 (New Monitoring Stack)
+# 모니터링 및 로컬 전용 인프라 설정 (New Monitoring Stack)
 # --------------------
 # 모니터링 스택 정의 파일 (로컬 전용 설정)
 monitoring-compose.yml
@@ -29,9 +29,17 @@ mysql-init/
 # Claude Code 작업용 파일 — 커밋/푸시하지 않음(깃허브에 안 올라감)
 CLAUDE.md
 *-PLAN.md
+*-PLAN-DONE.md
 TECH-NOTES.md
 .claudeignore
 .worktreeinclude
 
 # worktree 작업 폴더가 메인 git 상태에 뜨지 않도록
-.claude/worktrees/
+.claude/worktrees/FIX-PLAN.old.md
+WORKLOG.md
+
+# jmeter 전용 파일
+*.jmx
+
+# 로그
+*.log
