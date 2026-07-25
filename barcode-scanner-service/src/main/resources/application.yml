@@ -5,6 +5,10 @@ spring:
   application:
     name: barcode-scanner-service
 
+ingest:
+  # ingest-service 접속 주소: localhost or ingest (Docker Service Name)
+  base-url: ${INGEST_BASE_URL:http://localhost:8081}
+
 app:
   scanner:
     device-id: "SEOUL-CENTER-PC-001"

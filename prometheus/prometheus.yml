@@ -11,36 +11,39 @@ scrape_configs:
   - job_name: 'spring-apps'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      # NEW Architecture
-      - targets: ['host.docker.internal:8081']
+      # NEW Architecture — 항목 7에서 docker-compose.apps.yml로 컨테이너화됨.
+      # monitoring-net을 Prometheus와 공유하므로 컨테이너 이름으로 직접 스크레이프한다.
+      - targets: ['ingest:8081']
         labels:
           application: 'ingest-service'
           architecture: 'new'
-      
-      - targets: ['host.docker.internal:8082']
+
+      - targets: ['processing:8082']
         labels:
           application: 'processing-service'
           architecture: 'new'
-      
-      - targets: ['host.docker.internal:8085']
+
+      - targets: ['worker-1:8085']
         labels:
           application: 'worker-1'
           architecture: 'new'
           worker_instance: '1'
-      
-      - targets: ['host.docker.internal:8086']
+
+      - targets: ['worker-2:8086']
         labels:
           application: 'worker-2'
           architecture: 'new'
           worker_instance: '2'
-      
-      # OLD Architecture
+
+      # OLD Architecture — barcode-old-pipeline은 별도 compose 프로젝트라
+      # monitoring-net에 없다. 컨테이너화 이후에도 포트를 호스트에 발행하므로
+      # host.docker.internal 그대로 유지한다.
       - targets: ['host.docker.internal:9091']
         labels:
           application: 'delivery-monolith'
           architecture: 'old'
 
-      - targets: ['host.docker.internal:8084']
+      - targets: ['scanner:8084']
         labels:
           application: 'scanner-service'
           architecture: 'new'
