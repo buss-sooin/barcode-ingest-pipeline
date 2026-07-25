@@ -46,8 +46,10 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_EXPORTER_USER: ${MYSQL_EXPORTER_USER}
+      MYSQL_EXPORTER_PASSWORD: ${MYSQL_EXPORTER_PASSWORD}
     volumes:
-      - ./mysql-init/init_exporter_user.sql:/docker-entrypoint-initdb.d/init_exporter_user.sql
+      - ./mysql-init/init_exporter_user.sh:/docker-entrypoint-initdb.d/init_exporter_user.sh
     #   - mysql-data:/var/lib/mysql
 
   redis:

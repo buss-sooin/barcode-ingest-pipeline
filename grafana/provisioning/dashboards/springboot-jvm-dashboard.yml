@@ -1,0 +1,12 @@
+apiVersion: 1
+
+providers:
+- name: 'Spring Boot Dashboards'
+  orgId: 1
+  folder: ''
+  type: file
+  disableDeletion: false
+  editable: true
+  options:
+    # 이 폴더 내의 모든 .json 파일을 찾아서 대시보드로 로드합니다.
+    path: /etc/grafana/provisioning/dashboards

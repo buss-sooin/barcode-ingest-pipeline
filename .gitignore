@@ -10,18 +10,3 @@ config.save
 .gradle/
 build/
 .vscode/
-
-# --------------------
-# 📊 모니터링 및 로컬 전용 인프라 설정 (New Monitoring Stack)
-# --------------------
-# 모니터링 스택 정의 파일 (로컬 전용 설정)
-monitoring-compose.yml
-
-# Prometheus 설정 디렉토리 (host.docker.internal 참조)
-prometheus/
-
-# Grafana 설정 디렉토리 (로컬 설정/데이터)
-grafana/
-
-# MySQL 초기화 스크립트 (자동 권한 설정 스크립트)
-mysql-init/
