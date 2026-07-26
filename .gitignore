@@ -30,3 +30,8 @@ docs/measurements/
 !README.md
 .claudeignore
 .worktreeinclude
+
+# --------------------
+# worktree 작업 폴더(저장소 통째 복사본) 전체를 메인 git 상태에서 제외
+# --------------------
+.claude/worktrees/
