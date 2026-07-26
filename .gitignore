@@ -10,9 +10,23 @@ config.save
 .gradle/
 build/
 .vscode/
+.DS_Store
 
 # --------------------
 # 부하 테스트 스크립트·측정 결과 (비공개)
 # --------------------
 load-test/
 docs/measurements/
+
+# --------------------
+# 로그 파일
+# --------------------
+*.log
+
+# --------------------
+# README.md 외 문서는 비공개
+# --------------------
+*.md
+!README.md
+.claudeignore
+.worktreeinclude
