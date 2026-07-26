@@ -1,6 +1,6 @@
 #!/bin/bash
-# .sql은 환경변수를 못 읽어서 .sh로 만들었다. MYSQL_EXPORTER_USER/PASSWORD는
-# monitoring-compose.yml의 .env 값과 같아야 한다.
+# mysqld-exporter 사용자의 필요한 권한을 설정한다.
+# .sql은 환경변수를 읽지 못해 .sh로 변경.
 set -euo pipefail
 
 mysql -uroot -p"$MYSQL_ROOT_PASSWORD" <<-EOSQL
