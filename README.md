@@ -36,14 +36,61 @@ Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입�
 
 ## 측정과 결과
 
-기존 동기 구조 앱과 재설계한 비동기 구조 앱에 같은 부하를 각각 흘려보내 비교했습니다. 애플리케이션은 로컬에서 실행하고 Kafka·Redis·MySQL은 컨테이너로 띄웠습니다.
+기존 동기 구조 앱과 재설계한 비동기 구조 앱에 같은 부하를 각각 흘려보내 컨테이너 기준으로 비교했습니다.
 
 > 원활한 성능 비교를 위해 병목이 관측 가능한 수준의 스케일로 축소함
 
-![응답 지연 비교](docs/images/avg-latency.png)
-<!-- 재측정 시 그래프 교체 + 아래 캡션 수치 갱신 -->
-API 평균 응답 시간. 동기 구조에서 응답 시간의 대부분을 차지하던 DB I/O 대기(스레드 점유)를 비동기 전환으로 응답 경로에서 걷어내, 약 27.97ms에서 6.22ms로 줄어듦.
+**API 응답 시간(클라이언트 기준, JMeter old-first·new-first 2회 평균)**
+
+| 구분 | 구형 | 신규 | 개선 |
+| :--- | :--- | :--- | :--- |
+| 평균 응답 시간 | 약 11.2ms | 약 4.9ms | 약 2.3배 |
+| 최대 응답 시간 | 약 148~158ms | 약 60~61ms | 약 2.5배 |
+| 에러율 / 정합성 | 0%, 투입=저장 완전 일치 | 0%, 투입=저장 완전 일치, DLQ/DLT 0건 | - |
+
+동기 구조에서 응답 시간의 대부분을 차지하던 DB I/O 대기(스레드 점유)를 비동기 전환으로 응답 경로에서 걷어낸 결과입니다.
 
 ![DB 쓰기 부하 비교](docs/images/db-writes.png)
-<!-- 재측정 시 그래프 교체 + 아래 캡션 수치 갱신 -->
-MySQL InnoDB의 초당 데이터 쓰기 횟수. 건별 저장을 배치 저장으로 묶어 물리적 디스크 I/O 부하를 약 46.58에서 12.21 QPS로 낮춤.
+MySQL InnoDB의 초당 데이터 쓰기 횟수. 건별 저장을 배치 저장으로 묶어 물리적 디스크 I/O 부하를 낮춤(구형은 정상상태 도달 못 하고 계속 증가하는 경향, 신규는 낮은 수준에서 안정).
+
+## 장애 시나리오 검증
+
+DB 저장 계층이 완전히 막히는 장애 상황을 실제 API 부하로 재현해, 그 영향이 어디까지 번지는지 확인했습니다.
+
+- 구형: 본사 서버(delivery-monolith)의 DB 커넥션 풀을 포화시키자, 센터-본사 배치 동기화(barcode-scheduler)가 지연되며 그 여파가 센터 스캐너(barcode-input-simulator)의 응답시간까지 번짐 — 평시 약 11~12ms에서 최대 약 72ms(약 6배)로 증가, 센터 쪽 미동기화 건수(도메인 적체)는 최대 1,511건까지 쌓임.
+
+![구형 — DB 커넥션 풀 완전 포화](docs/images/hikari-old-exhaustion.svg)
+delivery-monolith의 HikariCP 커넥션 풀(최대 10)이 동시성 30 조건에서 반복적으로 완전 포화(active 10/10)와 대기 급증(pending 최대 17)을 오가는 구간. 이 여파가 barcode-scheduler를 거쳐 센터 스캐너 응답시간·도메인 적체로 번짐. (Grafana가 이 순간을 스크랩하지 못해, 해머 스크립트가 actuator를 2초 간격으로 직접 폴링한 원본 수치로 그림)
+
+- 신규: 같은 방식으로 저장 계층(worker)의 DB 커넥션 풀을 완전히 포화시켜도(대기 중인 요청 약 55건 지속), 유입 계층(ingest)의 응답시간은 전혀 영향받지 않음(오히려 평시와 동일 수준) — Kafka·Redis Streams가 유입과 저장을 분리한 결과. 저장 계층 내부에서도, 포화된 워커 인스턴스의 미처리 메시지는 최대 9건·15초 내 해소에 그치고 시스템 전체 처리 지연은 사실상 0에 머묾(다중 워커 중 다른 인스턴스가 계속 소비).
+
+![신규 — 저장 계층 워커 포화에도 유입 응답시간 무영향](docs/images/hikari-new-isolated.png)
+worker-1의 HikariCP 커넥션 풀이 60초간 완전히 포화(active 20/20)되는 동안에도 ingest 응답시간은 영향받지 않음.
+
+![신규 — 워커 포화 중에도 다른 워커가 소비를 이어받음](docs/images/redis-pel-isolation.png)
+같은 구간에서 worker-1의 미처리 메시지(PEL)는 최대 9건·15초 만에 해소되고, worker-2는 내내 0을 유지 — 한 인스턴스가 막혀도 다른 워커가 이어받아 병목이 확산되지 않음.
+
+- 두 경우 모두 에러 없이(0%) 재현했고, 장애 해소 후 정상 수준으로 회복됨을 확인.
+
+## 실행 방법
+
+**컨테이너로 전체 기동**
+```bash
+docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -p barcode-pipeline up -d --build
+```
+
+**DLQ/DLT 적재 확인**
+```bash
+docker exec redis redis-cli XLEN barcode:stream:dlq
+```
+
+**Grafana 대시보드**: http://localhost:3000 (계정 `admin` / `.env`의 `GRAFANA_ADMIN_PASSWORD`)
+
+## 근거 자료
+
+이 README의 수치·주장은 아래 문서로 뒷받침됩니다. 내용을 검토·수정할 때 이 파일들을 함께 참고하세요.
+
+- `docs/measurements/2026-07-26-1728-old-first.md`, `2026-07-26-1741-new-first.md` — "측정과 결과" 절의 응답시간·InnoDB 쓰기 수치 근거(컨테이너 기준, 2회 반복으로 순서 편향 없음 확인)
+- `docs/measurements/2026-07-26-1723-touch-recent-connection-contention.md` — "장애 시나리오 검증" 절 전체 근거(구형 전파 경로, 신규 격리 확인, 동시성별 단계 실험)
+- `TECH-NOTES.md` — MySQL InnoDB 잠금·격리 수준 등 재검증에 쓰인 공식 문서 확인 기록
+- `FIX-PLAN-DONE.md` 항목7·18·21 — 컨테이너화 경위, host-direct 기준 원 측정, DB 지연 주입 자원 경합 최초 검증

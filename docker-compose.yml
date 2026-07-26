@@ -44,6 +44,7 @@ services:
       --slow-query-log=1
       --slow-query-log-file=/var/log/mysql/mysql-slow.log
       --long-query-time=0.01
+      --transaction-isolation=READ-COMMITTED
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}

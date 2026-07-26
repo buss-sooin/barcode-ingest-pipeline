@@ -3,6 +3,7 @@ package com.barcode.barcode_persistence_worker.repository;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
@@ -22,6 +23,10 @@ public class BarcodeRepositoryImpl implements BarcodeRepositoryCustom {
         "INSERT INTO barcodes "
         + "(internal_barcode_id, original_barcode, center_id, device_id, scan_time, processed_time, saved_time) "
         + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    private static final String TOUCH_RECENT_SQL =
+        "UPDATE barcodes SET touched_at = ? "
+        + "WHERE id IN (SELECT id FROM (SELECT id FROM barcodes ORDER BY id DESC LIMIT ?) recent)";
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -46,5 +51,11 @@ public class BarcodeRepositoryImpl implements BarcodeRepositoryCustom {
                 return entities.size();
             }
         });
+    }
+
+    @Override
+    @Transactional
+    public void touchRecent(int limit) {
+        jdbcTemplate.update(TOUCH_RECENT_SQL, Timestamp.from(Instant.now()), limit);
     }
 }

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
+<rect x="0" y="0" width="900" height="500" fill="#fcfcfb"/>
+<text x="70" y="28" font-size="18" font-weight="600" fill="#0b0b0b">구형(delivery-monolith) HikariCP 커넥션 풀 — touch-recent 해머 구간</text>
+<text x="70" y="48" font-size="13" fill="#52514e">항목22 — 2026-07-26 07:51:17~07:52:20 UTC, 동시성 30, 2초 간격 폴링(actuator 직접)</text>
+<line x1="70" y1="400.0" x2="870" y2="400.0" stroke="#e3e2dc" stroke-width="1"/>
+<line x1="70" y1="315.0" x2="870" y2="315.0" stroke="#e3e2dc" stroke-width="1"/>
+<line x1="70" y1="230.0" x2="870" y2="230.0" stroke="#e3e2dc" stroke-width="1"/>
+<line x1="70" y1="145.0" x2="870" y2="145.0" stroke="#e3e2dc" stroke-width="1"/>
+<line x1="70" y1="60.0" x2="870" y2="60.0" stroke="#e3e2dc" stroke-width="1"/>
+<text x="60" y="404.0" font-size="12" fill="#52514e" text-anchor="end">0</text>
+<text x="60" y="319.0" font-size="12" fill="#52514e" text-anchor="end">5</text>
+<text x="60" y="234.0" font-size="12" fill="#52514e" text-anchor="end">10</text>
+<text x="60" y="149.0" font-size="12" fill="#52514e" text-anchor="end">15</text>
+<text x="60" y="64.0" font-size="12" fill="#52514e" text-anchor="end">20</text>
+<text x="70.0" y="420" font-size="12" fill="#52514e" text-anchor="middle">0s</text>
+<text x="197.0" y="420" font-size="12" fill="#52514e" text-anchor="middle">10s</text>
+<text x="324.0" y="420" font-size="12" fill="#52514e" text-anchor="middle">20s</text>
+<text x="451.0" y="420" font-size="12" fill="#52514e" text-anchor="middle">30s</text>
+<text x="577.9" y="420" font-size="12" fill="#52514e" text-anchor="middle">40s</text>
+<text x="704.9" y="420" font-size="12" fill="#52514e" text-anchor="middle">50s</text>
+<text x="831.9" y="420" font-size="12" fill="#52514e" text-anchor="middle">60s</text>
+<text x="470" y="440" font-size="13" fill="#52514e" text-anchor="middle">경과 시간(초)</text>
+<text x="20" y="230" font-size="13" fill="#52514e" text-anchor="middle" transform="rotate(-90 20 230)">커넥션 수</text>
+<line x1="70" y1="230.0" x2="870" y2="230.0" stroke="#d03b3b" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+<text x="865" y="224.0" font-size="12" fill="#d03b3b" text-anchor="end" font-weight="600">풀 최대치(10)</text>
+<path d="M 70.0,400.0 L 95.4,315.0 L 120.8,128.0 L 146.2,400.0 L 171.6,366.0 L 197.0,213.0 L 222.4,400.0 L 247.8,213.0 L 285.9,213.0 L 311.3,128.0 L 336.7,179.0 L 362.1,196.0 L 387.5,400.0 L 412.9,400.0 L 438.3,400.0 L 463.7,400.0 L 501.7,400.0 L 527.1,111.0 L 552.5,213.0 L 577.9,349.0 L 603.3,400.0 L 628.7,400.0 L 654.1,400.0 L 679.5,400.0 L 717.6,128.0 L 743.0,196.0 L 768.4,162.0 L 793.8,400.0 L 819.2,400.0 L 844.6,400.0 L 870.0,400.0" fill="none" stroke="#e08a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 70.0,383.0 L 95.4,230.0 L 120.8,230.0 L 146.2,281.0 L 171.6,230.0 L 197.0,230.0 L 222.4,383.0 L 247.8,230.0 L 285.9,230.0 L 311.3,230.0 L 336.7,230.0 L 362.1,230.0 L 387.5,332.0 L 412.9,298.0 L 438.3,332.0 L 463.7,383.0 L 501.7,315.0 L 527.1,230.0 L 552.5,230.0 L 577.9,264.0 L 603.3,400.0 L 628.7,315.0 L 654.1,230.0 L 679.5,247.0 L 717.6,247.0 L 743.0,230.0 L 768.4,230.0 L 793.8,264.0 L 819.2,400.0 L 844.6,400.0 L 870.0,400.0" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="330" y1="475" x2="350" y2="475" stroke="#2a78d6" stroke-width="2"/>
+<text x="356" y="479" font-size="12" fill="#0b0b0b">active(사용 중)</text>
+<line x1="470" y1="475" x2="490" y2="475" stroke="#e08a2e" stroke-width="2"/>
+<text x="496" y="479" font-size="12" fill="#0b0b0b">pending(대기)</text>
+</svg>

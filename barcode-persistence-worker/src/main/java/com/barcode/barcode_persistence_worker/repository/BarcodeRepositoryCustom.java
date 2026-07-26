@@ -16,4 +16,10 @@ public interface BarcodeRepositoryCustom {
      * 되돌아간다(FIX-PLAN 항목 10 참고, 완료 시점 기준 .env 미설정 상태였음).
      */
     void batchInsert(List<BarcodeEntity> entities);
+
+    /**
+     * 항목 22 측정용: 최근 삽입된 행 중 일부를 UPDATE해 실제 앱 커넥션 풀을 통한
+     * 행 경합을 재현한다.
+     */
+    void touchRecent(int limit);
 }
