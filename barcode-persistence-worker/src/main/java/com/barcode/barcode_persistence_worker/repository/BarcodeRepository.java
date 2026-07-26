@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.barcode.barcode_persistence_worker.entity.BarcodeEntity;
 
 @Repository
-public interface BarcodeRepository extends JpaRepository<BarcodeEntity, Long> {
+public interface BarcodeRepository extends JpaRepository<BarcodeEntity, Long>, BarcodeRepositoryCustom {
     boolean existsByInternalBarcodeId(String internalBarcodeId);
 
     @Query("SELECT b.internalBarcodeId FROM BarcodeEntity b WHERE b.internalBarcodeId IN :ids")

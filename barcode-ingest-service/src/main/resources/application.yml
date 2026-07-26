@@ -16,6 +16,7 @@ spring:
       compression-type: snappy
       properties:
         linger.ms: 10
+        max.block.ms: 5000
         spring.json.add.type.headers: false
 
 # Prometheus Actuator 설정

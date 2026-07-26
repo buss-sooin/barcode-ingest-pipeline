@@ -1,5 +1,10 @@
 package com.barcode.barcode_scanner_service.service.generator;
 
+/**
+ * BarcodeType을 구체적인 IBarcodeStrategy 구현체로 해석하는 빌더다(Strategy
+ * Pattern). 호출부는 EAN13Strategy·ITF14Strategy 같은 구체 클래스를 알 필요 없이
+ * BarcodeType만으로 바코드를 생성할 수 있다.
+ */
 public class BarcodeStrategyBuilder {
 
     private final IBarcodeStrategy barcodeStrategy;

@@ -16,6 +16,10 @@ spring:
       properties:
         spring.json.trusted.packages: "*"
         spring.json.value.default.type: com.barcode.barcode_processing_service.dto.BarcodeEvent
+    producer:
+      # 재시도 소진 시 DeadLetterPublishingRecoverer가 이 설정으로 barcode-events-dlt에 발행한다.
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   
   data:
     redis:

@@ -49,7 +49,6 @@ redis:
   stream:
     key: barcode:stream
     consumer-group: barcode-persistence-group
-    # consumer-name: worker-${random.uuid}
     dlq-key: barcode:stream:dlq
     dlq-maxlen: 10000
 

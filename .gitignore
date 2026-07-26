@@ -1,11 +1,11 @@
 # --------------------
-# 🔐 기존 및 민감 정보 (Original & Sensitive Files)
+# 기존 및 민감 정보 (Original & Sensitive Files)
 # --------------------
 config.save
 .env
 
 # --------------------
-# 💻 IDE/Build Files (Spring Boot / Gradle 표준 제외 항목)
+# IDE/Build Files (Spring Boot / Gradle 표준 제외 항목)
 # --------------------
 .gradle/
 build/

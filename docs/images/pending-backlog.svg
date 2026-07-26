@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="480" viewBox="0 0 900 480" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
+<rect x="0" y="0" width="900" height="480" fill="#fcfcfb"/>
+<text x="70" y="28" font-size="18" font-weight="600" fill="#0b0b0b">local_barcode.barcodes PENDING 건수 추이</text>
+<text x="70" y="48" font-size="13" fill="#52514e">항목 21 부록 — 2026-07-25 04:35:04~04:41:43 UTC, 5초 간격 폴링</text>
+<rect x="190.3" y="60" width="360.9" height="360" fill="#d03b3b" opacity="0.08"/>
+<line x1="70" y1="420.0" x2="870" y2="420.0" stroke="#e3e2dc" stroke-width="1"/>
+<text x="60" y="424.0" font-size="12" fill="#52514e" text-anchor="end">0</text>
+<line x1="70" y1="353.3" x2="870" y2="353.3" stroke="#e3e2dc" stroke-width="1"/>
+<text x="60" y="357.3" font-size="12" fill="#52514e" text-anchor="end">500</text>
+<line x1="70" y1="286.7" x2="870" y2="286.7" stroke="#e3e2dc" stroke-width="1"/>
+<text x="60" y="290.7" font-size="12" fill="#52514e" text-anchor="end">1000</text>
+<line x1="70" y1="220.0" x2="870" y2="220.0" stroke="#e3e2dc" stroke-width="1"/>
+<text x="60" y="224.0" font-size="12" fill="#52514e" text-anchor="end">1500</text>
+<line x1="70" y1="153.3" x2="870" y2="153.3" stroke="#e3e2dc" stroke-width="1"/>
+<text x="60" y="157.3" font-size="12" fill="#52514e" text-anchor="end">2000</text>
+<line x1="70" y1="86.7" x2="870" y2="86.7" stroke="#e3e2dc" stroke-width="1"/>
+<text x="60" y="90.7" font-size="12" fill="#52514e" text-anchor="end">2500</text>
+<text x="70.0" y="440" font-size="12" fill="#52514e" text-anchor="middle">0s</text>
+<text x="190.3" y="440" font-size="12" fill="#52514e" text-anchor="middle">60s</text>
+<text x="310.6" y="440" font-size="12" fill="#52514e" text-anchor="middle">120s</text>
+<text x="430.9" y="440" font-size="12" fill="#52514e" text-anchor="middle">180s</text>
+<text x="551.2" y="440" font-size="12" fill="#52514e" text-anchor="middle">240s</text>
+<text x="671.5" y="440" font-size="12" fill="#52514e" text-anchor="middle">300s</text>
+<text x="791.8" y="440" font-size="12" fill="#52514e" text-anchor="middle">360s</text>
+<text x="470.0" y="465" font-size="13" fill="#52514e" text-anchor="middle">경과 시간(초) — 회색 점선: 정상/장애/회복 경계</text>
+<text x="20" y="240.0" font-size="13" fill="#52514e" text-anchor="middle" transform="rotate(-90 20 240.0)">PENDING 건수</text>
+<line x1="190.3" y1="60" x2="190.3" y2="420" stroke="#d03b3b" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+<line x1="551.2" y1="60" x2="551.2" y2="420" stroke="#d03b3b" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+<text x="370.8" y="78" font-size="12" fill="#d03b3b" text-anchor="middle" font-weight="600">장애 구간 (central_barcode 잠금, 180초)</text>
+<path d="M 70.0,418.9 L 80.0,417.9 L 92.1,418.9 L 102.1,417.9 L 112.1,417.9 L 122.1,418.9 L 132.2,417.9 L 142.2,418.9 L 152.2,417.9 L 162.2,418.9 L 172.3,417.9 L 184.3,418.9 L 194.3,415.7 L 204.3,406.1 L 214.4,396.5 L 224.4,388.0 L 234.4,378.4 L 244.4,368.8 L 256.5,359.2 L 266.5,349.6 L 276.5,340.0 L 286.5,330.4 L 296.6,320.8 L 306.6,311.2 L 316.6,301.6 L 326.6,292.0 L 336.7,282.4 L 348.7,273.9 L 358.7,264.3 L 368.7,254.7 L 378.8,245.1 L 388.8,235.5 L 398.8,225.9 L 408.8,216.3 L 418.9,206.7 L 430.9,197.1 L 440.9,187.5 L 451.0,177.9 L 461.0,168.3 L 471.0,158.7 L 481.0,150.1 L 491.1,140.5 L 501.1,130.9 L 511.1,121.3 L 523.1,111.7 L 533.2,102.1 L 543.2,92.5 L 553.2,84.7 L 563.2,115.1 L 573.3,158.8 L 583.3,202.5 L 593.3,232.9 L 603.3,276.7 L 613.4,307.2 L 625.4,350.8 L 635.4,395.6 L 645.4,417.9 L 655.5,418.9 L 665.5,417.9 L 675.5,418.9 L 685.5,417.9 L 695.6,418.9 L 707.6,417.9 L 717.6,418.9 L 727.6,417.9 L 737.7,418.9 L 747.7,417.9 L 757.7,418.9 L 767.7,417.9 L 777.8,418.9 L 787.8,417.9 L 797.8,420.0 L 809.8,420.0 L 819.9,420.0 L 829.9,420.0 L 839.9,420.0 L 849.9,420.0 L 860.0,420.0 L 870.0,420.0" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="553.2" cy="84.7" r="4" fill="#2a78d6"/>
+<text x="563.2" y="76.7" font-size="12" fill="#0b0b0b" font-weight="600">최고 2515건 (잠금 해제 직후)</text>
+</svg>
