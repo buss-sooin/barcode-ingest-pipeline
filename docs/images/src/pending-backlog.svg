@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="529" viewBox="0 0 900 529" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
+<rect x="0" y="0" width="900" height="529" fill="#fcfcfb"/>
+<text x="70" y="28" font-size="18" font-weight="600" fill="#0b0b0b">구형(기존 동기 방식) 서버 — 장애 중 밀린 미전송 바코드 건수 추이</text>
+<text x="70" y="48" font-size="13" fill="#52514e">3초 간격으로 직접 수집</text>
+<text x="70" y="66" font-size="13" fill="#3a5f8a">바코드 중복 전송을 막기 위해, 스캔한 바코드는 본사 DB에 전송 완료돼야 처리 완료로 표시됨(레거시 설계).</text>
+<text x="70" y="84" font-size="13" fill="#3a5f8a">본사 서버가 과부하로 느려지면 이 전송이 밀려 처리 완료 표시가 안 되고 계속 쌓임 — 아래 그래프가 그 적체량.</text>
+<line x1="70" y1="420.0" x2="870" y2="420.0" stroke="#e3e2dc" stroke-width="1"/>
+<line x1="70" y1="342.5" x2="870" y2="342.5" stroke="#e3e2dc" stroke-width="1"/>
+<line x1="70" y1="265.0" x2="870" y2="265.0" stroke="#e3e2dc" stroke-width="1"/>
+<line x1="70" y1="187.5" x2="870" y2="187.5" stroke="#e3e2dc" stroke-width="1"/>
+<line x1="70" y1="110.0" x2="870" y2="110.0" stroke="#e3e2dc" stroke-width="1"/>
+<text x="60" y="424.0" font-size="12" fill="#52514e" text-anchor="end">0</text>
+<text x="60" y="346.5" font-size="12" fill="#52514e" text-anchor="end">400</text>
+<text x="60" y="269.0" font-size="12" fill="#52514e" text-anchor="end">800</text>
+<text x="60" y="191.5" font-size="12" fill="#52514e" text-anchor="end">1200</text>
+<text x="60" y="114.0" font-size="12" fill="#52514e" text-anchor="end">1600</text>
+<text x="70.0" y="440" font-size="12" fill="#52514e" text-anchor="middle">0s</text>
+<text x="170.8" y="440" font-size="12" fill="#52514e" text-anchor="middle">30s</text>
+<text x="271.7" y="440" font-size="12" fill="#52514e" text-anchor="middle">60s</text>
+<text x="372.5" y="440" font-size="12" fill="#52514e" text-anchor="middle">90s</text>
+<text x="473.4" y="440" font-size="12" fill="#52514e" text-anchor="middle">120s</text>
+<text x="574.2" y="440" font-size="12" fill="#52514e" text-anchor="middle">150s</text>
+<text x="675.0" y="440" font-size="12" fill="#52514e" text-anchor="middle">180s</text>
+<text x="775.9" y="440" font-size="12" fill="#52514e" text-anchor="middle">210s</text>
+<text x="470" y="465" font-size="13" fill="#52514e" text-anchor="middle">장애 시작 후 경과 시간</text>
+<text x="20" y="265.0" font-size="13" fill="#52514e" text-anchor="middle" transform="rotate(-90 20 265.0)">미전송(대기) 바코드 건수</text>
+<line x1="675.0" y1="110" x2="675.0" y2="420" stroke="#9aa0a6" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="372.5" y="102" font-size="12" fill="#52514e" text-anchor="middle" font-weight="600">장애(본사 서버 과부하, 180초)</text>
+<text x="772.5" y="102" font-size="12" fill="#52514e" text-anchor="middle">회복</text>
+<path d="M 70.0,418.3 L 80.1,414.8 L 93.5,409.1 L 103.6,402.9 L 113.7,403.7 L 127.1,398.1 L 137.2,391.9 L 147.3,386.7 L 157.4,379.7 L 170.8,386.5 L 180.9,380.7 L 194.4,374.7 L 204.5,368.5 L 214.5,362.5 L 228.0,375.6 L 238.1,369.6 L 248.2,363.8 L 261.6,357.2 L 271.7,351.4 L 281.8,345.8 L 295.2,359.0 L 305.3,352.8 L 318.7,346.8 L 328.8,340.0 L 338.9,332.8 L 352.4,347.0 L 362.4,340.4 L 372.5,334.0 L 386.0,322.9 L 396.1,312.9 L 406.1,301.6 L 419.6,309.4 L 429.7,299.5 L 443.1,288.1 L 453.2,276.4 L 463.3,266.7 L 476.7,255.1 L 486.8,243.5 L 500.3,251.8 L 510.3,241.6 L 523.8,229.9 L 533.9,218.3 L 543.9,208.6 L 557.4,197.0 L 567.5,185.6 L 577.6,195.1 L 591.0,183.4 L 601.1,173.7 L 614.5,162.1 L 624.6,150.7 L 634.7,140.8 L 648.2,129.2 L 658.2,136.9 L 671.7,127.2 L 681.8,154.6 L 691.8,202.8 L 701.9,231.9 L 712.0,280.3 L 722.1,309.4 L 732.2,357.8 L 745.6,384.9 L 755.7,418.1 L 765.8,420.0 L 775.9,416.1 L 786.0,420.0 L 796.1,420.0 L 806.1,420.0 L 816.2,420.0 L 826.3,420.0 L 839.7,420.0 L 849.8,420.0 L 859.9,420.0 L 870.0,420.0" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="671.7" cy="127.2" r="4" fill="#2a78d6"/>
+<text x="661.7" y="119.2" font-size="12" fill="#0b0b0b" font-weight="600" text-anchor="end">최고 1,511건 (장애 종료 직전)</text>
+</svg>

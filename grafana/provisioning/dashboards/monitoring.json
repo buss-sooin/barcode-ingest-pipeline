@@ -478,7 +478,7 @@
           "refId": "B"
         }
       ],
-      "title": "HikariCP 커넥션 풀 — active (항목 21 DB 지연 주입 시 고갈 관측용)",
+      "title": "HikariCP 커넥션 풀 — active(사용 중)",
       "type": "timeseries"
     },
     {
@@ -585,7 +585,7 @@
           "refId": "B"
         }
       ],
-      "title": "HikariCP 커넥션 풀 — pending (항목 21 DB 지연 주입 시 대기열 관측용)",
+      "title": "HikariCP 커넥션 풀 — pending(대기 중)",
       "type": "timeseries"
     },
     {
@@ -893,7 +893,7 @@
       },
       "id": 12,
       "panels": [],
-      "title": "예약 — 항목 16 DLQ/DLT 카운터 (완료 후 채움)",
+      "title": "예약 — DLQ/DLT 카운터 (완료 후 채움)",
       "type": "row"
     },
     {
@@ -974,7 +974,7 @@
         }
       },
       "targets": [],
-      "title": "DLQ/DLT 적재 건수 (항목 16 카운터 자리 — 아직 쿼리 없음)",
+      "title": "DLQ/DLT 적재 건수 (카운터 자리 — 아직 쿼리 없음)",
       "type": "timeseries"
     }
   ],
