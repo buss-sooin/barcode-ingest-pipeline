@@ -1,0 +1,74 @@
+# prometheus.yml
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  # ========================================
+  # Spring Boot Applications
+  # ========================================
+  - job_name: 'spring-apps'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      # NEW Architecture
+      - targets: ['host.docker.internal:8081']
+        labels:
+          application: 'ingest-service'
+          architecture: 'new'
+      
+      - targets: ['host.docker.internal:8082']
+        labels:
+          application: 'processing-service'
+          architecture: 'new'
+      
+      - targets: ['host.docker.internal:8085']
+        labels:
+          application: 'worker-1'
+          architecture: 'new'
+          worker_instance: '1'
+      
+      - targets: ['host.docker.internal:8086']
+        labels:
+          application: 'worker-2'
+          architecture: 'new'
+          worker_instance: '2'
+      
+      # OLD Architecture
+      - targets: ['host.docker.internal:9091']
+        labels:
+          application: 'delivery-monolith'
+          architecture: 'old'
+
+      - targets: ['host.docker.internal:8084']
+        labels:
+          application: 'scanner-service'
+          architecture: 'new'
+
+  # ========================================
+  # MySQL Exporters
+  # ========================================
+  - job_name: 'mysql'
+    static_configs:
+      - targets: ['mysqld-exporter:9104']
+        labels:
+          database: 'barcode_db'
+          architecture: 'new'
+
+  - job_name: 'mysql_central'
+    static_configs:
+      - targets: ['mysqld-exporter-central:9104']
+        labels:
+          database: 'barcode_central'
+          architecture: 'old'
+
+  # ========================================
+  # Kafka / Redis Exporters
+  # ========================================
+  - job_name: 'kafka'
+    static_configs:
+      - targets: ['kafka-exporter:9308']
+
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis-exporter:9121']

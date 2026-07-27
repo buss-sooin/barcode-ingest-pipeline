@@ -1,0 +1,103 @@
+version: '3.8'
+
+services:
+  prometheus:
+    image: prom/prometheus:v2.47.1
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    depends_on:
+      - mysqld-exporter
+      - mysqld-exporter-central
+      - kafka-exporter
+      - redis-exporter
+    networks:
+      - monitoring-net
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway" # macOS/Linux에서 호스트 접근 허용
+      
+  grafana:
+    image: grafana/grafana:10.1.5
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD}
+      # 데이터 소스를 Prometheus로 자동 설정 (선택 사항)
+      - GF_PATHS_PROVISIONING=/etc/grafana/provisioning
+    volumes:
+      # 데이터 소스 및 대시보드 설정을 위한 프로비저닝 디렉토리 (선택 사항)
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - grafana-data:/var/lib/grafana
+    networks:
+      - monitoring-net
+      
+  # ==========================================
+  # 1. 신규 아키텍처 DB용 Exporter (Port: 9104)
+  # ==========================================
+  mysqld-exporter:
+    image: prom/mysqld-exporter
+    container_name: mysqld-exporter
+    command:
+      - "--mysqld.username=${MYSQL_EXPORTER_USER}:${MYSQL_EXPORTER_PASSWORD}"
+      - "--mysqld.address=mysql:3306"
+    ports:
+      - "9104:9104"
+    networks:
+      - monitoring-net
+
+  # ==========================================
+  # 2. 구형(Central) DB용 Exporter (Port: 9105)
+  # ==========================================
+  mysqld-exporter-central:
+    image: prom/mysqld-exporter
+    container_name: mysqld-exporter-central
+    command:
+      - "--mysqld.username=${MYSQL_EXPORTER_USER}:${MYSQL_EXPORTER_PASSWORD}"
+      - "--mysqld.address=host.docker.internal:3308"
+    ports:
+      - "9105:9104"
+    networks:
+      - monitoring-net
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # ==========================================
+  # 3. Kafka Exporter (Port: 9308)
+  # ==========================================
+  kafka-exporter:
+    image: danielqsj/kafka-exporter
+    container_name: kafka-exporter
+    command:
+      - "--kafka.server=kafka:29092"
+    ports:
+      - "9308:9308"
+    networks:
+      - monitoring-net
+
+  # ==========================================
+  # 4. Redis Exporter (Port: 9121)
+  # ==========================================
+  redis-exporter:
+    image: oliver006/redis_exporter
+    container_name: redis-exporter
+    environment:
+      REDIS_ADDR: "redis://redis:6379"
+      REDIS_EXPORTER_CHECK_STREAMS: "barcode:stream*"
+    ports:
+      - "9121:9121"
+    networks:
+      - monitoring-net
+
+networks:
+  monitoring-net:
+    driver: bridge
+
+volumes:
+  prometheus-data:
+  grafana-data:
