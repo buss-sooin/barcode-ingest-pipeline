@@ -973,8 +973,33 @@
           "sort": "none"
         }
       },
-      "targets": [],
-      "title": "DLQ/DLT 적재 건수 (카운터 자리 — 아직 쿼리 없음)",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheusdatasource"
+          },
+          "editorMode": "code",
+          "expr": "barcode_processing_dlt_sent_total",
+          "instant": false,
+          "legendFormat": "신규 — DLT 적재 건수(processing)",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheusdatasource"
+          },
+          "editorMode": "code",
+          "expr": "sum(barcode_worker_dlq_sent_total)",
+          "instant": false,
+          "legendFormat": "신규 — DLQ 적재 건수(worker 합계)",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "DLQ/DLT 적재 건수",
       "type": "timeseries"
     }
   ],
