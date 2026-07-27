@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="540" viewBox="0 0 900 540" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
+<rect x="0" y="0" width="900" height="540" fill="#fcfcfb"/>
+<text x="70" y="28" font-size="18" font-weight="600" fill="#0b0b0b">구형(기존 동기 방식) 서버 — DB 연결이 가득 차 요청이 밀리는 상황 재현</text>
+<text x="70" y="50" font-size="13" fill="#52514e">동시 요청 30개, 서버 지표를 2초 간격으로 직접 수집</text>
+<text x="70" y="70" font-size="13" fill="#3a5f8a">DB 연결은 최대 10개뿐인데 요청이 몰리자 곧바로 다 차고(파란선), 나머지 요청은 커넥션을 확보하지 못해 대기 상태로 쌓임(주황선).</text>
+<text x="70" y="88" font-size="13" fill="#3a5f8a">이 대기가 뒤 단계(센터-본사 동기화)까지 지연시킴.</text>
+<line x1="70" y1="420.0" x2="870" y2="420.0" stroke="#e3e2dc" stroke-width="1"/>
+<line x1="70" y1="342.5" x2="870" y2="342.5" stroke="#e3e2dc" stroke-width="1"/>
+<line x1="70" y1="265.0" x2="870" y2="265.0" stroke="#e3e2dc" stroke-width="1"/>
+<line x1="70" y1="187.5" x2="870" y2="187.5" stroke="#e3e2dc" stroke-width="1"/>
+<line x1="70" y1="110.0" x2="870" y2="110.0" stroke="#e3e2dc" stroke-width="1"/>
+<text x="60" y="424.0" font-size="12" fill="#52514e" text-anchor="end">0</text>
+<text x="60" y="346.5" font-size="12" fill="#52514e" text-anchor="end">5</text>
+<text x="60" y="269.0" font-size="12" fill="#52514e" text-anchor="end">10</text>
+<text x="60" y="191.5" font-size="12" fill="#52514e" text-anchor="end">15</text>
+<text x="60" y="114.0" font-size="12" fill="#52514e" text-anchor="end">20</text>
+<text x="70.0" y="440" font-size="12" fill="#52514e" text-anchor="middle">0초</text>
+<text x="197.0" y="440" font-size="12" fill="#52514e" text-anchor="middle">10초</text>
+<text x="324.0" y="440" font-size="12" fill="#52514e" text-anchor="middle">20초</text>
+<text x="451.0" y="440" font-size="12" fill="#52514e" text-anchor="middle">30초</text>
+<text x="577.9" y="440" font-size="12" fill="#52514e" text-anchor="middle">40초</text>
+<text x="704.9" y="440" font-size="12" fill="#52514e" text-anchor="middle">50초</text>
+<text x="831.9" y="440" font-size="12" fill="#52514e" text-anchor="middle">60초</text>
+<text x="470" y="460" font-size="13" fill="#52514e" text-anchor="middle">부하 시작 후 경과 시간</text>
+<text x="20" y="265" font-size="13" fill="#52514e" text-anchor="middle" transform="rotate(-90 20 265)">DB 연결/대기 요청 수</text>
+<line x1="70" y1="265.0" x2="870" y2="265.0" stroke="#d03b3b" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+<text x="865" y="259.0" font-size="12" fill="#d03b3b" text-anchor="end" font-weight="600">최대 연결 수(10)</text>
+<path d="M 70.0,420.0 L 95.4,342.5 L 120.8,172.0 L 146.2,420.0 L 171.6,389.0 L 197.0,249.5 L 222.4,420.0 L 247.8,249.5 L 285.9,249.5 L 311.3,172.0 L 336.7,218.5 L 362.1,234.0 L 387.5,420.0 L 412.9,420.0 L 438.3,420.0 L 463.7,420.0 L 501.7,420.0 L 527.1,156.5 L 552.5,249.5 L 577.9,373.5 L 603.3,420.0 L 628.7,420.0 L 654.1,420.0 L 679.5,420.0 L 717.6,172.0 L 743.0,234.0 L 768.4,203.0 L 793.8,420.0 L 819.2,420.0 L 844.6,420.0 L 870.0,420.0" fill="none" stroke="#e08a2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 70.0,404.5 L 95.4,265.0 L 120.8,265.0 L 146.2,311.5 L 171.6,265.0 L 197.0,265.0 L 222.4,404.5 L 247.8,265.0 L 285.9,265.0 L 311.3,265.0 L 336.7,265.0 L 362.1,265.0 L 387.5,358.0 L 412.9,327.0 L 438.3,358.0 L 463.7,404.5 L 501.7,342.5 L 527.1,265.0 L 552.5,265.0 L 577.9,296.0 L 603.3,420.0 L 628.7,342.5 L 654.1,265.0 L 679.5,280.5 L 717.6,280.5 L 743.0,265.0 L 768.4,265.0 L 793.8,296.0 L 819.2,420.0 L 844.6,420.0 L 870.0,420.0" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="270" y1="495" x2="290" y2="495" stroke="#2a78d6" stroke-width="2"/>
+<text x="296" y="499" font-size="12" fill="#0b0b0b">사용 중인 연결 수</text>
+<line x1="470" y1="495" x2="490" y2="495" stroke="#e08a2e" stroke-width="2"/>
+<text x="496" y="499" font-size="12" fill="#0b0b0b">연결을 기다리는 요청 수</text>
+</svg>

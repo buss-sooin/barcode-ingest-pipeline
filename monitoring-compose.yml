@@ -37,9 +37,7 @@ services:
     networks:
       - monitoring-net
       
-  # ==========================================
-  # 1. 신규 아키텍처 DB용 Exporter (Port: 9104)
-  # ==========================================
+  # 신규 아키텍처 DB용 Exporter (Port: 9104)
   mysqld-exporter:
     image: prom/mysqld-exporter
     container_name: mysqld-exporter
@@ -51,9 +49,7 @@ services:
     networks:
       - monitoring-net
 
-  # ==========================================
-  # 2. 구형(Central) DB용 Exporter (Port: 9105)
-  # ==========================================
+  # 구형(Central) DB용 Exporter (Port: 9105)
   mysqld-exporter-central:
     image: prom/mysqld-exporter
     container_name: mysqld-exporter-central
@@ -67,9 +63,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
-  # ==========================================
-  # 3. Kafka Exporter (Port: 9308)
-  # ==========================================
+  # Kafka Exporter (Port: 9308)
   kafka-exporter:
     image: danielqsj/kafka-exporter
     container_name: kafka-exporter
@@ -80,9 +74,7 @@ services:
     networks:
       - monitoring-net
 
-  # ==========================================
-  # 4. Redis Exporter (Port: 9121)
-  # ==========================================
+  # Redis Exporter (Port: 9121)
   redis-exporter:
     image: oliver006/redis_exporter
     container_name: redis-exporter

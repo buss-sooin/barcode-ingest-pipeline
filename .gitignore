@@ -10,6 +10,7 @@ config.save
 .gradle/
 build/
 .vscode/
+.DS_Store
 
 # --------------------
 # 부하 테스트 스크립트·측정 결과 (비공개)
@@ -17,14 +18,20 @@ build/
 load-test/
 docs/measurements/
 
-# Claude Code 작업용 파일 — 커밋/푸시하지 않음(깃허브에 안 올라감)
-CLAUDE.md
-*-PLAN.md
-*-PLAN-DONE.md
-TECH-NOTES.md
+# --------------------
+# 로그 파일
+# --------------------
+*.log
+
+# --------------------
+# README.md 외 문서는 비공개
+# --------------------
+*.md
+!README.md
 .claudeignore
 .worktreeinclude
 
-# worktree 작업 폴더가 메인 git 상태에 뜨지 않도록
-.claude/worktrees/FIX-PLAN.old.md
-WORKLOG.md
+# --------------------
+# worktree 작업 폴더(저장소 통째 복사본) 전체를 메인 git 상태에서 제외
+# --------------------
+.claude/worktrees/

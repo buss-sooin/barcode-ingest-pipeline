@@ -120,7 +120,7 @@
           "editorMode": "code",
           "expr": "rate(mysql_global_status_innodb_data_writes{job=\"mysql\"}[1m])",
           "instant": false,
-          "legendFormat": "__auto",
+          "legendFormat": "신규 — DB 초당 쓰기 처리량",
           "range": true,
           "refId": "A"
         },
@@ -133,7 +133,7 @@
           "expr": "rate(mysql_global_status_innodb_data_writes{job=\"mysql_central\"}[1m])",
           "hide": false,
           "instant": false,
-          "legendFormat": "__auto",
+          "legendFormat": "구형 — DB 초당 쓰기 처리량",
           "range": true,
           "refId": "B"
         }
@@ -233,7 +233,7 @@
           "includeNullMetadata": true,
           "instant": false,
           "interval": "",
-          "legendFormat": "__auto",
+          "legendFormat": "신규 — 스캔 처리 평균 대기시간",
           "range": true,
           "refId": "A",
           "useBackend": false
@@ -250,7 +250,7 @@
           "hide": false,
           "includeNullMetadata": true,
           "instant": false,
-          "legendFormat": "__auto",
+          "legendFormat": "구형 — 스캔 처리 평균 대기시간",
           "range": true,
           "refId": "B",
           "useBackend": false
@@ -348,7 +348,7 @@
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
-          "legendFormat": "__auto",
+          "legendFormat": "신규 — DB 활성 스레드 수",
           "range": true,
           "refId": "A",
           "useBackend": false
@@ -365,7 +365,7 @@
           "hide": false,
           "includeNullMetadata": true,
           "instant": false,
-          "legendFormat": "__auto",
+          "legendFormat": "구형 — DB 활성 스레드 수",
           "range": true,
           "refId": "B",
           "useBackend": false
@@ -460,7 +460,7 @@
           "editorMode": "code",
           "expr": "hikaricp_connections_active{application=\"delivery-monolith\"}",
           "instant": false,
-          "legendFormat": "delivery-monolith (old)",
+          "legendFormat": "구형 — DB 커넥션 풀 사용 중 개수",
           "range": true,
           "refId": "A"
         },
@@ -473,12 +473,12 @@
           "expr": "hikaricp_connections_active{application=~\"worker-1|worker-2\"}",
           "hide": false,
           "instant": false,
-          "legendFormat": "{{application}} (new)",
+          "legendFormat": "신규 — DB 커넥션 풀 사용 중 개수({{application}})",
           "range": true,
           "refId": "B"
         }
       ],
-      "title": "HikariCP 커넥션 풀 — active (항목 21 DB 지연 주입 시 고갈 관측용)",
+      "title": "HikariCP 커넥션 풀 — active(사용 중)",
       "type": "timeseries"
     },
     {
@@ -567,7 +567,7 @@
           "editorMode": "code",
           "expr": "hikaricp_connections_pending{application=\"delivery-monolith\"}",
           "instant": false,
-          "legendFormat": "delivery-monolith (old)",
+          "legendFormat": "구형 — DB 커넥션 대기 중인 요청 수",
           "range": true,
           "refId": "A"
         },
@@ -580,12 +580,12 @@
           "expr": "hikaricp_connections_pending{application=~\"worker-1|worker-2\"}",
           "hide": false,
           "instant": false,
-          "legendFormat": "{{application}} (new)",
+          "legendFormat": "신규 — DB 커넥션 대기 중인 요청 수({{application}})",
           "range": true,
           "refId": "B"
         }
       ],
-      "title": "HikariCP 커넥션 풀 — pending (항목 21 DB 지연 주입 시 대기열 관측용)",
+      "title": "HikariCP 커넥션 풀 — pending(대기 중)",
       "type": "timeseries"
     },
     {
@@ -687,7 +687,7 @@
           "editorMode": "code",
           "expr": "sum(kafka_consumergroup_lag{consumergroup=\"barcode-processing-group\", topic=\"barcode-events\"} >= 0)",
           "instant": false,
-          "legendFormat": "barcode-processing-group lag",
+          "legendFormat": "신규 — Kafka 처리 지연 건수(ingest→processing)",
           "range": true,
           "refId": "A"
         }
@@ -781,7 +781,7 @@
           "editorMode": "code",
           "expr": "redis_stream_group_lag{stream=\"barcode:stream\", group=\"barcode-persistence-group\"}",
           "instant": false,
-          "legendFormat": "barcode-persistence-group lag",
+          "legendFormat": "신규 — Redis 스트림 처리 지연 건수(processing→worker)",
           "range": true,
           "refId": "A"
         }
@@ -875,7 +875,7 @@
           "editorMode": "code",
           "expr": "redis_stream_group_consumer_messages_pending{stream=\"barcode:stream\", group=\"barcode-persistence-group\"}",
           "instant": false,
-          "legendFormat": "{{consumer}}",
+          "legendFormat": "신규 — worker별 미처리 메시지 수({{consumer}})",
           "range": true,
           "refId": "A"
         }
@@ -893,7 +893,7 @@
       },
       "id": 12,
       "panels": [],
-      "title": "예약 — 항목 16 DLQ/DLT 카운터 (완료 후 채움)",
+      "title": "예약 — DLQ/DLT 카운터 (완료 후 채움)",
       "type": "row"
     },
     {
@@ -974,7 +974,7 @@
         }
       },
       "targets": [],
-      "title": "DLQ/DLT 적재 건수 (항목 16 카운터 자리 — 아직 쿼리 없음)",
+      "title": "DLQ/DLT 적재 건수 (카운터 자리 — 아직 쿼리 없음)",
       "type": "timeseries"
     }
   ],

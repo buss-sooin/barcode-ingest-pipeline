@@ -1,11 +1,11 @@
 package com.barcode.barcode_scanner_service;
 
-import static com.barcode.barcode_scanner_service.designPattern.BarcodeType.EAN13;
-import static com.barcode.barcode_scanner_service.designPattern.BarcodeType.ITF14;
+import static com.barcode.barcode_scanner_service.service.generator.BarcodeType.EAN13;
+import static com.barcode.barcode_scanner_service.service.generator.BarcodeType.ITF14;
 
 import org.junit.jupiter.api.Test;
 
-import com.barcode.barcode_scanner_service.designPattern.builderPattern.BarcodeStrategyBuilder;
+import com.barcode.barcode_scanner_service.service.generator.BarcodeStrategyBuilder;
 
 public class BarcodeStrategyGeneratorTest {
 

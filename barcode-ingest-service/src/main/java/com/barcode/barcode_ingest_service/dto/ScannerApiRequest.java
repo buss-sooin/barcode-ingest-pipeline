@@ -32,7 +32,7 @@ public record ScannerApiRequest(
     }
 
     /**
-     * 검증이 완료된 요청 데이터를 내부 Kafka/Redis 전송용 DTO로 변환합니다.
+     * 검증이 완료된 요청 데이터를 Kafka 발행용 DTO로 변환한다.
      */
     public BarcodeIngestRequest toIngestRequest() {
         return BarcodeIngestRequest.create(

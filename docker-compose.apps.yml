@@ -1,0 +1,75 @@
+version: '3.8'
+
+# 신규 아키텍처 앱 4개(worker는 2대) 컨테이너 정의. docker-compose.yml(인프라)과
+# 항상 함께 올린다 — 이 파일만 단독으로는 kafka/mysql/redis가 없어 기동하지 못한다.
+#   docker compose -f docker-compose.yml -f docker-compose.apps.yml up -d --build
+
+services:
+  ingest:
+    build: ./barcode-ingest-service
+    container_name: ingest
+    networks: [monitoring-net]
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+    ports:
+      - "8081:8081"
+
+  processing:
+    build: ./barcode-processing-service
+    container_name: processing
+    networks: [monitoring-net]
+    depends_on:
+      - kafka
+      - redis
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      REDIS_HOST: redis
+    ports:
+      - "8082:8082"
+
+  scanner:
+    build: ./barcode-scanner-service
+    container_name: scanner
+    networks: [monitoring-net]
+    depends_on:
+      - ingest
+    environment:
+      INGEST_BASE_URL: http://ingest:8081
+    ports:
+      - "8084:8084"
+
+  worker-1:
+    build: ./barcode-persistence-worker
+    container_name: worker-1
+    networks: [monitoring-net]
+    depends_on:
+      - mysql
+      - redis
+    environment:
+      SERVER_PORT: ${WORKER1_PORT}
+      WORKER_NAME: ${WORKER1_NAME}
+      REDIS_HOST: redis
+      DB_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE}?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "8085:8085"
+
+  worker-2:
+    build: ./barcode-persistence-worker
+    container_name: worker-2
+    networks: [monitoring-net]
+    depends_on:
+      - mysql
+      - redis
+    environment:
+      SERVER_PORT: ${WORKER2_PORT}
+      WORKER_NAME: ${WORKER2_NAME}
+      REDIS_HOST: redis
+      DB_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE}?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "8086:8086"

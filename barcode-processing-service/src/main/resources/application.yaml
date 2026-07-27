@@ -7,7 +7,7 @@ spring:
   
   kafka:
     # kafka 접속 주소 설정: localhost(127.0.0.1) or kafka (Docker Service Name)
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
     consumer:
       group-id: barcode-processing-group
       auto-offset-reset: earliest
@@ -16,11 +16,15 @@ spring:
       properties:
         spring.json.trusted.packages: "*"
         spring.json.value.default.type: com.barcode.barcode_processing_service.dto.BarcodeEvent
+    producer:
+      # 재시도 소진 시 DeadLetterPublishingRecoverer가 이 설정으로 barcode-events-dlt에 발행한다.
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   
   data:
     redis:
       # Redis Streams 접속 주소 설정: localhost(127.0.0.1) or redis (Docker Service Name)
-      host: localhost
+      host: ${REDIS_HOST:localhost}
       port: 6379
 
 # Redis Streams 설정

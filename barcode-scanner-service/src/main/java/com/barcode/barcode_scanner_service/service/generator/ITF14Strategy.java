@@ -3,12 +3,9 @@ package com.barcode.barcode_scanner_service.service.generator;
 import java.util.Random;
 
 /**
- * ITF-14 바코드의 생성 전략을 구현합니다.
- * * ITF-14는 물류 단위 식별(GTIN-14)에 사용되며 총 14자리 코드를 갖습니다. 
- * 이 전략은 한국 GS1 표준에 따라 앞자리 데이터를 생성합니다:
- * 1. 물류 식별자(LUI): 1~8 사이의 랜덤 숫자로 시작합니다.
- * 2. 국가 코드: '880'을 포함합니다.
- * * 최종적으로 생성자로 주입받은 ICheckDigitStrategy에게 계산을 위임하여 14자리 바코드를 완성합니다.
+ * ITF-14(GTIN-14) 바코드 생성 전략이다. 물류 식별자(LUI, 1~8 임의값)에 국가 코드
+ * "880"(한국)과 임의의 9자리를 이어붙여 13자리 데이터를 만들고, 체크 디지트는
+ * 주입받은 ICheckDigitStrategy에 위임한다.
  */
 class ITF14Strategy implements IBarcodeStrategy {
 
@@ -26,6 +23,8 @@ class ITF14Strategy implements IBarcodeStrategy {
         int LUI = RANDOM.nextInt(8) + 1;
         barcodeBuilder.append(LUI);
 
+        // 국가 코드 "880"(한국) 고정. 국가가 늘어나면 CountryCode 같은 enum으로
+        // 분리할 수 있는 자리다.
         barcodeBuilder.append("880");
 
         for (int i = 0; i < 9; i++) {
