@@ -17,6 +17,10 @@ build/
 # --------------------
 load-test/
 docs/measurements/
+docs/images/src/measure.py
+docs/images/src/barcode-pipeline-diagram.excalidraw
+docs/images/src/old-pipeline-diagram.excalidraw
+docs/images/src/render.js
 
 # --------------------
 # 로그 파일

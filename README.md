@@ -19,7 +19,8 @@ Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입�
 
 레거시 구조는 변경 자체가 리스크입니다. 문제 해결 여부와 무관하게 의도치 않은 장애가 전체로 번질 수 있기 때문입니다. 그래서 구조 전체를 바꾸는 대신 병목의 시작점인 바코드 유입 구간만 분리해, 개선의 효과와 장애의 영향 범위를 모두 이 구간 안에 격리하는 것이 최적이라고 판단했습니다.
 
-![구형 — 동기 처리 흐름](docs/images/old-barcode-flow.png)
+<img src="docs/images/old-barcode-flow.png" alt="구형 — 동기 처리 흐름" width="420">
+
 센터의 스캔이 본사 서버의 동기 처리와 배치 동기화에 그대로 묶여 있는 구조.
 
 ![신규 — 비동기 파이프라인 흐름](docs/images/new-barcode-flow.png)
