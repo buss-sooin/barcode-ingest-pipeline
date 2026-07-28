@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="529" viewBox="0 0 900 529" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
 <rect x="0" y="0" width="900" height="529" fill="#fcfcfb"/>
-<text x="70" y="28" font-size="18" font-weight="600" fill="#0b0b0b">구형 vs 신규 — 스캔 응답시간(클라이언트 체감) 비교</text>
-<text x="70" y="48" font-size="13" fill="#52514e">5초 구간 평균, JMeter로 직접 측정한 클라이언트 응답시간(시작 직후 워밍업 10건 제외, 구형 먼저 다음 신규)</text>
+<text x="70" y="28" font-size="18" font-weight="600" fill="#0b0b0b">구형 vs 신규 — 바코드 스캔 클라이언트 응답시간 비교</text>
+<text x="70" y="48" font-size="13" fill="#52514e">5초 구간 평균, JMeter로 측정한 클라이언트 응답시간</text>
 <text x="70" y="66" font-size="13" fill="#3a5f8a">구형은 요청을 받은 스레드가 DB 저장까지 마치고서야 응답함(동기) — 신규는 응답을 먼저 반환하고</text>
-<text x="70" y="84" font-size="13" fill="#3a5f8a">저장은 뒤에서 별도로 처리함(비동기) — 이 구조 차이가 그대로 응답시간 격차로 나타남.</text>
+<text x="70" y="84" font-size="13" fill="#3a5f8a">저장은 뒤에서 별도로 처리함(비동기) — 이 구조 차이가 그대로 응답시간 격차로 나타남</text>
 <line x1="70" y1="420.0" x2="870" y2="420.0" stroke="#e3e2dc" stroke-width="1"/>
 <line x1="70" y1="358.0" x2="870" y2="358.0" stroke="#e3e2dc" stroke-width="1"/>
 <line x1="70" y1="296.0" x2="870" y2="296.0" stroke="#e3e2dc" stroke-width="1"/>
