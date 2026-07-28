@@ -15,4 +15,7 @@ public interface BarcodeRepository extends JpaRepository<BarcodeEntity, Long>, B
 
     @Query("SELECT b.internalBarcodeId FROM BarcodeEntity b WHERE b.internalBarcodeId IN :ids")
     List<String> findExistingInternalBarcodeIds(@Param("ids") List<String> ids);
+
+    @Query("SELECT b.originalBarcode FROM BarcodeEntity b WHERE b.originalBarcode IN :originalBarcodes")
+    List<String> findExistingOriginalBarcodes(@Param("originalBarcodes") List<String> originalBarcodes);
 }
