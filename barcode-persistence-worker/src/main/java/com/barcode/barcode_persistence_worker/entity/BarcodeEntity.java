@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "barcodes", indexes = {
     @Index(name = "idx_internal_barcode_id", columnList = "internalBarcodeId", unique = true),
-    @Index(name = "idx_original_barcode", columnList = "originalBarcode"),
+    @Index(name = "idx_original_barcode", columnList = "originalBarcode", unique = true),
     @Index(name = "idx_center_id", columnList = "centerId")
 })
 @Getter
@@ -33,7 +33,7 @@ public class BarcodeEntity {
     @Column(nullable = false, unique = true, length = 100)
     private String internalBarcodeId;
     
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, unique = true, length = 100)
     private String originalBarcode;
     
     @Column(nullable = false)

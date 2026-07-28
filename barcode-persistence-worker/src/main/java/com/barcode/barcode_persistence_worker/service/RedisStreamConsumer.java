@@ -259,14 +259,19 @@ public class RedisStreamConsumer {
                 toSave = List.of();
             } catch (DuplicateKeyException e) {
                 List<String> remainingIds = new ArrayList<>();
+                List<String> remainingOriginalBarcodes = new ArrayList<>();
                 for (BarcodeEntity entity : toSave) {
                     remainingIds.add(entity.getInternalBarcodeId());
+                    remainingOriginalBarcodes.add(entity.getOriginalBarcode());
                 }
-                Set<String> existing = new HashSet<>(barcodeRepository.findExistingInternalBarcodeIds(remainingIds));
+                Set<String> existingIds = new HashSet<>(barcodeRepository.findExistingInternalBarcodeIds(remainingIds));
+                Set<String> existingOriginalBarcodes =
+                    new HashSet<>(barcodeRepository.findExistingOriginalBarcodes(remainingOriginalBarcodes));
 
                 List<BarcodeEntity> stillFailing = new ArrayList<>();
                 for (BarcodeEntity entity : toSave) {
-                    if (existing.contains(entity.getInternalBarcodeId())) {
+                    if (existingIds.contains(entity.getInternalBarcodeId())
+                            || existingOriginalBarcodes.contains(entity.getOriginalBarcode())) {
                         log.warn("이미 저장된 바코드라 saveAll 대상에서 제외: {}", entity.getInternalBarcodeId());
                         toAck.addAll(recordIdsByBarcodeId.get(entity.getInternalBarcodeId()));
                     } else {
