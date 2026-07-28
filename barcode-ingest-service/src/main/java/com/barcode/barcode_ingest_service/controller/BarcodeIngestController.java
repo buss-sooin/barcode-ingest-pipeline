@@ -29,8 +29,8 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * 바코드 요청을 받아 Kafka로 발행하고, HTTP 응답 전에 발행 확인까지 기다린다.
- * 확인 타임아웃이 나도 실제 전송은 취소되지 않고 백그라운드에서 계속 진행된다
- * (TECH-NOTES 참고) — 이 컨트롤러의 실패 응답은 전송이 확정적으로 실패했다는
+ * 확인 타임아웃이 나도 실제 전송은 취소되지 않고 백그라운드에서 계속 진행된다 —
+ * 이 컨트롤러의 실패 응답은 전송이 확정적으로 실패했다는
  * 뜻이 아니라 그 시간 안에 성공을 확인하지 못했다는 뜻이다.
  */
 @Slf4j
@@ -49,7 +49,7 @@ public class BarcodeIngestController {
      * 안에 완료를 기다린다. 대기 후에는 각 future를 논블로킹으로 조회해 실패
      * 인덱스를 가려낸다. 일부만 실패하면 207 Multi-Status로 실패 인덱스를 함께
      * 반환한다 — 배치 부분 실패에 206을 쓰는 것은 Range 요청 전용 의미를
-     * 빌리는 표준 위반이라 207을 택했다(TECH-NOTES 참고).
+     * 빌리는 표준 위반이라 207을 택했다.
      */
     @PostMapping("/barcodes")
     public ResponseEntity<BatchIngestResult> ingestBarcodes(@RequestBody @Valid List<ScannerApiRequest> requests) {

@@ -27,9 +27,11 @@ public class ApiGatewayTransmitter {
 
     /**
      * 호출자(BarcodeBatchSender)의 스레드를 막지 않도록 별도 스레드에서 비동기로
-     * 실행된다.
+     * 실행된다. 전용 실행기(AsyncConfig.transmitExecutor)를 통해 동시 실행 개수를
+     * 제한해, 전송이 몰릴 때 스레드가 무제한으로 생기지 않고 초과분은 호출자
+     * 스레드가 직접 처리하도록 되돌린다.
      */
-    @Async
+    @Async("transmitExecutor")
     public void transmitBatch(List<BarcodeRequest> batch) {
         if (batch.isEmpty()) {
             log.warn("전송할 바코드 배치가 비어 있습니다. 전송을 건너뜁니다.");
