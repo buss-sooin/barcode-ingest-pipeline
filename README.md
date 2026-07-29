@@ -64,7 +64,7 @@ Kafka는 파티션 분산 배치로 바코드 스캔 데이터가 폭발적으�
 동기 구조에서 장애 지연 전파의 직접적인 원인 중 하나인, 커넥션 스레드를 점유하는 DB I/O를 비동기 전환으로 개선한 결과입니다.
 
 ![응답 지연 비교](docs/images/avg-latency.png)
-구형과 신규의 스캔 엔드포인트 응답시간을 시간순으로 이어 붙인 것. 위 표의 수치가 이 그래프에서 나옵니다. (평상시 물량)
+구형과 신규의 스캔 엔드포인트 응답시간을 시간순으로 정렬한 그래프. (평상시 물량)
 
 ![DB 쓰기 부하 비교](docs/images/db-writes.png)
 MySQL InnoDB의 초당 쓰기 횟수. 건별 저장을 배치로 묶어 디스크 I/O 부하를 낮춤. 구형은 안정 수준에 도달하지 못하고 계속 증가하는 반면 신규는 낮은 수준을 유지. (평상시 물량)
@@ -121,17 +121,17 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  A[같은 바코드 재유입] --> B{1차 · barcode-processing-service<br/>Redis 표시}
-  B -- 있음 --> S[차단]
-  B -- 없음 --> C{2차 · barcode-persistence-worker<br/>MySQL 유니크}
-  C -- 위반 --> S
+  A[같은 바코드 재유입] --> B{1차 · barcode-processing-service<br/>Redis SETNX}
+  B -- 키 있음 --> S[차단]
+  B -- 키 없음 --> C{2차 · barcode-persistence-worker<br/>MySQL 유니크 제약}
+  C -- 위반, DuplicateKeyException --> S
   C -- 통과 --> D[저장 1건]
 ```
 
 | 시나리오 | 조건 | 저장 건수 변화 | DLQ/DLT 적재 |
 | :--- | :--- | :--- | :--- |
-| 클라이언트 중복 재전송 | 같은 바코드 5회 연속 | 0 (1차에서 차단) | 0건 |
-| Kafka 재소비(오프셋 되감김) | Redis 표시 살아있음 | 0 (1차에서 차단) | 0건 |
-| 1차 방어선 무력화 후 재소비 | Redis 표시 삭제 | 0 (2차에서 차단) | 0건 |
+| 클라이언트 중복 재전송 | 같은 바코드 5회 연속 전송 | 0 (Redis SETNX에서 차단) | 0건 |
+| Kafka 재소비(오프셋 되감김) | Redis SETNX 키가 남아 있는 상태 | 0 (Redis SETNX에서 차단) | 0건 |
+| Redis 키 소실 후 재소비 | SETNX 키를 지운 상태 | 0 (MySQL 유니크 제약에서 차단) | 0건 |
 
 중복은 어느 경로로 들어와도 한 건만 저장됩니다.
