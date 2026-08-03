@@ -1,5 +1,12 @@
 version: '3.8'
 
+# 전체 스택 기동/종료 (인프라 + 앱 + 관측). 저장소 루트에서 실행한다.
+#   up:   docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml up -d --build
+#   down: docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml down -v --remove-orphans
+#
+# down에서 -v를 빼면 prometheus-data/grafana-data와 mysql이 만드는 익명 볼륨이 남아 계속 쌓인다.
+# -p로 프로젝트 이름을 따로 주면 볼륨 이름이 달라져 up과 down의 짝이 어긋난다. 폴더명 기본값을 쓴다.
+
 # barcode-persistence-worker를 이 compose에 추가할 때: WORKER_NAME(consumer-name)은 인스턴스마다
 # 재기동 후에도 항상 같은 값으로 고정해야 한다. 바뀌면 이전 PEL을 회수하지 못해 미처리 메시지가 고아가 된다.
 

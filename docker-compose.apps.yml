@@ -2,7 +2,7 @@ version: '3.8'
 
 # 신규 아키텍처 앱 4개(worker는 2대) 컨테이너 정의. docker-compose.yml(인프라)과
 # 항상 함께 올린다 — 이 파일만 단독으로는 kafka/mysql/redis가 없어 기동하지 못한다.
-#   docker compose -f docker-compose.yml -f docker-compose.apps.yml up -d --build
+# 전체 기동/종료 명령은 docker-compose.yml 상단 주석 참조.
 
 services:
   ingest:
