@@ -1,0 +1,56 @@
+services:
+  kafka:
+    mem_limit: 1280m
+    cpus: 0.75
+
+  mysql:
+    mem_limit: 768m
+    cpus: 0.50
+
+  redis:
+    mem_limit: 160m
+    cpus: 0.15
+
+  ingest:
+    mem_limit: 416m
+    cpus: 0.35
+
+  processing:
+    mem_limit: 416m
+    cpus: 0.35
+
+  scanner:
+    mem_limit: 416m
+    cpus: 0.35
+
+  worker-1:
+    mem_limit: 416m
+    cpus: 0.35
+
+  worker-2:
+    mem_limit: 416m
+    cpus: 0.35
+
+  prometheus:
+    mem_limit: 320m
+    cpus: 0.25
+
+  grafana:
+    mem_limit: 256m
+    cpus: 0.15
+
+  mysqld-exporter:
+    mem_limit: 64m
+    cpus: 0.10
+
+  mysqld-exporter-central:
+    mem_limit: 64m
+    cpus: 0.10
+
+  kafka-exporter:
+    mem_limit: 64m
+    cpus: 0.10
+
+  redis-exporter:
+    mem_limit: 64m
+    cpus: 0.10
