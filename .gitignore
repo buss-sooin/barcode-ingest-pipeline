@@ -35,6 +35,7 @@ docs/images/src/render.js
 !docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/REPRODUCTION-RECORD.md
 !docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/OPERATIONAL-DIAGNOSTIC-GUIDE.md
 !docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/KAFKA-FAILURE-LEARNING-NOTE.md
+!docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/RUNBOOK.md
 .claudeignore
 .worktreeinclude
 
