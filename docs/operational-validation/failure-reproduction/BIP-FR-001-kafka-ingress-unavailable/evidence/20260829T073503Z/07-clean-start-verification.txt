@@ -1,0 +1,19 @@
+CapturedAtUTC=2026-08-29T07:36:29Z
+ProjectContainers:
+ProjectNetworks:
+ProjectVolumes:
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=0 ContainersStopped=0
+port=3000 listener=none
+port=3306 listener=none
+port=6379 listener=none
+port=8081 listener=none
+port=8082 listener=none
+port=8084 listener=none
+port=8085 listener=none
+port=8086 listener=none
+port=9090 listener=none
+port=9092 listener=none
+port=9104 listener=none
+port=9105 listener=none
+port=9121 listener=none
+port=9308 listener=none

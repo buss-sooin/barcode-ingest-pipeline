@@ -1,0 +1,37 @@
+FaultCommandStartedAtUTC=2026-08-29T07:45:34Z
+FaultCommand=docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml stop kafka
+time="2026-08-29T16:45:34+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T16:45:34+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.apps.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T16:45:34+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/monitoring-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container kafka Stopping 
+ Container kafka Stopped 
+FaultCommandCompletedAtUTC=2026-08-29T07:45:35Z
+KafkaContainerFinishedAt=2026-08-29T07:45:35.326729096Z
+KafkaState=exited ExitCode=143 OOMKilled=false RestartCount=0
+RecoveryCommandStartedAtUTC=2026-08-29T07:46:32Z
+FaultDurationSecondsFromStopCompletion=57
+EarlyRecoveryReason=none
+RecoveryCommand=docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml start kafka
+time="2026-08-29T16:46:32+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T16:46:32+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.apps.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T16:46:32+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/monitoring-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container kafka Starting 
+ Container kafka Started 
+RecoveryCommandCompletedAtUTC=2026-08-29T07:46:33Z
+OutageDriverCompletedBeforeOrAfterRecovery=2026-08-29T07:46:33Z
+BrokerReadyAtUTC=2026-08-29T07:46:50Z
+BrokerReadinessAttempts=1
+[2026-08-29 07:46:39,998] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:46:40,094] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:46:40,211] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:46:40,513] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:46:40,921] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:46:41,695] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:46:42,708] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:46:43,663] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:46:44,698] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:46:45,704] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:46:46,799] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+__consumer_offsets
+barcode-events
+KafkaState=running ExitCode=0 OOMKilled=false RestartCount=0

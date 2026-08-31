@@ -1,0 +1,92 @@
+CleanEndStartedAtUTC=2026-08-29T06:53:12Z
+Command=docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml down -v --remove-orphans
+time="2026-08-29T15:53:12+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T15:53:12+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.apps.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T15:53:12+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/monitoring-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container worker-2 Stopping 
+ Container grafana Stopping 
+ Container scanner Stopping 
+ Container processing Stopping 
+ Container worker-1 Stopping 
+ Container prometheus Stopping 
+ Container prometheus Stopped 
+ Container prometheus Removing 
+ Container prometheus Removed 
+ Container mysqld-exporter-central Stopping 
+ Container mysqld-exporter Stopping 
+ Container kafka-exporter Stopping 
+ Container redis-exporter Stopping 
+ Container grafana Stopped 
+ Container grafana Removing 
+ Container grafana Removed 
+ Container scanner Stopped 
+ Container scanner Removing 
+ Container scanner Removed 
+ Container ingest Stopping 
+ Container mysqld-exporter Stopped 
+ Container mysqld-exporter Removing 
+ Container mysqld-exporter Removed 
+ Container kafka-exporter Stopped 
+ Container kafka-exporter Removing 
+ Container kafka-exporter Removed 
+ Container mysqld-exporter-central Stopped 
+ Container mysqld-exporter-central Removing 
+ Container mysqld-exporter-central Removed 
+ Container redis-exporter Stopped 
+ Container redis-exporter Removing 
+ Container redis-exporter Removed 
+ Container ingest Stopped 
+ Container ingest Removing 
+ Container ingest Removed 
+ Container worker-1 Stopped 
+ Container worker-1 Removing 
+ Container worker-1 Removed 
+ Container processing Stopped 
+ Container processing Removing 
+ Container processing Removed 
+ Container kafka Stopping 
+ Container worker-2 Stopped 
+ Container worker-2 Removing 
+ Container worker-2 Removed 
+ Container redis Stopping 
+ Container mysql Stopping 
+ Container redis Stopped 
+ Container redis Removing 
+ Container redis Removed 
+ Container kafka Stopped 
+ Container kafka Removing 
+ Container kafka Removed 
+ Container mysql Stopped 
+ Container mysql Removing 
+ Container mysql Removed 
+ Network barcode-ingest-pipeline_monitoring-net Removing 
+ Volume barcode-ingest-pipeline_prometheus-data Removing 
+ Volume barcode-ingest-pipeline_grafana-data Removing 
+ Volume barcode-ingest-pipeline_prometheus-data Removed 
+ Volume barcode-ingest-pipeline_grafana-data Removed 
+ Network barcode-ingest-pipeline_monitoring-net Removed 
+
+ProjectContainersAfterCleanEnd=0
+ProjectNetworksAfterCleanEnd=0
+ProjectVolumesAfterCleanEnd=0
+
+AllContainersAfterCleanEnd:
+
+AllNetworksAfterCleanEnd:
+ID=de48838b6f07 Name=bridge Driver=bridge Scope=local Project=
+ID=57bc834827a1 Name=host Driver=host Scope=local Project=
+ID=0cb22cb68622 Name=none Driver=null Scope=local Project=
+
+AllVolumesAfterCleanEnd:
+
+DockerDiskUsageAfterCleanEnd:
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          13        0         2.725GB   2.317GB (85%)
+Containers      0         0         0B        0B
+Local Volumes   0         0         0B        0B
+Build Cache     42        0         1.53GB    1.307GB
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=0 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 39%
+SwapAfterCleanEnd=total = 2048.00M  used = 920.62M  free = 1127.38M  (encrypted)
+CleanEndCompletedAtUTC=2026-08-29T06:53:18Z

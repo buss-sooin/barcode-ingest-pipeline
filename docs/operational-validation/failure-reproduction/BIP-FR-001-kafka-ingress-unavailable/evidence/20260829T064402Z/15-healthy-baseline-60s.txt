@@ -1,0 +1,507 @@
+BaselineStartedAtUTC=2026-08-29T06:50:07Z
+BaselineDurationSeconds=60
+SyntheticFailureTrafficExecuted=false
+KafkaStopExecuted=false
+SwapBefore=total = 2048.00M  used = 920.62M  free = 1127.38M  (encrypted)
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 42%
+Sample=0 ElapsedSeconds=0 CapturedAtUTC=2026-08-29T06:50:07Z
+ProjectContainerCount=14
+/grafana|running|false|0|0
+/ingest|running|false|0|0
+/kafka-exporter|running|false|0|0
+/kafka|running|false|0|0
+/mysqld-exporter-central|running|false|0|0
+/mysqld-exporter|running|false|0|0
+/mysql|running|false|0|0
+/processing|running|false|0|0
+/prometheus|running|false|0|0
+/redis-exporter|running|false|0|0
+/redis|running|false|0|0
+/scanner|running|false|0|0
+/worker-1|running|false|0|0
+/worker-2|running|false|0|0
+grafana|0.04%|110.9MiB / 256MiB|43.32%|13
+ingest|0.17%|199.4MiB / 416MiB|47.93%|29
+kafka-exporter|0.04%|10.61MiB / 64MiB|16.58%|5
+kafka|6.60%|400.5MiB / 1.25GiB|31.29%|110
+mysqld-exporter-central|0.00%|10.32MiB / 64MiB|16.13%|5
+mysqld-exporter|0.00%|12.91MiB / 64MiB|20.18%|5
+mysql|0.86%|460.3MiB / 768MiB|59.93%|46
+processing|1.53%|280.1MiB / 416MiB|67.32%|38
+prometheus|0.00%|33.79MiB / 320MiB|10.56%|13
+redis-exporter|0.00%|13.41MiB / 64MiB|20.95%|8
+redis|0.36%|11.68MiB / 160MiB|7.30%|6
+scanner|0.22%|216.2MiB / 416MiB|51.98%|31
+worker-1|0.26%|343.1MiB / 416MiB|82.48%|36
+worker-2|0.41%|354.6MiB / 416MiB|85.24%|37
+EndpointCodes: scanner=200 ingest=200 processing=200 worker-1=200 worker-2=200 prometheus=200 grafana=200 mysqld-exporter=200 mysqld-exporter-central=200 kafka-exporter=200 redis-exporter=200
+KafkaResponsive=true
+KafkaExporterBrokers=1
+MySQLResponsive=true
+RedisResponse=PONG
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 40%
+Sample=1 ElapsedSeconds=11 CapturedAtUTC=2026-08-29T06:50:18Z
+ProjectContainerCount=14
+/grafana|running|false|0|0
+/ingest|running|false|0|0
+/kafka-exporter|running|false|0|0
+/kafka|running|false|0|0
+/mysqld-exporter-central|running|false|0|0
+/mysqld-exporter|running|false|0|0
+/mysql|running|false|0|0
+/processing|running|false|0|0
+/prometheus|running|false|0|0
+/redis-exporter|running|false|0|0
+/redis|running|false|0|0
+/scanner|running|false|0|0
+/worker-1|running|false|0|0
+/worker-2|running|false|0|0
+grafana|0.03%|113.7MiB / 256MiB|44.42%|15
+ingest|4.70%|199.5MiB / 416MiB|47.95%|29
+kafka-exporter|0.04%|10.91MiB / 64MiB|17.05%|5
+kafka|3.71%|400.8MiB / 1.25GiB|31.31%|110
+mysqld-exporter-central|0.00%|10.32MiB / 64MiB|16.13%|5
+mysqld-exporter|0.00%|12.87MiB / 64MiB|20.10%|5
+mysql|1.04%|460.6MiB / 768MiB|59.97%|46
+processing|1.15%|280.2MiB / 416MiB|67.35%|38
+prometheus|0.27%|33.8MiB / 320MiB|10.56%|13
+redis-exporter|0.00%|12.82MiB / 64MiB|20.04%|8
+redis|0.38%|11.68MiB / 160MiB|7.30%|6
+scanner|0.45%|216.4MiB / 416MiB|52.03%|31
+worker-1|1.14%|343.4MiB / 416MiB|82.54%|37
+worker-2|1.46%|354.8MiB / 416MiB|85.28%|37
+EndpointCodes: scanner=200 ingest=200 processing=200 worker-1=200 worker-2=200 prometheus=200 grafana=200 mysqld-exporter=200 mysqld-exporter-central=200 kafka-exporter=200 redis-exporter=200
+KafkaResponsive=true
+KafkaExporterBrokers=1
+MySQLResponsive=true
+RedisResponse=PONG
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 41%
+Sample=2 ElapsedSeconds=22 CapturedAtUTC=2026-08-29T06:50:29Z
+ProjectContainerCount=14
+/grafana|running|false|0|0
+/ingest|running|false|0|0
+/kafka-exporter|running|false|0|0
+/kafka|running|false|0|0
+/mysqld-exporter-central|running|false|0|0
+/mysqld-exporter|running|false|0|0
+/mysql|running|false|0|0
+/processing|running|false|0|0
+/prometheus|running|false|0|0
+/redis-exporter|running|false|0|0
+/redis|running|false|0|0
+/scanner|running|false|0|0
+/worker-1|running|false|0|0
+/worker-2|running|false|0|0
+grafana|0.20%|114.1MiB / 256MiB|44.57%|15
+ingest|0.22%|199.5MiB / 416MiB|47.95%|29
+kafka-exporter|0.05%|10.99MiB / 64MiB|17.18%|5
+kafka|7.43%|401MiB / 1.25GiB|31.33%|110
+mysqld-exporter-central|0.01%|10.35MiB / 64MiB|16.17%|5
+mysqld-exporter|0.00%|13.39MiB / 64MiB|20.93%|5
+mysql|0.92%|460.7MiB / 768MiB|59.99%|46
+processing|1.04%|280.2MiB / 416MiB|67.36%|38
+prometheus|0.39%|33.81MiB / 320MiB|10.57%|13
+redis-exporter|0.00%|12.89MiB / 64MiB|20.14%|8
+redis|0.34%|11.68MiB / 160MiB|7.30%|6
+scanner|0.28%|216.5MiB / 416MiB|52.05%|31
+worker-1|1.57%|343.5MiB / 416MiB|82.58%|37
+worker-2|0.74%|355MiB / 416MiB|85.33%|37
+EndpointCodes: scanner=200 ingest=200 processing=200 worker-1=200 worker-2=200 prometheus=200 grafana=200 mysqld-exporter=200 mysqld-exporter-central=200 kafka-exporter=200 redis-exporter=200
+KafkaResponsive=true
+KafkaExporterBrokers=1
+MySQLResponsive=true
+RedisResponse=PONG
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 41%
+Sample=3 ElapsedSeconds=32 CapturedAtUTC=2026-08-29T06:50:39Z
+ProjectContainerCount=14
+/grafana|running|false|0|0
+/ingest|running|false|0|0
+/kafka-exporter|running|false|0|0
+/kafka|running|false|0|0
+/mysqld-exporter-central|running|false|0|0
+/mysqld-exporter|running|false|0|0
+/mysql|running|false|0|0
+/processing|running|false|0|0
+/prometheus|running|false|0|0
+/redis-exporter|running|false|0|0
+/redis|running|false|0|0
+/scanner|running|false|0|0
+/worker-1|running|false|0|0
+/worker-2|running|false|0|0
+grafana|0.05%|114.5MiB / 256MiB|44.72%|15
+ingest|0.17%|199.6MiB / 416MiB|47.97%|29
+kafka-exporter|0.05%|11.01MiB / 64MiB|17.20%|5
+kafka|4.08%|401.2MiB / 1.25GiB|31.34%|110
+mysqld-exporter-central|0.00%|10.37MiB / 64MiB|16.20%|5
+mysqld-exporter|0.00%|12.68MiB / 64MiB|19.82%|5
+mysql|0.92%|460.7MiB / 768MiB|59.99%|46
+processing|1.59%|280.4MiB / 416MiB|67.40%|38
+prometheus|0.16%|33.82MiB / 320MiB|10.57%|13
+redis-exporter|0.00%|12.93MiB / 64MiB|20.20%|8
+redis|0.30%|11.68MiB / 160MiB|7.30%|6
+scanner|3.95%|216.7MiB / 416MiB|52.10%|31
+worker-1|0.28%|343.7MiB / 416MiB|82.61%|37
+worker-2|0.29%|355.1MiB / 416MiB|85.37%|37
+EndpointCodes: scanner=200 ingest=200 processing=200 worker-1=200 worker-2=200 prometheus=200 grafana=200 mysqld-exporter=200 mysqld-exporter-central=200 kafka-exporter=200 redis-exporter=200
+KafkaResponsive=true
+KafkaExporterBrokers=1
+MySQLResponsive=true
+RedisResponse=PONG
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 41%
+Sample=4 ElapsedSeconds=43 CapturedAtUTC=2026-08-29T06:50:50Z
+ProjectContainerCount=14
+/grafana|running|false|0|0
+/ingest|running|false|0|0
+/kafka-exporter|running|false|0|0
+/kafka|running|false|0|0
+/mysqld-exporter-central|running|false|0|0
+/mysqld-exporter|running|false|0|0
+/mysql|running|false|0|0
+/processing|running|false|0|0
+/prometheus|running|false|0|0
+/redis-exporter|running|false|0|0
+/redis|running|false|0|0
+/scanner|running|false|0|0
+/worker-1|running|false|0|0
+/worker-2|running|false|0|0
+grafana|0.12%|114.5MiB / 256MiB|44.72%|15
+ingest|0.22%|199.8MiB / 416MiB|48.02%|29
+kafka-exporter|0.06%|11.06MiB / 64MiB|17.28%|5
+kafka|2.98%|401.9MiB / 1.25GiB|31.40%|110
+mysqld-exporter-central|0.00%|10.41MiB / 64MiB|16.27%|5
+mysqld-exporter|0.00%|12.59MiB / 64MiB|19.67%|5
+mysql|0.86%|460.7MiB / 768MiB|59.99%|46
+processing|1.10%|280.5MiB / 416MiB|67.43%|38
+prometheus|0.14%|33.84MiB / 320MiB|10.57%|13
+redis-exporter|0.00%|12.58MiB / 64MiB|19.66%|8
+redis|0.34%|11.68MiB / 160MiB|7.30%|6
+scanner|0.37%|216.8MiB / 416MiB|52.11%|31
+worker-1|0.30%|343.8MiB / 416MiB|82.64%|37
+worker-2|3.36%|355.3MiB / 416MiB|85.41%|37
+EndpointCodes: scanner=200 ingest=200 processing=200 worker-1=200 worker-2=200 prometheus=200 grafana=200 mysqld-exporter=200 mysqld-exporter-central=200 kafka-exporter=200 redis-exporter=200
+KafkaResponsive=true
+KafkaExporterBrokers=1
+MySQLResponsive=true
+RedisResponse=PONG
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 41%
+Sample=5 ElapsedSeconds=53 CapturedAtUTC=2026-08-29T06:51:00Z
+ProjectContainerCount=14
+/grafana|running|false|0|0
+/ingest|running|false|0|0
+/kafka-exporter|running|false|0|0
+/kafka|running|false|0|0
+/mysqld-exporter-central|running|false|0|0
+/mysqld-exporter|running|false|0|0
+/mysql|running|false|0|0
+/processing|running|false|0|0
+/prometheus|running|false|0|0
+/redis-exporter|running|false|0|0
+/redis|running|false|0|0
+/scanner|running|false|0|0
+/worker-1|running|false|0|0
+/worker-2|running|false|0|0
+grafana|0.04%|114.9MiB / 256MiB|44.87%|15
+ingest|0.15%|199.8MiB / 416MiB|48.03%|29
+kafka-exporter|0.04%|11.08MiB / 64MiB|17.31%|5
+kafka|4.31%|402MiB / 1.25GiB|31.41%|110
+mysqld-exporter-central|0.00%|10.44MiB / 64MiB|16.31%|5
+mysqld-exporter|0.00%|13.2MiB / 64MiB|20.62%|5
+mysql|0.86%|460.8MiB / 768MiB|60.00%|46
+processing|0.97%|280.5MiB / 416MiB|67.44%|38
+prometheus|0.34%|33.85MiB / 320MiB|10.58%|13
+redis-exporter|2.87%|12.73MiB / 64MiB|19.89%|8
+redis|0.74%|11.68MiB / 160MiB|7.30%|6
+scanner|0.27%|216.9MiB / 416MiB|52.14%|31
+worker-1|0.37%|344.1MiB / 416MiB|82.71%|37
+worker-2|1.50%|355.4MiB / 416MiB|85.43%|37
+EndpointCodes: scanner=200 ingest=200 processing=200 worker-1=200 worker-2=200 prometheus=200 grafana=200 mysqld-exporter=200 mysqld-exporter-central=200 kafka-exporter=200 redis-exporter=200
+KafkaResponsive=true
+KafkaExporterBrokers=1
+MySQLResponsive=true
+RedisResponse=PONG
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 41%
+Sample=6 ElapsedSeconds=64 CapturedAtUTC=2026-08-29T06:51:11Z
+ProjectContainerCount=14
+/grafana|running|false|0|0
+/ingest|running|false|0|0
+/kafka-exporter|running|false|0|0
+/kafka|running|false|0|0
+/mysqld-exporter-central|running|false|0|0
+/mysqld-exporter|running|false|0|0
+/mysql|running|false|0|0
+/processing|running|false|0|0
+/prometheus|running|false|0|0
+/redis-exporter|running|false|0|0
+/redis|running|false|0|0
+/scanner|running|false|0|0
+/worker-1|running|false|0|0
+/worker-2|running|false|0|0
+grafana|0.11%|115MiB / 256MiB|44.93%|15
+ingest|0.54%|199.9MiB / 416MiB|48.05%|29
+kafka-exporter|0.06%|11.1MiB / 64MiB|17.34%|5
+kafka|4.03%|402.2MiB / 1.25GiB|31.42%|110
+mysqld-exporter-central|0.00%|10.53MiB / 64MiB|16.45%|5
+mysqld-exporter|0.00%|13.34MiB / 64MiB|20.84%|5
+mysql|0.90%|460.9MiB / 768MiB|60.01%|46
+processing|1.39%|280.7MiB / 416MiB|67.47%|38
+prometheus|0.00%|33.85MiB / 320MiB|10.58%|13
+redis-exporter|0.00%|12.73MiB / 64MiB|19.90%|8
+redis|0.39%|11.68MiB / 160MiB|7.30%|6
+scanner|0.47%|217MiB / 416MiB|52.16%|31
+worker-1|1.08%|344.2MiB / 416MiB|82.75%|37
+worker-2|0.59%|355.6MiB / 416MiB|85.47%|37
+EndpointCodes: scanner=200 ingest=200 processing=200 worker-1=200 worker-2=200 prometheus=200 grafana=200 mysqld-exporter=200 mysqld-exporter-central=200 kafka-exporter=200 redis-exporter=200
+KafkaResponsive=true
+KafkaExporterBrokers=1
+MySQLResponsive=true
+RedisResponse=PONG
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 40%
+Sample=7 ElapsedSeconds=74 CapturedAtUTC=2026-08-29T06:51:21Z
+ProjectContainerCount=14
+/grafana|running|false|0|0
+/ingest|running|false|0|0
+/kafka-exporter|running|false|0|0
+/kafka|running|false|0|0
+/mysqld-exporter-central|running|false|0|0
+/mysqld-exporter|running|false|0|0
+/mysql|running|false|0|0
+/processing|running|false|0|0
+/prometheus|running|false|0|0
+/redis-exporter|running|false|0|0
+/redis|running|false|0|0
+/scanner|running|false|0|0
+/worker-1|running|false|0|0
+/worker-2|running|false|0|0
+grafana|0.03%|115.2MiB / 256MiB|44.99%|15
+ingest|0.25%|200MiB / 416MiB|48.07%|29
+kafka-exporter|0.05%|11.12MiB / 64MiB|17.38%|5
+kafka|4.22%|403.5MiB / 1.25GiB|31.53%|110
+mysqld-exporter-central|0.00%|10.53MiB / 64MiB|16.45%|5
+mysqld-exporter|0.00%|13.59MiB / 64MiB|21.23%|5
+mysql|0.85%|460.9MiB / 768MiB|60.02%|46
+processing|1.23%|280.8MiB / 416MiB|67.50%|38
+prometheus|0.00%|33.86MiB / 320MiB|10.58%|13
+redis-exporter|0.00%|12.89MiB / 64MiB|20.14%|8
+redis|0.36%|11.68MiB / 160MiB|7.30%|6
+scanner|0.74%|217MiB / 416MiB|52.17%|31
+worker-1|0.66%|344.3MiB / 416MiB|82.77%|37
+worker-2|0.40%|355.7MiB / 416MiB|85.50%|37
+EndpointCodes: scanner=200 ingest=200 processing=200 worker-1=200 worker-2=200 prometheus=200 grafana=200 mysqld-exporter=200 mysqld-exporter-central=200 kafka-exporter=200 redis-exporter=200
+KafkaResponsive=true
+KafkaExporterBrokers=1
+MySQLResponsive=true
+RedisResponse=PONG
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 40%
+Sample=8 ElapsedSeconds=85 CapturedAtUTC=2026-08-29T06:51:32Z
+ProjectContainerCount=14
+/grafana|running|false|0|0
+/ingest|running|false|0|0
+/kafka-exporter|running|false|0|0
+/kafka|running|false|0|0
+/mysqld-exporter-central|running|false|0|0
+/mysqld-exporter|running|false|0|0
+/mysql|running|false|0|0
+/processing|running|false|0|0
+/prometheus|running|false|0|0
+/redis-exporter|running|false|0|0
+/redis|running|false|0|0
+/scanner|running|false|0|0
+/worker-1|running|false|0|0
+/worker-2|running|false|0|0
+grafana|0.03%|115.2MiB / 256MiB|45.00%|15
+ingest|0.19%|200MiB / 416MiB|48.09%|29
+kafka-exporter|0.06%|11.38MiB / 64MiB|17.78%|5
+kafka|6.55%|403.7MiB / 1.25GiB|31.54%|110
+mysqld-exporter-central|0.00%|10.53MiB / 64MiB|16.45%|5
+mysqld-exporter|0.00%|13.39MiB / 64MiB|20.92%|5
+mysql|0.88%|460.9MiB / 768MiB|60.02%|46
+processing|1.54%|282.9MiB / 416MiB|68.01%|38
+prometheus|0.00%|33.87MiB / 320MiB|10.58%|13
+redis-exporter|0.00%|13.07MiB / 64MiB|20.43%|8
+redis|0.39%|11.68MiB / 160MiB|7.30%|6
+scanner|0.30%|217.2MiB / 416MiB|52.22%|31
+worker-1|0.48%|344.5MiB / 416MiB|82.81%|37
+worker-2|0.51%|355.8MiB / 416MiB|85.54%|37
+EndpointCodes: scanner=200 ingest=200 processing=200 worker-1=200 worker-2=200 prometheus=200 grafana=200 mysqld-exporter=200 mysqld-exporter-central=200 kafka-exporter=200 redis-exporter=200
+KafkaResponsive=true
+KafkaExporterBrokers=1
+MySQLResponsive=true
+RedisResponse=PONG
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 42%
+Sample=9 ElapsedSeconds=96 CapturedAtUTC=2026-08-29T06:51:43Z
+ProjectContainerCount=14
+/grafana|running|false|0|0
+/ingest|running|false|0|0
+/kafka-exporter|running|false|0|0
+/kafka|running|false|0|0
+/mysqld-exporter-central|running|false|0|0
+/mysqld-exporter|running|false|0|0
+/mysql|running|false|0|0
+/processing|running|false|0|0
+/prometheus|running|false|0|0
+/redis-exporter|running|false|0|0
+/redis|running|false|0|0
+/scanner|running|false|0|0
+/worker-1|running|false|0|0
+/worker-2|running|false|0|0
+grafana|0.02%|115.2MiB / 256MiB|45.01%|15
+ingest|0.17%|200.1MiB / 416MiB|48.10%|29
+kafka-exporter|0.09%|11.14MiB / 64MiB|17.41%|5
+kafka|3.06%|404.3MiB / 1.25GiB|31.58%|110
+mysqld-exporter-central|0.00%|10.53MiB / 64MiB|16.46%|5
+mysqld-exporter|3.16%|12.86MiB / 64MiB|20.09%|5
+mysql|1.57%|461.2MiB / 768MiB|60.06%|46
+processing|1.23%|283.1MiB / 416MiB|68.04%|38
+prometheus|0.49%|33.89MiB / 320MiB|10.59%|13
+redis-exporter|0.00%|13.14MiB / 64MiB|20.54%|8
+redis|0.38%|11.68MiB / 160MiB|7.30%|6
+scanner|0.29%|217.3MiB / 416MiB|52.23%|31
+worker-1|0.44%|344.6MiB / 416MiB|82.84%|37
+worker-2|0.60%|356MiB / 416MiB|85.57%|37
+EndpointCodes: scanner=200 ingest=200 processing=200 worker-1=200 worker-2=200 prometheus=200 grafana=200 mysqld-exporter=200 mysqld-exporter-central=200 kafka-exporter=200 redis-exporter=200
+KafkaResponsive=true
+KafkaExporterBrokers=1
+MySQLResponsive=true
+RedisResponse=PONG
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 41%
+Sample=10 ElapsedSeconds=106 CapturedAtUTC=2026-08-29T06:51:53Z
+ProjectContainerCount=14
+/grafana|running|false|0|0
+/ingest|running|false|0|0
+/kafka-exporter|running|false|0|0
+/kafka|running|false|0|0
+/mysqld-exporter-central|running|false|0|0
+/mysqld-exporter|running|false|0|0
+/mysql|running|false|0|0
+/processing|running|false|0|0
+/prometheus|running|false|0|0
+/redis-exporter|running|false|0|0
+/redis|running|false|0|0
+/scanner|running|false|0|0
+/worker-1|running|false|0|0
+/worker-2|running|false|0|0
+grafana|0.07%|115.2MiB / 256MiB|45.01%|15
+ingest|0.20%|200.2MiB / 416MiB|48.12%|29
+kafka-exporter|0.06%|11.4MiB / 64MiB|17.82%|5
+kafka|3.67%|404.5MiB / 1.25GiB|31.60%|110
+mysqld-exporter-central|0.00%|10.57MiB / 64MiB|16.52%|5
+mysqld-exporter|0.00%|13.07MiB / 64MiB|20.42%|5
+mysql|1.08%|461.2MiB / 768MiB|60.06%|46
+processing|3.85%|283.3MiB / 416MiB|68.09%|38
+prometheus|0.00%|33.87MiB / 320MiB|10.58%|13
+redis-exporter|0.00%|13.57MiB / 64MiB|21.21%|8
+redis|0.33%|11.68MiB / 160MiB|7.30%|6
+scanner|0.91%|217.3MiB / 416MiB|52.24%|31
+worker-1|0.82%|344.7MiB / 416MiB|82.86%|37
+worker-2|0.75%|356.1MiB / 416MiB|85.61%|37
+EndpointCodes: scanner=200 ingest=200 processing=200 worker-1=200 worker-2=200 prometheus=200 grafana=200 mysqld-exporter=200 mysqld-exporter-central=200 kafka-exporter=200 redis-exporter=200
+KafkaResponsive=true
+KafkaExporterBrokers=1
+MySQLResponsive=true
+RedisResponse=PONG
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 42%
+Sample=11 ElapsedSeconds=116 CapturedAtUTC=2026-08-29T06:52:03Z
+ProjectContainerCount=14
+/grafana|running|false|0|0
+/ingest|running|false|0|0
+/kafka-exporter|running|false|0|0
+/kafka|running|false|0|0
+/mysqld-exporter-central|running|false|0|0
+/mysqld-exporter|running|false|0|0
+/mysql|running|false|0|0
+/processing|running|false|0|0
+/prometheus|running|false|0|0
+/redis-exporter|running|false|0|0
+/redis|running|false|0|0
+/scanner|running|false|0|0
+/worker-1|running|false|0|0
+/worker-2|running|false|0|0
+grafana|0.02%|115.3MiB / 256MiB|45.03%|15
+ingest|2.12%|200.3MiB / 416MiB|48.14%|29
+kafka-exporter|0.06%|11.16MiB / 64MiB|17.44%|5
+kafka|3.10%|406.7MiB / 1.25GiB|31.77%|110
+mysqld-exporter-central|0.00%|10.59MiB / 64MiB|16.54%|5
+mysqld-exporter|0.00%|12.71MiB / 64MiB|19.85%|5
+mysql|0.88%|461.3MiB / 768MiB|60.06%|46
+processing|0.99%|283.5MiB / 416MiB|68.14%|38
+prometheus|0.20%|33.88MiB / 320MiB|10.59%|13
+redis-exporter|0.00%|13.39MiB / 64MiB|20.92%|8
+redis|0.32%|11.93MiB / 160MiB|7.46%|6
+scanner|0.22%|217.4MiB / 416MiB|52.25%|31
+worker-1|0.30%|344.8MiB / 416MiB|82.90%|37
+worker-2|0.32%|356.3MiB / 416MiB|85.64%|37
+EndpointCodes: scanner=200 ingest=200 processing=200 worker-1=200 worker-2=200 prometheus=200 grafana=200 mysqld-exporter=200 mysqld-exporter-central=200 kafka-exporter=200 redis-exporter=200
+KafkaResponsive=true
+KafkaExporterBrokers=1
+MySQLResponsive=true
+RedisResponse=PONG
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 42%
+Sample=12 ElapsedSeconds=128 CapturedAtUTC=2026-08-29T06:52:15Z
+ProjectContainerCount=14
+/grafana|running|false|0|0
+/ingest|running|false|0|0
+/kafka-exporter|running|false|0|0
+/kafka|running|false|0|0
+/mysqld-exporter-central|running|false|0|0
+/mysqld-exporter|running|false|0|0
+/mysql|running|false|0|0
+/processing|running|false|0|0
+/prometheus|running|false|0|0
+/redis-exporter|running|false|0|0
+/redis|running|false|0|0
+/scanner|running|false|0|0
+/worker-1|running|false|0|0
+/worker-2|running|false|0|0
+grafana|7.96%|116MiB / 256MiB|45.33%|15
+ingest|0.20%|200.3MiB / 416MiB|48.15%|29
+kafka-exporter|0.08%|11.13MiB / 64MiB|17.40%|5
+kafka|3.80%|417.2MiB / 1.25GiB|32.59%|110
+mysqld-exporter-central|0.00%|10.66MiB / 64MiB|16.66%|5
+mysqld-exporter|0.00%|13.3MiB / 64MiB|20.79%|5
+mysql|0.92%|461.3MiB / 768MiB|60.06%|46
+processing|1.00%|283.5MiB / 416MiB|68.15%|38
+prometheus|0.33%|33.93MiB / 320MiB|10.60%|13
+redis-exporter|2.49%|13.54MiB / 64MiB|21.15%|8
+redis|0.34%|11.93MiB / 160MiB|7.46%|6
+scanner|0.27%|217.4MiB / 416MiB|52.26%|31
+worker-1|0.60%|345MiB / 416MiB|82.94%|37
+worker-2|0.34%|356.4MiB / 416MiB|85.68%|37
+EndpointCodes: scanner=200 ingest=200 processing=200 worker-1=200 worker-2=200 prometheus=200 grafana=200 mysqld-exporter=200 mysqld-exporter-central=200 kafka-exporter=200 redis-exporter=200
+KafkaResponsive=true
+KafkaExporterBrokers=1
+MySQLResponsive=true
+RedisResponse=PONG
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 42%
+SwapAfter=total = 2048.00M  used = 920.62M  free = 1127.38M  (encrypted)
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 42%
+BaselineCompletedAtUTC=2026-08-29T06:52:21Z
+Memory90Percent30SecondGate=PASS
+HealthyBaseline=PASS

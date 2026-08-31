@@ -1,0 +1,87 @@
+CapturedAtUTC=2026-08-29T07:41:02Z
+ContainerStatesAndLimits:
+/grafana Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=268435456 NanoCpus=150000000 Image=sha256:0a3c9111b0d74ceab6954202a004ca530961f8d3fb8fb9a068440fc868797ce9
+/ingest Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=436207616 NanoCpus=350000000 Image=sha256:72c559bb87e27466cf8803e8633d75f98f3606129f334ead603e5302414be7fc
+/kafka Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=1342177280 NanoCpus=750000000 Image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+/kafka-exporter Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=67108864 NanoCpus=100000000 Image=sha256:26fe916957b4a83e5b4ad8f13f6e1d9c96c18422d8c36de5ec1414d2d9f6d7d3
+/mysql Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=805306368 NanoCpus=500000000 Image=sha256:5e7e005a680e75d935984d3d9390990d2a709b3ed67e92708e9e6747f1f754c9
+/mysqld-exporter Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=67108864 NanoCpus=100000000 Image=sha256:9dda0b138756235ad8c488ec215892de0b68e5b4f017047f3a14b81be14f4606
+/mysqld-exporter-central Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=67108864 NanoCpus=100000000 Image=sha256:9dda0b138756235ad8c488ec215892de0b68e5b4f017047f3a14b81be14f4606
+/processing Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=436207616 NanoCpus=350000000 Image=sha256:9e9098f75b73825d2e30d7db3c09c7b2733655b21109a104b34d0c733ce1c7a6
+/prometheus Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=335544320 NanoCpus=250000000 Image=sha256:d2525ab881e3315844f06cf90d72184d8ee4dae274463d2aa794a7f50e3fdb71
+/redis Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=167772160 NanoCpus=150000000 Image=sha256:59c08762bdbcf53fa132aa0bae464a57a1309dc3fff8a034bb3e16d7a0b30ec5
+/redis-exporter Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=67108864 NanoCpus=100000000 Image=sha256:0892de2d75ea1c5df257f5f63dc2291dd1650dbf250358946bdf336ee00321bb
+/scanner Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=436207616 NanoCpus=350000000 Image=sha256:7457ce9df6e35cc12981cb06e948737a52525cbc6223be33b86a8fdac5d4d218
+/worker-1 Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=436207616 NanoCpus=350000000 Image=sha256:de543d632da818fd7c0a86dbcb6bd4857fbbf1b12f6f20b22d17936024df4433
+/worker-2 Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=436207616 NanoCpus=350000000 Image=sha256:37ffc1d11f40c8f48b33da9855d6d7a476661ab78850115385ed8a4b79134490
+DockerStats:
+scanner CPU=0.35% Memory=216.3MiB / 416MiB MemoryPercent=51.99% PIDs=31
+worker-2 CPU=1.07% Memory=338.7MiB / 416MiB MemoryPercent=81.41% PIDs=37
+ingest CPU=0.21% Memory=207.3MiB / 416MiB MemoryPercent=49.84% PIDs=29
+processing CPU=1.45% Memory=286.3MiB / 416MiB MemoryPercent=68.82% PIDs=40
+worker-1 CPU=0.31% Memory=345.4MiB / 416MiB MemoryPercent=83.03% PIDs=37
+prometheus CPU=0.30% Memory=31.43MiB / 320MiB MemoryPercent=9.82% PIDs=13
+grafana CPU=0.53% Memory=108.9MiB / 256MiB MemoryPercent=42.53% PIDs=17
+kafka-exporter CPU=0.06% Memory=12.96MiB / 64MiB MemoryPercent=20.26% PIDs=5
+mysqld-exporter CPU=0.00% Memory=10.32MiB / 64MiB MemoryPercent=16.13% PIDs=5
+redis-exporter CPU=0.00% Memory=12.44MiB / 64MiB MemoryPercent=19.44% PIDs=8
+mysqld-exporter-central CPU=0.00% Memory=11.45MiB / 64MiB MemoryPercent=17.88% PIDs=5
+kafka CPU=3.28% Memory=392.9MiB / 1.25GiB MemoryPercent=30.70% PIDs=110
+redis CPU=0.66% Memory=11.68MiB / 160MiB MemoryPercent=7.30% PIDs=6
+mysql CPU=0.93% Memory=460.7MiB / 768MiB MemoryPercent=59.99% PIDs=46
+HostMemoryPressure:
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 44%
+HostSwap:
+vm.swapusage: total = 2048.00M  used = 1344.00M  free = 704.00M  (encrypted)
+DockerDaemon:
+responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+KafkaBrokerReadiness:
+__consumer_offsets
+barcode-events
+KafkaExporterSelectedMetrics:
+kafka_brokers 1
+kafka_topic_partitions{topic="barcode-events"} 10
+KafkaPartitionEndOffsets:
+Error: Could not find or load main class kafka.tools.GetOffsetShell
+Caused by: java.lang.ClassNotFoundException: kafka.tools.GetOffsetShell
+RedisState:
+StreamLength=0
+DLQLength=0
+GroupInfo:
+name
+barcode-persistence-group
+consumers
+2
+pending
+0
+last-delivered-id
+0-0
+entries-read
+
+lag
+0
+PendingSummary:
+0
+
+
+
+MySQLState:
+mysql: [Warning] Using a password on the command line interface can be insecure.
+barcodes=0, distinct_original=0, distinct_scan_time=0
+KafkaDLTTopics:
+DriverAndSpecificationHashes:
+1c04c77a88d22ba31b13063c1fdb863fed93adb1991fd5052132da0e77853ae1  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/traffic-driver.sh
+44b7ec26c1b31138394eacdcec18781b702ddaf7a70fbb4e00e25b1fcbb22068  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml
+KafkaEndOffsetCorrectionCapturedAtUTC=2026-08-29T07:41:41Z
+AvailableKafkaPartitionEndOffsets:
+barcode-events:0:0
+barcode-events:1:0
+barcode-events:2:0
+barcode-events:3:0
+barcode-events:4:0
+barcode-events:5:0
+barcode-events:6:0
+barcode-events:7:0
+barcode-events:8:0
+barcode-events:9:0

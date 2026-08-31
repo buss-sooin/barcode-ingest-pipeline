@@ -1,0 +1,13 @@
+ApplicationProbeStartedAtUTC=2026-08-29T06:48:20Z
+Attempt=1 AllRunning=1 ingest=200 processing=200 scanner=200 worker-1=000 worker-2=000
+Attempt=2 AllRunning=1 ingest=200 processing=200 scanner=200 worker-1=000 worker-2=000
+Attempt=3 AllRunning=1 ingest=200 processing=200 scanner=200 worker-1=000 worker-2=000
+Attempt=4 AllRunning=1 ingest=200 processing=200 scanner=200 worker-1=000 worker-2=200
+Attempt=5 AllRunning=1 ingest=200 processing=200 scanner=200 worker-1=000 worker-2=200
+Attempt=6 AllRunning=1 ingest=200 processing=200 scanner=200 worker-1=000 worker-2=200
+Attempt=7 AllRunning=1 ingest=200 processing=200 scanner=200 worker-1=000 worker-2=200
+Attempt=8 AllRunning=1 ingest=200 processing=200 scanner=200 worker-1=000 worker-2=200
+Attempt=9 AllRunning=1 ingest=200 processing=200 scanner=200 worker-1=200 worker-2=200
+ScannerRootHTTP=200
+ApplicationReadiness=PASS
+ApplicationProbeCompletedAtUTC=2026-08-29T06:48:44Z

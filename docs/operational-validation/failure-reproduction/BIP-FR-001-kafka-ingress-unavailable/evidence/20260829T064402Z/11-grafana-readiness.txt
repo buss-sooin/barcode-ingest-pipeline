@@ -1,0 +1,7 @@
+GrafanaProbeStartedAtUTC=2026-08-29T06:47:44Z
+Attempt=1 State=running ExitCode=0 OOMKilled=false RestartCount=0 HTTP=000
+Attempt=2 State=running ExitCode=0 OOMKilled=false RestartCount=0 HTTP=200
+GrafanaReadiness=PASS
+grafana	Memory=100.2MiB / 256MiB	MemoryPercent=39.14%
+MemoryLimitBytes=268435456 NanoCpus=150000000 Status=running OOMKilled=false RestartCount=0
+GrafanaProbeCompletedAtUTC=2026-08-29T06:47:47Z

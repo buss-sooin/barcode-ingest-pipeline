@@ -1,0 +1,39 @@
+BIP-FR-001 exact command log (credentials omitted)
+
+Source safety:
+git fetch --prune origin
+git branch --show-current
+git status --porcelain=v1
+git rev-parse main
+git rev-parse origin/main
+git rev-list --left-right --count main...origin/main
+git switch -c validation/bip-fr-001-kafka-unavailable main
+
+Compose file set (used consistently for config/up/stop/start/down):
+docker-compose.yml
+docker-compose.apps.yml
+monitoring-compose.yml
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml
+
+Rendered config validation:
+docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml config
+
+Clean start:
+docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml down -v --remove-orphans
+
+Image resolution and build:
+docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml pull --ignore-buildable
+docker compose --parallel 1 -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml build --progress plain ingest processing scanner worker-1 worker-2
+
+Bounded stack start:
+docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml up -d --no-build --pull never
+
+Authorized traffic driver invocation:
+NOT RUN — Resource Preflight failed before healthy baseline traffic.
+
+Authorized Kafka failure commands:
+NOT RUN — no `stop kafka` or `start kafka` command was executed.
+
+Clean end:
+docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml down -v --remove-orphans
+

@@ -1,0 +1,8 @@
+Clean-start command:
+docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml down -v --remove-orphans
+
+Verification:
+NETWORK ID   NAME      DRIVER    SCOPE
+DRIVER    VOLUME NAME
+ContainersRunning=0 ContainersStopped=0
+

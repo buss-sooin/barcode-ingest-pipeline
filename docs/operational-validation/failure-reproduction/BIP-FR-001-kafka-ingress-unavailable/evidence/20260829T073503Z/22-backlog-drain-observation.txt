@@ -1,0 +1,6 @@
+DrainObservationStartedAtUTC=2026-08-29T07:49:10Z
+MaximumDrainWindowSeconds=180 ExpectedGeneratedEvents=820
+SampleAtUTC=2026-08-29T07:49:18Z ElapsedSeconds=0 MySQLRows=820 MySQLDistinctScanTime=820 KafkaEndOffsetTotal=1235 KafkaLag=0 RedisStreamLength=820 RedisGroupLag=0 RedisPending=0 RedisDLQ=0 ScannerRetryRemaining=0 KafkaDLTTopics=none
+SampleAtUTC=2026-08-29T07:49:34Z ElapsedSeconds=18 MySQLRows=820 MySQLDistinctScanTime=820 KafkaEndOffsetTotal=1235 KafkaLag=0 RedisStreamLength=820 RedisGroupLag=0 RedisPending=0 RedisDLQ=0 ScannerRetryRemaining=0 KafkaDLTTopics=none
+DrainConvergedAtUTC=2026-08-29T07:49:34Z
+DrainResult=CONVERGED ConsecutiveConvergedSamples=2

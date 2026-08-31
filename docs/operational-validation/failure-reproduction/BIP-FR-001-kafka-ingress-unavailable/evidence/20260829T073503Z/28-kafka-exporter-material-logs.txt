@@ -1,0 +1,91 @@
+2026-08-29T07:46:05.716766471Z E0829 07:46:05.716045       1 kafka_exporter.go:527] Cannot get current offset of topic barcode-events partition 0: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:07.278648638Z E0829 07:46:07.278454       1 kafka_exporter.go:539] Cannot get oldest offset of topic barcode-events partition 0: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:08.048920389Z E0829 07:46:08.048687       1 kafka_exporter.go:518] Cannot get leader of topic barcode-events partition 1: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:09.607638542Z E0829 07:46:09.607381       1 kafka_exporter.go:527] Cannot get current offset of topic barcode-events partition 1: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:11.162340209Z E0829 07:46:11.162097       1 kafka_exporter.go:539] Cannot get oldest offset of topic barcode-events partition 1: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:11.940134668Z E0829 07:46:11.939878       1 kafka_exporter.go:518] Cannot get leader of topic barcode-events partition 2: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:13.490530585Z E0829 07:46:13.490413       1 kafka_exporter.go:527] Cannot get current offset of topic barcode-events partition 2: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:15.041730961Z E0829 07:46:15.041421       1 kafka_exporter.go:539] Cannot get oldest offset of topic barcode-events partition 2: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:15.823571837Z E0829 07:46:15.823449       1 kafka_exporter.go:518] Cannot get leader of topic barcode-events partition 3: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:17.374960671Z E0829 07:46:17.374658       1 kafka_exporter.go:527] Cannot get current offset of topic barcode-events partition 3: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:18.939444546Z E0829 07:46:18.939269       1 kafka_exporter.go:539] Cannot get oldest offset of topic barcode-events partition 3: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:19.707742172Z E0829 07:46:19.707562       1 kafka_exporter.go:518] Cannot get leader of topic barcode-events partition 4: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:21.270378797Z E0829 07:46:21.269956       1 kafka_exporter.go:527] Cannot get current offset of topic barcode-events partition 4: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:22.829196048Z E0829 07:46:22.828984       1 kafka_exporter.go:539] Cannot get oldest offset of topic barcode-events partition 4: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:23.609620799Z E0829 07:46:23.609391       1 kafka_exporter.go:518] Cannot get leader of topic barcode-events partition 5: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:25.162802799Z E0829 07:46:25.162479       1 kafka_exporter.go:527] Cannot get current offset of topic barcode-events partition 5: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:26.722728633Z E0829 07:46:26.722440       1 kafka_exporter.go:539] Cannot get oldest offset of topic barcode-events partition 5: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:27.509357384Z E0829 07:46:27.509119       1 kafka_exporter.go:518] Cannot get leader of topic barcode-events partition 6: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:29.085408551Z E0829 07:46:29.084811       1 kafka_exporter.go:527] Cannot get current offset of topic barcode-events partition 6: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:30.648539385Z E0829 07:46:30.648298       1 kafka_exporter.go:539] Cannot get oldest offset of topic barcode-events partition 6: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:31.426385511Z E0829 07:46:31.426170       1 kafka_exporter.go:518] Cannot get leader of topic barcode-events partition 7: kafka: client has run out of available brokers to talk to: dial tcp: lookup kafka on 127.0.0.11:53: no such host
+2026-08-29T07:46:32.977201345Z E0829 07:46:32.976900       1 kafka_exporter.go:527] Cannot get current offset of topic barcode-events partition 7: kafka: client has run out of available brokers to talk to: dial tcp 172.18.0.3:29092: connect: connection refused
+2026-08-29T07:46:34.488789345Z E0829 07:46:34.488577       1 kafka_exporter.go:539] Cannot get oldest offset of topic barcode-events partition 7: kafka: client has run out of available brokers to talk to: dial tcp 172.18.0.3:29092: connect: connection refused
+2026-08-29T07:46:35.245786512Z E0829 07:46:35.245491       1 kafka_exporter.go:518] Cannot get leader of topic barcode-events partition 8: kafka: client has run out of available brokers to talk to: dial tcp 172.18.0.3:29092: connect: connection refused
+2026-08-29T07:46:36.764973263Z E0829 07:46:36.764738       1 kafka_exporter.go:527] Cannot get current offset of topic barcode-events partition 8: kafka: client has run out of available brokers to talk to: dial tcp 172.18.0.3:29092: connect: connection refused
+2026-08-29T07:46:38.279503125Z E0829 07:46:38.279237       1 kafka_exporter.go:539] Cannot get oldest offset of topic barcode-events partition 8: kafka: client has run out of available brokers to talk to: dial tcp 172.18.0.3:29092: connect: connection refused
+2026-08-29T07:46:39.034776000Z E0829 07:46:39.034347       1 kafka_exporter.go:518] Cannot get leader of topic barcode-events partition 9: kafka: client has run out of available brokers to talk to: dial tcp 172.18.0.3:29092: connect: connection refused
+2026-08-29T07:46:40.550210334Z E0829 07:46:40.550051       1 kafka_exporter.go:527] Cannot get current offset of topic barcode-events partition 9: kafka: client has run out of available brokers to talk to: dial tcp 172.18.0.3:29092: connect: connection refused
+2026-08-29T07:46:42.062226043Z E0829 07:46:42.062101       1 kafka_exporter.go:539] Cannot get oldest offset of topic barcode-events partition 9: kafka: client has run out of available brokers to talk to: dial tcp 172.18.0.3:29092: connect: connection refused
+2026-08-29T07:46:42.819479252Z E0829 07:46:42.819252       1 kafka_exporter.go:518] Cannot get leader of topic __consumer_offsets partition 0: kafka: client has run out of available brokers to talk to: dial tcp 172.18.0.3:29092: connect: connection refused
+2026-08-29T07:46:44.329691794Z E0829 07:46:44.329491       1 kafka_exporter.go:527] Cannot get current offset of topic __consumer_offsets partition 0: kafka: client has run out of available brokers to talk to: dial tcp 172.18.0.3:29092: connect: connection refused
+2026-08-29T07:46:45.849423295Z E0829 07:46:45.849228       1 kafka_exporter.go:539] Cannot get oldest offset of topic __consumer_offsets partition 0: kafka: client has run out of available brokers to talk to: dial tcp 172.18.0.3:29092: connect: connection refused
+2026-08-29T07:46:46.604274504Z E0829 07:46:46.604132       1 kafka_exporter.go:518] Cannot get leader of topic __consumer_offsets partition 1: kafka: client has run out of available brokers to talk to: dial tcp 172.18.0.3:29092: connect: connection refused
+2026-08-29T07:46:48.198628796Z E0829 07:46:48.198294       1 kafka_exporter.go:527] Cannot get current offset of topic __consumer_offsets partition 2: kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date
+2026-08-29T07:46:48.293351671Z E0829 07:46:48.293060       1 kafka_exporter.go:539] Cannot get oldest offset of topic __consumer_offsets partition 2: kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date
+2026-08-29T07:46:48.305993629Z E0829 07:46:48.305785       1 kafka_exporter.go:527] Cannot get current offset of topic __consumer_offsets partition 3: kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date
+2026-08-29T07:46:48.400674754Z E0829 07:46:48.399526       1 kafka_exporter.go:539] Cannot get oldest offset of topic __consumer_offsets partition 3: kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date
+2026-08-29T07:46:48.703835421Z E0829 07:46:48.703482       1 kafka_exporter.go:527] Cannot get current offset of topic __consumer_offsets partition 6: kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date
+2026-08-29T07:46:48.801743921Z E0829 07:46:48.801578       1 kafka_exporter.go:539] Cannot get oldest offset of topic __consumer_offsets partition 6: kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date
+2026-08-29T07:46:48.895190880Z E0829 07:46:48.894991       1 kafka_exporter.go:527] Cannot get current offset of topic __consumer_offsets partition 7: kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date
+2026-08-29T07:46:48.904583088Z E0829 07:46:48.904386       1 kafka_exporter.go:539] Cannot get oldest offset of topic __consumer_offsets partition 7: kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date
+2026-08-29T07:46:48.998973588Z E0829 07:46:48.998753       1 kafka_exporter.go:527] Cannot get current offset of topic __consumer_offsets partition 10: kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date
+2026-08-29T07:46:49.010939130Z E0829 07:46:49.007951       1 kafka_exporter.go:539] Cannot get oldest offset of topic __consumer_offsets partition 10: kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date
+2026-08-29T07:46:49.196806046Z E0829 07:46:49.196715       1 kafka_exporter.go:527] Cannot get current offset of topic __consumer_offsets partition 14: kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date
+2026-08-29T07:46:49.207003755Z E0829 07:46:49.206829       1 kafka_exporter.go:539] Cannot get oldest offset of topic __consumer_offsets partition 14: kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date
+2026-08-29T07:46:49.305419713Z E0829 07:46:49.305243       1 kafka_exporter.go:527] Cannot get current offset of topic __consumer_offsets partition 18: kafka server: Tried to send a message to a replica that is not the leader for some partition. Your metadata is out of date
+2026-08-29T07:46:49.905753172Z I0829 07:46:49.905584       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:46:57.842099884Z I0829 07:46:57.841895       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:47:05.134043804Z I0829 07:47:05.133857       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:47:05.537384804Z I0829 07:47:05.537183       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:47:13.132090169Z I0829 07:47:13.131930       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:47:20.135288089Z I0829 07:47:20.135065       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:47:20.722404922Z I0829 07:47:20.722245       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:47:28.305462884Z I0829 07:47:28.305279       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:47:35.145572637Z I0829 07:47:35.145348       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:47:35.842184263Z I0829 07:47:35.842030       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:47:43.430918169Z I0829 07:47:43.430553       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:47:50.041086172Z I0829 07:47:50.040791       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:47:51.027793172Z I0829 07:47:51.027473       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:47:58.621706051Z I0829 07:47:58.621554       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:48:05.036212304Z I0829 07:48:05.036082       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:48:06.221551555Z I0829 07:48:06.221417       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:48:13.831231502Z I0829 07:48:13.831068       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:48:20.044370464Z I0829 07:48:20.044169       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:48:21.487794881Z I0829 07:48:21.487577       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:48:29.106796343Z I0829 07:48:29.106578       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:48:35.129272346Z I0829 07:48:35.129024       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:48:36.637293305Z I0829 07:48:36.637038       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:48:44.331293336Z I0829 07:48:44.331092       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:48:50.129073630Z I0829 07:48:50.128785       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:48:51.863732923Z I0829 07:48:51.863600       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:48:59.522402968Z I0829 07:48:59.522176       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:49:05.032774221Z I0829 07:49:05.032625       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:49:07.322905513Z I0829 07:49:07.322639       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:49:14.631571836Z I0829 07:49:14.631354       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:49:15.096934628Z I0829 07:49:15.096678       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:49:20.040436755Z I0829 07:49:20.040058       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:49:22.721628881Z I0829 07:49:22.721388       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:49:30.399348593Z I0829 07:49:30.399122       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:49:31.857199177Z I0829 07:49:31.856998       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:49:35.130097929Z I0829 07:49:35.129821       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:49:38.018007222Z I0829 07:49:38.017699       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:49:45.628192045Z I0829 07:49:45.627989       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:49:50.126019839Z I0829 07:49:50.125686       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:49:53.315422757Z I0829 07:49:53.315202       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:50:00.924264469Z I0829 07:50:00.923894       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:50:05.027058012Z I0829 07:50:05.026883       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:50:08.522001041Z I0829 07:50:08.521789       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:50:16.103971253Z I0829 07:50:16.103582       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:50:20.018096630Z I0829 07:50:20.017871       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:50:23.652900257Z I0829 07:50:23.652733       1 kafka_exporter.go:701] [kafka:29092]

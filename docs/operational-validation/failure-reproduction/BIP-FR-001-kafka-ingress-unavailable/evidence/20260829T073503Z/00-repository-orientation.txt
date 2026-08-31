@@ -1,0 +1,24 @@
+CapturedAtUTC=2026-08-29T07:35:50Z
+/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline
+origin	git@github.com:buss-sooin/barcode-ingest-pipeline.git (fetch)
+origin	git@github.com:buss-sooin/barcode-ingest-pipeline.git (push)
+validation/bip-fr-001-kafka-unavailable
+5870dd3578061663be89d54cbde0f9a84375c708
+b39b04907f72c484c9213289933a6a4be178acc4
+## validation/bip-fr-001-kafka-unavailable
+?? docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/
+ .gitignore                                         |   3 +-
+ .../REPRODUCTION-RECORD.md                         | 394 +++++++++++++++++++++
+ .../docker-compose.validation.yml                  |  56 +++
+ .../traffic-driver.sh                              |  59 +++
+ 4 files changed, 511 insertions(+), 1 deletion(-)
+5870dd3 (HEAD -> validation/bip-fr-001-kafka-unavailable) test: freeze BIP-FR-001 material run contract
+ .gitignore                                         |   3 +-
+ .../REPRODUCTION-RECORD.md                         | 394 +++++++++++++++++++++
+ .../docker-compose.validation.yml                  |  56 +++
+ .../traffic-driver.sh                              |  59 +++
+ 4 files changed, 511 insertions(+), 1 deletion(-)
+d117dda2b80460016080940e6ecbdeba7c1495b49cbe9d90a40885945fb4c163  .gitignore
+275ef37d6d1572ee2d0af98bde85fea4d4207c642b5c5fec7f34e1917d598c8e  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/REPRODUCTION-RECORD.md
+44b7ec26c1b31138394eacdcec18781b702ddaf7a70fbb4e00e25b1fcbb22068  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml
+1c04c77a88d22ba31b13063c1fdb863fed93adb1991fd5052132da0e77853ae1  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/traffic-driver.sh

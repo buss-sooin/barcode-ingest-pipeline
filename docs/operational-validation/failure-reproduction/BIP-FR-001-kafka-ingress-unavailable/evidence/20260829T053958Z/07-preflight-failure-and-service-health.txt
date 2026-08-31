@@ -1,0 +1,41 @@
+CapturedAtUTC=2026-08-29T06:11:42Z
+2026-08-29T06:10:29.083072626Z I0829 06:10:29.078962       1 kafka_exporter.go:960] Starting kafka_exporter (version=1.9.0, branch=master, revision=bce418704a210b1ed90e0f76c1f642a440ca6e45)
+2026-08-29T06:10:29.896569626Z F0829 06:10:29.896392       1 kafka_exporter.go:1061] Error Init Kafka Client: kafka: client has run out of available brokers to talk to: dial tcp 172.18.0.2:29092: connect: connection refused
+Name=/kafka-exporter Status=exited ExitCode=255 OOMKilled=false Error="" StartedAt=2026-08-29T06:10:28.568066792Z FinishedAt=2026-08-29T06:10:29.899256168Z RestartCount=0 Memory=67108864 NanoCpus=100000000
+time="2026-08-29T15:11:42+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T15:11:42+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.apps.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T15:11:42+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/monitoring-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+NAME                      IMAGE                                COMMAND                  SERVICE                   CREATED              STATUS                            PORTS
+grafana                   grafana/grafana:10.1.5               "/run.sh"                grafana                   About a minute ago   Up About a minute                 0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp
+ingest                    barcode-ingest-pipeline-ingest       "java -jar app.jar"      ingest                    About a minute ago   Up About a minute                 0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp
+kafka                     confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   kafka                     About a minute ago   Up About a minute                 0.0.0.0:9092->9092/tcp, [::]:9092->9092/tcp
+kafka-exporter            danielqsj/kafka-exporter             "/bin/kafka_exporter…"   kafka-exporter            About a minute ago   Exited (255) About a minute ago   
+mysql                     mysql:8                              "docker-entrypoint.s…"   mysql                     About a minute ago   Up About a minute                 0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp
+mysqld-exporter           prom/mysqld-exporter                 "/bin/mysqld_exporte…"   mysqld-exporter           About a minute ago   Up About a minute                 0.0.0.0:9104->9104/tcp, [::]:9104->9104/tcp
+mysqld-exporter-central   prom/mysqld-exporter                 "/bin/mysqld_exporte…"   mysqld-exporter-central   About a minute ago   Up About a minute                 0.0.0.0:9105->9104/tcp, [::]:9105->9104/tcp
+processing                barcode-ingest-pipeline-processing   "java -jar app.jar"      processing                About a minute ago   Up About a minute                 0.0.0.0:8082->8082/tcp, [::]:8082->8082/tcp
+prometheus                prom/prometheus:v2.47.1              "/bin/prometheus --c…"   prometheus                About a minute ago   Up About a minute                 0.0.0.0:9090->9090/tcp, [::]:9090->9090/tcp
+redis                     redis:alpine                         "docker-entrypoint.s…"   redis                     About a minute ago   Up About a minute                 0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp
+redis-exporter            oliver006/redis_exporter             "/redis_exporter"        redis-exporter            About a minute ago   Up About a minute                 0.0.0.0:9121->9121/tcp, [::]:9121->9121/tcp
+scanner                   barcode-ingest-pipeline-scanner      "java -jar app.jar"      scanner                   About a minute ago   Up About a minute                 0.0.0.0:8084->8084/tcp, [::]:8084->8084/tcp
+worker-1                  barcode-ingest-pipeline-worker-1     "java -jar app.jar"      worker-1                  About a minute ago   Up About a minute                 0.0.0.0:8085->8085/tcp, [::]:8085->8085/tcp
+worker-2                  barcode-ingest-pipeline-worker-2     "java -jar app.jar"      worker-2                  About a minute ago   Up About a minute                 0.0.0.0:8086->8086/tcp, [::]:8086->8086/tcp
+__consumer_offsets
+barcode-events
+PONG
+mysqladmin: [Warning] Using a password on the command line interface can be insecure.
+mysqld is alive
+scanner_root HTTP=200
+scanner_health HTTP=200
+ingest_health HTTP=200
+processing_health HTTP=200
+worker1_health HTTP=200
+worker2_health HTTP=200
+prometheus_ready HTTP=200
+grafana_health HTTP=200
+mysql_exporter HTTP=200
+mysql_central_exporter HTTP=200
+redis_exporter HTTP=200
+curl: (7) Failed to connect to localhost port 9308 after 0 ms: Couldn't connect to server
+kafka_exporter HTTP=000
+

@@ -1,0 +1,18 @@
+ExporterProbeStartedAtUTC=2026-08-29T06:47:25Z
+Attempt=1 State=running ExitCode=0 OOMKilled=false RestartCount=0 CurlExitCode=0 kafka_brokers=1
+KafkaExporterReadiness=PASS
+kafka_brokers 1
+
+KafkaExporterLogs:
+2026-08-29T06:47:00.724169388Z I0829 06:47:00.723913       1 kafka_exporter.go:960] Starting kafka_exporter (version=1.9.0, branch=master, revision=bce418704a210b1ed90e0f76c1f642a440ca6e45)
+2026-08-29T06:47:00.727793763Z I0829 06:47:00.727601       1 kafka_exporter.go:1139] Listening on HTTP :9308
+2026-08-29T06:47:06.197102210Z I0829 06:47:06.196861       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:47:21.188123758Z I0829 06:47:21.187626       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:47:25.958539386Z I0829 06:47:25.958330       1 kafka_exporter.go:701] [kafka:29092]
+prometheus_ready HTTP=200
+grafana_health HTTP=000
+mysql_exporter HTTP=200
+mysql_central_exporter HTTP=200
+redis_exporter HTTP=200
+KafkaExporterFinalState=running ExitCode=0 OOMKilled=false RestartCount=0
+ExporterProbeCompletedAtUTC=2026-08-29T06:47:26Z

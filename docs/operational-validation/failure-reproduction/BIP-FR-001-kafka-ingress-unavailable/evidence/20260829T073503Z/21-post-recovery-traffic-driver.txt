@@ -1,0 +1,5 @@
+PhaseCommandStartedAtUTC=2026-08-29T07:47:12Z
+BaseScanTimeMs=1787989631000 RequestCount=300 RequestsPerSecond=5
+DRIVER_START phase=post-recovery started_at=2026-08-29T07:47:12Z base_scan_time_ms=1787989631000 request_count=300 requests_per_second=5 endpoint=http://localhost:8084/scan/barcode
+DRIVER_END phase=post-recovery finished_at=2026-08-29T07:48:21Z generated=300 http_200=300 http_other=0 transport_error=0 first_scan_time_ms=1787989631000 last_scan_time_ms=1787989631299
+InputGenerationEndedAtUTC=2026-08-29T07:48:21Z

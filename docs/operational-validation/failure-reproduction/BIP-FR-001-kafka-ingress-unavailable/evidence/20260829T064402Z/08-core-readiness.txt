@@ -1,0 +1,9 @@
+ProbeStartedAtUTC=2026-08-29T06:46:44Z
+KafkaProbe=docker exec kafka kafka-topics --bootstrap-server kafka:29092 --list
+KafkaAttempt=1 ElapsedUpperBoundSeconds=2 ExitCode=0
+
+KafkaReadiness=PASS
+MySQLAttempt=1 MySQLReadiness=PASS
+RedisResponse=PONG
+RedisReadiness=PASS
+ProbeCompletedAtUTC=2026-08-29T06:46:47Z

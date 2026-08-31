@@ -1,0 +1,49 @@
+BIP-FR-001 Material Failure Run command summary
+RunID=20260829T073503Z
+MaterialRunSpecificationSHA=5870dd3578061663be89d54cbde0f9a84375c708
+
+Compose file set used consistently:
+- docker-compose.yml
+- docker-compose.apps.yml
+- monitoring-compose.yml
+- docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml
+
+Clean start:
+docker compose <exact-four-file-set> down -v --remove-orphans
+
+Stage 1:
+docker compose <exact-four-file-set> up -d --no-build --pull never kafka mysql redis
+docker exec kafka kafka-topics --bootstrap-server kafka:29092 --list
+
+Stage 2:
+docker compose <exact-four-file-set> up -d --no-build --pull never mysqld-exporter mysqld-exporter-central kafka-exporter redis-exporter prometheus grafana
+
+Stage 3:
+docker compose <exact-four-file-set> up -d --no-build --pull never ingest processing scanner worker-1 worker-2
+
+Healthy traffic:
+traffic-driver.sh healthy 1787989319000 300 5
+
+Authorized fault command:
+docker compose <exact-four-file-set> stop kafka
+
+Outage traffic:
+traffic-driver.sh outage 1787989534000 220 5
+
+Authorized recovery command:
+docker compose <exact-four-file-set> start kafka
+docker exec kafka kafka-topics --bootstrap-server kafka:29092 --list
+
+Post-recovery traffic:
+traffic-driver.sh post-recovery 1787989631000 300 5
+
+Clean end:
+docker compose <exact-four-file-set> down -v --remove-orphans
+
+Image pull: NOT RUN
+Application image rebuild: NOT RUN
+Global prune: NOT RUN
+Additional fault injection: NOT RUN
+Manual data/topic/offset repair: NOT RUN
+Non-Kafka component restart: NOT RUN
+Merge/push/post-run commit: NOT RUN

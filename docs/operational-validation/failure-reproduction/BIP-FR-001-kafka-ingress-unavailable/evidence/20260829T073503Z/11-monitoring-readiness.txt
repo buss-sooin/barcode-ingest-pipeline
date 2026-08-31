@@ -1,0 +1,62 @@
+MonitoringProbeStartedAtUTC=2026-08-29T07:37:47Z
+MonitoringProbeCompletedAtUTC=2026-08-29T07:38:32Z
+Attempts=39
+KafkaExporterState=running kafka_brokers=1
+kafka_brokers 1
+PrometheusHTTP=200 GrafanaHTTP=200 MySQLExporterHTTP=200 MySQLCentralExporterHTTP=200 RedisExporterHTTP=200
+KafkaTopicsAtStage2:
+
+ContainerStates:
+/kafka Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/mysql Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/redis Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/mysqld-exporter Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/mysqld-exporter-central Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/kafka-exporter Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/redis-exporter Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/prometheus Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/grafana Status=running ExitCode=0 OOMKilled=false RestartCount=0
+KafkaExporterLogs:
+2026-08-29T07:37:47.049694212Z I0829 07:37:47.048929       1 kafka_exporter.go:960] Starting kafka_exporter (version=1.9.0, branch=master, revision=bce418704a210b1ed90e0f76c1f642a440ca6e45)
+2026-08-29T07:37:47.057929420Z I0829 07:37:47.057873       1 kafka_exporter.go:1139] Listening on HTTP :9308
+2026-08-29T07:37:47.177360671Z I0829 07:37:47.177221       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:37:48.323645254Z I0829 07:37:48.323387       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:37:49.484290630Z I0829 07:37:49.483988       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:37:50.626681839Z I0829 07:37:50.626418       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:37:51.786188673Z I0829 07:37:51.785930       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:37:52.927188340Z I0829 07:37:52.926899       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:37:54.079009757Z I0829 07:37:54.078678       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:37:55.292622466Z I0829 07:37:55.292358       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:37:56.470531467Z I0829 07:37:56.470311       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:37:57.634102134Z I0829 07:37:57.633906       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:37:58.782189926Z I0829 07:37:58.781942       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:37:59.991011885Z I0829 07:37:59.990753       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:01.187243386Z I0829 07:38:01.186918       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:02.385939053Z I0829 07:38:02.385660       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:03.590014637Z I0829 07:38:03.589707       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:04.783207721Z I0829 07:38:04.783052       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:04.949710137Z I0829 07:38:04.949509       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:06.010816971Z I0829 07:38:06.010554       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:07.201808763Z I0829 07:38:07.201456       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:08.384997166Z I0829 07:38:08.384729       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:09.524107292Z I0829 07:38:09.523871       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:10.661055459Z I0829 07:38:10.660692       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:11.893792835Z I0829 07:38:11.893559       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:13.087927335Z I0829 07:38:13.087702       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:14.299186044Z I0829 07:38:14.298917       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:15.504068753Z I0829 07:38:15.503757       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:16.692212129Z I0829 07:38:16.691934       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:17.889596838Z I0829 07:38:17.889288       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:19.075457671Z I0829 07:38:19.075225       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:19.955568005Z I0829 07:38:19.954131       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:20.194837505Z I0829 07:38:20.194575       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:21.393689964Z I0829 07:38:21.393376       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:22.587704715Z I0829 07:38:22.587458       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:23.793058590Z I0829 07:38:23.792703       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:24.975459716Z I0829 07:38:24.975219       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:26.189479300Z I0829 07:38:26.189193       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:27.393194967Z I0829 07:38:27.392827       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:28.554285801Z I0829 07:38:28.553963       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:29.697721968Z I0829 07:38:29.697295       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:30.889943510Z I0829 07:38:30.889683       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T07:38:32.092611844Z I0829 07:38:32.092381       1 kafka_exporter.go:701] [kafka:29092]

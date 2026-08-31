@@ -1,0 +1,299 @@
+{
+  "name": "barcode-ingest-pipeline",
+  "services": {
+    "grafana": {
+      "image": "grafana/grafana:10.1.5",
+      "build": null,
+      "cpus": 0.15,
+      "mem_limit": "268435456",
+      "ports": [
+        {
+          "mode": "ingress",
+          "target": 3000,
+          "published": "3000",
+          "protocol": "tcp"
+        }
+      ],
+      "depends_on": null
+    },
+    "ingest": {
+      "image": null,
+      "build": {
+        "context": "/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/barcode-ingest-service",
+        "dockerfile": "Dockerfile"
+      },
+      "cpus": 0.35,
+      "mem_limit": "436207616",
+      "ports": [
+        {
+          "mode": "ingress",
+          "target": 8081,
+          "published": "8081",
+          "protocol": "tcp"
+        }
+      ],
+      "depends_on": {
+        "kafka": {
+          "condition": "service_started",
+          "required": true
+        }
+      }
+    },
+    "kafka": {
+      "image": "confluentinc/cp-kafka:8.1.0-1-ubi9",
+      "build": null,
+      "cpus": 0.75,
+      "mem_limit": "1342177280",
+      "ports": [
+        {
+          "mode": "ingress",
+          "target": 9092,
+          "published": "9092",
+          "protocol": "tcp"
+        }
+      ],
+      "depends_on": null
+    },
+    "kafka-exporter": {
+      "image": "danielqsj/kafka-exporter",
+      "build": null,
+      "cpus": 0.1,
+      "mem_limit": "67108864",
+      "ports": [
+        {
+          "mode": "ingress",
+          "target": 9308,
+          "published": "9308",
+          "protocol": "tcp"
+        }
+      ],
+      "depends_on": null
+    },
+    "mysql": {
+      "image": "mysql:8",
+      "build": null,
+      "cpus": 0.5,
+      "mem_limit": "805306368",
+      "ports": [
+        {
+          "mode": "ingress",
+          "target": 3306,
+          "published": "3306",
+          "protocol": "tcp"
+        }
+      ],
+      "depends_on": null
+    },
+    "mysqld-exporter": {
+      "image": "prom/mysqld-exporter",
+      "build": null,
+      "cpus": 0.1,
+      "mem_limit": "67108864",
+      "ports": [
+        {
+          "mode": "ingress",
+          "target": 9104,
+          "published": "9104",
+          "protocol": "tcp"
+        }
+      ],
+      "depends_on": null
+    },
+    "mysqld-exporter-central": {
+      "image": "prom/mysqld-exporter",
+      "build": null,
+      "cpus": 0.1,
+      "mem_limit": "67108864",
+      "ports": [
+        {
+          "mode": "ingress",
+          "target": 9104,
+          "published": "9105",
+          "protocol": "tcp"
+        }
+      ],
+      "depends_on": null
+    },
+    "processing": {
+      "image": null,
+      "build": {
+        "context": "/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/barcode-processing-service",
+        "dockerfile": "Dockerfile"
+      },
+      "cpus": 0.35,
+      "mem_limit": "436207616",
+      "ports": [
+        {
+          "mode": "ingress",
+          "target": 8082,
+          "published": "8082",
+          "protocol": "tcp"
+        }
+      ],
+      "depends_on": {
+        "kafka": {
+          "condition": "service_started",
+          "required": true
+        },
+        "redis": {
+          "condition": "service_started",
+          "required": true
+        }
+      }
+    },
+    "prometheus": {
+      "image": "prom/prometheus:v2.47.1",
+      "build": null,
+      "cpus": 0.25,
+      "mem_limit": "335544320",
+      "ports": [
+        {
+          "mode": "ingress",
+          "target": 9090,
+          "published": "9090",
+          "protocol": "tcp"
+        }
+      ],
+      "depends_on": {
+        "kafka-exporter": {
+          "condition": "service_started",
+          "required": true
+        },
+        "mysqld-exporter": {
+          "condition": "service_started",
+          "required": true
+        },
+        "mysqld-exporter-central": {
+          "condition": "service_started",
+          "required": true
+        },
+        "redis-exporter": {
+          "condition": "service_started",
+          "required": true
+        }
+      }
+    },
+    "redis": {
+      "image": "redis:alpine",
+      "build": null,
+      "cpus": 0.15,
+      "mem_limit": "167772160",
+      "ports": [
+        {
+          "mode": "ingress",
+          "target": 6379,
+          "published": "6379",
+          "protocol": "tcp"
+        }
+      ],
+      "depends_on": null
+    },
+    "redis-exporter": {
+      "image": "oliver006/redis_exporter",
+      "build": null,
+      "cpus": 0.1,
+      "mem_limit": "67108864",
+      "ports": [
+        {
+          "mode": "ingress",
+          "target": 9121,
+          "published": "9121",
+          "protocol": "tcp"
+        }
+      ],
+      "depends_on": null
+    },
+    "scanner": {
+      "image": null,
+      "build": {
+        "context": "/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/barcode-scanner-service",
+        "dockerfile": "Dockerfile"
+      },
+      "cpus": 0.35,
+      "mem_limit": "436207616",
+      "ports": [
+        {
+          "mode": "ingress",
+          "target": 8084,
+          "published": "8084",
+          "protocol": "tcp"
+        }
+      ],
+      "depends_on": {
+        "ingest": {
+          "condition": "service_started",
+          "required": true
+        }
+      }
+    },
+    "worker-1": {
+      "image": null,
+      "build": {
+        "context": "/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/barcode-persistence-worker",
+        "dockerfile": "Dockerfile"
+      },
+      "cpus": 0.35,
+      "mem_limit": "436207616",
+      "ports": [
+        {
+          "mode": "ingress",
+          "target": 8085,
+          "published": "8085",
+          "protocol": "tcp"
+        }
+      ],
+      "depends_on": {
+        "mysql": {
+          "condition": "service_started",
+          "required": true
+        },
+        "redis": {
+          "condition": "service_started",
+          "required": true
+        }
+      }
+    },
+    "worker-2": {
+      "image": null,
+      "build": {
+        "context": "/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/barcode-persistence-worker",
+        "dockerfile": "Dockerfile"
+      },
+      "cpus": 0.35,
+      "mem_limit": "436207616",
+      "ports": [
+        {
+          "mode": "ingress",
+          "target": 8086,
+          "published": "8086",
+          "protocol": "tcp"
+        }
+      ],
+      "depends_on": {
+        "mysql": {
+          "condition": "service_started",
+          "required": true
+        },
+        "redis": {
+          "condition": "service_started",
+          "required": true
+        }
+      }
+    }
+  },
+  "networks": {
+    "monitoring-net": {
+      "name": "barcode-ingest-pipeline_monitoring-net",
+      "driver": "bridge",
+      "ipam": {}
+    }
+  },
+  "volumes": {
+    "grafana-data": {
+      "name": "barcode-ingest-pipeline_grafana-data"
+    },
+    "prometheus-data": {
+      "name": "barcode-ingest-pipeline_prometheus-data"
+    }
+  }
+}

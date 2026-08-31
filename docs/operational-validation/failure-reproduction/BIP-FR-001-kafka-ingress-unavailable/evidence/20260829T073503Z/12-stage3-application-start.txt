@@ -1,0 +1,26 @@
+time="2026-08-29T16:39:18+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T16:39:18+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.apps.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T16:39:18+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/monitoring-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container kafka Running 
+ Container mysql Running 
+ Container redis Running 
+ Container worker-2 Creating 
+ Container ingest Creating 
+ Container processing Creating 
+ Container worker-1 Creating 
+ Container processing Created 
+ Container worker-2 Created 
+ Container ingest Created 
+ Container scanner Creating 
+ Container worker-1 Created 
+ Container scanner Created 
+ Container ingest Starting 
+ Container worker-2 Starting 
+ Container worker-1 Starting 
+ Container processing Starting 
+ Container worker-2 Started 
+ Container worker-1 Started 
+ Container ingest Started 
+ Container scanner Starting 
+ Container processing Started 
+ Container scanner Started 

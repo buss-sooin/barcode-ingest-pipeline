@@ -1,0 +1,46 @@
+Stage3StartedAtUTC=2026-08-29T06:47:59Z
+Command=docker compose <exact-four-file-set> up -d --no-build --pull never ingest processing scanner worker-1 worker-2
+time="2026-08-29T15:47:59+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T15:47:59+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.apps.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T15:47:59+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/monitoring-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container redis Running 
+ Container kafka Running 
+ Container mysql Running 
+ Container worker-2 Creating 
+ Container worker-1 Creating 
+ Container ingest Creating 
+ Container processing Creating 
+ Container ingest Created 
+ Container scanner Creating 
+ Container processing Created 
+ Container worker-1 Created 
+ Container worker-2 Created 
+ Container scanner Created 
+ Container worker-1 Starting 
+ Container processing Starting 
+ Container worker-2 Starting 
+ Container ingest Starting 
+ Container worker-2 Started 
+ Container worker-1 Started 
+ Container ingest Started 
+ Container scanner Starting 
+ Container processing Started 
+ Container scanner Started 
+time="2026-08-29T15:48:00+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T15:48:00+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.apps.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T15:48:00+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/monitoring-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+NAME                      IMAGE                                COMMAND                  SERVICE                   CREATED              STATUS                  PORTS
+grafana                   grafana/grafana:10.1.5               "/run.sh"                grafana                   About a minute ago   Up 59 seconds           0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp
+ingest                    barcode-ingest-pipeline-ingest       "java -jar app.jar"      ingest                    1 second ago         Up Less than a second   0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp
+kafka                     confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   kafka                     About a minute ago   Up About a minute       0.0.0.0:9092->9092/tcp, [::]:9092->9092/tcp
+kafka-exporter            danielqsj/kafka-exporter             "/bin/kafka_exporter…"   kafka-exporter            About a minute ago   Up 59 seconds           0.0.0.0:9308->9308/tcp, [::]:9308->9308/tcp
+mysql                     mysql:8                              "docker-entrypoint.s…"   mysql                     About a minute ago   Up About a minute       0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp
+mysqld-exporter           prom/mysqld-exporter                 "/bin/mysqld_exporte…"   mysqld-exporter           About a minute ago   Up 59 seconds           0.0.0.0:9104->9104/tcp, [::]:9104->9104/tcp
+mysqld-exporter-central   prom/mysqld-exporter                 "/bin/mysqld_exporte…"   mysqld-exporter-central   About a minute ago   Up 59 seconds           0.0.0.0:9105->9104/tcp, [::]:9105->9104/tcp
+processing                barcode-ingest-pipeline-processing   "java -jar app.jar"      processing                1 second ago         Up Less than a second   0.0.0.0:8082->8082/tcp, [::]:8082->8082/tcp
+prometheus                prom/prometheus:v2.47.1              "/bin/prometheus --c…"   prometheus                About a minute ago   Up 59 seconds           0.0.0.0:9090->9090/tcp, [::]:9090->9090/tcp
+redis                     redis:alpine                         "docker-entrypoint.s…"   redis                     About a minute ago   Up About a minute       0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp
+redis-exporter            oliver006/redis_exporter             "/redis_exporter"        redis-exporter            About a minute ago   Up 59 seconds           0.0.0.0:9121->9121/tcp, [::]:9121->9121/tcp
+scanner                   barcode-ingest-pipeline-scanner      "java -jar app.jar"      scanner                   1 second ago         Up Less than a second   0.0.0.0:8084->8084/tcp, [::]:8084->8084/tcp
+worker-1                  barcode-ingest-pipeline-worker-1     "java -jar app.jar"      worker-1                  1 second ago         Up Less than a second   0.0.0.0:8085->8085/tcp, [::]:8085->8085/tcp
+worker-2                  barcode-ingest-pipeline-worker-2     "java -jar app.jar"      worker-2                  1 second ago         Up Less than a second   0.0.0.0:8086->8086/tcp, [::]:8086->8086/tcp

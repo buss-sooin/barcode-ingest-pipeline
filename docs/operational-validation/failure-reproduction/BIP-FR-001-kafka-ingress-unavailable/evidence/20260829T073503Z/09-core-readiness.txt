@@ -1,0 +1,21 @@
+ReadinessWaitStartedAtUTC=2026-08-29T07:36:57Z
+CoreReadyAtUTC=2026-08-29T07:37:08Z
+ReadinessAttempts=1
+KafkaBrokerProbe=PASS
+[2026-08-29 07:37:01,580] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:37:01,675] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:37:01,775] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:37:02,081] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:37:02,588] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:37:03,464] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:37:04,471] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:37:05,567] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+[2026-08-29 07:37:06,582] WARN [AdminClient clientId=adminclient-1] Connection to node -1 (kafka/172.18.0.3:29092) could not be established. Node may not be available. (org.apache.kafka.clients.NetworkClient)
+MySQLProbe=PASS
+mysqladmin: [Warning] Using a password on the command line interface can be insecure.
+mysqld is alive
+RedisProbe=PASS
+PONG
+Name=kafka Image=confluentinc/cp-kafka:8.1.0-1-ubi9 Status=Up 10 seconds
+Name=redis Image=redis:alpine Status=Up 10 seconds
+Name=mysql Image=mysql:8 Status=Up 10 seconds

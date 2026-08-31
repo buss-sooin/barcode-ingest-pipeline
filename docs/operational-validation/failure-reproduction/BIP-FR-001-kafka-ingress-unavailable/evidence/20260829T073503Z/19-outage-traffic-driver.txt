@@ -1,0 +1,5 @@
+PhaseCommandStartedAtUTC=2026-08-29T07:45:35Z
+BaseScanTimeMs=1787989534000 RequestCount=220 RequestsPerSecond=5
+DRIVER_START phase=outage started_at=2026-08-29T07:45:35Z base_scan_time_ms=1787989534000 request_count=220 requests_per_second=5 endpoint=http://localhost:8084/scan/barcode
+DRIVER_END phase=outage finished_at=2026-08-29T07:46:27Z generated=220 http_200=220 http_other=0 transport_error=0 first_scan_time_ms=1787989534000 last_scan_time_ms=1787989534219
+PhaseCommandCompletedAtUTC=2026-08-29T07:46:27Z

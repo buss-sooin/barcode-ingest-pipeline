@@ -1,0 +1,17 @@
+d117dda2b80460016080940e6ecbdeba7c1495b49cbe9d90a40885945fb4c163  .gitignore
+1c51f5f6d6ec67b6bdcc80eadd45d79fbb2382a5f6ed97a527fd65c925c9ec88  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/REPRODUCTION-RECORD.md
+8ffdbb3fa0ad901290934f5e108727c7635c0d8272085aaea06c2bee171b7d86  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml
+1c04c77a88d22ba31b13063c1fdb863fed93adb1991fd5052132da0e77853ae1  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/traffic-driver.sh
+e66ef068742a9257e0548a1c7a86cc75d5924b879e54e211eeb7476fda3f449f  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/00-command-log.txt
+f1e09768916e9e864a731ad88dace3df172c9f816119f1b89e9eea10f5b58044  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/00-source-safety.txt
+b09f4b5717a864dc3ec36df6f89002ca70c9725942cf9c2158addabe07bd4f56  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/01-host-docker-preflight.txt
+732dd3312285b52429828f05dcfa89e3fe98ef4d3a2d15274a486e4feb07663a  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/02-rendered-compose.redacted.json
+16c74fb0265040a9742bbd03ecb3b6deea66b622313ea6b34553199a1d2333a1  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/03-rendered-resource-limits.txt
+116c14220794a88f8de9966a977d5f8c713efc932728f8554cf11cba026adc42  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/04-clean-start.txt
+cc7600622d72d76d94c1edc82a042970100c2f542452eac99da416f0d647a786  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/05-image-identity-and-post-build-host.txt
+3918d9478a74f7937d37a07abb8e52d2bf4b3e73cc4a4159d044faa6519b977b  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/06-runtime-limits-and-startup.txt
+6248ea8bac572236986c58a6cfb3b27ad157d32e9b71e3e9dab85b2ed45d798b  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/07-preflight-failure-and-service-health.txt
+66a2d2f46bf65404d4b5a93c2208dbb07c2e80c6fa56b8711fd5fbce71b27040  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/09-secondary-preflight-instability.txt
+c9eada4fe00fc69f1ef75ea68fab5b909a8fb1e0bb75d2b39e1725e290b1fb26  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/10-pre-teardown-terminal-snapshot.txt
+b7d7588f9738253707d59027000de3178ddb0eacdc8dcb5141bcd85e4cb57814  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/11-clean-end-verification.txt
+d6b5cf69eee98da1468c6fd6c1d5051f9396b671fd634c3cd15eb29affd58e34  docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/12-final-git-and-artifact-verification.txt

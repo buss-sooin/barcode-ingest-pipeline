@@ -1,0 +1,105 @@
+CapturedAtUTC=2026-08-29T06:52:48Z
+time="2026-08-29T15:52:48+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T15:52:48+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docker-compose.apps.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-08-29T15:52:48+09:00" level=warning msg="/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/monitoring-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+NAME                      IMAGE                                COMMAND                  SERVICE                   CREATED         STATUS         PORTS
+grafana                   grafana/grafana:10.1.5               "/run.sh"                grafana                   5 minutes ago   Up 5 minutes   0.0.0.0:3000->3000/tcp, [::]:3000->3000/tcp
+ingest                    barcode-ingest-pipeline-ingest       "java -jar app.jar"      ingest                    4 minutes ago   Up 4 minutes   0.0.0.0:8081->8081/tcp, [::]:8081->8081/tcp
+kafka                     confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   kafka                     6 minutes ago   Up 6 minutes   0.0.0.0:9092->9092/tcp, [::]:9092->9092/tcp
+kafka-exporter            danielqsj/kafka-exporter             "/bin/kafka_exporter…"   kafka-exporter            5 minutes ago   Up 5 minutes   0.0.0.0:9308->9308/tcp, [::]:9308->9308/tcp
+mysql                     mysql:8                              "docker-entrypoint.s…"   mysql                     6 minutes ago   Up 6 minutes   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp
+mysqld-exporter           prom/mysqld-exporter                 "/bin/mysqld_exporte…"   mysqld-exporter           5 minutes ago   Up 5 minutes   0.0.0.0:9104->9104/tcp, [::]:9104->9104/tcp
+mysqld-exporter-central   prom/mysqld-exporter                 "/bin/mysqld_exporte…"   mysqld-exporter-central   5 minutes ago   Up 5 minutes   0.0.0.0:9105->9104/tcp, [::]:9105->9104/tcp
+processing                barcode-ingest-pipeline-processing   "java -jar app.jar"      processing                4 minutes ago   Up 4 minutes   0.0.0.0:8082->8082/tcp, [::]:8082->8082/tcp
+prometheus                prom/prometheus:v2.47.1              "/bin/prometheus --c…"   prometheus                5 minutes ago   Up 5 minutes   0.0.0.0:9090->9090/tcp, [::]:9090->9090/tcp
+redis                     redis:alpine                         "docker-entrypoint.s…"   redis                     6 minutes ago   Up 6 minutes   0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp
+redis-exporter            oliver006/redis_exporter             "/redis_exporter"        redis-exporter            5 minutes ago   Up 5 minutes   0.0.0.0:9121->9121/tcp, [::]:9121->9121/tcp
+scanner                   barcode-ingest-pipeline-scanner      "java -jar app.jar"      scanner                   4 minutes ago   Up 4 minutes   0.0.0.0:8084->8084/tcp, [::]:8084->8084/tcp
+worker-1                  barcode-ingest-pipeline-worker-1     "java -jar app.jar"      worker-1                  4 minutes ago   Up 4 minutes   0.0.0.0:8085->8085/tcp, [::]:8085->8085/tcp
+worker-2                  barcode-ingest-pipeline-worker-2     "java -jar app.jar"      worker-2                  4 minutes ago   Up 4 minutes   0.0.0.0:8086->8086/tcp, [::]:8086->8086/tcp
+
+TerminalContainerState:
+/grafana Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=268435456 NanoCpus=150000000
+/ingest Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=436207616 NanoCpus=350000000
+/kafka Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=1342177280 NanoCpus=750000000
+/kafka-exporter Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=67108864 NanoCpus=100000000
+/mysql Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=805306368 NanoCpus=500000000
+/mysqld-exporter Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=67108864 NanoCpus=100000000
+/mysqld-exporter-central Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=67108864 NanoCpus=100000000
+/processing Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=436207616 NanoCpus=350000000
+/prometheus Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=335544320 NanoCpus=250000000
+/redis Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=167772160 NanoCpus=150000000
+/redis-exporter Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=67108864 NanoCpus=100000000
+/scanner Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=436207616 NanoCpus=350000000
+/worker-1 Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=436207616 NanoCpus=350000000
+/worker-2 Status=running ExitCode=0 OOMKilled=false RestartCount=0 Memory=436207616 NanoCpus=350000000
+
+TerminalStats:
+grafana CPU=0.37% Memory=116.8MiB / 256MiB MemoryPercent=45.64% PIDs=15
+ingest CPU=2.56% Memory=200.6MiB / 416MiB MemoryPercent=48.23% PIDs=29
+kafka CPU=5.52% Memory=417.3MiB / 1.25GiB MemoryPercent=32.60% PIDs=110
+kafka-exporter CPU=0.07% Memory=11.16MiB / 64MiB MemoryPercent=17.44% PIDs=5
+mysql CPU=0.93% Memory=461.3MiB / 768MiB MemoryPercent=60.06% PIDs=46
+mysqld-exporter CPU=0.00% Memory=13.03MiB / 64MiB MemoryPercent=20.36% PIDs=5
+mysqld-exporter-central CPU=0.00% Memory=10.66MiB / 64MiB MemoryPercent=16.66% PIDs=5
+processing CPU=0.83% Memory=283.9MiB / 416MiB MemoryPercent=68.25% PIDs=38
+prometheus CPU=0.19% Memory=33.73MiB / 320MiB MemoryPercent=10.54% PIDs=13
+redis CPU=0.40% Memory=11.68MiB / 160MiB MemoryPercent=7.30% PIDs=6
+redis-exporter CPU=0.00% Memory=13.38MiB / 64MiB MemoryPercent=20.91% PIDs=8
+scanner CPU=0.27% Memory=217.5MiB / 416MiB MemoryPercent=52.29% PIDs=31
+worker-1 CPU=0.86% Memory=345.3MiB / 416MiB MemoryPercent=83.01% PIDs=37
+worker-2 CPU=0.24% Memory=356.7MiB / 416MiB MemoryPercent=85.75% PIDs=37
+
+KafkaTopics:
+__consumer_offsets
+barcode-events
+
+KafkaExporterSelectedMetrics:
+kafka_brokers 1
+kafka_topic_partitions{topic="barcode-events"} 10
+
+KafkaExporterTerminalLogs:
+2026-08-29T06:49:36.344241918Z I0829 06:49:36.344016       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:49:51.322671509Z I0829 06:49:51.322410       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:50:06.319857668Z I0829 06:50:06.319578       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:50:10.233086003Z I0829 06:50:10.232932       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:50:13.140247630Z I0829 06:50:13.139953       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:50:21.223375175Z I0829 06:50:21.223207       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:50:21.331364717Z I0829 06:50:21.331240       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:50:24.143745677Z I0829 06:50:24.143539       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:50:32.010616805Z I0829 06:50:32.010413       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:50:34.622048542Z I0829 06:50:34.621917       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:50:36.239813168Z I0829 06:50:36.239620       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:50:42.319439338Z I0829 06:50:42.319281       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:50:44.940287672Z I0829 06:50:44.940048       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:50:51.328664884Z I0829 06:50:51.328373       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:50:52.825613093Z I0829 06:50:52.825447       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:50:55.433734510Z I0829 06:50:55.433499       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:03.325739333Z I0829 06:51:03.325592       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:06.033613918Z I0829 06:51:06.033336       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:06.236869376Z I0829 06:51:06.236726       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:13.929649672Z I0829 06:51:13.929520       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:16.528368548Z I0829 06:51:16.528248       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:21.326933342Z I0829 06:51:21.326625       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:24.316658677Z I0829 06:51:24.316408       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:26.839619594Z I0829 06:51:26.839376       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:34.625959292Z I0829 06:51:34.625750       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:36.341702210Z I0829 06:51:36.341513       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:37.740310710Z I0829 06:51:37.740169       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:45.435301464Z I0829 06:51:45.435054       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:48.024504632Z I0829 06:51:48.024182       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:51.328794009Z I0829 06:51:51.328505       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:55.758684136Z I0829 06:51:55.758517       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:51:58.437971762Z I0829 06:51:58.437771       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:52:06.201681418Z I0829 06:52:06.201462       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:52:10.631238795Z I0829 06:52:10.631051       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:52:18.820133174Z I0829 06:52:18.819865       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:52:21.230346633Z I0829 06:52:21.230134       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:52:21.527252342Z I0829 06:52:21.527029       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:52:36.321012876Z I0829 06:52:36.320775       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:52:51.344700759Z I0829 06:52:51.344533       1 kafka_exporter.go:701] [kafka:29092]
+2026-08-29T06:52:53.335066051Z I0829 06:52:53.334768       1 kafka_exporter.go:701] [kafka:29092]
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=14 ContainersStopped=0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 41%
+SwapTerminal=total = 2048.00M  used = 920.62M  free = 1127.38M  (encrypted)

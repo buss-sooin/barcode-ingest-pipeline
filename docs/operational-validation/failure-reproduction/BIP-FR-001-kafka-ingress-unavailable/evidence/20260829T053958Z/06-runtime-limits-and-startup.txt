@@ -1,0 +1,46 @@
+CapturedAtUTC=2026-08-29T06:10:52Z
+scanner	Up 23 seconds	barcode-ingest-pipeline-scanner
+worker-2	Up 23 seconds	barcode-ingest-pipeline-worker-2
+worker-1	Up 23 seconds	barcode-ingest-pipeline-worker-1
+processing	Up 24 seconds	barcode-ingest-pipeline-processing
+ingest	Up 24 seconds	barcode-ingest-pipeline-ingest
+prometheus	Up 23 seconds	prom/prometheus:v2.47.1
+redis	Up 24 seconds	redis:alpine
+grafana	Up 24 seconds	grafana/grafana:10.1.5
+mysqld-exporter-central	Up 24 seconds	prom/mysqld-exporter
+mysql	Up 24 seconds	mysql:8
+mysqld-exporter	Up 24 seconds	prom/mysqld-exporter
+redis-exporter	Up 24 seconds	oliver006/redis_exporter
+kafka	Up 24 seconds	confluentinc/cp-kafka:8.1.0-1-ubi9
+kafka-exporter	Exited (255) 22 seconds ago	danielqsj/kafka-exporter
+/kafka\tMemory=1342177280\tNanoCpus=750000000\tRestartCount=0\tOOMKilled=false\tStatus=running\tExitCode=0
+/mysql\tMemory=805306368\tNanoCpus=500000000\tRestartCount=0\tOOMKilled=false\tStatus=running\tExitCode=0
+/redis\tMemory=167772160\tNanoCpus=150000000\tRestartCount=0\tOOMKilled=false\tStatus=running\tExitCode=0
+/ingest\tMemory=436207616\tNanoCpus=350000000\tRestartCount=0\tOOMKilled=false\tStatus=running\tExitCode=0
+/processing\tMemory=436207616\tNanoCpus=350000000\tRestartCount=0\tOOMKilled=false\tStatus=running\tExitCode=0
+/scanner\tMemory=436207616\tNanoCpus=350000000\tRestartCount=0\tOOMKilled=false\tStatus=running\tExitCode=0
+/worker-1\tMemory=436207616\tNanoCpus=350000000\tRestartCount=0\tOOMKilled=false\tStatus=running\tExitCode=0
+/worker-2\tMemory=436207616\tNanoCpus=350000000\tRestartCount=0\tOOMKilled=false\tStatus=running\tExitCode=0
+/prometheus\tMemory=335544320\tNanoCpus=250000000\tRestartCount=0\tOOMKilled=false\tStatus=running\tExitCode=0
+/grafana\tMemory=201326592\tNanoCpus=150000000\tRestartCount=0\tOOMKilled=false\tStatus=running\tExitCode=0
+/mysqld-exporter\tMemory=67108864\tNanoCpus=100000000\tRestartCount=0\tOOMKilled=false\tStatus=running\tExitCode=0
+/mysqld-exporter-central\tMemory=67108864\tNanoCpus=100000000\tRestartCount=0\tOOMKilled=false\tStatus=running\tExitCode=0
+/kafka-exporter\tMemory=67108864\tNanoCpus=100000000\tRestartCount=0\tOOMKilled=false\tStatus=exited\tExitCode=255
+/redis-exporter\tMemory=67108864\tNanoCpus=100000000\tRestartCount=0\tOOMKilled=false\tStatus=running\tExitCode=0
+scanner	CPU=0.41%	Memory=205.8MiB / 416MiB	MemoryPercent=49.48%	PIDs=31
+worker-2	CPU=36.46%	Memory=241.8MiB / 416MiB	MemoryPercent=58.11%	PIDs=20
+worker-1	CPU=34.73%	Memory=252.7MiB / 416MiB	MemoryPercent=60.73%	PIDs=19
+processing	CPU=1.10%	Memory=230.8MiB / 416MiB	MemoryPercent=55.48%	PIDs=30
+ingest	CPU=0.09%	Memory=199.5MiB / 416MiB	MemoryPercent=47.97%	PIDs=29
+prometheus	CPU=0.00%	Memory=78.86MiB / 320MiB	MemoryPercent=24.64%	PIDs=13
+redis	CPU=0.13%	Memory=34.86MiB / 160MiB	MemoryPercent=21.79%	PIDs=6
+grafana	CPU=0.02%	Memory=128.3MiB / 192MiB	MemoryPercent=66.82%	PIDs=16
+mysqld-exporter-central	CPU=0.00%	Memory=9.09MiB / 64MiB	MemoryPercent=14.20%	PIDs=4
+mysql	CPU=0.87%	Memory=509.3MiB / 768MiB	MemoryPercent=66.31%	PIDs=45
+mysqld-exporter	CPU=0.00%	Memory=16.44MiB / 64MiB	MemoryPercent=25.69%	PIDs=5
+redis-exporter	CPU=0.00%	Memory=17.75MiB / 64MiB	MemoryPercent=27.74%	PIDs=7
+kafka	CPU=12.39%	Memory=421.5MiB / 1.25GiB	MemoryPercent=32.93%	PIDs=109
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 37%
+vm.swapusage: total = 1024.00M  used = 716.31M  free = 307.69M  (encrypted)
+

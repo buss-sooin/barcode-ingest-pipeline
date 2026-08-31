@@ -1,0 +1,95 @@
+CapturedAtUTC=2026-08-29T06:55:31Z
+Repository=/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline
+Branch=validation/bip-fr-001-kafka-unavailable
+HEAD=b39b04907f72c484c9213289933a6a4be178acc4
+origin/main=b39b04907f72c484c9213289933a6a4be178acc4
+
+GitStatus:
+## validation/bip-fr-001-kafka-unavailable
+ M .gitignore
+?? docs/operational-validation/
+
+TrackedDiffSummaryAgainstOriginMain:
+ .gitignore | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+M	.gitignore
+
+UntrackedTaskArtifacts:
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/REPRODUCTION-RECORD.md
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/00-command-log.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/00-source-safety.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/01-host-docker-preflight.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/02-rendered-compose.redacted.json
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/03-rendered-resource-limits.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/04-clean-start.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/05-image-identity-and-post-build-host.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/06-runtime-limits-and-startup.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/07-preflight-failure-and-service-health.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/09-secondary-preflight-instability.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/10-pre-teardown-terminal-snapshot.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/11-clean-end-verification.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/12-final-git-and-artifact-verification.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/MANIFEST.sha256
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/00-repository-orientation.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/01-host-preflight.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/02-docker-inventory-before-clean-start.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/03-rendered-compose-redacted.json
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/04-rendered-resource-envelope.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/05-local-image-identity.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/06-clean-start-verification.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/07-stage1-core-start.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/08-core-readiness.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/09-stage2-monitoring-start.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/10-kafka-exporter-and-monitoring-readiness.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/11-grafana-readiness.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/12-stage3-application-start.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/13-application-readiness.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/14-effective-runtime-limits.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/15-healthy-baseline-60s.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/16-terminal-readiness-snapshot.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/17-clean-end-verification.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/18-command-log.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/19-final-git-and-artifact-verification.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/traffic-driver.sh
+
+CanonicalComposeAndApplicationSourceGate:
+CanonicalComposeAndApplicationSourceModified=false
+TemporaryEnvRemoved=true
+
+PreviousEvidenceDirectoryIntegrity:
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/00-command-log.txt: OK
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/00-source-safety.txt: OK
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/01-host-docker-preflight.txt: OK
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/02-rendered-compose.redacted.json: OK
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/03-rendered-resource-limits.txt: OK
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/04-clean-start.txt: OK
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/05-image-identity-and-post-build-host.txt: OK
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/06-runtime-limits-and-startup.txt: OK
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/07-preflight-failure-and-service-health.txt: OK
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/09-secondary-preflight-instability.txt: OK
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/10-pre-teardown-terminal-snapshot.txt: OK
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/11-clean-end-verification.txt: OK
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T053958Z/12-final-git-and-artifact-verification.txt: OK
+
+CurrentEvidenceFilesBeforeManifest:
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/00-repository-orientation.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/01-host-preflight.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/02-docker-inventory-before-clean-start.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/03-rendered-compose-redacted.json
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/04-rendered-resource-envelope.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/05-local-image-identity.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/06-clean-start-verification.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/07-stage1-core-start.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/08-core-readiness.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/09-stage2-monitoring-start.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/10-kafka-exporter-and-monitoring-readiness.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/11-grafana-readiness.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/12-stage3-application-start.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/13-application-readiness.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/14-effective-runtime-limits.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/15-healthy-baseline-60s.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/16-terminal-readiness-snapshot.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/17-clean-end-verification.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/18-command-log.txt
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/evidence/20260829T064402Z/19-final-git-and-artifact-verification.txt

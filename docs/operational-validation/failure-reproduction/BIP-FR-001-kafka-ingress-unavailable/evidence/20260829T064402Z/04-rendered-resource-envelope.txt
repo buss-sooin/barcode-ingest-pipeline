@@ -1,0 +1,19 @@
+CapturedAtUTC=2026-08-29T06:45:30Z
+grafana	MemoryBytes=268435456	CPUs=0.15
+ingest	MemoryBytes=436207616	CPUs=0.35
+kafka	MemoryBytes=1342177280	CPUs=0.75
+kafka-exporter	MemoryBytes=67108864	CPUs=0.1
+mysql	MemoryBytes=805306368	CPUs=0.5
+mysqld-exporter	MemoryBytes=67108864	CPUs=0.1
+mysqld-exporter-central	MemoryBytes=67108864	CPUs=0.1
+processing	MemoryBytes=436207616	CPUs=0.35
+prometheus	MemoryBytes=335544320	CPUs=0.25
+redis	MemoryBytes=167772160	CPUs=0.15
+redis-exporter	MemoryBytes=67108864	CPUs=0.1
+scanner	MemoryBytes=436207616	CPUs=0.35
+worker-1	MemoryBytes=436207616	CPUs=0.35
+worker-2	MemoryBytes=436207616	CPUs=0.35
+AggregateMemoryBytes=5368709120
+AggregateMemoryMiB=5120
+AggregateCPUs=3.9500000000000006
+RenderedLimitGate=PASS

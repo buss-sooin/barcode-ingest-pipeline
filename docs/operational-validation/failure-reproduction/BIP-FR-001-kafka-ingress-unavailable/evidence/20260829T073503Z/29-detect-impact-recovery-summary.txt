@@ -1,0 +1,46 @@
+CapturedAtUTC=2026-08-29T07:53:30Z
+InputImpact:
+GeneratedTotal=820 Healthy=300 Outage=220 PostRecovery=300 ConfiguredRequestsPerSecond=5
+ScannerDriverHTTP200=820 ScannerDriverHTTPOther=0 ScannerDriverTransportError=0
+IngestBatchResponsesTotal=172 HTTP200=141 HTTP207=31
+IngestSingleResponsesTotal=415 HTTP200=220 HTTP503=195
+AffectedBatchEvents=220
+ScannerExplicitRetryEnqueueCount=90
+ScannerScheduledRetrySuccess=90 ScannerScheduledRetryFailedAttempts=3 ScannerRetryRemaining=0 RetrySummaryCount=5
+ScannerMaximumObservedRetryQueue=89
+ScannerQueueFullOrDropCount=
+KafkaRecordsAfterExperiment=1235
+ProcessingReceived=1235
+ProcessingNew=820
+ProcessingDuplicate=415
+ProcessingSuccess=1235
+ProcessingErrorCount=
+DetectTimeline:
+KafkaStopCommandStart=2026-08-29T07:45:34Z KafkaContainerFinished=2026-08-29T07:45:35.326729096Z
+2026-08-29T07:45:34.673089346Z 2026-08-29T07:45:34.673Z  WARN 1 --- [barcode-ingest-service] [vice-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=barcode-ingest-service-producer-1] Connection to node 1 (kafka/172.18.0.3:29092) could not be established. Node may not be available.
+2026-08-29T07:45:40.981626209Z 2026-08-29T07:45:40.978Z ERROR 1 --- [barcode-ingest-service] [nio-8081-exec-8] c.b.b.c.BarcodeIngestController          : Kafka 전송 확인 실패 - 실패 인덱스: [0, 1]
+2026-08-29T07:45:40.985956043Z 2026-08-29T07:45:40.985Z  WARN 1 --- [barcode-scanner-service] [    transmit-12] c.b.b.service.ApiGatewayTransmitter      : 배치 중 2건 확인 실패, 건별 재전송으로 폴백. 전체 2 건
+2026-08-29T07:45:52.088125506Z 2026-08-29T07:45:52.087Z  WARN 1 --- [barcode-scanner-service] [    transmit-12] c.b.b.service.FailureRetryService        : Failed to send, adding to retry queue: 8802527017255
+2026-08-29T07:45:55.251441591Z 2026-08-29T07:45:55.250Z  INFO 1 --- [barcode-scanner-service] [   scheduling-1] c.b.b.service.FailureRetryService        : Retrying 4 failed requests
+DownstreamDuringFault:
+ProcessingReceivedDuringFault=Worker1ReadDuringFault=Worker2ReadDuringFault=RecoveryTimeline:
+RecoveryCommandStart=2026-08-29T07:46:32Z RecoveryCommandComplete=2026-08-29T07:46:33Z BrokerProbeComplete=2026-08-29T07:46:50Z
+2026-08-29T07:46:48.405498004Z 2026-08-29T07:46:48.405Z  INFO 1 --- [barcode-ingest-service] [vice-producer-1] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: 8803139284486, Partition: 6, Offset: 300
+2026-08-29T07:46:48.823514921Z 2026-08-29T07:46:48.823Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 6, Offset: 300
+2026-08-29T07:46:49.399228005Z 2026-08-29T07:46:49.398Z DEBUG 1 --- [barcode-scanner-service] [   scheduling-1] c.b.b.service.FailureRetryService        : Retry success: 8806417484936
+2026-08-29T07:46:57.035021467Z 2026-08-29T07:46:57.034Z  INFO 1 --- [barcode-scanner-service] [   scheduling-1] c.b.b.service.FailureRetryService        : Retry summary - Success: 8, Failed: 0, Remaining in queue: 0/10000
+KafkaExporterDuringFault:
+SampleAtUTC=2026-08-29T07:45:35Z ElapsedSeconds=0 SwapUsedMiB=1344 MemoryFreePercent=44 DockerDaemon=responsive KafkaExporterHTTP=000 Over90Consecutive=0
+SampleAtUTC=2026-08-29T07:45:45Z ElapsedSeconds=10 SwapUsedMiB=1344 MemoryFreePercent=43 DockerDaemon=responsive KafkaExporterHTTP=000 Over90Consecutive=0
+SampleAtUTC=2026-08-29T07:45:54Z ElapsedSeconds=19 SwapUsedMiB=1328 MemoryFreePercent=42 DockerDaemon=responsive KafkaExporterHTTP=000 Over90Consecutive=0
+SampleAtUTC=2026-08-29T07:46:04Z ElapsedSeconds=29 SwapUsedMiB=1328 MemoryFreePercent=43 DockerDaemon=responsive KafkaExporterHTTP=000 Over90Consecutive=0
+SampleAtUTC=2026-08-29T07:46:13Z ElapsedSeconds=38 SwapUsedMiB=1328 MemoryFreePercent=43 DockerDaemon=responsive KafkaExporterHTTP=000 Over90Consecutive=0
+SampleAtUTC=2026-08-29T07:46:23Z ElapsedSeconds=48 SwapUsedMiB=1328 MemoryFreePercent=44 DockerDaemon=responsive KafkaExporterHTTP=000 Over90Consecutive=0
+KafkaExporterAfterRecovery:
+Status=running ExitCode=0 OOMKilled=false RestartCount=0
+kafka_brokers 1
+kafka_topic_partitions{topic="barcode-events"} 10
+DownstreamDuringFaultCountCorrection:
+ProcessingReceivedDuringFault=0
+Worker1ReadDuringFault=0
+Worker2ReadDuringFault=0

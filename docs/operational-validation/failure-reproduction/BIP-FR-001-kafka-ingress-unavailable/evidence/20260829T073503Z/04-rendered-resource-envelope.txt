@@ -1,0 +1,19 @@
+CapturedAtUTC=2026-08-29T07:36:57Z
+grafana	268435456	0.15
+ingest	436207616	0.35
+kafka	1342177280	0.75
+kafka-exporter	67108864	0.1
+mysql	805306368	0.5
+mysqld-exporter	67108864	0.1
+mysqld-exporter-central	67108864	0.1
+processing	436207616	0.35
+prometheus	335544320	0.25
+redis	167772160	0.15
+redis-exporter	67108864	0.1
+scanner	436207616	0.35
+worker-1	436207616	0.35
+worker-2	436207616	0.35
+AggregateMemoryBytes=5368709120
+AggregateMemoryMiB=5120
+AggregateCPUs=3.95
+RenderedLimitGate=PASS

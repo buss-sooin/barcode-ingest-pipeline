@@ -1,0 +1,40 @@
+BIP-FR-001 Execution Environment Readiness exact command log
+
+Compose file set used consistently:
+docker-compose.yml
+docker-compose.apps.yml
+monitoring-compose.yml
+docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml
+
+Clean start:
+docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml down -v --remove-orphans
+
+Stage 1 — core infrastructure:
+docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml up -d --no-build --pull never kafka mysql redis
+
+Kafka bounded readiness probe:
+docker exec kafka kafka-topics --bootstrap-server kafka:29092 --list
+
+Stage 2 — monitoring/exporters:
+docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml up -d --no-build --pull never mysqld-exporter mysqld-exporter-central kafka-exporter redis-exporter prometheus grafana
+
+Kafka exporter readiness probe:
+curl --max-time 3 http://localhost:9308/metrics
+
+Stage 3 — applications:
+docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml up -d --no-build --pull never ingest processing scanner worker-1 worker-2
+
+Clean end:
+docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml down -v --remove-orphans
+
+Image pull:
+NOT RUN
+
+Synthetic failure traffic driver:
+NOT RUN
+
+Kafka stop/start:
+NOT RUN
+
+BIP-FR-001 Material Failure Run:
+NOT STARTED

@@ -1,0 +1,15 @@
+CapturedAtUTC=2026-08-29T07:36:29Z
+ImagePullExecuted=false
+[confluentinc/cp-kafka:8.1.0-1-ubi9] ID=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249 RepoDigests=["confluentinc/cp-kafka@sha256:9026dbbf280d41868b95ae3995e1fdf0f5db5964776fb9581b52a02e3776d727"]
+[mysql:8] ID=sha256:5e7e005a680e75d935984d3d9390990d2a709b3ed67e92708e9e6747f1f754c9 RepoDigests=["mysql@sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb"]
+[redis:alpine] ID=sha256:59c08762bdbcf53fa132aa0bae464a57a1309dc3fff8a034bb3e16d7a0b30ec5 RepoDigests=["redis@sha256:becdda6c7f4b3fb42e42fd7f120bbf5c54c4caaaf16f26da24e4563d2c1f0576"]
+[prom/prometheus:v2.47.1] ID=sha256:d2525ab881e3315844f06cf90d72184d8ee4dae274463d2aa794a7f50e3fdb71 RepoDigests=["prom/prometheus@sha256:089b3beab1304d83280c589a81f6f72ca42006910ff903ea3cf25f97fddc49ea"]
+[grafana/grafana:10.1.5] ID=sha256:0a3c9111b0d74ceab6954202a004ca530961f8d3fb8fb9a068440fc868797ce9 RepoDigests=["grafana/grafana@sha256:0679e877ba204cede473782d5aba962831a3449092da120aba7d24082efe3fde"]
+[prom/mysqld-exporter:latest] ID=sha256:9dda0b138756235ad8c488ec215892de0b68e5b4f017047f3a14b81be14f4606 RepoDigests=["prom/mysqld-exporter@sha256:abed8dac117b4ae5b70757f988e44795935b9a72c3b58d720c67ba688f8cb79e"]
+[danielqsj/kafka-exporter:latest] ID=sha256:26fe916957b4a83e5b4ad8f13f6e1d9c96c18422d8c36de5ec1414d2d9f6d7d3 RepoDigests=["danielqsj/kafka-exporter@sha256:a51b280b55a763deaa1bc5024310bc2954995d9160014d7445055dac6a090868"]
+[oliver006/redis_exporter:latest] ID=sha256:0892de2d75ea1c5df257f5f63dc2291dd1650dbf250358946bdf336ee00321bb RepoDigests=["oliver006/redis_exporter@sha256:a129504e65b87c54f79bc92f1afc403475e8ff646a3d7512de469904ceddf986"]
+[barcode-ingest-pipeline-ingest:latest] ID=sha256:72c559bb87e27466cf8803e8633d75f98f3606129f334ead603e5302414be7fc RepoDigests=[]
+[barcode-ingest-pipeline-processing:latest] ID=sha256:9e9098f75b73825d2e30d7db3c09c7b2733655b21109a104b34d0c733ce1c7a6 RepoDigests=[]
+[barcode-ingest-pipeline-scanner:latest] ID=sha256:7457ce9df6e35cc12981cb06e948737a52525cbc6223be33b86a8fdac5d4d218 RepoDigests=[]
+[barcode-ingest-pipeline-worker-1:latest] ID=sha256:de543d632da818fd7c0a86dbcb6bd4857fbbf1b12f6f20b22d17936024df4433 RepoDigests=[]
+[barcode-ingest-pipeline-worker-2:latest] ID=sha256:37ffc1d11f40c8f48b33da9855d6d7a476661ab78850115385ed8a4b79134490 RepoDigests=[]

@@ -1,0 +1,1473 @@
+2026-08-29T07:46:48.829050838Z 2026-08-29T07:46:48.828Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:46:48.836505463Z 2026-08-29T07:46:48.836Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:46:48.836537921Z     select
+2026-08-29T07:46:48.836543713Z         dcme1_0.id,
+2026-08-29T07:46:48.836546338Z         dcme1_0.center_id,
+2026-08-29T07:46:48.836547588Z         dcme1_0.center_name,
+2026-08-29T07:46:48.836548630Z         dcme1_0.device_id,
+2026-08-29T07:46:48.836561755Z         dcme1_0.saved_time,
+2026-08-29T07:46:48.836562838Z         dcme1_0.updated_time 
+2026-08-29T07:46:48.836563713Z     from
+2026-08-29T07:46:48.836564505Z         device_center_mapping dcme1_0 
+2026-08-29T07:46:48.836565421Z     where
+2026-08-29T07:46:48.836566213Z         dcme1_0.device_id in (?)
+2026-08-29T07:46:48.836567046Z Hibernate: 
+2026-08-29T07:46:48.836567921Z     select
+2026-08-29T07:46:48.836568713Z         dcme1_0.id,
+2026-08-29T07:46:48.836569505Z         dcme1_0.center_id,
+2026-08-29T07:46:48.836570338Z         dcme1_0.center_name,
+2026-08-29T07:46:48.836571171Z         dcme1_0.device_id,
+2026-08-29T07:46:48.836572005Z         dcme1_0.saved_time,
+2026-08-29T07:46:48.836572796Z         dcme1_0.updated_time 
+2026-08-29T07:46:48.836573630Z     from
+2026-08-29T07:46:48.836574421Z         device_center_mapping dcme1_0 
+2026-08-29T07:46:48.836575296Z     where
+2026-08-29T07:46:48.836576088Z         dcme1_0.device_id in (?)
+2026-08-29T07:46:48.848098296Z 2026-08-29T07:46:48.847Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:46:49.854171047Z 2026-08-29T07:46:49.853Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 100 messages from Redis Stream
+2026-08-29T07:46:49.855533130Z 2026-08-29T07:46:49.855Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:46:49.855555255Z     select
+2026-08-29T07:46:49.855557380Z         dcme1_0.id,
+2026-08-29T07:46:49.855558422Z         dcme1_0.center_id,
+2026-08-29T07:46:49.855559338Z         dcme1_0.center_name,
+2026-08-29T07:46:49.855560130Z         dcme1_0.device_id,
+2026-08-29T07:46:49.855560880Z         dcme1_0.saved_time,
+2026-08-29T07:46:49.855561672Z         dcme1_0.updated_time 
+2026-08-29T07:46:49.855562463Z     from
+2026-08-29T07:46:49.855563255Z         device_center_mapping dcme1_0 
+2026-08-29T07:46:49.855564047Z     where
+2026-08-29T07:46:49.855564755Z         dcme1_0.device_id in (?)
+2026-08-29T07:46:49.855565547Z Hibernate: 
+2026-08-29T07:46:49.855566297Z     select
+2026-08-29T07:46:49.855567005Z         dcme1_0.id,
+2026-08-29T07:46:49.855567838Z         dcme1_0.center_id,
+2026-08-29T07:46:49.855568588Z         dcme1_0.center_name,
+2026-08-29T07:46:49.855569338Z         dcme1_0.device_id,
+2026-08-29T07:46:49.855570088Z         dcme1_0.saved_time,
+2026-08-29T07:46:49.855570838Z         dcme1_0.updated_time 
+2026-08-29T07:46:49.855586463Z     from
+2026-08-29T07:46:49.855587297Z         device_center_mapping dcme1_0 
+2026-08-29T07:46:49.855588130Z     where
+2026-08-29T07:46:49.855588880Z         dcme1_0.device_id in (?)
+2026-08-29T07:46:49.909734213Z 2026-08-29T07:46:49.909Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 100 messages
+2026-08-29T07:46:50.917576172Z 2026-08-29T07:46:50.916Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 89 messages from Redis Stream
+2026-08-29T07:46:50.918981506Z 2026-08-29T07:46:50.918Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:46:50.918996589Z     select
+2026-08-29T07:46:50.918998881Z         dcme1_0.id,
+2026-08-29T07:46:50.918999839Z         dcme1_0.center_id,
+2026-08-29T07:46:50.919000756Z         dcme1_0.center_name,
+2026-08-29T07:46:50.919001631Z         dcme1_0.device_id,
+2026-08-29T07:46:50.919002506Z         dcme1_0.saved_time,
+2026-08-29T07:46:50.919003381Z         dcme1_0.updated_time 
+2026-08-29T07:46:50.919004256Z     from
+2026-08-29T07:46:50.919005131Z         device_center_mapping dcme1_0 
+2026-08-29T07:46:50.919006047Z     where
+2026-08-29T07:46:50.919006922Z         dcme1_0.device_id in (?)
+2026-08-29T07:46:50.919007839Z Hibernate: 
+2026-08-29T07:46:50.919008672Z     select
+2026-08-29T07:46:50.919009547Z         dcme1_0.id,
+2026-08-29T07:46:50.919010381Z         dcme1_0.center_id,
+2026-08-29T07:46:50.919011256Z         dcme1_0.center_name,
+2026-08-29T07:46:50.919012089Z         dcme1_0.device_id,
+2026-08-29T07:46:50.919012964Z         dcme1_0.saved_time,
+2026-08-29T07:46:50.919013839Z         dcme1_0.updated_time 
+2026-08-29T07:46:50.919014714Z     from
+2026-08-29T07:46:50.919015547Z         device_center_mapping dcme1_0 
+2026-08-29T07:46:50.919016422Z     where
+2026-08-29T07:46:50.919017256Z         dcme1_0.device_id in (?)
+2026-08-29T07:46:51.009420756Z 2026-08-29T07:46:51.009Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 89 messages
+2026-08-29T07:47:13.095248544Z 2026-08-29T07:47:13.094Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:47:13.097182419Z 2026-08-29T07:47:13.096Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:13.097187002Z     select
+2026-08-29T07:47:13.097192044Z         dcme1_0.id,
+2026-08-29T07:47:13.097193419Z         dcme1_0.center_id,
+2026-08-29T07:47:13.097199127Z         dcme1_0.center_name,
+2026-08-29T07:47:13.097200544Z         dcme1_0.device_id,
+2026-08-29T07:47:13.097201460Z         dcme1_0.saved_time,
+2026-08-29T07:47:13.097202294Z         dcme1_0.updated_time 
+2026-08-29T07:47:13.097203127Z     from
+2026-08-29T07:47:13.097203960Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:13.097204835Z     where
+2026-08-29T07:47:13.097206169Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:13.097207044Z Hibernate: 
+2026-08-29T07:47:13.097207835Z     select
+2026-08-29T07:47:13.097208669Z         dcme1_0.id,
+2026-08-29T07:47:13.097209460Z         dcme1_0.center_id,
+2026-08-29T07:47:13.097210585Z         dcme1_0.center_name,
+2026-08-29T07:47:13.097211419Z         dcme1_0.device_id,
+2026-08-29T07:47:13.097212210Z         dcme1_0.saved_time,
+2026-08-29T07:47:13.097213044Z         dcme1_0.updated_time 
+2026-08-29T07:47:13.097213960Z     from
+2026-08-29T07:47:13.097217294Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:13.097218294Z     where
+2026-08-29T07:47:13.097219085Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:13.108961210Z 2026-08-29T07:47:13.108Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:47:15.094651711Z 2026-08-29T07:47:15.094Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:47:15.097887253Z 2026-08-29T07:47:15.097Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:15.097914711Z     select
+2026-08-29T07:47:15.097916836Z         dcme1_0.id,
+2026-08-29T07:47:15.097918711Z         dcme1_0.center_id,
+2026-08-29T07:47:15.097920628Z         dcme1_0.center_name,
+2026-08-29T07:47:15.097922336Z         dcme1_0.device_id,
+2026-08-29T07:47:15.097924086Z         dcme1_0.saved_time,
+2026-08-29T07:47:15.097925753Z         dcme1_0.updated_time 
+2026-08-29T07:47:15.097927545Z     from
+2026-08-29T07:47:15.097929211Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:15.097931003Z     where
+2026-08-29T07:47:15.097932670Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:15.097934461Z Hibernate: 
+2026-08-29T07:47:15.097936170Z     select
+2026-08-29T07:47:15.097937836Z         dcme1_0.id,
+2026-08-29T07:47:15.097939545Z         dcme1_0.center_id,
+2026-08-29T07:47:15.097942795Z         dcme1_0.center_name,
+2026-08-29T07:47:15.097946961Z         dcme1_0.device_id,
+2026-08-29T07:47:15.097972670Z         dcme1_0.saved_time,
+2026-08-29T07:47:15.097978128Z         dcme1_0.updated_time 
+2026-08-29T07:47:15.097979961Z     from
+2026-08-29T07:47:15.097981586Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:15.097983336Z     where
+2026-08-29T07:47:15.097985003Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:15.111948336Z 2026-08-29T07:47:15.111Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:47:16.117220087Z 2026-08-29T07:47:16.116Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 5 messages from Redis Stream
+2026-08-29T07:47:16.119403837Z 2026-08-29T07:47:16.118Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:16.119439253Z     select
+2026-08-29T07:47:16.119441837Z         dcme1_0.id,
+2026-08-29T07:47:16.119443837Z         dcme1_0.center_id,
+2026-08-29T07:47:16.119445628Z         dcme1_0.center_name,
+2026-08-29T07:47:16.119447587Z         dcme1_0.device_id,
+2026-08-29T07:47:16.119449337Z         dcme1_0.saved_time,
+2026-08-29T07:47:16.119451420Z         dcme1_0.updated_time 
+2026-08-29T07:47:16.119453212Z     from
+2026-08-29T07:47:16.119454920Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:16.119456753Z     where
+2026-08-29T07:47:16.119458462Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:16.119460545Z Hibernate: 
+2026-08-29T07:47:16.119462420Z     select
+2026-08-29T07:47:16.119464128Z         dcme1_0.id,
+2026-08-29T07:47:16.119465837Z         dcme1_0.center_id,
+2026-08-29T07:47:16.119467587Z         dcme1_0.center_name,
+2026-08-29T07:47:16.119469587Z         dcme1_0.device_id,
+2026-08-29T07:47:16.119471503Z         dcme1_0.saved_time,
+2026-08-29T07:47:16.119473253Z         dcme1_0.updated_time 
+2026-08-29T07:47:16.119474962Z     from
+2026-08-29T07:47:16.119476628Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:16.119478378Z     where
+2026-08-29T07:47:16.119480045Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:16.128751212Z 2026-08-29T07:47:16.128Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 5 messages
+2026-08-29T07:47:17.134042629Z 2026-08-29T07:47:17.133Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 3 messages from Redis Stream
+2026-08-29T07:47:17.135399504Z 2026-08-29T07:47:17.135Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:17.135432212Z     select
+2026-08-29T07:47:17.135433587Z         dcme1_0.id,
+2026-08-29T07:47:17.135434462Z         dcme1_0.center_id,
+2026-08-29T07:47:17.135435295Z         dcme1_0.center_name,
+2026-08-29T07:47:17.135436045Z         dcme1_0.device_id,
+2026-08-29T07:47:17.135436795Z         dcme1_0.saved_time,
+2026-08-29T07:47:17.135437545Z         dcme1_0.updated_time 
+2026-08-29T07:47:17.135438337Z     from
+2026-08-29T07:47:17.135439129Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:17.135439920Z     where
+2026-08-29T07:47:17.135440670Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:17.135561837Z Hibernate: 
+2026-08-29T07:47:17.135587379Z     select
+2026-08-29T07:47:17.135590129Z         dcme1_0.id,
+2026-08-29T07:47:17.135592295Z         dcme1_0.center_id,
+2026-08-29T07:47:17.135594212Z         dcme1_0.center_name,
+2026-08-29T07:47:17.135596045Z         dcme1_0.device_id,
+2026-08-29T07:47:17.135597754Z         dcme1_0.saved_time,
+2026-08-29T07:47:17.135599420Z         dcme1_0.updated_time 
+2026-08-29T07:47:17.135601170Z     from
+2026-08-29T07:47:17.135602962Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:17.135604754Z     where
+2026-08-29T07:47:17.135606462Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:17.141955629Z 2026-08-29T07:47:17.141Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 3 messages
+2026-08-29T07:47:19.105553838Z 2026-08-29T07:47:19.105Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:47:19.107817880Z 2026-08-29T07:47:19.107Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:19.107845505Z     select
+2026-08-29T07:47:19.107847838Z         dcme1_0.id,
+2026-08-29T07:47:19.107849963Z         dcme1_0.center_id,
+2026-08-29T07:47:19.107851755Z         dcme1_0.center_name,
+2026-08-29T07:47:19.107853671Z         dcme1_0.device_id,
+2026-08-29T07:47:19.107855380Z         dcme1_0.saved_time,
+2026-08-29T07:47:19.107857171Z         dcme1_0.updated_time 
+2026-08-29T07:47:19.107858921Z     from
+2026-08-29T07:47:19.107860630Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:19.107862463Z     where
+2026-08-29T07:47:19.107864171Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:19.107867338Z Hibernate: 
+2026-08-29T07:47:19.107880213Z     select
+2026-08-29T07:47:19.107882005Z         dcme1_0.id,
+2026-08-29T07:47:19.107883713Z         dcme1_0.center_id,
+2026-08-29T07:47:19.107902255Z         dcme1_0.center_name,
+2026-08-29T07:47:19.107904296Z         dcme1_0.device_id,
+2026-08-29T07:47:19.107906005Z         dcme1_0.saved_time,
+2026-08-29T07:47:19.107907755Z         dcme1_0.updated_time 
+2026-08-29T07:47:19.107909505Z     from
+2026-08-29T07:47:19.107911380Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:19.107913213Z     where
+2026-08-29T07:47:19.107914921Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:19.120302005Z 2026-08-29T07:47:19.119Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:47:20.126376255Z 2026-08-29T07:47:20.125Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:47:20.128210797Z 2026-08-29T07:47:20.127Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:20.128250172Z     select
+2026-08-29T07:47:20.128303005Z         dcme1_0.id,
+2026-08-29T07:47:20.128306880Z         dcme1_0.center_id,
+2026-08-29T07:47:20.128308339Z         dcme1_0.center_name,
+2026-08-29T07:47:20.128309714Z         dcme1_0.device_id,
+2026-08-29T07:47:20.128311047Z         dcme1_0.saved_time,
+2026-08-29T07:47:20.128312380Z         dcme1_0.updated_time 
+2026-08-29T07:47:20.128313714Z     from
+2026-08-29T07:47:20.128315005Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:20.128316422Z     where
+2026-08-29T07:47:20.128317714Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:20.128319047Z Hibernate: 
+2026-08-29T07:47:20.128320339Z     select
+2026-08-29T07:47:20.128321589Z         dcme1_0.id,
+2026-08-29T07:47:20.128322880Z         dcme1_0.center_id,
+2026-08-29T07:47:20.128324505Z         dcme1_0.center_name,
+2026-08-29T07:47:20.128325964Z         dcme1_0.device_id,
+2026-08-29T07:47:20.128327255Z         dcme1_0.saved_time,
+2026-08-29T07:47:20.128328547Z         dcme1_0.updated_time 
+2026-08-29T07:47:20.128329797Z     from
+2026-08-29T07:47:20.128331047Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:20.128332422Z     where
+2026-08-29T07:47:20.128333630Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:20.137973964Z 2026-08-29T07:47:20.137Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:47:21.143045631Z 2026-08-29T07:47:21.142Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:47:21.144943714Z 2026-08-29T07:47:21.144Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:21.144984172Z     select
+2026-08-29T07:47:21.144986589Z         dcme1_0.id,
+2026-08-29T07:47:21.144988131Z         dcme1_0.center_id,
+2026-08-29T07:47:21.144989589Z         dcme1_0.center_name,
+2026-08-29T07:47:21.144990922Z         dcme1_0.device_id,
+2026-08-29T07:47:21.144992256Z         dcme1_0.saved_time,
+2026-08-29T07:47:21.144993589Z         dcme1_0.updated_time 
+2026-08-29T07:47:21.144994922Z     from
+2026-08-29T07:47:21.144996256Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:21.144997672Z     where
+2026-08-29T07:47:21.144998922Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:21.145086297Z Hibernate: 
+2026-08-29T07:47:21.145093297Z     select
+2026-08-29T07:47:21.145095047Z         dcme1_0.id,
+2026-08-29T07:47:21.145096547Z         dcme1_0.center_id,
+2026-08-29T07:47:21.145097964Z         dcme1_0.center_name,
+2026-08-29T07:47:21.145099297Z         dcme1_0.device_id,
+2026-08-29T07:47:21.145100631Z         dcme1_0.saved_time,
+2026-08-29T07:47:21.145102006Z         dcme1_0.updated_time 
+2026-08-29T07:47:21.145103381Z     from
+2026-08-29T07:47:21.145104714Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:21.145106131Z     where
+2026-08-29T07:47:21.145107464Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:21.151914422Z 2026-08-29T07:47:21.151Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:47:23.113033715Z 2026-08-29T07:47:23.112Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:47:23.115390132Z 2026-08-29T07:47:23.114Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:23.115398507Z     select
+2026-08-29T07:47:23.115401090Z         dcme1_0.id,
+2026-08-29T07:47:23.115403382Z         dcme1_0.center_id,
+2026-08-29T07:47:23.115405632Z         dcme1_0.center_name,
+2026-08-29T07:47:23.115407798Z         dcme1_0.device_id,
+2026-08-29T07:47:23.115409965Z         dcme1_0.saved_time,
+2026-08-29T07:47:23.115412132Z         dcme1_0.updated_time 
+2026-08-29T07:47:23.115414340Z     from
+2026-08-29T07:47:23.115416548Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:23.115418798Z     where
+2026-08-29T07:47:23.115420923Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:23.115423132Z Hibernate: 
+2026-08-29T07:47:23.115434132Z     select
+2026-08-29T07:47:23.115436132Z         dcme1_0.id,
+2026-08-29T07:47:23.115437882Z         dcme1_0.center_id,
+2026-08-29T07:47:23.115439673Z         dcme1_0.center_name,
+2026-08-29T07:47:23.115441465Z         dcme1_0.device_id,
+2026-08-29T07:47:23.115443215Z         dcme1_0.saved_time,
+2026-08-29T07:47:23.115444965Z         dcme1_0.updated_time 
+2026-08-29T07:47:23.115446715Z     from
+2026-08-29T07:47:23.115448423Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:23.115450257Z     where
+2026-08-29T07:47:23.115451923Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:23.126585215Z 2026-08-29T07:47:23.126Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:47:24.132062757Z 2026-08-29T07:47:24.131Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 5 messages from Redis Stream
+2026-08-29T07:47:24.133801549Z 2026-08-29T07:47:24.133Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:24.133818382Z     select
+2026-08-29T07:47:24.133825174Z         dcme1_0.id,
+2026-08-29T07:47:24.133828257Z         dcme1_0.center_id,
+2026-08-29T07:47:24.133830007Z         dcme1_0.center_name,
+2026-08-29T07:47:24.133832465Z         dcme1_0.device_id,
+2026-08-29T07:47:24.133840799Z         dcme1_0.saved_time,
+2026-08-29T07:47:24.133847590Z         dcme1_0.updated_time 
+2026-08-29T07:47:24.133850090Z     from
+2026-08-29T07:47:24.133851840Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:24.133853715Z     where
+2026-08-29T07:47:24.133855424Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:24.133857340Z Hibernate: 
+2026-08-29T07:47:24.133859090Z     select
+2026-08-29T07:47:24.133860799Z         dcme1_0.id,
+2026-08-29T07:47:24.133862590Z         dcme1_0.center_id,
+2026-08-29T07:47:24.133864382Z         dcme1_0.center_name,
+2026-08-29T07:47:24.133866090Z         dcme1_0.device_id,
+2026-08-29T07:47:24.133867840Z         dcme1_0.saved_time,
+2026-08-29T07:47:24.133869632Z         dcme1_0.updated_time 
+2026-08-29T07:47:24.133871424Z     from
+2026-08-29T07:47:24.133873090Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:24.133874924Z     where
+2026-08-29T07:47:24.133876632Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:24.145367840Z 2026-08-29T07:47:24.144Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 5 messages
+2026-08-29T07:47:25.151009924Z 2026-08-29T07:47:25.150Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 3 messages from Redis Stream
+2026-08-29T07:47:25.152169299Z 2026-08-29T07:47:25.152Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:25.152180674Z     select
+2026-08-29T07:47:25.152181966Z         dcme1_0.id,
+2026-08-29T07:47:25.152182883Z         dcme1_0.center_id,
+2026-08-29T07:47:25.152183674Z         dcme1_0.center_name,
+2026-08-29T07:47:25.152184424Z         dcme1_0.device_id,
+2026-08-29T07:47:25.152185174Z         dcme1_0.saved_time,
+2026-08-29T07:47:25.152185924Z         dcme1_0.updated_time 
+2026-08-29T07:47:25.152186674Z     from
+2026-08-29T07:47:25.152187424Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:25.152188216Z     where
+2026-08-29T07:47:25.152188966Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:25.152189716Z Hibernate: 
+2026-08-29T07:47:25.152190424Z     select
+2026-08-29T07:47:25.152191174Z         dcme1_0.id,
+2026-08-29T07:47:25.152191883Z         dcme1_0.center_id,
+2026-08-29T07:47:25.152192633Z         dcme1_0.center_name,
+2026-08-29T07:47:25.152193383Z         dcme1_0.device_id,
+2026-08-29T07:47:25.152194091Z         dcme1_0.saved_time,
+2026-08-29T07:47:25.152194841Z         dcme1_0.updated_time 
+2026-08-29T07:47:25.152195591Z     from
+2026-08-29T07:47:25.152196299Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:25.152197091Z     where
+2026-08-29T07:47:25.152197799Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:25.158824924Z 2026-08-29T07:47:25.158Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 3 messages
+2026-08-29T07:47:27.116525717Z 2026-08-29T07:47:27.115Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:47:27.119975050Z 2026-08-29T07:47:27.119Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:27.120003050Z     select
+2026-08-29T07:47:27.120005175Z         dcme1_0.id,
+2026-08-29T07:47:27.120007050Z         dcme1_0.center_id,
+2026-08-29T07:47:27.120008800Z         dcme1_0.center_name,
+2026-08-29T07:47:27.120010550Z         dcme1_0.device_id,
+2026-08-29T07:47:27.120012259Z         dcme1_0.saved_time,
+2026-08-29T07:47:27.120014009Z         dcme1_0.updated_time 
+2026-08-29T07:47:27.120015759Z     from
+2026-08-29T07:47:27.120017467Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:27.120019300Z     where
+2026-08-29T07:47:27.120048967Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:27.120051175Z Hibernate: 
+2026-08-29T07:47:27.120052967Z     select
+2026-08-29T07:47:27.120054634Z         dcme1_0.id,
+2026-08-29T07:47:27.120056300Z         dcme1_0.center_id,
+2026-08-29T07:47:27.120058009Z         dcme1_0.center_name,
+2026-08-29T07:47:27.120059675Z         dcme1_0.device_id,
+2026-08-29T07:47:27.120061384Z         dcme1_0.saved_time,
+2026-08-29T07:47:27.120063092Z         dcme1_0.updated_time 
+2026-08-29T07:47:27.120064759Z     from
+2026-08-29T07:47:27.120066467Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:27.120068217Z     where
+2026-08-29T07:47:27.120069884Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:27.131661759Z 2026-08-29T07:47:27.131Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:47:28.138745259Z 2026-08-29T07:47:28.138Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 5 messages from Redis Stream
+2026-08-29T07:47:28.141642176Z 2026-08-29T07:47:28.141Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:28.141703176Z     select
+2026-08-29T07:47:28.141706509Z         dcme1_0.id,
+2026-08-29T07:47:28.141707426Z         dcme1_0.center_id,
+2026-08-29T07:47:28.141708301Z         dcme1_0.center_name,
+2026-08-29T07:47:28.141709092Z         dcme1_0.device_id,
+2026-08-29T07:47:28.141709926Z         dcme1_0.saved_time,
+2026-08-29T07:47:28.141711092Z         dcme1_0.updated_time 
+2026-08-29T07:47:28.141712009Z     from
+2026-08-29T07:47:28.141712801Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:28.141713634Z     where
+2026-08-29T07:47:28.141715634Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:28.141718301Z Hibernate: 
+2026-08-29T07:47:28.141719051Z     select
+2026-08-29T07:47:28.141719801Z         dcme1_0.id,
+2026-08-29T07:47:28.141720551Z         dcme1_0.center_id,
+2026-08-29T07:47:28.141721342Z         dcme1_0.center_name,
+2026-08-29T07:47:28.141722134Z         dcme1_0.device_id,
+2026-08-29T07:47:28.141722884Z         dcme1_0.saved_time,
+2026-08-29T07:47:28.141723634Z         dcme1_0.updated_time 
+2026-08-29T07:47:28.141724384Z     from
+2026-08-29T07:47:28.141725092Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:28.141725884Z     where
+2026-08-29T07:47:28.141726634Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:28.215743342Z 2026-08-29T07:47:28.215Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 5 messages
+2026-08-29T07:47:29.221024051Z 2026-08-29T07:47:29.220Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 3 messages from Redis Stream
+2026-08-29T07:47:29.224380010Z 2026-08-29T07:47:29.224Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:29.224416718Z     select
+2026-08-29T07:47:29.224419301Z         dcme1_0.id,
+2026-08-29T07:47:29.224421385Z         dcme1_0.center_id,
+2026-08-29T07:47:29.224423301Z         dcme1_0.center_name,
+2026-08-29T07:47:29.224428051Z         dcme1_0.device_id,
+2026-08-29T07:47:29.224431760Z         dcme1_0.saved_time,
+2026-08-29T07:47:29.224436135Z         dcme1_0.updated_time 
+2026-08-29T07:47:29.224437926Z     from
+2026-08-29T07:47:29.224440093Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:29.224442051Z     where
+2026-08-29T07:47:29.224443760Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:29.224445593Z Hibernate: 
+2026-08-29T07:47:29.224447385Z     select
+2026-08-29T07:47:29.224449051Z         dcme1_0.id,
+2026-08-29T07:47:29.224450801Z         dcme1_0.center_id,
+2026-08-29T07:47:29.224453051Z         dcme1_0.center_name,
+2026-08-29T07:47:29.224454968Z         dcme1_0.device_id,
+2026-08-29T07:47:29.224456676Z         dcme1_0.saved_time,
+2026-08-29T07:47:29.224458426Z         dcme1_0.updated_time 
+2026-08-29T07:47:29.224460135Z     from
+2026-08-29T07:47:29.224461885Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:29.224463676Z     where
+2026-08-29T07:47:29.224465343Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:29.234269635Z 2026-08-29T07:47:29.233Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 3 messages
+2026-08-29T07:47:31.115744219Z 2026-08-29T07:47:31.115Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:47:31.117395094Z 2026-08-29T07:47:31.117Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:31.117421760Z     select
+2026-08-29T07:47:31.117424344Z         dcme1_0.id,
+2026-08-29T07:47:31.117426260Z         dcme1_0.center_id,
+2026-08-29T07:47:31.117428094Z         dcme1_0.center_name,
+2026-08-29T07:47:31.117430302Z         dcme1_0.device_id,
+2026-08-29T07:47:31.117432135Z         dcme1_0.saved_time,
+2026-08-29T07:47:31.117433927Z         dcme1_0.updated_time 
+2026-08-29T07:47:31.117435635Z     from
+2026-08-29T07:47:31.117454094Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:31.117456302Z     where
+2026-08-29T07:47:31.117458010Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:31.117459802Z Hibernate: 
+2026-08-29T07:47:31.117461469Z     select
+2026-08-29T07:47:31.117463135Z         dcme1_0.id,
+2026-08-29T07:47:31.117464844Z         dcme1_0.center_id,
+2026-08-29T07:47:31.117466594Z         dcme1_0.center_name,
+2026-08-29T07:47:31.117468302Z         dcme1_0.device_id,
+2026-08-29T07:47:31.117469969Z         dcme1_0.saved_time,
+2026-08-29T07:47:31.117471677Z         dcme1_0.updated_time 
+2026-08-29T07:47:31.117473427Z     from
+2026-08-29T07:47:31.117475094Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:31.117476844Z     where
+2026-08-29T07:47:31.117478510Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:31.124551927Z 2026-08-29T07:47:31.124Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:47:32.130694678Z 2026-08-29T07:47:32.130Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:47:32.132475678Z 2026-08-29T07:47:32.132Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:32.132510553Z     select
+2026-08-29T07:47:32.132513178Z         dcme1_0.id,
+2026-08-29T07:47:32.132515303Z         dcme1_0.center_id,
+2026-08-29T07:47:32.132517136Z         dcme1_0.center_name,
+2026-08-29T07:47:32.132519011Z         dcme1_0.device_id,
+2026-08-29T07:47:32.132521094Z         dcme1_0.saved_time,
+2026-08-29T07:47:32.132522844Z         dcme1_0.updated_time 
+2026-08-29T07:47:32.132524678Z     from
+2026-08-29T07:47:32.132526428Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:32.132528261Z     where
+2026-08-29T07:47:32.132529969Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:32.132531803Z Hibernate: 
+2026-08-29T07:47:32.132533553Z     select
+2026-08-29T07:47:32.132535303Z         dcme1_0.id,
+2026-08-29T07:47:32.132537011Z         dcme1_0.center_id,
+2026-08-29T07:47:32.132538803Z         dcme1_0.center_name,
+2026-08-29T07:47:32.132540594Z         dcme1_0.device_id,
+2026-08-29T07:47:32.132542344Z         dcme1_0.saved_time,
+2026-08-29T07:47:32.132544053Z         dcme1_0.updated_time 
+2026-08-29T07:47:32.132545844Z     from
+2026-08-29T07:47:32.132547553Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:32.132549386Z     where
+2026-08-29T07:47:32.132565594Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:32.142076844Z 2026-08-29T07:47:32.141Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:47:33.148399803Z 2026-08-29T07:47:33.148Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:47:33.149841345Z 2026-08-29T07:47:33.149Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:33.149854720Z     select
+2026-08-29T07:47:33.149857136Z         dcme1_0.id,
+2026-08-29T07:47:33.149858803Z         dcme1_0.center_id,
+2026-08-29T07:47:33.149860428Z         dcme1_0.center_name,
+2026-08-29T07:47:33.149861970Z         dcme1_0.device_id,
+2026-08-29T07:47:33.149863553Z         dcme1_0.saved_time,
+2026-08-29T07:47:33.149865053Z         dcme1_0.updated_time 
+2026-08-29T07:47:33.149866595Z     from
+2026-08-29T07:47:33.149868095Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:33.149869720Z     where
+2026-08-29T07:47:33.149871261Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:33.149872886Z Hibernate: 
+2026-08-29T07:47:33.149874386Z     select
+2026-08-29T07:47:33.149875845Z         dcme1_0.id,
+2026-08-29T07:47:33.149877345Z         dcme1_0.center_id,
+2026-08-29T07:47:33.149878845Z         dcme1_0.center_name,
+2026-08-29T07:47:33.149880345Z         dcme1_0.device_id,
+2026-08-29T07:47:33.149881845Z         dcme1_0.saved_time,
+2026-08-29T07:47:33.149883386Z         dcme1_0.updated_time 
+2026-08-29T07:47:33.149884928Z     from
+2026-08-29T07:47:33.149886386Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:33.149887970Z     where
+2026-08-29T07:47:33.149889470Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:33.157597886Z 2026-08-29T07:47:33.157Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:47:35.126750012Z 2026-08-29T07:47:35.126Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:47:35.129424429Z 2026-08-29T07:47:35.129Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:35.129439679Z     select
+2026-08-29T07:47:35.129441971Z         dcme1_0.id,
+2026-08-29T07:47:35.129443887Z         dcme1_0.center_id,
+2026-08-29T07:47:35.129445679Z         dcme1_0.center_name,
+2026-08-29T07:47:35.129447471Z         dcme1_0.device_id,
+2026-08-29T07:47:35.129449304Z         dcme1_0.saved_time,
+2026-08-29T07:47:35.129461096Z         dcme1_0.updated_time 
+2026-08-29T07:47:35.129463096Z     from
+2026-08-29T07:47:35.129464887Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:35.129466887Z     where
+2026-08-29T07:47:35.129468596Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:35.129516471Z Hibernate: 
+2026-08-29T07:47:35.129522971Z     select
+2026-08-29T07:47:35.129524929Z         dcme1_0.id,
+2026-08-29T07:47:35.129526721Z         dcme1_0.center_id,
+2026-08-29T07:47:35.129528554Z         dcme1_0.center_name,
+2026-08-29T07:47:35.129530304Z         dcme1_0.device_id,
+2026-08-29T07:47:35.129532012Z         dcme1_0.saved_time,
+2026-08-29T07:47:35.129533721Z         dcme1_0.updated_time 
+2026-08-29T07:47:35.129535471Z     from
+2026-08-29T07:47:35.129537179Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:35.129538971Z     where
+2026-08-29T07:47:35.129540721Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:35.140555679Z 2026-08-29T07:47:35.140Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:47:37.124957805Z 2026-08-29T07:47:37.124Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:47:37.127742722Z 2026-08-29T07:47:37.127Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:37.127757347Z     select
+2026-08-29T07:47:37.127759847Z         dcme1_0.id,
+2026-08-29T07:47:37.127761888Z         dcme1_0.center_id,
+2026-08-29T07:47:37.127763763Z         dcme1_0.center_name,
+2026-08-29T07:47:37.127765638Z         dcme1_0.device_id,
+2026-08-29T07:47:37.127767388Z         dcme1_0.saved_time,
+2026-08-29T07:47:37.127769138Z         dcme1_0.updated_time 
+2026-08-29T07:47:37.127770930Z     from
+2026-08-29T07:47:37.127772847Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:37.127774763Z     where
+2026-08-29T07:47:37.127776472Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:37.127885180Z Hibernate: 
+2026-08-29T07:47:37.127893180Z     select
+2026-08-29T07:47:37.127895472Z         dcme1_0.id,
+2026-08-29T07:47:37.127897388Z         dcme1_0.center_id,
+2026-08-29T07:47:37.127899180Z         dcme1_0.center_name,
+2026-08-29T07:47:37.127902930Z         dcme1_0.device_id,
+2026-08-29T07:47:37.127904680Z         dcme1_0.saved_time,
+2026-08-29T07:47:37.127906430Z         dcme1_0.updated_time 
+2026-08-29T07:47:37.127908680Z     from
+2026-08-29T07:47:37.127930013Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:37.127933388Z     where
+2026-08-29T07:47:37.127935138Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:37.137208513Z 2026-08-29T07:47:37.136Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:47:38.140215375Z 2026-08-29T07:47:38.139Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:47:38.142129666Z 2026-08-29T07:47:38.141Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:38.142166458Z     select
+2026-08-29T07:47:38.142169666Z         dcme1_0.id,
+2026-08-29T07:47:38.142171541Z         dcme1_0.center_id,
+2026-08-29T07:47:38.142173250Z         dcme1_0.center_name,
+2026-08-29T07:47:38.142175166Z         dcme1_0.device_id,
+2026-08-29T07:47:38.142176916Z         dcme1_0.saved_time,
+2026-08-29T07:47:38.142178666Z         dcme1_0.updated_time 
+2026-08-29T07:47:38.142180416Z     from
+2026-08-29T07:47:38.142182166Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:38.142183916Z     where
+2026-08-29T07:47:38.142185583Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:38.142188000Z Hibernate: 
+2026-08-29T07:47:38.142189666Z     select
+2026-08-29T07:47:38.142191333Z         dcme1_0.id,
+2026-08-29T07:47:38.142193000Z         dcme1_0.center_id,
+2026-08-29T07:47:38.142194750Z         dcme1_0.center_name,
+2026-08-29T07:47:38.142196500Z         dcme1_0.device_id,
+2026-08-29T07:47:38.142198250Z         dcme1_0.saved_time,
+2026-08-29T07:47:38.142199958Z         dcme1_0.updated_time 
+2026-08-29T07:47:38.142201708Z     from
+2026-08-29T07:47:38.142203375Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:38.142205125Z     where
+2026-08-29T07:47:38.142206791Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:38.152131333Z 2026-08-29T07:47:38.151Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:47:39.156137333Z 2026-08-29T07:47:39.155Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:47:39.157295917Z 2026-08-29T07:47:39.157Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:39.157309375Z     select
+2026-08-29T07:47:39.157311583Z         dcme1_0.id,
+2026-08-29T07:47:39.157313333Z         dcme1_0.center_id,
+2026-08-29T07:47:39.157314833Z         dcme1_0.center_name,
+2026-08-29T07:47:39.157328000Z         dcme1_0.device_id,
+2026-08-29T07:47:39.157329542Z         dcme1_0.saved_time,
+2026-08-29T07:47:39.157330750Z         dcme1_0.updated_time 
+2026-08-29T07:47:39.157331958Z     from
+2026-08-29T07:47:39.157333125Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:39.157337417Z     where
+2026-08-29T07:47:39.157338542Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:39.157339750Z Hibernate: 
+2026-08-29T07:47:39.157340917Z     select
+2026-08-29T07:47:39.157342000Z         dcme1_0.id,
+2026-08-29T07:47:39.157343125Z         dcme1_0.center_id,
+2026-08-29T07:47:39.157344292Z         dcme1_0.center_name,
+2026-08-29T07:47:39.157345417Z         dcme1_0.device_id,
+2026-08-29T07:47:39.157346583Z         dcme1_0.saved_time,
+2026-08-29T07:47:39.157347708Z         dcme1_0.updated_time 
+2026-08-29T07:47:39.157348917Z     from
+2026-08-29T07:47:39.157350042Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:39.157351250Z     where
+2026-08-29T07:47:39.157352375Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:39.163808333Z 2026-08-29T07:47:39.163Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:47:41.132567668Z 2026-08-29T07:47:41.132Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:47:41.134409501Z 2026-08-29T07:47:41.134Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:41.134430293Z     select
+2026-08-29T07:47:41.134432418Z         dcme1_0.id,
+2026-08-29T07:47:41.134434334Z         dcme1_0.center_id,
+2026-08-29T07:47:41.134436251Z         dcme1_0.center_name,
+2026-08-29T07:47:41.134438126Z         dcme1_0.device_id,
+2026-08-29T07:47:41.134440334Z         dcme1_0.saved_time,
+2026-08-29T07:47:41.134442168Z         dcme1_0.updated_time 
+2026-08-29T07:47:41.134444209Z     from
+2026-08-29T07:47:41.134445918Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:41.134447751Z     where
+2026-08-29T07:47:41.134449376Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:41.134451376Z Hibernate: 
+2026-08-29T07:47:41.134453084Z     select
+2026-08-29T07:47:41.134454793Z         dcme1_0.id,
+2026-08-29T07:47:41.134456501Z         dcme1_0.center_id,
+2026-08-29T07:47:41.134458209Z         dcme1_0.center_name,
+2026-08-29T07:47:41.134459959Z         dcme1_0.device_id,
+2026-08-29T07:47:41.134461668Z         dcme1_0.saved_time,
+2026-08-29T07:47:41.134481418Z         dcme1_0.updated_time 
+2026-08-29T07:47:41.134483626Z     from
+2026-08-29T07:47:41.134485334Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:41.134487168Z     where
+2026-08-29T07:47:41.134488918Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:41.145702459Z 2026-08-29T07:47:41.145Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:47:42.150520710Z 2026-08-29T07:47:42.150Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 5 messages from Redis Stream
+2026-08-29T07:47:42.151538835Z 2026-08-29T07:47:42.151Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:42.151548626Z     select
+2026-08-29T07:47:42.151549918Z         dcme1_0.id,
+2026-08-29T07:47:42.151550960Z         dcme1_0.center_id,
+2026-08-29T07:47:42.151552043Z         dcme1_0.center_name,
+2026-08-29T07:47:42.151553168Z         dcme1_0.device_id,
+2026-08-29T07:47:42.151554085Z         dcme1_0.saved_time,
+2026-08-29T07:47:42.151554960Z         dcme1_0.updated_time 
+2026-08-29T07:47:42.151555876Z     from
+2026-08-29T07:47:42.151556793Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:42.151557835Z     where
+2026-08-29T07:47:42.151558710Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:42.151559626Z Hibernate: 
+2026-08-29T07:47:42.151560501Z     select
+2026-08-29T07:47:42.151561376Z         dcme1_0.id,
+2026-08-29T07:47:42.151562251Z         dcme1_0.center_id,
+2026-08-29T07:47:42.151563126Z         dcme1_0.center_name,
+2026-08-29T07:47:42.151564043Z         dcme1_0.device_id,
+2026-08-29T07:47:42.151564918Z         dcme1_0.saved_time,
+2026-08-29T07:47:42.151565793Z         dcme1_0.updated_time 
+2026-08-29T07:47:42.151566668Z     from
+2026-08-29T07:47:42.151567543Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:42.151568460Z     where
+2026-08-29T07:47:42.151569293Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:42.157716835Z 2026-08-29T07:47:42.157Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 5 messages
+2026-08-29T07:47:43.162124044Z 2026-08-29T07:47:43.161Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 3 messages from Redis Stream
+2026-08-29T07:47:43.163359252Z 2026-08-29T07:47:43.163Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:43.163377835Z     select
+2026-08-29T07:47:43.163379044Z         dcme1_0.id,
+2026-08-29T07:47:43.163390835Z         dcme1_0.center_id,
+2026-08-29T07:47:43.163391794Z         dcme1_0.center_name,
+2026-08-29T07:47:43.163392585Z         dcme1_0.device_id,
+2026-08-29T07:47:43.163393377Z         dcme1_0.saved_time,
+2026-08-29T07:47:43.163394127Z         dcme1_0.updated_time 
+2026-08-29T07:47:43.163394919Z     from
+2026-08-29T07:47:43.163395669Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:43.163396502Z     where
+2026-08-29T07:47:43.163397252Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:43.163398044Z Hibernate: 
+2026-08-29T07:47:43.163398794Z     select
+2026-08-29T07:47:43.163399502Z         dcme1_0.id,
+2026-08-29T07:47:43.163400252Z         dcme1_0.center_id,
+2026-08-29T07:47:43.163401002Z         dcme1_0.center_name,
+2026-08-29T07:47:43.163401752Z         dcme1_0.device_id,
+2026-08-29T07:47:43.163402502Z         dcme1_0.saved_time,
+2026-08-29T07:47:43.163403252Z         dcme1_0.updated_time 
+2026-08-29T07:47:43.163404002Z     from
+2026-08-29T07:47:43.163404752Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:43.163405502Z     where
+2026-08-29T07:47:43.163406210Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:43.174045794Z 2026-08-29T07:47:43.173Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 3 messages
+2026-08-29T07:47:45.135291628Z 2026-08-29T07:47:45.134Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:47:45.139180961Z 2026-08-29T07:47:45.137Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:45.139198378Z     select
+2026-08-29T07:47:45.139205336Z         dcme1_0.id,
+2026-08-29T07:47:45.139208253Z         dcme1_0.center_id,
+2026-08-29T07:47:45.139212378Z         dcme1_0.center_name,
+2026-08-29T07:47:45.139215586Z         dcme1_0.device_id,
+2026-08-29T07:47:45.139217420Z         dcme1_0.saved_time,
+2026-08-29T07:47:45.139219211Z         dcme1_0.updated_time 
+2026-08-29T07:47:45.139221003Z     from
+2026-08-29T07:47:45.139222711Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:45.139224503Z     where
+2026-08-29T07:47:45.139226461Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:45.139228170Z Hibernate: 
+2026-08-29T07:47:45.139229920Z     select
+2026-08-29T07:47:45.139231586Z         dcme1_0.id,
+2026-08-29T07:47:45.139247086Z         dcme1_0.center_id,
+2026-08-29T07:47:45.139249795Z         dcme1_0.center_name,
+2026-08-29T07:47:45.139274920Z         dcme1_0.device_id,
+2026-08-29T07:47:45.139277045Z         dcme1_0.saved_time,
+2026-08-29T07:47:45.139278961Z         dcme1_0.updated_time 
+2026-08-29T07:47:45.139284628Z     from
+2026-08-29T07:47:45.139286503Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:45.139288295Z     where
+2026-08-29T07:47:45.139289920Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:45.150359753Z 2026-08-29T07:47:45.149Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:47:46.154313462Z 2026-08-29T07:47:46.153Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:47:46.156643545Z 2026-08-29T07:47:46.156Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:46.156676420Z     select
+2026-08-29T07:47:46.156680253Z         dcme1_0.id,
+2026-08-29T07:47:46.156681837Z         dcme1_0.center_id,
+2026-08-29T07:47:46.156683337Z         dcme1_0.center_name,
+2026-08-29T07:47:46.156684837Z         dcme1_0.device_id,
+2026-08-29T07:47:46.156686170Z         dcme1_0.saved_time,
+2026-08-29T07:47:46.156687837Z         dcme1_0.updated_time 
+2026-08-29T07:47:46.156689212Z     from
+2026-08-29T07:47:46.156690545Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:46.156691920Z     where
+2026-08-29T07:47:46.156693253Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:46.156694587Z Hibernate: 
+2026-08-29T07:47:46.156695920Z     select
+2026-08-29T07:47:46.156697170Z         dcme1_0.id,
+2026-08-29T07:47:46.156698503Z         dcme1_0.center_id,
+2026-08-29T07:47:46.156699795Z         dcme1_0.center_name,
+2026-08-29T07:47:46.156701128Z         dcme1_0.device_id,
+2026-08-29T07:47:46.156706628Z         dcme1_0.saved_time,
+2026-08-29T07:47:46.156708253Z         dcme1_0.updated_time 
+2026-08-29T07:47:46.156709545Z     from
+2026-08-29T07:47:46.156713045Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:46.156716545Z     where
+2026-08-29T07:47:46.156717837Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:46.167210628Z 2026-08-29T07:47:46.166Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:47:47.173935921Z 2026-08-29T07:47:47.173Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 3 messages from Redis Stream
+2026-08-29T07:47:47.175627629Z 2026-08-29T07:47:47.175Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:47.175664546Z     select
+2026-08-29T07:47:47.175667254Z         dcme1_0.id,
+2026-08-29T07:47:47.175669296Z         dcme1_0.center_id,
+2026-08-29T07:47:47.175671212Z         dcme1_0.center_name,
+2026-08-29T07:47:47.175673254Z         dcme1_0.device_id,
+2026-08-29T07:47:47.175675004Z         dcme1_0.saved_time,
+2026-08-29T07:47:47.175676712Z         dcme1_0.updated_time 
+2026-08-29T07:47:47.175678462Z     from
+2026-08-29T07:47:47.175680129Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:47.175681962Z     where
+2026-08-29T07:47:47.175683671Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:47.175685421Z Hibernate: 
+2026-08-29T07:47:47.175687171Z     select
+2026-08-29T07:47:47.175688921Z         dcme1_0.id,
+2026-08-29T07:47:47.175690629Z         dcme1_0.center_id,
+2026-08-29T07:47:47.175692421Z         dcme1_0.center_name,
+2026-08-29T07:47:47.175694379Z         dcme1_0.device_id,
+2026-08-29T07:47:47.175696087Z         dcme1_0.saved_time,
+2026-08-29T07:47:47.175697754Z         dcme1_0.updated_time 
+2026-08-29T07:47:47.175699462Z     from
+2026-08-29T07:47:47.175701087Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:47.175702879Z     where
+2026-08-29T07:47:47.175704587Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:47.187080796Z 2026-08-29T07:47:47.186Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 3 messages
+2026-08-29T07:47:49.143351588Z 2026-08-29T07:47:49.142Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:47:49.145164921Z 2026-08-29T07:47:49.144Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:49.145177588Z     select
+2026-08-29T07:47:49.145179463Z         dcme1_0.id,
+2026-08-29T07:47:49.145181088Z         dcme1_0.center_id,
+2026-08-29T07:47:49.145182671Z         dcme1_0.center_name,
+2026-08-29T07:47:49.145184255Z         dcme1_0.device_id,
+2026-08-29T07:47:49.145185755Z         dcme1_0.saved_time,
+2026-08-29T07:47:49.145187463Z         dcme1_0.updated_time 
+2026-08-29T07:47:49.145189005Z     from
+2026-08-29T07:47:49.145190546Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:49.145192171Z     where
+2026-08-29T07:47:49.145193671Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:49.145195213Z Hibernate: 
+2026-08-29T07:47:49.145196755Z     select
+2026-08-29T07:47:49.145198255Z         dcme1_0.id,
+2026-08-29T07:47:49.145210130Z         dcme1_0.center_id,
+2026-08-29T07:47:49.145211963Z         dcme1_0.center_name,
+2026-08-29T07:47:49.145213505Z         dcme1_0.device_id,
+2026-08-29T07:47:49.145215005Z         dcme1_0.saved_time,
+2026-08-29T07:47:49.145216546Z         dcme1_0.updated_time 
+2026-08-29T07:47:49.145218046Z     from
+2026-08-29T07:47:49.145219505Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:49.145221046Z     where
+2026-08-29T07:47:49.145222505Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:49.152693588Z 2026-08-29T07:47:49.152Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:47:50.159843380Z 2026-08-29T07:47:50.159Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:47:50.162085172Z 2026-08-29T07:47:50.161Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:50.162112214Z     select
+2026-08-29T07:47:50.162114630Z         dcme1_0.id,
+2026-08-29T07:47:50.162116672Z         dcme1_0.center_id,
+2026-08-29T07:47:50.162118380Z         dcme1_0.center_name,
+2026-08-29T07:47:50.162120005Z         dcme1_0.device_id,
+2026-08-29T07:47:50.162121547Z         dcme1_0.saved_time,
+2026-08-29T07:47:50.162123047Z         dcme1_0.updated_time 
+2026-08-29T07:47:50.162124589Z     from
+2026-08-29T07:47:50.162126089Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:50.162127714Z     where
+2026-08-29T07:47:50.162129172Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:50.162130755Z Hibernate: 
+2026-08-29T07:47:50.162132172Z     select
+2026-08-29T07:47:50.162133672Z         dcme1_0.id,
+2026-08-29T07:47:50.162135130Z         dcme1_0.center_id,
+2026-08-29T07:47:50.162136672Z         dcme1_0.center_name,
+2026-08-29T07:47:50.162138172Z         dcme1_0.device_id,
+2026-08-29T07:47:50.162139672Z         dcme1_0.saved_time,
+2026-08-29T07:47:50.162141172Z         dcme1_0.updated_time 
+2026-08-29T07:47:50.162142672Z     from
+2026-08-29T07:47:50.162144130Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:50.162145714Z     where
+2026-08-29T07:47:50.162147089Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:50.170944714Z 2026-08-29T07:47:50.170Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:47:51.174353756Z 2026-08-29T07:47:51.173Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 3 messages from Redis Stream
+2026-08-29T07:47:51.178874631Z 2026-08-29T07:47:51.178Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:51.178906339Z     select
+2026-08-29T07:47:51.178909089Z         dcme1_0.id,
+2026-08-29T07:47:51.178910256Z         dcme1_0.center_id,
+2026-08-29T07:47:51.178911381Z         dcme1_0.center_name,
+2026-08-29T07:47:51.178912422Z         dcme1_0.device_id,
+2026-08-29T07:47:51.178913464Z         dcme1_0.saved_time,
+2026-08-29T07:47:51.178914506Z         dcme1_0.updated_time 
+2026-08-29T07:47:51.178915589Z     from
+2026-08-29T07:47:51.178916631Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:51.178917714Z     where
+2026-08-29T07:47:51.178918756Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:51.178919797Z Hibernate: 
+2026-08-29T07:47:51.178920839Z     select
+2026-08-29T07:47:51.178921839Z         dcme1_0.id,
+2026-08-29T07:47:51.178922839Z         dcme1_0.center_id,
+2026-08-29T07:47:51.178923881Z         dcme1_0.center_name,
+2026-08-29T07:47:51.178924922Z         dcme1_0.device_id,
+2026-08-29T07:47:51.178925922Z         dcme1_0.saved_time,
+2026-08-29T07:47:51.178926922Z         dcme1_0.updated_time 
+2026-08-29T07:47:51.178927964Z     from
+2026-08-29T07:47:51.178928964Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:51.178930089Z     where
+2026-08-29T07:47:51.178931047Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:51.187151839Z 2026-08-29T07:47:51.186Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 3 messages
+2026-08-29T07:47:53.152616840Z 2026-08-29T07:47:53.152Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:47:53.154542965Z 2026-08-29T07:47:53.154Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:53.154559215Z     select
+2026-08-29T07:47:53.154561382Z         dcme1_0.id,
+2026-08-29T07:47:53.154563382Z         dcme1_0.center_id,
+2026-08-29T07:47:53.154565298Z         dcme1_0.center_name,
+2026-08-29T07:47:53.154570965Z         dcme1_0.device_id,
+2026-08-29T07:47:53.154572798Z         dcme1_0.saved_time,
+2026-08-29T07:47:53.154574507Z         dcme1_0.updated_time 
+2026-08-29T07:47:53.154576257Z     from
+2026-08-29T07:47:53.154577965Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:53.154579757Z     where
+2026-08-29T07:47:53.154581465Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:53.154583215Z Hibernate: 
+2026-08-29T07:47:53.154606548Z     select
+2026-08-29T07:47:53.154608715Z         dcme1_0.id,
+2026-08-29T07:47:53.154610590Z         dcme1_0.center_id,
+2026-08-29T07:47:53.154612298Z         dcme1_0.center_name,
+2026-08-29T07:47:53.154614007Z         dcme1_0.device_id,
+2026-08-29T07:47:53.154615715Z         dcme1_0.saved_time,
+2026-08-29T07:47:53.154617423Z         dcme1_0.updated_time 
+2026-08-29T07:47:53.154619132Z     from
+2026-08-29T07:47:53.154620798Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:53.154622590Z     where
+2026-08-29T07:47:53.154624298Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:53.165575132Z 2026-08-29T07:47:53.165Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:47:54.170598632Z 2026-08-29T07:47:54.170Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:47:54.172788924Z 2026-08-29T07:47:54.172Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:54.172811882Z     select
+2026-08-29T07:47:54.172814174Z         dcme1_0.id,
+2026-08-29T07:47:54.172816382Z         dcme1_0.center_id,
+2026-08-29T07:47:54.172818257Z         dcme1_0.center_name,
+2026-08-29T07:47:54.172820216Z         dcme1_0.device_id,
+2026-08-29T07:47:54.172822007Z         dcme1_0.saved_time,
+2026-08-29T07:47:54.172823882Z         dcme1_0.updated_time 
+2026-08-29T07:47:54.172825757Z     from
+2026-08-29T07:47:54.172827632Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:54.172829674Z     where
+2026-08-29T07:47:54.172831507Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:54.172833382Z Hibernate: 
+2026-08-29T07:47:54.172835174Z     select
+2026-08-29T07:47:54.172837007Z         dcme1_0.id,
+2026-08-29T07:47:54.172838924Z         dcme1_0.center_id,
+2026-08-29T07:47:54.172840716Z         dcme1_0.center_name,
+2026-08-29T07:47:54.172842549Z         dcme1_0.device_id,
+2026-08-29T07:47:54.172844341Z         dcme1_0.saved_time,
+2026-08-29T07:47:54.172846174Z         dcme1_0.updated_time 
+2026-08-29T07:47:54.172848007Z     from
+2026-08-29T07:47:54.172849799Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:54.172851674Z     where
+2026-08-29T07:47:54.172853632Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:54.183587257Z 2026-08-29T07:47:54.182Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:47:55.188019174Z 2026-08-29T07:47:55.187Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:47:55.189835424Z 2026-08-29T07:47:55.189Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:55.189853216Z     select
+2026-08-29T07:47:55.189855674Z         dcme1_0.id,
+2026-08-29T07:47:55.189857383Z         dcme1_0.center_id,
+2026-08-29T07:47:55.189859049Z         dcme1_0.center_name,
+2026-08-29T07:47:55.189860549Z         dcme1_0.device_id,
+2026-08-29T07:47:55.189862049Z         dcme1_0.saved_time,
+2026-08-29T07:47:55.189863549Z         dcme1_0.updated_time 
+2026-08-29T07:47:55.189865049Z     from
+2026-08-29T07:47:55.189866549Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:55.189868216Z     where
+2026-08-29T07:47:55.189869799Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:55.189871424Z Hibernate: 
+2026-08-29T07:47:55.189872883Z     select
+2026-08-29T07:47:55.189874299Z         dcme1_0.id,
+2026-08-29T07:47:55.189875799Z         dcme1_0.center_id,
+2026-08-29T07:47:55.189877258Z         dcme1_0.center_name,
+2026-08-29T07:47:55.189878758Z         dcme1_0.device_id,
+2026-08-29T07:47:55.189880216Z         dcme1_0.saved_time,
+2026-08-29T07:47:55.189881674Z         dcme1_0.updated_time 
+2026-08-29T07:47:55.189883174Z     from
+2026-08-29T07:47:55.189884591Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:55.189886133Z     where
+2026-08-29T07:47:55.189887591Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:55.197268758Z 2026-08-29T07:47:55.196Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:47:57.152227717Z 2026-08-29T07:47:57.151Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:47:57.154423009Z 2026-08-29T07:47:57.154Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:57.154442050Z     select
+2026-08-29T07:47:57.154444175Z         dcme1_0.id,
+2026-08-29T07:47:57.154446050Z         dcme1_0.center_id,
+2026-08-29T07:47:57.154447967Z         dcme1_0.center_name,
+2026-08-29T07:47:57.154449759Z         dcme1_0.device_id,
+2026-08-29T07:47:57.154451509Z         dcme1_0.saved_time,
+2026-08-29T07:47:57.154453259Z         dcme1_0.updated_time 
+2026-08-29T07:47:57.154455092Z     from
+2026-08-29T07:47:57.154456842Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:57.154458717Z     where
+2026-08-29T07:47:57.154482800Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:57.154485009Z Hibernate: 
+2026-08-29T07:47:57.154486759Z     select
+2026-08-29T07:47:57.154488509Z         dcme1_0.id,
+2026-08-29T07:47:57.154490342Z         dcme1_0.center_id,
+2026-08-29T07:47:57.154492259Z         dcme1_0.center_name,
+2026-08-29T07:47:57.154494009Z         dcme1_0.device_id,
+2026-08-29T07:47:57.154495884Z         dcme1_0.saved_time,
+2026-08-29T07:47:57.154497634Z         dcme1_0.updated_time 
+2026-08-29T07:47:57.154499425Z     from
+2026-08-29T07:47:57.154501092Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:57.154502967Z     where
+2026-08-29T07:47:57.154504759Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:57.167622425Z 2026-08-29T07:47:57.167Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:47:58.171932176Z 2026-08-29T07:47:58.171Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 5 messages from Redis Stream
+2026-08-29T07:47:58.173459759Z 2026-08-29T07:47:58.173Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:58.173471717Z     select
+2026-08-29T07:47:58.173474301Z         dcme1_0.id,
+2026-08-29T07:47:58.173476426Z         dcme1_0.center_id,
+2026-08-29T07:47:58.173478384Z         dcme1_0.center_name,
+2026-08-29T07:47:58.173480301Z         dcme1_0.device_id,
+2026-08-29T07:47:58.173482051Z         dcme1_0.saved_time,
+2026-08-29T07:47:58.173483759Z         dcme1_0.updated_time 
+2026-08-29T07:47:58.173485592Z     from
+2026-08-29T07:47:58.173487301Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:58.173489134Z     where
+2026-08-29T07:47:58.173490842Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:58.173492676Z Hibernate: 
+2026-08-29T07:47:58.173494384Z     select
+2026-08-29T07:47:58.173496092Z         dcme1_0.id,
+2026-08-29T07:47:58.173500634Z         dcme1_0.center_id,
+2026-08-29T07:47:58.173502551Z         dcme1_0.center_name,
+2026-08-29T07:47:58.173504676Z         dcme1_0.device_id,
+2026-08-29T07:47:58.173506384Z         dcme1_0.saved_time,
+2026-08-29T07:47:58.173508176Z         dcme1_0.updated_time 
+2026-08-29T07:47:58.173509926Z     from
+2026-08-29T07:47:58.173511592Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:58.173513426Z     where
+2026-08-29T07:47:58.173515134Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:58.184767467Z 2026-08-29T07:47:58.184Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 5 messages
+2026-08-29T07:47:59.189856218Z 2026-08-29T07:47:59.189Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 3 messages from Redis Stream
+2026-08-29T07:47:59.191340551Z 2026-08-29T07:47:59.191Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:47:59.191357885Z     select
+2026-08-29T07:47:59.191363176Z         dcme1_0.id,
+2026-08-29T07:47:59.191366093Z         dcme1_0.center_id,
+2026-08-29T07:47:59.191367885Z         dcme1_0.center_name,
+2026-08-29T07:47:59.191369676Z         dcme1_0.device_id,
+2026-08-29T07:47:59.191371468Z         dcme1_0.saved_time,
+2026-08-29T07:47:59.191373176Z         dcme1_0.updated_time 
+2026-08-29T07:47:59.191374968Z     from
+2026-08-29T07:47:59.191376676Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:59.191378510Z     where
+2026-08-29T07:47:59.191380218Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:59.191394801Z Hibernate: 
+2026-08-29T07:47:59.191402510Z     select
+2026-08-29T07:47:59.191404968Z         dcme1_0.id,
+2026-08-29T07:47:59.191406968Z         dcme1_0.center_id,
+2026-08-29T07:47:59.191408968Z         dcme1_0.center_name,
+2026-08-29T07:47:59.191410968Z         dcme1_0.device_id,
+2026-08-29T07:47:59.191412718Z         dcme1_0.saved_time,
+2026-08-29T07:47:59.191414426Z         dcme1_0.updated_time 
+2026-08-29T07:47:59.191416176Z     from
+2026-08-29T07:47:59.191417926Z         device_center_mapping dcme1_0 
+2026-08-29T07:47:59.191419760Z     where
+2026-08-29T07:47:59.191421510Z         dcme1_0.device_id in (?)
+2026-08-29T07:47:59.201705718Z 2026-08-29T07:47:59.201Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 3 messages
+2026-08-29T07:48:01.154808136Z 2026-08-29T07:48:01.154Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:48:01.157007094Z 2026-08-29T07:48:01.156Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:01.157022719Z     select
+2026-08-29T07:48:01.157025344Z         dcme1_0.id,
+2026-08-29T07:48:01.157027261Z         dcme1_0.center_id,
+2026-08-29T07:48:01.157029344Z         dcme1_0.center_name,
+2026-08-29T07:48:01.157031136Z         dcme1_0.device_id,
+2026-08-29T07:48:01.157033052Z         dcme1_0.saved_time,
+2026-08-29T07:48:01.157034844Z         dcme1_0.updated_time 
+2026-08-29T07:48:01.157036636Z     from
+2026-08-29T07:48:01.157053761Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:01.157056052Z     where
+2026-08-29T07:48:01.157057844Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:01.157059677Z Hibernate: 
+2026-08-29T07:48:01.157061511Z     select
+2026-08-29T07:48:01.157063261Z         dcme1_0.id,
+2026-08-29T07:48:01.157065052Z         dcme1_0.center_id,
+2026-08-29T07:48:01.157066802Z         dcme1_0.center_name,
+2026-08-29T07:48:01.157068552Z         dcme1_0.device_id,
+2026-08-29T07:48:01.157070302Z         dcme1_0.saved_time,
+2026-08-29T07:48:01.157072302Z         dcme1_0.updated_time 
+2026-08-29T07:48:01.157074052Z     from
+2026-08-29T07:48:01.157075802Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:01.157077636Z     where
+2026-08-29T07:48:01.157079344Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:01.166363886Z 2026-08-29T07:48:01.165Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:48:02.171422553Z 2026-08-29T07:48:02.170Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:48:02.173332428Z 2026-08-29T07:48:02.172Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:02.173358053Z     select
+2026-08-29T07:48:02.173360303Z         dcme1_0.id,
+2026-08-29T07:48:02.173362178Z         dcme1_0.center_id,
+2026-08-29T07:48:02.173364011Z         dcme1_0.center_name,
+2026-08-29T07:48:02.173365761Z         dcme1_0.device_id,
+2026-08-29T07:48:02.173367511Z         dcme1_0.saved_time,
+2026-08-29T07:48:02.173369261Z         dcme1_0.updated_time 
+2026-08-29T07:48:02.173371053Z     from
+2026-08-29T07:48:02.173372886Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:02.173374886Z     where
+2026-08-29T07:48:02.173376594Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:02.173378344Z Hibernate: 
+2026-08-29T07:48:02.173380011Z     select
+2026-08-29T07:48:02.173381678Z         dcme1_0.id,
+2026-08-29T07:48:02.173383386Z         dcme1_0.center_id,
+2026-08-29T07:48:02.173385094Z         dcme1_0.center_name,
+2026-08-29T07:48:02.173386844Z         dcme1_0.device_id,
+2026-08-29T07:48:02.173388511Z         dcme1_0.saved_time,
+2026-08-29T07:48:02.173390261Z         dcme1_0.updated_time 
+2026-08-29T07:48:02.173392011Z     from
+2026-08-29T07:48:02.173393636Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:02.173395428Z     where
+2026-08-29T07:48:02.173413511Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:02.182502428Z 2026-08-29T07:48:02.182Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:48:03.189885220Z 2026-08-29T07:48:03.189Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 3 messages from Redis Stream
+2026-08-29T07:48:03.192367553Z 2026-08-29T07:48:03.191Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:03.192407928Z     select
+2026-08-29T07:48:03.192410428Z         dcme1_0.id,
+2026-08-29T07:48:03.192412636Z         dcme1_0.center_id,
+2026-08-29T07:48:03.192414553Z         dcme1_0.center_name,
+2026-08-29T07:48:03.192416303Z         dcme1_0.device_id,
+2026-08-29T07:48:03.192418053Z         dcme1_0.saved_time,
+2026-08-29T07:48:03.192419886Z         dcme1_0.updated_time 
+2026-08-29T07:48:03.192421636Z     from
+2026-08-29T07:48:03.192423386Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:03.192425178Z     where
+2026-08-29T07:48:03.192426970Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:03.192428761Z Hibernate: 
+2026-08-29T07:48:03.192430470Z     select
+2026-08-29T07:48:03.192432136Z         dcme1_0.id,
+2026-08-29T07:48:03.192433970Z         dcme1_0.center_id,
+2026-08-29T07:48:03.192435720Z         dcme1_0.center_name,
+2026-08-29T07:48:03.192437428Z         dcme1_0.device_id,
+2026-08-29T07:48:03.192439136Z         dcme1_0.saved_time,
+2026-08-29T07:48:03.192440886Z         dcme1_0.updated_time 
+2026-08-29T07:48:03.192442636Z     from
+2026-08-29T07:48:03.192444303Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:03.192446553Z     where
+2026-08-29T07:48:03.192448345Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:03.205318011Z 2026-08-29T07:48:03.205Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 3 messages
+2026-08-29T07:48:05.159224804Z 2026-08-29T07:48:05.158Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:48:05.160571012Z 2026-08-29T07:48:05.160Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:05.160579137Z     select
+2026-08-29T07:48:05.160580429Z         dcme1_0.id,
+2026-08-29T07:48:05.160581512Z         dcme1_0.center_id,
+2026-08-29T07:48:05.160582596Z         dcme1_0.center_name,
+2026-08-29T07:48:05.160583679Z         dcme1_0.device_id,
+2026-08-29T07:48:05.160584762Z         dcme1_0.saved_time,
+2026-08-29T07:48:05.160598846Z         dcme1_0.updated_time 
+2026-08-29T07:48:05.160600096Z     from
+2026-08-29T07:48:05.160601137Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:05.160602221Z     where
+2026-08-29T07:48:05.160603221Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:05.160604846Z Hibernate: 
+2026-08-29T07:48:05.160605887Z     select
+2026-08-29T07:48:05.160606887Z         dcme1_0.id,
+2026-08-29T07:48:05.160607929Z         dcme1_0.center_id,
+2026-08-29T07:48:05.160608971Z         dcme1_0.center_name,
+2026-08-29T07:48:05.160610012Z         dcme1_0.device_id,
+2026-08-29T07:48:05.160611054Z         dcme1_0.saved_time,
+2026-08-29T07:48:05.160612096Z         dcme1_0.updated_time 
+2026-08-29T07:48:05.160613137Z     from
+2026-08-29T07:48:05.160614096Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:05.160615137Z     where
+2026-08-29T07:48:05.160616179Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:05.166190137Z 2026-08-29T07:48:05.165Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:48:06.172103513Z 2026-08-29T07:48:06.171Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:48:06.173132388Z 2026-08-29T07:48:06.172Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:06.173145013Z     select
+2026-08-29T07:48:06.173146055Z         dcme1_0.id,
+2026-08-29T07:48:06.173147013Z         dcme1_0.center_id,
+2026-08-29T07:48:06.173147888Z         dcme1_0.center_name,
+2026-08-29T07:48:06.173148763Z         dcme1_0.device_id,
+2026-08-29T07:48:06.173149596Z         dcme1_0.saved_time,
+2026-08-29T07:48:06.173150471Z         dcme1_0.updated_time 
+2026-08-29T07:48:06.173151346Z     from
+2026-08-29T07:48:06.173152221Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:06.173153096Z     where
+2026-08-29T07:48:06.173153930Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:06.173158013Z Hibernate: 
+2026-08-29T07:48:06.173159138Z     select
+2026-08-29T07:48:06.173160013Z         dcme1_0.id,
+2026-08-29T07:48:06.173160846Z         dcme1_0.center_id,
+2026-08-29T07:48:06.173161680Z         dcme1_0.center_name,
+2026-08-29T07:48:06.173162555Z         dcme1_0.device_id,
+2026-08-29T07:48:06.173164013Z         dcme1_0.saved_time,
+2026-08-29T07:48:06.173167430Z         dcme1_0.updated_time 
+2026-08-29T07:48:06.173168305Z     from
+2026-08-29T07:48:06.173178680Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:06.173179721Z     where
+2026-08-29T07:48:06.173180555Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:06.183120263Z 2026-08-29T07:48:06.182Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:48:07.187918930Z 2026-08-29T07:48:07.187Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:48:07.189556388Z 2026-08-29T07:48:07.189Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:07.189596805Z     select
+2026-08-29T07:48:07.189599472Z         dcme1_0.id,
+2026-08-29T07:48:07.189601472Z         dcme1_0.center_id,
+2026-08-29T07:48:07.189603472Z         dcme1_0.center_name,
+2026-08-29T07:48:07.189605222Z         dcme1_0.device_id,
+2026-08-29T07:48:07.189606972Z         dcme1_0.saved_time,
+2026-08-29T07:48:07.189608680Z         dcme1_0.updated_time 
+2026-08-29T07:48:07.189610513Z     from
+2026-08-29T07:48:07.189612222Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:07.189614097Z     where
+2026-08-29T07:48:07.189615805Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:07.189617597Z Hibernate: 
+2026-08-29T07:48:07.189619305Z     select
+2026-08-29T07:48:07.189621013Z         dcme1_0.id,
+2026-08-29T07:48:07.189622722Z         dcme1_0.center_id,
+2026-08-29T07:48:07.189624555Z         dcme1_0.center_name,
+2026-08-29T07:48:07.189626263Z         dcme1_0.device_id,
+2026-08-29T07:48:07.189627972Z         dcme1_0.saved_time,
+2026-08-29T07:48:07.189629722Z         dcme1_0.updated_time 
+2026-08-29T07:48:07.189631555Z     from
+2026-08-29T07:48:07.189633263Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:07.189635097Z     where
+2026-08-29T07:48:07.189636888Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:07.204597013Z 2026-08-29T07:48:07.204Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:48:09.170555458Z 2026-08-29T07:48:09.170Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:48:09.173552458Z 2026-08-29T07:48:09.172Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:09.173570083Z     select
+2026-08-29T07:48:09.173573750Z         dcme1_0.id,
+2026-08-29T07:48:09.173576583Z         dcme1_0.center_id,
+2026-08-29T07:48:09.173579292Z         dcme1_0.center_name,
+2026-08-29T07:48:09.173589958Z         dcme1_0.device_id,
+2026-08-29T07:48:09.173592500Z         dcme1_0.saved_time,
+2026-08-29T07:48:09.173594750Z         dcme1_0.updated_time 
+2026-08-29T07:48:09.173597042Z     from
+2026-08-29T07:48:09.173599708Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:09.173602042Z     where
+2026-08-29T07:48:09.173604125Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:09.173606292Z Hibernate: 
+2026-08-29T07:48:09.173608333Z     select
+2026-08-29T07:48:09.173610417Z         dcme1_0.id,
+2026-08-29T07:48:09.173612542Z         dcme1_0.center_id,
+2026-08-29T07:48:09.173614667Z         dcme1_0.center_name,
+2026-08-29T07:48:09.173616750Z         dcme1_0.device_id,
+2026-08-29T07:48:09.173618875Z         dcme1_0.saved_time,
+2026-08-29T07:48:09.173620917Z         dcme1_0.updated_time 
+2026-08-29T07:48:09.173623000Z     from
+2026-08-29T07:48:09.173625083Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:09.173627208Z     where
+2026-08-29T07:48:09.173629333Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:09.184845000Z 2026-08-29T07:48:09.184Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:48:09.205326250Z 2026-08-29T07:48:09.204Z  WARN 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Found 3 pending messages, reprocessing...
+2026-08-29T07:48:09.221607333Z 2026-08-29T07:48:09.215Z ERROR 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : pending 재처리 실패, 레코드는 pending에 남아 다음 주기에 다시 시도됨
+2026-08-29T07:48:09.221625125Z 
+2026-08-29T07:48:09.221626875Z org.springframework.data.redis.RedisSystemException: Unknown redis exception
+2026-08-29T07:48:09.221628417Z 	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.getFallback(FallbackExceptionTranslationStrategy.java:49) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221630292Z 	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:39) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221631917Z 	at org.springframework.data.redis.connection.lettuce.LettuceConnection.convertLettuceAccessException(LettuceConnection.java:310) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221633417Z 	at org.springframework.data.redis.connection.lettuce.LettuceConnection.lambda$doInvoke$3(LettuceConnection.java:451) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221634958Z 	at org.springframework.data.redis.connection.lettuce.LettuceInvoker$Synchronizer.invoke(LettuceInvoker.java:673) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221639042Z 	at org.springframework.data.redis.connection.lettuce.LettuceInvoker$DefaultManyInvocationSpec.toList(LettuceInvoker.java:618) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221649375Z 	at org.springframework.data.redis.connection.lettuce.LettuceStreamCommands.xClaim(LettuceStreamCommands.java:117) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221651042Z 	at org.springframework.data.redis.core.DefaultStreamOperations$2.inRedis(DefaultStreamOperations.java:164) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221652542Z 	at org.springframework.data.redis.core.DefaultStreamOperations$RecordDeserializingRedisCallback.doInRedis(DefaultStreamOperations.java:353) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221654125Z 	at org.springframework.data.redis.core.DefaultStreamOperations$RecordDeserializingRedisCallback.doInRedis(DefaultStreamOperations.java:348) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221656375Z 	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:413) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221657833Z 	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:380) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221659250Z 	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:117) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221660750Z 	at org.springframework.data.redis.core.DefaultStreamOperations.claim(DefaultStreamOperations.java:159) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221662250Z 	at org.springframework.data.redis.core.StreamOperations.claim(StreamOperations.java:207) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221663667Z 	at com.barcode.barcode_persistence_worker.service.RedisStreamConsumer.processPendingMessages(RedisStreamConsumer.java:154) ~[!/:0.0.1-SNAPSHOT]
+2026-08-29T07:48:09.221665125Z 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source) ~[na:na]
+2026-08-29T07:48:09.221666500Z 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2026-08-29T07:48:09.221667833Z 	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.12.jar!/:6.2.12]
+2026-08-29T07:48:09.221669333Z 	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.12.jar!/:6.2.12]
+2026-08-29T07:48:09.221670792Z 	at io.micrometer.observation.Observation.observe(Observation.java:498) ~[micrometer-observation-1.15.5.jar!/:1.15.5]
+2026-08-29T07:48:09.221672375Z 	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.12.jar!/:6.2.12]
+2026-08-29T07:48:09.221673875Z 	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:87) ~[spring-context-6.2.12.jar!/:6.2.12]
+2026-08-29T07:48:09.221675333Z 	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.2.12.jar!/:6.2.12]
+2026-08-29T07:48:09.221676917Z 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) ~[na:na]
+2026-08-29T07:48:09.221679458Z 	at java.base/java.util.concurrent.FutureTask.runAndReset(Unknown Source) ~[na:na]
+2026-08-29T07:48:09.221680875Z 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) ~[na:na]
+2026-08-29T07:48:09.221682542Z 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[na:na]
+2026-08-29T07:48:09.221683917Z 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[na:na]
+2026-08-29T07:48:09.221685250Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-08-29T07:48:09.221686542Z Caused by: java.lang.IllegalArgumentException: MessageIds must not be empty
+2026-08-29T07:48:09.221687875Z 	at io.lettuce.core.internal.LettuceAssert.notEmpty(LettuceAssert.java:83) ~[lettuce-core-6.6.0.RELEASE.jar!/:6.6.0.RELEASE/643bd47]
+2026-08-29T07:48:09.221689375Z 	at io.lettuce.core.RedisCommandBuilder.xclaim(RedisCommandBuilder.java:3136) ~[lettuce-core-6.6.0.RELEASE.jar!/:6.6.0.RELEASE/643bd47]
+2026-08-29T07:48:09.221690833Z 	at io.lettuce.core.AbstractRedisAsyncCommands.xclaim(AbstractRedisAsyncCommands.java:2582) ~[lettuce-core-6.6.0.RELEASE.jar!/:6.6.0.RELEASE/643bd47]
+2026-08-29T07:48:09.221692292Z 	at org.springframework.data.redis.connection.lettuce.LettuceInvoker.lambda$fromMany$17(LettuceInvoker.java:334) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221693792Z 	at org.springframework.data.redis.connection.lettuce.LettuceInvoker.lambda$fromMany$13(LettuceInvoker.java:269) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221695292Z 	at org.springframework.data.redis.connection.lettuce.LettuceConnection.lambda$doInvoke$3(LettuceConnection.java:447) ~[spring-data-redis-3.5.5.jar!/:3.5.5]
+2026-08-29T07:48:09.221696708Z 	... 26 common frames omitted
+2026-08-29T07:48:09.221697833Z 
+2026-08-29T07:48:10.190239876Z 2026-08-29T07:48:10.189Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:48:10.192237501Z 2026-08-29T07:48:10.191Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:10.192293709Z     select
+2026-08-29T07:48:10.192298459Z         dcme1_0.id,
+2026-08-29T07:48:10.192300709Z         dcme1_0.center_id,
+2026-08-29T07:48:10.192302667Z         dcme1_0.center_name,
+2026-08-29T07:48:10.192304459Z         dcme1_0.device_id,
+2026-08-29T07:48:10.192306251Z         dcme1_0.saved_time,
+2026-08-29T07:48:10.192308042Z         dcme1_0.updated_time 
+2026-08-29T07:48:10.192309876Z     from
+2026-08-29T07:48:10.192311626Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:10.192313584Z     where
+2026-08-29T07:48:10.192315334Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:10.192317167Z Hibernate: 
+2026-08-29T07:48:10.192318917Z     select
+2026-08-29T07:48:10.192338876Z         dcme1_0.id,
+2026-08-29T07:48:10.192341001Z         dcme1_0.center_id,
+2026-08-29T07:48:10.192342792Z         dcme1_0.center_name,
+2026-08-29T07:48:10.192344626Z         dcme1_0.device_id,
+2026-08-29T07:48:10.192346376Z         dcme1_0.saved_time,
+2026-08-29T07:48:10.192348126Z         dcme1_0.updated_time 
+2026-08-29T07:48:10.192350001Z     from
+2026-08-29T07:48:10.192351751Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:10.192353626Z     where
+2026-08-29T07:48:10.192355376Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:10.203685834Z 2026-08-29T07:48:10.203Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:48:11.207835626Z 2026-08-29T07:48:11.207Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:48:11.209271918Z 2026-08-29T07:48:11.209Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:11.209285793Z     select
+2026-08-29T07:48:11.209287751Z         dcme1_0.id,
+2026-08-29T07:48:11.209289418Z         dcme1_0.center_id,
+2026-08-29T07:48:11.209290834Z         dcme1_0.center_name,
+2026-08-29T07:48:11.209292209Z         dcme1_0.device_id,
+2026-08-29T07:48:11.209293501Z         dcme1_0.saved_time,
+2026-08-29T07:48:11.209294834Z         dcme1_0.updated_time 
+2026-08-29T07:48:11.209296168Z     from
+2026-08-29T07:48:11.209297501Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:11.209298918Z     where
+2026-08-29T07:48:11.209300209Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:11.209301543Z Hibernate: 
+2026-08-29T07:48:11.209302793Z     select
+2026-08-29T07:48:11.209304084Z         dcme1_0.id,
+2026-08-29T07:48:11.209305376Z         dcme1_0.center_id,
+2026-08-29T07:48:11.209306709Z         dcme1_0.center_name,
+2026-08-29T07:48:11.209308043Z         dcme1_0.device_id,
+2026-08-29T07:48:11.209309376Z         dcme1_0.saved_time,
+2026-08-29T07:48:11.209310709Z         dcme1_0.updated_time 
+2026-08-29T07:48:11.209312043Z     from
+2026-08-29T07:48:11.209313293Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:11.209314668Z     where
+2026-08-29T07:48:11.209315959Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:11.215603834Z 2026-08-29T07:48:11.215Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:48:13.171367960Z 2026-08-29T07:48:13.171Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:48:13.173378169Z 2026-08-29T07:48:13.173Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:13.173391960Z     select
+2026-08-29T07:48:13.173394085Z         dcme1_0.id,
+2026-08-29T07:48:13.173396002Z         dcme1_0.center_id,
+2026-08-29T07:48:13.173397835Z         dcme1_0.center_name,
+2026-08-29T07:48:13.173399627Z         dcme1_0.device_id,
+2026-08-29T07:48:13.173401460Z         dcme1_0.saved_time,
+2026-08-29T07:48:13.173403252Z         dcme1_0.updated_time 
+2026-08-29T07:48:13.173405544Z     from
+2026-08-29T07:48:13.173407377Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:13.173409252Z     where
+2026-08-29T07:48:13.173411002Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:13.173412794Z Hibernate: 
+2026-08-29T07:48:13.173414710Z     select
+2026-08-29T07:48:13.173416419Z         dcme1_0.id,
+2026-08-29T07:48:13.173418127Z         dcme1_0.center_id,
+2026-08-29T07:48:13.173419919Z         dcme1_0.center_name,
+2026-08-29T07:48:13.173421627Z         dcme1_0.device_id,
+2026-08-29T07:48:13.173423335Z         dcme1_0.saved_time,
+2026-08-29T07:48:13.173425085Z         dcme1_0.updated_time 
+2026-08-29T07:48:13.173426835Z     from
+2026-08-29T07:48:13.173428460Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:13.173430419Z     where
+2026-08-29T07:48:13.173432085Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:13.182865960Z 2026-08-29T07:48:13.182Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:48:14.188033919Z 2026-08-29T07:48:14.187Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 5 messages from Redis Stream
+2026-08-29T07:48:14.189831919Z 2026-08-29T07:48:14.189Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:14.189855877Z     select
+2026-08-29T07:48:14.189858127Z         dcme1_0.id,
+2026-08-29T07:48:14.189860252Z         dcme1_0.center_id,
+2026-08-29T07:48:14.189862044Z         dcme1_0.center_name,
+2026-08-29T07:48:14.189863877Z         dcme1_0.device_id,
+2026-08-29T07:48:14.189865586Z         dcme1_0.saved_time,
+2026-08-29T07:48:14.189867294Z         dcme1_0.updated_time 
+2026-08-29T07:48:14.189869086Z     from
+2026-08-29T07:48:14.189870752Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:14.189872627Z     where
+2026-08-29T07:48:14.189874336Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:14.189889461Z Hibernate: 
+2026-08-29T07:48:14.189891669Z     select
+2026-08-29T07:48:14.189893377Z         dcme1_0.id,
+2026-08-29T07:48:14.189895086Z         dcme1_0.center_id,
+2026-08-29T07:48:14.189896836Z         dcme1_0.center_name,
+2026-08-29T07:48:14.189898586Z         dcme1_0.device_id,
+2026-08-29T07:48:14.189900294Z         dcme1_0.saved_time,
+2026-08-29T07:48:14.189902002Z         dcme1_0.updated_time 
+2026-08-29T07:48:14.189903752Z     from
+2026-08-29T07:48:14.189905461Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:14.189907169Z     where
+2026-08-29T07:48:14.189908877Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:14.199933586Z 2026-08-29T07:48:14.199Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 5 messages
+2026-08-29T07:48:15.203614836Z 2026-08-29T07:48:15.203Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 3 messages from Redis Stream
+2026-08-29T07:48:15.204764628Z 2026-08-29T07:48:15.204Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:15.204774170Z     select
+2026-08-29T07:48:15.204775836Z         dcme1_0.id,
+2026-08-29T07:48:15.204777295Z         dcme1_0.center_id,
+2026-08-29T07:48:15.204778670Z         dcme1_0.center_name,
+2026-08-29T07:48:15.204780003Z         dcme1_0.device_id,
+2026-08-29T07:48:15.204781295Z         dcme1_0.saved_time,
+2026-08-29T07:48:15.204782586Z         dcme1_0.updated_time 
+2026-08-29T07:48:15.204783920Z     from
+2026-08-29T07:48:15.204785211Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:15.204786586Z     where
+2026-08-29T07:48:15.204787836Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:15.204789128Z Hibernate: 
+2026-08-29T07:48:15.204790378Z     select
+2026-08-29T07:48:15.204791586Z         dcme1_0.id,
+2026-08-29T07:48:15.204792878Z         dcme1_0.center_id,
+2026-08-29T07:48:15.204794128Z         dcme1_0.center_name,
+2026-08-29T07:48:15.204795420Z         dcme1_0.device_id,
+2026-08-29T07:48:15.204796670Z         dcme1_0.saved_time,
+2026-08-29T07:48:15.204797961Z         dcme1_0.updated_time 
+2026-08-29T07:48:15.204799253Z     from
+2026-08-29T07:48:15.204800503Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:15.204801795Z     where
+2026-08-29T07:48:15.204803045Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:15.212572211Z 2026-08-29T07:48:15.212Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 3 messages
+2026-08-29T07:48:17.181312129Z 2026-08-29T07:48:17.180Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:48:17.183200004Z 2026-08-29T07:48:17.182Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:17.183217462Z     select
+2026-08-29T07:48:17.183219962Z         dcme1_0.id,
+2026-08-29T07:48:17.183221879Z         dcme1_0.center_id,
+2026-08-29T07:48:17.183223796Z         dcme1_0.center_name,
+2026-08-29T07:48:17.183225754Z         dcme1_0.device_id,
+2026-08-29T07:48:17.183227462Z         dcme1_0.saved_time,
+2026-08-29T07:48:17.183229212Z         dcme1_0.updated_time 
+2026-08-29T07:48:17.183231587Z     from
+2026-08-29T07:48:17.183233379Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:17.183235171Z     where
+2026-08-29T07:48:17.183236837Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:17.183238629Z Hibernate: 
+2026-08-29T07:48:17.183240379Z     select
+2026-08-29T07:48:17.183242087Z         dcme1_0.id,
+2026-08-29T07:48:17.183243837Z         dcme1_0.center_id,
+2026-08-29T07:48:17.183245546Z         dcme1_0.center_name,
+2026-08-29T07:48:17.183247296Z         dcme1_0.device_id,
+2026-08-29T07:48:17.183249004Z         dcme1_0.saved_time,
+2026-08-29T07:48:17.183250754Z         dcme1_0.updated_time 
+2026-08-29T07:48:17.183252504Z     from
+2026-08-29T07:48:17.183254171Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:17.183281546Z     where
+2026-08-29T07:48:17.183283462Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:17.194044379Z 2026-08-29T07:48:17.193Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:48:18.198861838Z 2026-08-29T07:48:18.198Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 4 messages from Redis Stream
+2026-08-29T07:48:18.202120796Z 2026-08-29T07:48:18.201Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:18.202156546Z     select
+2026-08-29T07:48:18.202159129Z         dcme1_0.id,
+2026-08-29T07:48:18.202161213Z         dcme1_0.center_id,
+2026-08-29T07:48:18.202163129Z         dcme1_0.center_name,
+2026-08-29T07:48:18.202164921Z         dcme1_0.device_id,
+2026-08-29T07:48:18.202166588Z         dcme1_0.saved_time,
+2026-08-29T07:48:18.202168296Z         dcme1_0.updated_time 
+2026-08-29T07:48:18.202170004Z     from
+2026-08-29T07:48:18.202171713Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:18.202194296Z     where
+2026-08-29T07:48:18.202196254Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:18.202198046Z Hibernate: 
+2026-08-29T07:48:18.202199754Z     select
+2026-08-29T07:48:18.202201421Z         dcme1_0.id,
+2026-08-29T07:48:18.202203171Z         dcme1_0.center_id,
+2026-08-29T07:48:18.202204879Z         dcme1_0.center_name,
+2026-08-29T07:48:18.202206629Z         dcme1_0.device_id,
+2026-08-29T07:48:18.202208296Z         dcme1_0.saved_time,
+2026-08-29T07:48:18.202210004Z         dcme1_0.updated_time 
+2026-08-29T07:48:18.202211713Z     from
+2026-08-29T07:48:18.202213629Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:18.202215629Z     where
+2026-08-29T07:48:18.202217296Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:18.212493879Z 2026-08-29T07:48:18.211Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 4 messages
+2026-08-29T07:48:19.217146421Z 2026-08-29T07:48:19.216Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 3 messages from Redis Stream
+2026-08-29T07:48:19.218639130Z 2026-08-29T07:48:19.218Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:19.218655088Z     select
+2026-08-29T07:48:19.218657963Z         dcme1_0.id,
+2026-08-29T07:48:19.218664671Z         dcme1_0.center_id,
+2026-08-29T07:48:19.218666630Z         dcme1_0.center_name,
+2026-08-29T07:48:19.218668463Z         dcme1_0.device_id,
+2026-08-29T07:48:19.218670255Z         dcme1_0.saved_time,
+2026-08-29T07:48:19.218672088Z         dcme1_0.updated_time 
+2026-08-29T07:48:19.218673921Z     from
+2026-08-29T07:48:19.218675671Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:19.218677588Z     where
+2026-08-29T07:48:19.218679296Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:19.218681130Z Hibernate: 
+2026-08-29T07:48:19.218682880Z     select
+2026-08-29T07:48:19.218684588Z         dcme1_0.id,
+2026-08-29T07:48:19.218686380Z         dcme1_0.center_id,
+2026-08-29T07:48:19.218688213Z         dcme1_0.center_name,
+2026-08-29T07:48:19.218690046Z         dcme1_0.device_id,
+2026-08-29T07:48:19.218691838Z         dcme1_0.saved_time,
+2026-08-29T07:48:19.218693713Z         dcme1_0.updated_time 
+2026-08-29T07:48:19.218695463Z     from
+2026-08-29T07:48:19.218697130Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:19.218699005Z     where
+2026-08-29T07:48:19.218700713Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:19.228042421Z 2026-08-29T07:48:19.227Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 3 messages
+2026-08-29T07:48:21.181959964Z 2026-08-29T07:48:21.181Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:48:21.183023297Z 2026-08-29T07:48:21.182Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:21.183029589Z     select
+2026-08-29T07:48:21.183030506Z         dcme1_0.id,
+2026-08-29T07:48:21.183031339Z         dcme1_0.center_id,
+2026-08-29T07:48:21.183032214Z         dcme1_0.center_name,
+2026-08-29T07:48:21.183033422Z         dcme1_0.device_id,
+2026-08-29T07:48:21.183034256Z         dcme1_0.saved_time,
+2026-08-29T07:48:21.183035047Z         dcme1_0.updated_time 
+2026-08-29T07:48:21.183035839Z     from
+2026-08-29T07:48:21.183036631Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:21.183037464Z     where
+2026-08-29T07:48:21.183038214Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:21.183039047Z Hibernate: 
+2026-08-29T07:48:21.183039839Z     select
+2026-08-29T07:48:21.183040589Z         dcme1_0.id,
+2026-08-29T07:48:21.183041381Z         dcme1_0.center_id,
+2026-08-29T07:48:21.183042297Z         dcme1_0.center_name,
+2026-08-29T07:48:21.183043089Z         dcme1_0.device_id,
+2026-08-29T07:48:21.183043839Z         dcme1_0.saved_time,
+2026-08-29T07:48:21.183044631Z         dcme1_0.updated_time 
+2026-08-29T07:48:21.183045422Z     from
+2026-08-29T07:48:21.183046172Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:21.183046964Z     where
+2026-08-29T07:48:21.183047714Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:21.189280256Z 2026-08-29T07:48:21.188Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+2026-08-29T07:48:22.195142256Z 2026-08-29T07:48:22.194Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-08-29T07:48:22.197023423Z 2026-08-29T07:48:22.196Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-08-29T07:48:22.197053506Z     select
+2026-08-29T07:48:22.197059548Z         dcme1_0.id,
+2026-08-29T07:48:22.197062506Z         dcme1_0.center_id,
+2026-08-29T07:48:22.197064298Z         dcme1_0.center_name,
+2026-08-29T07:48:22.197066048Z         dcme1_0.device_id,
+2026-08-29T07:48:22.197067798Z         dcme1_0.saved_time,
+2026-08-29T07:48:22.197069548Z         dcme1_0.updated_time 
+2026-08-29T07:48:22.197098506Z     from
+2026-08-29T07:48:22.197102006Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:22.197103881Z     where
+2026-08-29T07:48:22.197105631Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:22.197107423Z Hibernate: 
+2026-08-29T07:48:22.197109131Z     select
+2026-08-29T07:48:22.197110798Z         dcme1_0.id,
+2026-08-29T07:48:22.197112548Z         dcme1_0.center_id,
+2026-08-29T07:48:22.197114298Z         dcme1_0.center_name,
+2026-08-29T07:48:22.197116048Z         dcme1_0.device_id,
+2026-08-29T07:48:22.197117756Z         dcme1_0.saved_time,
+2026-08-29T07:48:22.197119506Z         dcme1_0.updated_time 
+2026-08-29T07:48:22.197121256Z     from
+2026-08-29T07:48:22.197122965Z         device_center_mapping dcme1_0 
+2026-08-29T07:48:22.197124715Z     where
+2026-08-29T07:48:22.197126465Z         dcme1_0.device_id in (?)
+2026-08-29T07:48:22.206245590Z 2026-08-29T07:48:22.205Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages

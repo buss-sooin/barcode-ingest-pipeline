@@ -1,0 +1,64 @@
+CapturedAtUTC=2026-08-29T07:54:13Z
+GeneratedEventManifest:
+healthy scanTimeMs=1787989319000..1787989319299 count=300
+outage scanTimeMs=1787989534000..1787989534219 count=220
+post-recovery scanTimeMs=1787989631000..1787989631299 count=300
+identity_key=scanTimeMs generated_unique=820
+PhaseReconciliation:
+mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'generated, SUM(actual.scan_ms IS NOT NULL) AS persisted, SUM(actual.scan_ms IS N' at line 1
+TotalReconciliation:
+mysql: [Warning] Using a password on the command line interface can be insecure.
+820	820	0	0	0
+FinalMySQLUniqueness:
+mysql: [Warning] Using a password on the command line interface can be insecure.
+820	820	820	820
+0
+KafkaFinalOffsets:
+barcode-events:0:0
+barcode-events:1:0
+barcode-events:2:0
+barcode-events:3:0
+barcode-events:4:0
+barcode-events:5:0
+barcode-events:6:1235
+barcode-events:7:0
+barcode-events:8:0
+barcode-events:9:0
+KafkaFinalOffsetTotalAndDuplicateSubmissionCount:
+KafkaRecords=1235 GeneratedUnique=820 RetryInducedDuplicateSubmissions=415
+RedisFinalState:
+StreamLength=820
+DLQLength=0
+GroupInfo:
+name
+barcode-persistence-group
+consumers
+2
+pending
+0
+last-delivered-id
+1787989702190-0
+entries-read
+820
+lag
+0
+PendingSummary:
+0
+
+
+
+KafkaDLTTopics:
+none
+ScannerRetryTerminalLog:
+2026-08-29T07:46:57.035021467Z 2026-08-29T07:46:57.034Z  INFO 1 --- [barcode-scanner-service] [   scheduling-1] c.b.b.service.FailureRetryService        : Retry summary - Success: 8, Failed: 0, Remaining in queue: 0/10000
+ProcessingDedupeCounts:
+Received=1235
+New=820
+Duplicate=415
+Errors=0
+PhaseReconciliationCorrection:
+mysql: [Warning] Using a password on the command line interface can be insecure.
+healthy	300	300	0	0
+outage	220	220	0	0
+post-recovery	300	300	0	0

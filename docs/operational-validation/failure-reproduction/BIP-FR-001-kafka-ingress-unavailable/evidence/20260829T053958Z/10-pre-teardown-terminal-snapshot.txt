@@ -1,0 +1,52 @@
+CapturedAtUTC=2026-08-29T06:13:19Z
+scanner	CPU=0.52%	Memory=212.4MiB / 416MiB	MemoryPercent=51.05%	PIDs=31
+worker-2	CPU=0.44%	Memory=343.2MiB / 416MiB	MemoryPercent=82.51%	PIDs=37
+worker-1	CPU=0.98%	Memory=345.7MiB / 416MiB	MemoryPercent=83.09%	PIDs=37
+processing	CPU=1.30%	Memory=271.3MiB / 416MiB	MemoryPercent=65.22%	PIDs=36
+ingest	CPU=0.16%	Memory=205.6MiB / 416MiB	MemoryPercent=49.43%	PIDs=29
+prometheus	CPU=0.00%	Memory=81.54MiB / 320MiB	MemoryPercent=25.48%	PIDs=13
+redis	CPU=0.36%	Memory=36.49MiB / 160MiB	MemoryPercent=22.81%	PIDs=6
+grafana	CPU=0.11%	Memory=186.5MiB / 192MiB	MemoryPercent=97.14%	PIDs=16
+mysqld-exporter-central	CPU=0.00%	Memory=14.17MiB / 64MiB	MemoryPercent=22.14%	PIDs=5
+mysql	CPU=0.73%	Memory=518.4MiB / 768MiB	MemoryPercent=67.50%	PIDs=46
+mysqld-exporter	CPU=0.01%	Memory=20.21MiB / 64MiB	MemoryPercent=31.57%	PIDs=5
+redis-exporter	CPU=0.00%	Memory=21.19MiB / 64MiB	MemoryPercent=33.11%	PIDs=8
+kafka	CPU=9.66%	Memory=435.5MiB / 1.25GiB	MemoryPercent=34.02%	PIDs=110
+/kafka\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0
+/mysql\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0
+/redis\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0
+/ingest\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0
+/processing\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0
+/scanner\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0
+/worker-1\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0
+/worker-2\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0
+/prometheus\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0
+/grafana\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0
+/mysqld-exporter\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0
+/mysqld-exporter-central\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0
+/kafka-exporter\tStatus=exited\tExitCode=255\tOOMKilled=false\tRestartCount=0
+/redis-exporter\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0
+mysql: [Warning] Using a password on the command line interface can be insecure.
+barcodes=0, distinct_original=0, distinct_scan_time=0
+0
+0
+
+
+
+0
+__consumer_offsets
+barcode-events
+barcode-events:0:0
+barcode-events:1:0
+barcode-events:2:0
+barcode-events:3:0
+barcode-events:4:0
+barcode-events:5:0
+barcode-events:6:0
+barcode-events:7:0
+barcode-events:8:0
+barcode-events:9:0
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 41%
+vm.swapusage: total = 1024.00M  used = 716.31M  free = 307.69M  (encrypted)
+

@@ -392,3 +392,252 @@ Execution Environment Readiness Preflight는 `PASS`이다. 이 판정은 현재 
 `EXECUTION ENVIRONMENT READINESS: PASS`
 
 `BIP-FR-001 MATERIAL RUN: NOT STARTED`
+
+## Material Failure Run — `20260829T073503Z`
+
+### 1. Session Routing 및 실행 식별
+
+| 항목 | 값 |
+|---|---|
+| Task ID | `BIP-FR-001` |
+| Run ID | `20260829T073503Z` |
+| 실행 범위 | 승인된 단일 Kafka unavailable Material Failure Run |
+| Repository | `/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline` |
+| Git branch | `validation/bip-fr-001-kafka-unavailable` |
+| `origin/main` | `b39b04907f72c484c9213289933a6a4be178acc4` |
+| Material Run Specification SHA | `5870dd3578061663be89d54cbde0f9a84375c708` |
+| Evidence locator | `evidence/20260829T073503Z/` |
+| 최종 Workflow Outcome | `REPRODUCED` |
+
+이 Run은 checkpoint commit 이후 application source, canonical Compose, validation override 및 traffic driver를 수정하지 않고 수행했다. Commit은 push하지 않았고 Material Run 이후 commit도 생성하지 않았다.
+
+### 2. Clean Start, Image Identity 및 Resource Boundary
+
+- 실행 전 container/volume은 없었고 기본 Docker network `bridge`, `host`, `none`만 존재했다.
+- 요구 port `3000`, `3306`, `6379`, `8081`, `8082`, `8084`, `8085`, `8086`, `9090`, `9092`, `9104`, `9105`, `9121`, `9308`의 listener는 모두 없었다.
+- 동일한 네 Compose file set으로 project-scoped `down -v --remove-orphans`를 수행한 뒤 project container/network/volume이 모두 `0`임을 확인했다.
+- `docker compose pull`과 image rebuild는 수행하지 않았고 모든 startup에 `--no-build --pull never`를 사용했다.
+- 13개 image의 ID/digest는 `20260829T064402Z` Readiness PASS의 identity와 모두 일치했다. Material Run 종료 전 재검증에서도 동일했다.
+- Effective aggregate hard limit는 `5,368,709,120 bytes = 5,120 MiB = 5.0 GiB`, CPU quota 합계는 `3.95 CPU`였다.
+- Grafana effective limit는 승인된 `256 MiB / 0.15 CPU`였으며 어느 service limit도 변경하지 않았다.
+
+### 3. Staged Startup 및 Healthy Traffic Baseline
+
+Stage 1은 Kafka, MySQL, Redis만 시작했다. 실제 `kafka-topics --bootstrap-server kafka:29092 --list`, `mysqladmin ping`, Redis `PONG`으로 core readiness를 확인했다.
+
+Stage 2에서는 monitoring/exporter service를 시작했다. Kafka exporter는 `running`, `kafka_brokers 1`이었고 Prometheus, Grafana, MySQL exporter 2개 및 Redis exporter endpoint가 모두 HTTP `200`을 반환했다. App 시작 전에는 신규 clean Kafka에 `barcode-events`가 아직 없었으며, Stage 3 application startup 후 producer/consumer initialization으로 topic이 생성되어 10개 partition과 exporter visibility를 확인했다. 수동 topic 생성이나 state 조작은 하지 않았다.
+
+Stage 3에서는 ingest, processing, scanner, worker-1, worker-2를 시작했다. 다섯 Actuator health endpoint가 모두 HTTP `200`이었고 14개 container 전체가 `running`, `OOMKilled=false`, `RestartCount=0`이었다.
+
+Healthy phase 결과:
+
+| 항목 | 결과 |
+|---|---|
+| Driver 설정 | `300 requests`, `5 requests/sec` |
+| Driver 구간 | `2026-08-29T07:42:00Z` ~ `07:43:11Z` |
+| Scanner response | HTTP `200`: `300`, other: `0`, transport error: `0` |
+| Kafka end offset | `300` |
+| Redis stream / group lag / PEL | `300 / 0 / 0` |
+| MySQL | `300` rows, original/scanTime 모두 `300` unique |
+| DLQ / DLT | `0 / 0` |
+| Retry / OOM / restart | 없음 / 없음 / 없음 |
+
+기존 driver는 각 blocking HTTP 호출 뒤 `0.2초`를 sleep하므로 wall-clock `300건` 구간은 명목 60초보다 긴 71초였다. Driver argument는 전 구간 `5`로 고정되었고 더 높은 rate를 사용하지 않았지만, 실효 wall-clock rate는 목표보다 낮았다. 이는 결과 해석의 명시적 제한이며 production throughput 근거가 아니다.
+
+### 4. Kafka Fault Injection 및 Fault Duration
+
+실행한 유일한 fault 명령은 다음과 같다.
+
+```text
+docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml stop kafka
+```
+
+| 시점 | UTC |
+|---|---|
+| Fault command 시작 | `2026-08-29T07:45:34Z` |
+| Kafka container finished | `2026-08-29T07:45:35.326729096Z` |
+| Recovery command 시작 | `2026-08-29T07:46:32Z` |
+| Stop 완료 기준 fault duration | `57초` |
+
+Kafka는 `ExitCode=143`, `OOMKilled=false`, `RestartCount=0`으로 정상 stop되었다. Outage driver는 `07:45:35Z`부터 `07:46:27Z`까지 `220건`, 설정 `5 requests/sec`로 실행되어 모두 scanner HTTP `200`을 받았다. Driver가 recovery 전에 끝났고 안전 조건에 의한 조기 recovery는 없었다.
+
+### 5. Detect Timeline 및 Failure Signature
+
+| UTC | 관측 사실 |
+|---|---|
+| `07:45:34.673Z` | ingest Kafka producer가 broker node 연결 불가를 최초 기록 |
+| `07:45:40.978Z` | ingest batch의 첫 Kafka 전송 확인 실패 index 기록 |
+| `07:45:40.985Z` | scanner가 첫 batch partial failure와 건별 fallback을 기록 |
+| `07:45:52.087Z` | 첫 건별 HTTP 실패가 scanner retry queue에 적재됨 |
+| `07:45:55.250Z` | scanner scheduled retry가 최초 실행됨 |
+| Fault 전 구간 | Kafka exporter process는 running이었으나 6개 sample의 metrics HTTP가 모두 `000` |
+| Fault 전 구간 | processing 수신 `0`, worker-1/worker-2 Redis read `0` |
+
+Failure Signature 평가는 다음과 같다.
+
+| Signature | 결과 | 근거 |
+|---|---|---|
+| FS-1 — 승인된 bounded window에 Kafka unavailable | `PASS` | 동일 Kafka container stop 상태와 lifecycle event |
+| FS-2 — ingress Kafka delivery failure/timeout 관측 | `PASS` | producer broker unavailable 및 batch/single confirmation failure log |
+| FS-3 — scanner fallback/retry 활성화 | `PASS` | batch fallback, retry queue 적재, scheduled retry log |
+| FS-4 — affected event의 정상 downstream progression 중단 | `PASS` | fault window processing 수신과 worker read 모두 `0` |
+
+Kafka container stopped 사실만으로 판정하지 않았고 위 causal evidence를 함께 사용했다.
+
+### 6. Impact Assessment
+
+Generated manifest의 unique identity는 `scanTimeMs`이다.
+
+| Phase | Range | Generated |
+|---|---|---:|
+| Healthy | `1787989319000..1787989319299` | 300 |
+| Kafka unavailable | `1787989534000..1787989534219` | 220 |
+| Post-recovery | `1787989631000..1787989631299` | 300 |
+| 합계 | 서로 겹치지 않는 세 range | 820 |
+
+- Scanner driver: HTTP `200` 820, other/transport error 0. Scanner response는 buffer acceptance이며 final persistence 확인 응답이 아니다.
+- Ingest batch response 파생 집계: 총 172회 중 HTTP `200` 141회, HTTP `207` 31회. 31개 partial response의 failed index 합계는 outage event 220건이었다.
+- Ingest single response 파생 집계: 총 415회 중 HTTP `200` 220회, HTTP `503` 195회.
+- 위 HTTP status 집계는 controller request/failure log와 고정된 response mapping을 결합한 값이며 access log의 직접 status 집계는 아니다.
+- Explicit scanner retry queue 적재는 90회, 관측 최대 queue size는 `89/10000`이었다. Scheduled retry는 success 90회, failed attempt 3회였고 terminal remaining은 `0/10000`이었다.
+- Queue full 또는 drop log는 0이었다.
+- Kafka final record는 1,235건이었다. Processing은 1,235건을 모두 성공 처리했고 `new=820`, `duplicate=415`, error 0을 기록했다.
+- Redis stream은 unique event 820건, group lag 0, PEL 0이었다.
+- MySQL은 820건으로 수렴했다.
+- DLQ 0, DLT topic 없음, terminal pending retry 0, unaccounted event 0이었다.
+
+HTTP `207`/`503`은 해당 시점에 Kafka delivery 확인을 끝내지 못했다는 뜻이며 확정 소실을 뜻하지 않는다. 배경 future와 fallback/retry가 recovery 후 함께 성공해 Kafka에는 415개 duplicate submission이 생겼다.
+
+### 7. Resource Safety During Fault
+
+- Fault sample의 host memory free percentage는 `42~44%`였다.
+- Pre-run swap은 `1,344 MiB`, fault 중 최대 `1,344 MiB`, terminal은 `1,328 MiB`였다. `+256 MiB` 조건은 발생하지 않았다.
+- 전체 Run의 최고 container memory 비율은 worker-1 `87.21%`였고 `>=90%` sample은 없었다.
+- OOMKilled와 unexpected restart는 없었다.
+- Docker daemon은 모든 sample에서 responsive였다.
+- Kafka exporter는 outage 동안 종료되지 않고 running 상태를 유지했으나 metrics request가 timeout/HTTP `000`이었고, Kafka 복구 후 수동 restart 없이 `kafka_brokers 1`로 돌아왔다.
+
+### 8. Recovery 및 Post-Recovery Traffic
+
+승인된 유일한 primary recovery 명령은 다음과 같다.
+
+```text
+docker compose -f docker-compose.yml -f docker-compose.apps.yml -f monitoring-compose.yml -f docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/docker-compose.validation.yml start kafka
+```
+
+동일 container ID `116b4eb876261e7997690b4f2306457cd95cb412a73be42686e6c88a3a1546fc`를 재사용했다. 다른 component restart, data/topic/offset 조작 또는 manual repair는 없었다.
+
+| UTC | Recovery evidence |
+|---|---|
+| `07:46:32Z` | Recovery command 시작 |
+| `07:46:33Z` | Recovery command 완료 |
+| `07:46:48.405Z` | recovery 후 첫 Kafka publish 성공 |
+| `07:46:48.823Z` | processing의 첫 resumed consume |
+| `07:46:49.398Z` | scanner의 첫 retry success |
+| `07:46:50Z` | actual broker probe 완료 |
+| `07:46:57.034Z` | scanner retry remaining `0/10000` |
+
+Broker probe 완료 후 post-recovery driver를 `07:47:12Z`부터 `07:48:21Z`까지 실행했다. 설정은 `300 requests / 5 requests/sec`였고 scanner HTTP `200` 300건, other/transport error 0이었다. 이후 새 input은 생성하지 않았다.
+
+Recovery Verification은 모두 `PASS`이다.
+
+- Kafka broker responsive: `PASS`
+- New publish success: `PASS`
+- Retry processing resumed: `PASS`
+- Affected data downstream progression: `PASS`
+- Backlog convergence: `PASS`
+- Terminal reconciliation: `PASS`
+
+### 9. Backlog Drain 및 Final Reconciliation
+
+Input generation 종료 후 180초 이내의 bounded window에서 두 번의 terminal sample을 확인했다.
+
+| Sample | MySQL | Kafka lag | Redis stream/lag/PEL | Retry remaining | DLQ/DLT |
+|---|---:|---:|---|---:|---|
+| `07:49:18Z` | 820 | 0 | `820 / 0 / 0` | 0 | `0 / none` |
+| `07:49:34Z` | 820 | 0 | `820 / 0 / 0` | 0 | `0 / none` |
+
+SQL manifest reconciliation 결과:
+
+| Phase | Generated | Persisted | Missing | Duplicate final row |
+|---|---:|---:|---:|---:|
+| Healthy | 300 | 300 | 0 | 0 |
+| Kafka unavailable | 220 | 220 | 0 | 0 |
+| Post-recovery | 300 | 300 | 0 | 0 |
+| 합계 | 820 | 820 | 0 | 0 |
+
+MySQL의 `internalBarcodeId`, `originalBarcode`, `scanTime` distinct count는 각각 820이었다. Expected manifest 밖의 extra row도 0이었다.
+
+따라서 terminal 식은 다음과 같다.
+
+`Generated unique 820 = MySQL unique 820 + DLQ 0 + DLT 0 + pending 0 + unaccounted 0`
+
+Kafka의 415개 duplicate submission은 processing의 atomic Redis dedupe가 모두 식별했고 Redis/MySQL final set에는 duplicate가 남지 않았다. 이는 이 bounded Run의 duplicate absorption evidence이며 임의 failure mode 전반의 exactly-once 보장은 아니다.
+
+### 10. Experiment Validity 및 Evidence Sufficiency
+
+Experiment Validity: `PASS` — 다음 조건을 모두 확인했다.
+
+- Frozen Material Run Specification SHA `5870dd3578061663be89d54cbde0f9a84375c708` 사용
+- 의도적으로 바꾼 availability는 Kafka 하나뿐
+- Driver rate argument 전 구간 `5`, 더 높은 rate 미사용
+- Kafka outage `57초 <= 60초`
+- Resource limit과 image identity 불변
+- Kafka 외 component restart 없음
+- State/topic/offset 조작 및 manual data repair 없음
+- Global prune 없음
+- Timeline과 lifecycle event 일치
+- Host safety boundary 유지
+
+승인된 driver의 blocking-call 후 sleep 방식 때문에 healthy/post phase의 wall-clock 실효 rate가 명목 5 req/s보다 낮았다는 제한을 별도로 유지한다. 이 제한은 failure causal chain과 terminal identity reconciliation을 무효화하지 않지만 정확한 5 req/s throughput claim은 하지 않는다.
+
+Evidence Sufficiency: `PASS` — Kafka unavailability, ingress confirmation failure, scanner fallback/retry, downstream interruption, 동일 broker recovery, backlog convergence 및 event-level reconciliation을 서로 독립적인 container state, timestamp log, Kafka/Redis/MySQL query로 확인했다.
+
+다만 다음 경계가 있다.
+
+- Ingest HTTP status count는 application log와 controller mapping을 결합한 파생치이며 access log 직접 집계가 아니다.
+- Scanner retry queue는 existing log로만 계량했으며 별도 queue endpoint/metric은 없다.
+- Explicit application retry log가 설명하는 호출 수를 넘어선 추가 single POST가 관측됐다. Default Apache HttpClient 내부 retry가 working hypothesis이지만 이번 Run은 그 원인을 확정하지 않는다.
+- 초기 blocked run과 readiness run의 manifest는 변경 가능한 root-level record/override도 checksum 대상으로 포함했다. 이전 evidence-local file은 그대로 검증되지만 후속 승인 변경 뒤 shared artifact 항목은 역사적으로 불일치한다. 이전 manifest는 rewrite하지 않았다.
+
+### 11. Final Workflow Outcome 및 Verified Claim Boundary
+
+Final Workflow Outcome: `REPRODUCED`
+
+검증된 최대 claim은 다음으로 제한한다.
+
+> 격리된 local single-broker Docker 환경에서 5 req/s로 설정된 active synthetic scan traffic 중 Kafka를 57초간 unavailable 상태로 만들었다. Ingress delivery confirmation failure와 scanner fallback/retry가 관측되었고, state 조작 없이 동일 broker를 복구한 뒤 processing이 재개되어 experiment event 820건 전체가 final duplicate 또는 unaccounted loss 없이 reconciliation되었다.
+
+이 결과는 replicated Kafka HA, Kafka storage loss, container recreation, scanner restart, retry queue overflow, production alerting, production RTO/RPO 또는 일반적인 enterprise-grade availability를 검증하지 않는다.
+
+### 12. Clean End
+
+모든 terminal evidence를 먼저 수집한 뒤 동일한 네 Compose file set으로 `down -v --remove-orphans`를 수행했다.
+
+- Project container/network/volume: `0 / 0 / 0`
+- Unrelated resource: 실행 전과 동일하게 container/volume 없음, 기본 network 3개 유지
+- Required port listener: 모두 없음
+- Docker daemon: responsive, running/stopped container `0/0`
+- Cached image: 13개 유지
+- Global prune: 미수행
+- 임시 Git-ignored `.env`: clean end 후 삭제
+- 종료 후 host memory free: `42%`, swap `1,328 MiB`
+
+### 13. Candidate Improvements
+
+다음은 이번 Task에서 구현하지 않은 review 후보이다.
+
+1. Traffic driver를 absolute-time pacing으로 바꿔 blocking HTTP latency와 무관하게 목표 rate를 재현하고 measured achieved rate를 함께 기록한다.
+2. Scanner retry queue size, enqueue/drop 및 drain을 직접 조회할 수 있는 bounded metric/status를 검토한다.
+3. Apache HttpClient default retry가 POST/503 흐름에 미치는 영향과 application-level retry와의 중첩을 별도 실험으로 규명한다.
+4. Run manifest는 mutable shared artifact 대신 evidence-local immutable snapshot을 checksum 대상으로 삼아 과거 full-manifest 검증을 유지한다.
+5. Kafka outage 중 exporter process는 생존했지만 metrics HTTP가 timeout된 운영 특성을 alerting 설계에서 명시적으로 다룬다.
+
+### 14. Evidence Manifest Verification
+
+- 현재 Run의 `MANIFEST.sha256`은 canonical artifact 4개와 현재 evidence file 36개, 총 40개 entry를 포함한다.
+- 최종 `shasum -a 256 -c MANIFEST.sha256` 결과는 40개 entry 모두 `OK`이다.
+- 초기 blocked run과 readiness run의 evidence-local entry도 모두 `OK`이며 이전 directory와 manifest는 수정하지 않았다.
+- 과거 full manifest의 mutable shared artifact mismatch는 위 Evidence Sufficiency 제한에 별도로 기록했다.
+
+`BIP-FR-001 MATERIAL RUN: REPRODUCED`

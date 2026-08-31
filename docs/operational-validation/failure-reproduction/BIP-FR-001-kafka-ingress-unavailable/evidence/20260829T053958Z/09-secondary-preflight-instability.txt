@@ -1,0 +1,55 @@
+CapturedAtUTC=2026-08-29T06:12:43Z
+scanner	Up 2 minutes
+worker-2	Up 2 minutes
+worker-1	Up 2 minutes
+processing	Up 2 minutes
+ingest	Up 2 minutes
+prometheus	Up 2 minutes
+redis	Up 2 minutes
+grafana	Up 2 minutes
+mysqld-exporter-central	Up 2 minutes
+mysql	Up 2 minutes
+mysqld-exporter	Up 2 minutes
+redis-exporter	Up 2 minutes
+kafka	Up 2 minutes
+kafka-exporter	Exited (255) 2 minutes ago
+/prometheus\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0\tError=""\tFinishedAt=0001-01-01T00:00:00Z
+/kafka-exporter\tStatus=exited\tExitCode=255\tOOMKilled=false\tRestartCount=0\tError=""\tFinishedAt=2026-08-29T06:10:29.899256168Z
+/kafka\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0\tError=""\tFinishedAt=0001-01-01T00:00:00Z
+/mysql\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0\tError=""\tFinishedAt=0001-01-01T00:00:00Z
+/redis\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0\tError=""\tFinishedAt=0001-01-01T00:00:00Z
+/ingest\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0\tError=""\tFinishedAt=0001-01-01T00:00:00Z
+/processing\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0\tError=""\tFinishedAt=0001-01-01T00:00:00Z
+/scanner\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0\tError=""\tFinishedAt=0001-01-01T00:00:00Z
+/worker-1\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0\tError=""\tFinishedAt=0001-01-01T00:00:00Z
+/worker-2\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0\tError=""\tFinishedAt=0001-01-01T00:00:00Z
+/grafana\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0\tError=""\tFinishedAt=0001-01-01T00:00:00Z
+/mysqld-exporter\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0\tError=""\tFinishedAt=0001-01-01T00:00:00Z
+/mysqld-exporter-central\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0\tError=""\tFinishedAt=0001-01-01T00:00:00Z
+/redis-exporter\tStatus=running\tExitCode=0\tOOMKilled=false\tRestartCount=0\tError=""\tFinishedAt=0001-01-01T00:00:00Z
+2026-08-29T06:10:29.610164751Z ts=2026-08-29T06:10:29.608Z caller=main.go:539 level=info msg="No time or size retention was set so using the default time retention" duration=15d
+2026-08-29T06:10:29.610215376Z ts=2026-08-29T06:10:29.609Z caller=main.go:583 level=info msg="Starting Prometheus Server" mode=server version="(version=2.47.1, branch=HEAD, revision=c4d1a8beff37cc004f1dc4ab9d2e73193f51aaeb)"
+2026-08-29T06:10:29.610218959Z ts=2026-08-29T06:10:29.609Z caller=main.go:588 level=info build_context="(go=go1.21.1, platform=linux/arm64, user=root@4829330363be, date=20231004-10:39:25, tags=netgo,builtinassets,stringlabels)"
+2026-08-29T06:10:29.610220334Z ts=2026-08-29T06:10:29.609Z caller=main.go:589 level=info host_details="(Linux 6.12.76-linuxkit #1 SMP Sat Jul 11 11:18:11 UTC 2026 aarch64 96c981df582e (none))"
+2026-08-29T06:10:29.610221376Z ts=2026-08-29T06:10:29.609Z caller=main.go:590 level=info fd_limits="(soft=1048576, hard=1048576)"
+2026-08-29T06:10:29.610222293Z ts=2026-08-29T06:10:29.609Z caller=main.go:591 level=info vm_limits="(soft=unlimited, hard=unlimited)"
+2026-08-29T06:10:29.612339668Z ts=2026-08-29T06:10:29.612Z caller=web.go:566 level=info component=web msg="Start listening for connections" address=0.0.0.0:9090
+2026-08-29T06:10:29.647621668Z ts=2026-08-29T06:10:29.647Z caller=main.go:1024 level=info msg="Starting TSDB ..."
+2026-08-29T06:10:29.649949876Z ts=2026-08-29T06:10:29.649Z caller=tls_config.go:274 level=info component=web msg="Listening on" address=[::]:9090
+2026-08-29T06:10:29.649985084Z ts=2026-08-29T06:10:29.649Z caller=tls_config.go:277 level=info component=web msg="TLS is disabled." http2=false address=[::]:9090
+2026-08-29T06:10:29.653557834Z ts=2026-08-29T06:10:29.653Z caller=head.go:600 level=info component=tsdb msg="Replaying on-disk memory mappable chunks if any"
+2026-08-29T06:10:29.653728501Z ts=2026-08-29T06:10:29.653Z caller=head.go:681 level=info component=tsdb msg="On-disk memory mappable chunks replay completed" duration=4.583µs
+2026-08-29T06:10:29.653831543Z ts=2026-08-29T06:10:29.653Z caller=head.go:689 level=info component=tsdb msg="Replaying WAL, this may take a while"
+2026-08-29T06:10:29.664983918Z ts=2026-08-29T06:10:29.664Z caller=head.go:760 level=info component=tsdb msg="WAL segment loaded" segment=0 maxSegment=0
+2026-08-29T06:10:29.665167584Z ts=2026-08-29T06:10:29.665Z caller=head.go:797 level=info component=tsdb msg="WAL replay completed" checkpoint_replay_duration=143.834µs wal_replay_duration=11.166458ms wbl_replay_duration=333ns total_replay_duration=11.445292ms
+2026-08-29T06:10:29.746866876Z ts=2026-08-29T06:10:29.746Z caller=main.go:1045 level=info fs_type=EXT4_SUPER_MAGIC
+2026-08-29T06:10:29.746930959Z ts=2026-08-29T06:10:29.746Z caller=main.go:1048 level=info msg="TSDB started"
+2026-08-29T06:10:29.746982751Z ts=2026-08-29T06:10:29.746Z caller=main.go:1229 level=info msg="Loading configuration file" filename=/etc/prometheus/prometheus.yml
+2026-08-29T06:10:29.751801376Z ts=2026-08-29T06:10:29.751Z caller=main.go:1266 level=info msg="Completed loading of configuration file" filename=/etc/prometheus/prometheus.yml totalDuration=4.709416ms db_storage=7.709µs remote_storage=1.375µs web_handler=13.75µs query_engine=1.334µs scrape=1.2045ms scrape_sd=46.959µs notify=1.208µs notify_sd=833ns rules=1.334µs tracing=8.5µs
+2026-08-29T06:10:29.752242501Z ts=2026-08-29T06:10:29.752Z caller=main.go:1009 level=info msg="Server is ready to receive web requests."
+2026-08-29T06:10:29.752581084Z ts=2026-08-29T06:10:29.752Z caller=manager.go:1009 level=info component="rule manager" msg="Starting rule manager..."
+ServerVersion=29.6.2 ContainersRunning=13 ContainersStopped=1
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 39%
+vm.swapusage: total = 1024.00M  used = 716.31M  free = 307.69M  (encrypted)
+

@@ -1,0 +1,5 @@
+CapturedAtUTC=2026-08-29T07:35:51Z
+ID=de48838b6f07 Name=bridge Driver=bridge Scope=local Labels=
+ID=57bc834827a1 Name=host Driver=host Scope=local Labels=
+ID=0cb22cb68622 Name=none Driver=null Scope=local Labels=
+NAME                STATUS              CONFIG FILES

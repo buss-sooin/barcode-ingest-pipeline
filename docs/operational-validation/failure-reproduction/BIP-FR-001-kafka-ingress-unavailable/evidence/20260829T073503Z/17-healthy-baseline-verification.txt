@@ -1,0 +1,90 @@
+CapturedAtUTC=2026-08-29T07:43:57Z
+DriverSummary:
+DRIVER_START phase=healthy started_at=2026-08-29T07:42:00Z base_scan_time_ms=1787989319000 request_count=300 requests_per_second=5 endpoint=http://localhost:8084/scan/barcode
+DRIVER_END phase=healthy finished_at=2026-08-29T07:43:11Z generated=300 http_200=300 http_other=0 transport_error=0 first_scan_time_ms=1787989319000 last_scan_time_ms=1787989319299
+ContainerStates:
+/grafana Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/ingest Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/kafka Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/kafka-exporter Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/mysql Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/mysqld-exporter Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/mysqld-exporter-central Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/processing Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/prometheus Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/redis Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/redis-exporter Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/scanner Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/worker-1 Status=running ExitCode=0 OOMKilled=false RestartCount=0
+/worker-2 Status=running ExitCode=0 OOMKilled=false RestartCount=0
+DockerStats:
+scanner CPU=0.27% Memory=270.6MiB / 416MiB MemoryPercent=65.05% PIDs=51
+worker-2 CPU=1.06% Memory=347.8MiB / 416MiB MemoryPercent=83.61% PIDs=36
+ingest CPU=0.30% Memory=329.3MiB / 416MiB MemoryPercent=79.15% PIDs=281
+processing CPU=0.70% Memory=292.2MiB / 416MiB MemoryPercent=70.24% PIDs=36
+worker-1 CPU=0.36% Memory=356.9MiB / 416MiB MemoryPercent=85.80% PIDs=36
+prometheus CPU=0.00% Memory=31.92MiB / 320MiB MemoryPercent=9.97% PIDs=13
+grafana CPU=0.06% Memory=113MiB / 256MiB MemoryPercent=44.12% PIDs=17
+kafka-exporter CPU=0.04% Memory=14.05MiB / 64MiB MemoryPercent=21.96% PIDs=5
+mysqld-exporter CPU=0.00% Memory=11.76MiB / 64MiB MemoryPercent=18.37% PIDs=5
+redis-exporter CPU=0.00% Memory=12.48MiB / 64MiB MemoryPercent=19.49% PIDs=8
+mysqld-exporter-central CPU=0.00% Memory=11.79MiB / 64MiB MemoryPercent=18.42% PIDs=5
+kafka CPU=2.82% Memory=419.6MiB / 1.25GiB MemoryPercent=32.78% PIDs=110
+redis CPU=0.33% Memory=12.33MiB / 160MiB MemoryPercent=7.71% PIDs=6
+mysql CPU=1.02% Memory=461.8MiB / 768MiB MemoryPercent=60.13% PIDs=46
+SafetyMonitorViolationsThroughBaseline:
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 42%
+vm.swapusage: total = 2048.00M  used = 1344.00M  free = 704.00M  (encrypted)
+DockerDaemon=responsive ContainersRunning=14 ContainersStopped=0
+KafkaReadinessAndOffsets:
+__consumer_offsets
+barcode-events
+barcode-events:0:0
+barcode-events:1:0
+barcode-events:2:0
+barcode-events:3:0
+barcode-events:4:0
+barcode-events:5:0
+barcode-events:6:300
+barcode-events:7:0
+barcode-events:8:0
+barcode-events:9:0
+KafkaExporterSelectedMetrics:
+kafka_brokers 1
+kafka_consumergroup_lag{consumergroup="barcode-processing-group",partition="0",topic="barcode-events"} -1
+kafka_consumergroup_lag{consumergroup="barcode-processing-group",partition="1",topic="barcode-events"} -1
+kafka_consumergroup_lag{consumergroup="barcode-processing-group",partition="2",topic="barcode-events"} -1
+kafka_consumergroup_lag{consumergroup="barcode-processing-group",partition="3",topic="barcode-events"} -1
+kafka_consumergroup_lag{consumergroup="barcode-processing-group",partition="4",topic="barcode-events"} -1
+kafka_consumergroup_lag{consumergroup="barcode-processing-group",partition="5",topic="barcode-events"} -1
+kafka_consumergroup_lag{consumergroup="barcode-processing-group",partition="6",topic="barcode-events"} 0
+kafka_consumergroup_lag{consumergroup="barcode-processing-group",partition="7",topic="barcode-events"} -1
+kafka_consumergroup_lag{consumergroup="barcode-processing-group",partition="8",topic="barcode-events"} -1
+kafka_consumergroup_lag{consumergroup="barcode-processing-group",partition="9",topic="barcode-events"} -1
+kafka_consumergroup_lag_sum{consumergroup="barcode-processing-group",topic="barcode-events"} 0
+kafka_topic_partitions{topic="barcode-events"} 10
+RedisState:
+StreamLength=300
+DLQLength=0
+name
+barcode-persistence-group
+consumers
+2
+pending
+0
+last-delivered-id
+1787989391705-0
+entries-read
+300
+lag
+0
+0
+
+
+
+MySQLState:
+mysql: [Warning] Using a password on the command line interface can be insecure.
+barcodes=300, distinct_original=300, distinct_scan_time=300, min_scan_time=2026-08-29 07:41:59.000000, max_scan_time=2026-08-29 07:41:59.299000
+KafkaDLTTopics:
+UnexpectedRetryOrFailureLogs:

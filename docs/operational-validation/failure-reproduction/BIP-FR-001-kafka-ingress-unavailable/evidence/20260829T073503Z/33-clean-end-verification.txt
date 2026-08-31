@@ -1,0 +1,28 @@
+CapturedAtUTC=2026-08-29T07:56:01Z
+ProjectContainers:
+ProjectNetworks:
+ProjectVolumes:
+AllContainers:
+AllNetworks:
+ID=de48838b6f07 Name=bridge Driver=bridge Scope=local
+ID=57bc834827a1 Name=host Driver=host Scope=local
+ID=0cb22cb68622 Name=none Driver=null Scope=local
+AllVolumes:
+DockerDaemon=responsive ServerVersion=29.6.2 ContainersRunning=0 ContainersStopped=0 Images=13
+port=3000 listener=none
+port=3306 listener=none
+port=6379 listener=none
+port=8081 listener=none
+port=8082 listener=none
+port=8084 listener=none
+port=8085 listener=none
+port=8086 listener=none
+port=9090 listener=none
+port=9092 listener=none
+port=9104 listener=none
+port=9105 listener=none
+port=9121 listener=none
+port=9308 listener=none
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 42%
+vm.swapusage: total = 2048.00M  used = 1328.00M  free = 720.00M  (encrypted)
