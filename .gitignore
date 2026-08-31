@@ -33,6 +33,8 @@ docs/images/src/render.js
 *.md
 !README.md
 !docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/REPRODUCTION-RECORD.md
+!docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/OPERATIONAL-DIAGNOSTIC-GUIDE.md
+!docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/KAFKA-FAILURE-LEARNING-NOTE.md
 .claudeignore
 .worktreeinclude
 
