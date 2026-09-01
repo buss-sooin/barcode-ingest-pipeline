@@ -38,6 +38,7 @@ docs/images/src/render.js
 !docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/RUNBOOK.md
 !docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/AI-HUMAN-RESOLUTION-MAPPING.md
 !docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/TECHNICAL-REPORT.md
+!docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/REPRODUCTION-CONTRACT.md
 .claudeignore
 .worktreeinclude
 
