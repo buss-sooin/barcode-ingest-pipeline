@@ -59,10 +59,10 @@ Strict Run은 장애 주입 전에 다음을 직접 확인했다.
 
 ## 5. Material Run 이력과 증거 충분성
 
-| Run | 관측 결과 | 증거 충분성(Evidence Sufficiency) |
-|---|---|---|
-| `BIP-FR-002-MR-20260902T043510Z` | clean leader 전이, ISR 저하/복구, broker DOWN 중 15건 새 쓰기, downstream 진행, generated/MySQL unique 91 일치 | active traffic 종료 `04:48:18Z`, SIGKILL `04:51:39Z`; 201초 불일치 때문에 시간 중첩 주장에는 불충분. `Partial / Inconclusive Evidence` |
-| `BIP-FR-002-MR-20260902T053228Z` | active traffic `05:36:46–05:37:54Z` 내부인 `05:36:59Z`에 SIGKILL, 전체 인과 사슬과 최종 정합성 확인 | 계약의 시간 술어와 나머지 성공 기준을 충족. `STRICT PASS` |
+| Run | 적용 Contract Revision | 관측 결과 | 증거 충분성(Evidence Sufficiency) |
+|---|---|---|---|
+| `BIP-FR-002-MR-20260902T043510Z` | [`BIP-FR-002-RC-R1`](./REPRODUCTION-CONTRACT.md#bip-fr-002-rc-r1) | clean leader 전이, ISR 저하/복구, broker DOWN 중 15건 새 쓰기, downstream 진행, generated/MySQL unique 91 일치 | active traffic 종료 `04:48:18Z`, SIGKILL `04:51:39Z`; 201초 불일치 때문에 시간 중첩 주장에는 불충분. `Partial / Inconclusive Evidence` |
+| `BIP-FR-002-MR-20260902T053228Z` | [`BIP-FR-002-RC-R2`](./REPRODUCTION-CONTRACT.md#bip-fr-002-rc-r2) | active traffic `05:36:46–05:37:54Z` 내부인 `05:36:59Z`에 SIGKILL, 전체 인과 사슬과 최종 정합성 확인 | 계약의 시간 술어와 나머지 성공 기준을 충족. `STRICT PASS` |
 
 최초 실행이 노출한 문제는 Kafka 동작 실패가 아니라 traffic loop와 승인·장애 명령 사이의 시간 오케스트레이션이었다. bounded rerun은 성공 기준을 바꾸지 않고 SIGKILL을 같은 traffic loop 안에 배치해 이 증거 공백만 닫았다. 상세 실행 이력은 [REPRODUCTION-RECORD.md](./REPRODUCTION-RECORD.md)를 따른다.
 

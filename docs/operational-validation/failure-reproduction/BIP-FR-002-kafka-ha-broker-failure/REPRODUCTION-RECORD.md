@@ -4,14 +4,18 @@
 
 이 문서는 BIP-FR-002의 실행·증거 이력을 보존하는 재현 기록(Reproduction Record)이다. 실행 전에 고정한 조건과 판정 기준은 [재현 계약](./REPRODUCTION-CONTRACT.md), 결과 해석과 최대 검증 주장은 [기술 보고서](./TECHNICAL-REPORT.md)가 담당한다. 이 문서는 원시 로그를 복사하지 않고 두 Material Run의 역할, 시간선, 증거 위치와 증거-주장 연결을 제공한다.
 
-## 2. Material Run 이력
+## 2. Material Run 이력과 Contract Revision 매핑
 
-| Material Run | 분류 | 역할 | 판정 |
-|---|---|---|---|
-| `BIP-FR-002-MR-20260902T043510Z` | `Partial / Inconclusive Evidence` | Kafka 고가용성(High Availability, HA) 전이·저하 상태 쓰기·복구·실행 범위 정합성을 증명하고 시간 오케스트레이션 편차를 노출한 최초 실행 | 엄격한 시간 조건은 미충족. 나머지 관측은 유효한 Engineering history로 보존 |
-| `BIP-FR-002-MR-20260902T053228Z` | `STRICT PASS` | active traffic과 SIGKILL의 시간 중첩을 포함해 승인된 시나리오를 검증한 주 실행 | 승인된 로컬 bounded run의 최대 검증 주장 충족 |
+Contract ID는 `BIP-FR-002-RC`다. 각 Material Run에는 다음과 같이 정확히 하나의 적용 Revision을 연결한다.
+
+| Material Run | 적용 Contract Revision | 분류 | 역할 | 판정 |
+|---|---|---|---|---|
+| `BIP-FR-002-MR-20260902T043510Z` | [`BIP-FR-002-RC-R1`](./REPRODUCTION-CONTRACT.md#bip-fr-002-rc-r1) | `Partial / Inconclusive Evidence` | Kafka 고가용성(High Availability, HA) 전이·저하 상태 쓰기·복구·실행 범위 정합성을 증명하고 시간 오케스트레이션 편차를 노출한 최초 실행 | 엄격한 시간 조건은 미충족. 나머지 관측은 유효한 Engineering history로 보존 |
+| `BIP-FR-002-MR-20260902T053228Z` | [`BIP-FR-002-RC-R2`](./REPRODUCTION-CONTRACT.md#bip-fr-002-rc-r2) | `STRICT PASS` | active traffic과 SIGKILL의 시간 중첩을 포함해 승인된 시나리오를 검증한 주 실행 | 승인된 로컬 bounded run의 최대 검증 주장 충족 |
 
 두 실행은 병합하거나 대체하지 않는다. 최초 실행은 폐기되거나 실패한 증거가 아니며, 엄격한 시간 술어를 충족하지 못한 원인을 드러내고 bounded rerun의 필요성을 결정한 근거다.
+
+Revision 식별자는 사후 추적성 보정에서 Canonical Artifact에 기록됐다. Run → Revision 적용 관계는 Git 이력, 각 Run identity, 최초 실행의 시간 편차와 Strict Run에 보존된 orchestration 절차에 근거한다. 정확한 R2 사전 승인 시각·승인 식별자는 Evidence에 없으므로 이 기록에서 생성하지 않는다.
 
 ## 3. 증거 무결성과 탐색 시작점
 

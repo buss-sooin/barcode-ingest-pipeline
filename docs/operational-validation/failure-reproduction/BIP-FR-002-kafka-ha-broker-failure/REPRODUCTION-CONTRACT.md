@@ -6,12 +6,50 @@
 
 계약 체결 당시 승인 범위는 **Implementation Phase A**까지였다. Phase A는 전용 HA 토폴로지, 명시적 토픽 초기화, 읽기 전용 증거 수집 도구의 구현과 정적 검증만 포함하며, Kafka 클러스터 시작, 트래픽 실행, 장애 주입과 복구 검증은 포함하지 않았다. 이후 각 Human Gate 승인 아래 실행이 완료됐으며, 이 문서의 사전 성공 기준은 사후 결과에 맞춰 변경하지 않는다.
 
-### 실행 lifecycle 상태
+### 1.1 계약 식별
+
+- Contract ID: `BIP-FR-002-RC`
+- Current Revision: `BIP-FR-002-RC-R2`
+- Revision 범위: 실행 절차와 적용 이력의 추적성
+- 불변 계약 경계: 이 문서의 Failure Question, 토폴로지, 장애 영역, 판정 기준, 복구 완료 기준, 최대 의도 주장과 명시적 비주장
+
+Revision 식별자는 이 추적성 보정에서 Canonical Artifact에 명시됐다. 다음 이력은 기존 Git 이력과 Material Run Evidence로 확인 가능한 적용 관계를 소급 기록하지만, 실행 당시 파일에 이 식별자가 이미 기재돼 있었다고 주장하지 않는다.
+
+### 1.2 Revision 이력
+
+| Contract Revision | Previous Revision | 증거로 식별 가능한 효력 기준점(Effective Point) | 적용 Material Run | Revision 이유 |
+|---|---|---|---|---|
+| `BIP-FR-002-RC-R1` | 없음 — Initial Revision | 재현 계약 정의 commit `1efb2546c28d4ef32229f3c618755e8802da83eb` | `BIP-FR-002-MR-20260902T043510Z` | 최초 승인 계약과 실행 절차 경계 설정 |
+| `BIP-FR-002-RC-R2` | `BIP-FR-002-RC-R1` | Strict Run identity가 기록된 `2026-09-02T05:32:28Z`; 이보다 앞선 정확한 승인 시점은 Evidence에 없음 | `BIP-FR-002-MR-20260902T053228Z` | 최초 실행의 시간 조건 편차를 닫기 위한 failure-injection orchestration 재설계 |
+
+<a id="bip-fr-002-rc-r1"></a>
+
+#### `BIP-FR-002-RC-R1` — Initial Revision
+
+`BIP-FR-002-RC-R1`은 commit `1efb2546c28d4ef32229f3c618755e8802da83eb`에서 정의된 사전 계약이며 First Material Run에 적용된다. 이 Revision 아래 실행은 Kafka HA 전이·저하 상태 쓰기·복구·정합성을 관측했으나 active traffic이 `2026-09-02T04:48:18Z`에 끝난 뒤 `201초` 후인 `2026-09-02T04:51:39Z`에 SIGKILL이 수행돼 엄격한 시간 조건을 충족하지 못했다.
+
+<a id="bip-fr-002-rc-r2"></a>
+
+#### `BIP-FR-002-RC-R2` — Strict-rerun Revision
+
+`BIP-FR-002-RC-R2`는 `BIP-FR-002-RC-R1`의 후속 Revision이며 Strict Material Run에 적용된다. Revision 이유는 다음 시간 술어를 실행 절차 자체로 보장하여 R1 실행에서 드러난 증거 공백을 닫는 것이다.
+
+```text
+traffic start < SIGKILL < traffic end
+```
+
+절차 변경은 active traffic loop의 sequence 10 경계에서 대상 partition의 leader·ISR과 사전 offset 진행을 다시 검증하고, 조건이 유지될 때 같은 loop 안에서 대상 broker에 SIGKILL을 수행하도록 orchestration을 결합한 것이다. 보존된 [Strict-rerun 실행 절차](./evidence/BIP-FR-002-MR-20260902T053228Z/run-bounded-rerun.sh)와 [실행 판정 Evidence](./evidence/BIP-FR-002-MR-20260902T053228Z/23-derived-timeline-and-verdict.txt)가 이 변경과 적용 결과를 직접 뒷받침한다.
+
+이 Revision은 승인된 시나리오 경계, Kafka 토폴로지, failure target 선택 규칙과 실제 대상 `broker-2`, 위험/영향 반경(Risk/Blast Radius), 성공·실패·무효 판정 기준, 복구·정합성 기준 또는 claim boundary를 확장하거나 완화하지 않았다. 변경 책임은 시간 중첩을 재현 가능하게 만든 실행 orchestration에만 한정된다.
+
+정확한 R2 사전 승인 시각과 승인 식별자는 현재 Repository와 Evidence에서 확인할 수 없다. 이를 소급 생성하지 않으며, 해당 필드가 별도 거버넌스 요건이라면 사람 확인(Human Resolution)이 필요하다.
+
+### 1.3 실행 lifecycle 상태
 
 - 실행 상태: 완료
 - 주 검증 결과: `STRICT PASS`
-- 주 실행: `BIP-FR-002-MR-20260902T053228Z`
-- 최초 실행: `BIP-FR-002-MR-20260902T043510Z` (`Partial / Inconclusive Evidence`, 시간 중첩 편차를 포함한 유효한 이력)
+- 주 실행: `BIP-FR-002-MR-20260902T053228Z` — `BIP-FR-002-RC-R2`
+- 최초 실행: `BIP-FR-002-MR-20260902T043510Z` — `BIP-FR-002-RC-R1` (`Partial / Inconclusive Evidence`, 시간 중첩 편차를 포함한 유효한 이력)
 - 결과 해석: [Technical Report](./TECHNICAL-REPORT.md)
 - 실행·증거 이력: [Reproduction Record](./REPRODUCTION-RECORD.md)
 - 증거: [evidence/](./evidence/)
