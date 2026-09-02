@@ -1,0 +1,17 @@
+recorded_at_utc=2026-09-02T11:39:42Z
+run_id=BIP-FR-003-MR-20260902T112532Z
+contract_revision=BIP-FR-003-RC-R1
+outcome=INCONCLUSIVE
+experiment_validity=not_established
+evidence_sufficiency=insufficient
+failure_signature_evaluation=not_performed
+failure=template parsing error: executing at <.State.Health>: map has no entry for key "Health"
+failure_stage=effective runtime configuration capture for controller
+sigkill_count=0
+topology_mutation=none
+application_mutation=none
+controller_state_after=running
+broker_1_state_after=running
+broker_2_state_after=running
+broker_3_state_after=running
+correction=read optional Health map key safely; no contract or experiment procedure change

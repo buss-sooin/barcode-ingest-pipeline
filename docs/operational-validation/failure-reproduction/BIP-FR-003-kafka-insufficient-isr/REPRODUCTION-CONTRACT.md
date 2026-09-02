@@ -251,3 +251,4 @@ generated unique identities
 - 승인 경계를 바꾸지 않는 Revision은 새 Human Gate를 자동 요구하지 않는다.
 - 모든 Material Run은 정확히 하나의 식별 가능한 Contract Revision을 직접 참조한다.
 - 최초 할당은 `BIP-FR-003-MR-20260902T112532Z → BIP-FR-003-RC-R1`이다.
+- 최초 시도가 사전 조건 Evidence 캡처 단계에서 종료된 뒤, 계약·실험 절차를 바꾸지 않는 `docker inspect` 템플릿 호환성 결함만 수정한 재실행 할당은 `BIP-FR-003-MR-20260902T113950Z → BIP-FR-003-RC-R1`이다. 이는 material experiment redesign이 아니므로 새 Revision을 만들지 않는다.

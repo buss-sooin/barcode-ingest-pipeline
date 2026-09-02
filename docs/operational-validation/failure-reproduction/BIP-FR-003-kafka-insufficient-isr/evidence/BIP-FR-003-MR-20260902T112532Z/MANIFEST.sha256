@@ -1,0 +1,5 @@
+427393a572bffc507c20620b3b0259ccf4db9c9250316fecaffdeafcb2c1c0ab  ./00-run-identity-and-contract.txt
+60c125f1c87d011a9c37d80d9bdcfc99cc159debaf7ee32286407e9806e22476  ./03-generated-manifest.tsv
+e3d44bf5a927dd7d426058a0f521a5682f03cf403aa729d39e759df7ed5c8064  ./44-aborted-before-injection.txt
+0e6d9f050c1b5d65f9aaaf139fec05bf63a1e5efae766acb14be463785e16701  ./before/01-effective-runtime-config.txt
+0d20540a04e35edce7cbf0eee62a86d6bc98dd7a75cd38ee2116c069902d3ab2  ./run-material.sh

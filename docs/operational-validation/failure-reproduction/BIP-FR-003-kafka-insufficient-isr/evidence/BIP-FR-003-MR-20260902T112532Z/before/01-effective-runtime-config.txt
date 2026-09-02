@@ -1,0 +1,152 @@
+captured_at_utc=2026-09-02T11:38:55Z
+NAME                    IMAGE                                COMMAND                  SERVICE      CREATED       STATUS                   PORTS
+bip-fr-002-broker-1     confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   broker-1     8 hours ago   Up 8 hours (healthy)     0.0.0.0:19092->9092/tcp, [::]:19092->9092/tcp
+bip-fr-002-broker-2     confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   broker-2     8 hours ago   Up 6 hours (healthy)     0.0.0.0:19093->9092/tcp, [::]:19093->9092/tcp
+bip-fr-002-broker-3     confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   broker-3     8 hours ago   Up 8 hours (healthy)     0.0.0.0:19094->9092/tcp, [::]:19094->9092/tcp
+bip-fr-002-controller   confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   controller   8 hours ago   Up 8 hours               9092/tcp
+bip-fr-002-ingest       bip-fr-002-kafka-ha-ingest           "java -jar app.jar"      ingest       8 hours ago   Up 8 hours               0.0.0.0:18081->8081/tcp, [::]:18081->8081/tcp
+bip-fr-002-mysql        mysql:8                              "docker-entrypoint.s…"   mysql        8 hours ago   Up 8 hours (healthy)     0.0.0.0:13306->3306/tcp, [::]:13306->3306/tcp
+bip-fr-002-processing   bip-fr-002-kafka-ha-processing       "java -jar app.jar"      processing   8 hours ago   Up 8 hours               0.0.0.0:18082->8082/tcp, [::]:18082->8082/tcp
+bip-fr-002-redis        redis:alpine                         "docker-entrypoint.s…"   redis        8 hours ago   Up 8 hours (healthy)     0.0.0.0:16379->6379/tcp, [::]:16379->6379/tcp
+bip-fr-002-scanner      bip-fr-002-kafka-ha-scanner          "java -jar app.jar"      scanner      8 hours ago   Up 8 hours               0.0.0.0:18084->8084/tcp, [::]:18084->8084/tcp
+bip-fr-002-topic-init   confluentinc/cp-kafka:8.1.0-1-ubi9   "/bin/sh /opt/bip-fr…"   topic-init   8 hours ago   Exited (0) 8 hours ago   
+bip-fr-002-worker-1     bip-fr-002-kafka-ha-worker-1         "java -jar app.jar"      worker-1     8 hours ago   Up 8 hours               0.0.0.0:18085->8085/tcp, [::]:18085->8085/tcp
+bip-fr-002-worker-2     bip-fr-002-kafka-ha-worker-2         "java -jar app.jar"      worker-2     8 hours ago   Up 8 hours               0.0.0.0:18086->8086/tcp, [::]:18086->8086/tcp
+[controller_and_broker_identity]
+template parsing error: template: :1:73: executing "" at <.State.Health>: map has no entry for key "Health"
+bip-fr-002-controller  mounts=type=volume source=bip-fr-002-kafka-ha_kafka-controller-data destination=/var/lib/kafka/data rw=true
+KAFKA_NODE_ID=100
+KAFKA_PROCESS_ROLES=controller
+KAFKA_CONTROLLER_QUORUM_VOTERS=100@controller:29093
+bip-fr-002-broker-1 id=75aba125e6a2b33bc7ee482ed55f396d68892ea09abddd42ed98377a7bc64eef pid=2644 status=running health=healthy exit_code=0 oom_killed=false restart_count=0 mounts=type=volume source=bip-fr-002-kafka-ha_kafka-broker-1-data destination=/var/lib/kafka/data rw=true
+KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+KAFKA_AUTO_CREATE_TOPICS_ENABLE=false
+KAFKA_PROCESS_ROLES=broker
+KAFKA_CONTROLLER_QUORUM_VOTERS=100@controller:29093
+KAFKA_MIN_INSYNC_REPLICAS=2
+KAFKA_NODE_ID=1
+bip-fr-002-broker-2 id=e45e53fee983aef932abbb3c0a416c334395306703f025d4c88375a781257cf0 pid=37836 status=running health=healthy exit_code=0 oom_killed=false restart_count=0 mounts=type=volume source=bip-fr-002-kafka-ha_kafka-broker-2-data destination=/var/lib/kafka/data rw=true
+KAFKA_PROCESS_ROLES=broker
+KAFKA_MIN_INSYNC_REPLICAS=2
+KAFKA_NODE_ID=2
+KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+KAFKA_AUTO_CREATE_TOPICS_ENABLE=false
+KAFKA_CONTROLLER_QUORUM_VOTERS=100@controller:29093
+bip-fr-002-broker-3 id=cd231843ae08e9f3af62aac8168d551db3436a93c266cde2d3e1a749f6424aea pid=2647 status=running health=healthy exit_code=0 oom_killed=false restart_count=0 mounts=type=volume source=bip-fr-002-kafka-ha_kafka-broker-3-data destination=/var/lib/kafka/data rw=true
+KAFKA_AUTO_CREATE_TOPICS_ENABLE=false
+KAFKA_UNCLEAN_LEADER_ELECTION_ENABLE=false
+KAFKA_MIN_INSYNC_REPLICAS=2
+KAFKA_NODE_ID=3
+KAFKA_PROCESS_ROLES=broker
+KAFKA_CONTROLLER_QUORUM_VOTERS=100@controller:29093
+[controller_quorum]
+ClusterId:              MkU3OEVBNTcwNTJENDM2Qk
+LeaderId:               100
+LeaderEpoch:            1
+HighWatermark:          35313
+MaxFollowerLag:         0
+MaxFollowerLagTimeMs:   0
+CurrentVoters:          [{"id": 100, "endpoints": ["CONTROLLER://controller:29093"]}]
+CurrentObservers:       [{"id": 2, "directoryId": "zcJPvsDyAaE7dyniwvwKgA"}, {"id": 3, "directoryId": "LeGpADv9GKfCaYDh86Howw"}, {"id": 1, "directoryId": "aj-SlIoHtrLTNfTnLx_ZfQ"}]
+[broker_runtime_kafka_config]
+	auto.create.topics.enable = false
+	min.insync.replicas = 1
+	node.id = 1
+	process.roles = [broker]
+	unclean.leader.election.enable = false
+	auto.create.topics.enable = false
+	min.insync.replicas = 1
+	node.id = 1
+	process.roles = [broker]
+	unclean.leader.election.enable = false
+[ingest_runtime_producer_config]
+2026-09-02T03:43:08.048Z  INFO 1 --- [barcode-ingest-service] [pool-2-thread-1] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+	acks = -1
+	auto.include.jmx.reporter = true
+	batch.size = 16384
+	bootstrap.servers = [broker-1:29092, broker-2:29092, broker-3:29092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = barcode-ingest-service-producer-1
+	compression.gzip.level = -1
+	compression.lz4.level = 9
+	compression.type = snappy
+	compression.zstd.level = 3
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	enable.metrics.push = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 10
+	max.block.ms = 5000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.adaptive.partitioning.enable = true
+	partitioner.availability.timeout.ms = 0
+	partitioner.class = null
+	partitioner.ignore.keys = false
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 3
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null

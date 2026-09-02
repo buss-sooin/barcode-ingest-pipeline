@@ -8,7 +8,7 @@
 - Created At: 2026-09-02
 - Updated At: 2026-09-02
 - Workflow Version: Failure Reproduction Workflow v0.1
-- Record Status: 승인 의도 기록 완료 / Material Run 준비
+- Record Status: 첫 실행 시도 `INCONCLUSIVE` 보존 / bounded 재실행 준비
 
 ## 2. 관찰된 실패와 정의된 시나리오
 
@@ -37,13 +37,13 @@
 - Run ID: `BIP-FR-003-MR-20260902T112532Z`
 - Contract ID: `BIP-FR-003-RC`
 - 계약 개정(Contract Revision): `BIP-FR-003-RC-R1`
-- 실행 시각: 실행 Evidence에서 UTC로 기록 예정
+- 실행 시각: `2026-09-02T11:36:53Z` 시작
 - 실행 주체: 승인 경계 안의 Codex bounded execution
-- 실제 환경과 조건: 기존 local/dev BIP validation topology, 실행 전 Evidence로 확정 예정
-- 수행 action: R1의 runtime discovery, L0/F1 순차 SIGKILL, F1/L0 순차 복구, reconciliation
-- Deviation 또는 anomaly: 실행 후 기록 예정
+- 실제 환경과 조건: 기존 local/dev BIP validation topology, 준비 HEAD `4078118b4f4ad71daf7763e0582d09b4076e8bfb`
+- 수행 action: 실행 정체성과 effective runtime config 캡처 시작. 장애 주입 전 중단
+- Deviation 또는 anomaly: healthcheck가 없는 controller에서 `docker inspect` 템플릿이 `.State.Health`를 직접 조회해 template parsing error 발생
 - 증거 자산(Evidence Assets) locator: [`./evidence/BIP-FR-003-MR-20260902T112532Z/`](./evidence/BIP-FR-003-MR-20260902T112532Z/)
-- Evidence integrity: 실행 종료 후 `MANIFEST.sha256` 생성·검증 예정
+- Evidence integrity: `MANIFEST.sha256` 생성·검증
 
 직접 매핑:
 
@@ -51,25 +51,53 @@
 BIP-FR-003-MR-20260902T112532Z → BIP-FR-003-RC-R1
 ```
 
+#### 실행 전 종료 판정
+
+- 실험 유효성(Experiment Validity): 미확립. 사전 조건 캡처가 완료되기 전에 종료됨
+- 증거 충분성(Evidence Sufficiency): 불충분
+- 실패 징후 평가(Failure Signature Evaluation): 미수행
+- Outcome: `INCONCLUSIVE`
+- 장애 영향: SIGKILL 0회, broker/controller/application 변경 없음
+- 후속 조치: 계약·승인 경계와 실험 절차는 유지하고, health key가 없는 container도 읽을 수 있도록 inspection 템플릿만 수정
+
+### Run `BIP-FR-003-MR-20260902T113950Z`
+
+- Run ID: `BIP-FR-003-MR-20260902T113950Z`
+- Contract ID: `BIP-FR-003-RC`
+- 계약 개정(Contract Revision): `BIP-FR-003-RC-R1`
+- 실행 시각: 실행 Evidence에서 UTC로 기록 예정
+- 실행 주체: 승인 경계 안의 Codex bounded execution
+- 실제 환경과 조건: 기존 local/dev BIP validation topology, 실행 전 Evidence로 확정 예정
+- 수행 action: R1의 runtime discovery, L0/F1 순차 SIGKILL, F1/L0 순차 복구, reconciliation
+- Deviation 또는 anomaly: 실행 후 기록 예정
+- 증거 자산(Evidence Assets) locator: [`./evidence/BIP-FR-003-MR-20260902T113950Z/`](./evidence/BIP-FR-003-MR-20260902T113950Z/)
+- Evidence integrity: 실행 종료 후 `MANIFEST.sha256` 생성·검증 예정
+
+직접 매핑:
+
+```text
+BIP-FR-003-MR-20260902T113950Z → BIP-FR-003-RC-R1
+```
+
 ## 5. 사전 Verification 상태
 
 ### 1. 실험 유효성(Experiment Validity)
 
-- 평가: 실행 전 미판정
+- 평가: 첫 실행 시도는 `INCONCLUSIVE`; 재실행은 미판정
 - 사전 확인: 계약 R1, Human Gate 참조와 단일 Revision 매핑을 고정함
 
 ### 2. 증거 충분성(Evidence Sufficiency)
 
-- 평가: 실행 전 미판정
+- 평가: 첫 실행 시도는 불충분; 재실행은 미판정
 - 요구사항: Contract 10절의 runtime/config/timeline/identity Evidence를 수집해야 함
 
 ### 3. 실패 징후 평가(Failure Signature Evaluation)
 
-- 평가: 실행 전 미판정
+- 평가: 첫 실행 시도는 미수행; 재실행은 미판정
 
 ### 4. Outcome
 
-- Outcome: 실행 전 미배정
+- Outcome: `BIP-FR-003-MR-20260902T112532Z = INCONCLUSIVE`; 재실행은 미배정
 - 허용 값: `REPRODUCED | PARTIALLY_REPRODUCED | NOT_REPRODUCED | INCONCLUSIVE`
 
 Outcome은 실험 유효성 → 증거 충분성 → 실패 징후 평가 뒤에만 배정한다.
@@ -81,6 +109,7 @@ Outcome은 실험 유효성 → 증거 충분성 → 실패 징후 평가 뒤에
 - [x] 할당한 Material Run이 정확히 하나의 Contract Revision을 참조한다.
 - [x] Human Gate 승인 대상과 Risk/Blast Radius 경계를 기록했다.
 - [x] 승인 시각이나 식별자를 추정해 생성하지 않았다.
-- [ ] 실행 후 Evidence locator와 SHA-256 manifest를 검증한다.
+- [x] 첫 실행 시도의 Evidence locator와 SHA-256 manifest를 보존·검증한다.
+- [ ] 재실행 후 Evidence locator와 SHA-256 manifest를 검증한다.
 - [ ] 실행 후 정해진 Verification 순서와 허용 Outcome을 적용한다.
 - [ ] 실행 후 검증된 재현 주장과 제한을 Evidence 범위 안에서 기록한다.

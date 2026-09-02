@@ -61,7 +61,7 @@ container_name() {
 
 container_state() {
   docker inspect --format \
-    'id={{.Id}} pid={{.State.Pid}} status={{.State.Status}} health={{with index .State "Health"}}{{.Status}}{{else}}none{{end}} exit_code={{.State.ExitCode}} oom_killed={{.State.OOMKilled}} restart_count={{.RestartCount}}' \
+    'id={{.Id}} pid={{.State.Pid}} status={{.State.Status}} health={{if .State.Health}}{{.State.Health.Status}}{{else}}none{{end}} exit_code={{.State.ExitCode}} oom_killed={{.State.OOMKilled}} restart_count={{.RestartCount}}' \
     "$1"
 }
 
