@@ -9,7 +9,7 @@ compose_file="$topology_dir/docker-compose.validation.yml"
 env_file="$repo_root/.env"
 run_id="${1:-}"
 contract_id="BIP-FR-003-RC"
-contract_revision="BIP-FR-003-RC-R2"
+contract_revision="BIP-FR-003-RC-R1"
 expected_branch="validation/bip-fr-003-kafka-insufficient-isr"
 bootstrap="broker-1:29092,broker-2:29092,broker-3:29092"
 scanner_url="http://127.0.0.1:18084/scan/barcode"
@@ -230,11 +230,9 @@ capture_state() {
 wait_for_first_transition() {
   local service="$1"
   local output="$evidence_dir/timeline/10-first-transition-isr3-to2.txt"
-  local sample description line leader isr size stable_samples stable_leader
+  local sample description line leader isr size
   : >"$output"
   sample=1
-  stable_samples=0
-  stable_leader=""
   while [ "$sample" -le 60 ]; do
     description="$(topic_describe "$service" 2>&1 || true)"
     line="$(target_line_from "$description")"
@@ -244,23 +242,11 @@ wait_for_first_transition() {
     printf 'sample=%s observed_at_utc=%s leader=%s isr=%s isr_size=%s metadata=%s\n' \
       "$sample" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$leader" "$isr" "$size" "$line" >>"$output"
     if [ -n "$leader" ] && [ "$leader" != "$L0" ] && [ "$size" -eq 2 ] && isr_contains "$isr" "$leader"; then
-      if [ "$leader" = "$stable_leader" ]; then
-        stable_samples=$((stable_samples + 1))
-      else
-        stable_leader="$leader"
-        stable_samples=1
-      fi
-      printf 'stable_samples=%s\n' "$stable_samples" >>"$output"
-      if [ "$stable_samples" -ge 2 ]; then
-        L1="$leader"
-        for candidate in $(printf '%s' "$isr" | tr ',' ' '); do
-          if [ "$candidate" != "$L1" ]; then F1="$candidate"; fi
-        done
-        return 0
-      fi
-    else
-      stable_samples=0
-      stable_leader=""
+      L1="$leader"
+      for candidate in $(printf '%s' "$isr" | tr ',' ' '); do
+        if [ "$candidate" != "$L1" ]; then F1="$candidate"; fi
+      done
+      return 0
     fi
     sample=$((sample + 1))
     sleep 2
@@ -468,25 +454,6 @@ test -n "$F1"
 test "$L1" != "$L0"
 test "$F1" != "$L1"
 test "$F1" != "$L0"
-
-# R2: 연속 ISR=2 관측 뒤 producer metadata 전환을 위한 bounded 안정화 구간을 두고
-# 같은 leader/ISR/follower 조건을 witness 직전에 다시 검증한다.
-{
-  printf 'stabilization_started_at_utc=%s\nrequired_consecutive_samples=2\nwait_seconds=10\n' \
-    "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-} >>"$evidence_dir/timeline/10-first-transition-isr3-to2.txt"
-sleep 10
-stabilized_description="$(topic_describe "broker-$L1")"
-stabilized_line="$(target_line_from "$stabilized_description")"
-stabilized_leader="$(line_leader "$stabilized_line")"
-stabilized_isr="$(line_isr "$stabilized_line")"
-test "$stabilized_leader" = "$L1"
-test "$(isr_size "$stabilized_isr")" -eq 2
-isr_contains "$stabilized_isr" "$F1"
-! isr_contains "$stabilized_isr" "$L0"
-printf 'stabilization_completed_at_utc=%s\nrevalidated_metadata=%s\n' \
-  "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$stabilized_line" \
-  >>"$evidence_dir/timeline/10-first-transition-isr3-to2.txt"
 
 # ISR=2가 실제로 쓰기 가능한지 단건 application witness로 확인한다.
 isr2_scan_time="$(( $(date -u +%s) * 1000 + 101 ))"

@@ -8,7 +8,7 @@
 - Created At: 2026-09-02
 - Updated At: 2026-09-02
 - Workflow Version: Failure Reproduction Workflow v0.1
-- Record Status: 첫 실행 시도 `INCONCLUSIVE` 보존 / bounded 재실행 준비
+- Record Status: R1 실행 2건 `INCONCLUSIVE` 보존 / R2 bounded 재실행 준비
 
 ## 2. 관찰된 실패와 정의된 시나리오
 
@@ -20,10 +20,10 @@
 ## 3. Contract와 Human Gate
 
 - Contract ID: `BIP-FR-003-RC`
-- 적용 Revision: [`BIP-FR-003-RC-R1`](./REPRODUCTION-CONTRACT.md#bip-fr-003-rc-r1)
-- Revision effective point: R1 포함 준비 commit부터 최초 Material Run
-- Previous Revision: 없음
-- Revision reason: 최초 실행 전 승인 Intent, 실패 징후, 검증·Evidence·안전 경계 고정
+- Current Revision: [`BIP-FR-003-RC-R2`](./REPRODUCTION-CONTRACT.md#bip-fr-003-rc-r2)
+- Revision lineage: [`BIP-FR-003-RC-R1`](./REPRODUCTION-CONTRACT.md#bip-fr-003-rc-r1) → `BIP-FR-003-RC-R2`
+- R2 effective point: `BIP-FR-003-MR-20260902T114420Z` 실행 정체성 기록 전 R2와 revised runner를 commit한 시점
+- R2 reason: R1의 첫 ISR=2 sample 즉시 witness를 보낸 절차를 연속 sample과 명시적 안정화 구간으로 교정
 - Human Gate: 승인됨
 - Approval reference: `Task #52 — BIP-FR-003 Approved Intent Recording & Execution Preparation`
 - 승인 시각/별도 승인 ID: 독립적으로 확인할 수 없어 생성하지 않음
@@ -65,13 +65,13 @@ BIP-FR-003-MR-20260902T112532Z → BIP-FR-003-RC-R1
 - Run ID: `BIP-FR-003-MR-20260902T113950Z`
 - Contract ID: `BIP-FR-003-RC`
 - 계약 개정(Contract Revision): `BIP-FR-003-RC-R1`
-- 실행 시각: 실행 Evidence에서 UTC로 기록 예정
+- 실행 시각: `2026-09-02T11:41:57Z` 시작
 - 실행 주체: 승인 경계 안의 Codex bounded execution
-- 실제 환경과 조건: 기존 local/dev BIP validation topology, 실행 전 Evidence로 확정 예정
-- 수행 action: R1의 runtime discovery, L0/F1 순차 SIGKILL, F1/L0 순차 복구, reconciliation
-- Deviation 또는 anomaly: 실행 후 기록 예정
+- 실제 환경과 조건: 기존 local/dev topology, `P=1`, `L0=2`, 첫 전이 `L1=3`, ISR `3,1,2 → 3,1`
+- 수행 action: healthy mapping, L0 SIGKILL, 첫 ISR=2 sample 직후 degraded witness. F1 SIGKILL 전 중단 및 L0 same-volume 안전 복구
+- Deviation 또는 anomaly: ISR=2를 연속 sample로 안정화하지 않고 첫 관측 즉시 witness를 전송. HTTP 503 뒤 underlying send가 2.229초 후 offset 168로 acknowledgment됨
 - 증거 자산(Evidence Assets) locator: [`./evidence/BIP-FR-003-MR-20260902T113950Z/`](./evidence/BIP-FR-003-MR-20260902T113950Z/)
-- Evidence integrity: 실행 종료 후 `MANIFEST.sha256` 생성·검증 예정
+- Evidence integrity: `MANIFEST.sha256` 생성·검증
 
 직접 매핑:
 
@@ -79,25 +79,53 @@ BIP-FR-003-MR-20260902T112532Z → BIP-FR-003-RC-R1
 BIP-FR-003-MR-20260902T113950Z → BIP-FR-003-RC-R1
 ```
 
+#### R1 실행 판정
+
+- 실험 유효성(Experiment Validity): 미확립. 승인된 ISR=2 안정화 선행 조건을 충분히 구현하지 못함
+- 증거 충분성(Evidence Sufficiency): 절차 편차와 late acknowledgment 판정에는 충분하나 중앙 ISR=1 실패 징후 판정에는 불충분
+- 실패 징후 평가(Failure Signature Evaluation): 미수행. F1 SIGKILL 0회
+- Outcome: `INCONCLUSIVE`
+- identity reconciliation: generated unique 2 = MySQL unique 2, unaccounted 0
+- Revision 결정: 연속 ISR=2 sample과 명시적 안정화 구간을 추가하는 `BIP-FR-003-RC-R2`; 승인 경계 불변, 새 Human Gate 불필요
+
+### Run `BIP-FR-003-MR-20260902T114420Z`
+
+- Run ID: `BIP-FR-003-MR-20260902T114420Z`
+- Contract ID: `BIP-FR-003-RC`
+- 계약 개정(Contract Revision): `BIP-FR-003-RC-R2`
+- 실행 시각: 실행 Evidence에서 UTC로 기록 예정
+- 실행 주체: 승인 경계 안의 Codex bounded execution
+- 실제 환경과 조건: 기존 local/dev BIP validation topology, 실행 전 Evidence로 확정 예정
+- 수행 action: R2의 연속 ISR=2 안정화, runtime discovery, L0/F1 순차 SIGKILL, F1/L0 순차 복구, reconciliation
+- Deviation 또는 anomaly: 실행 후 기록 예정
+- 증거 자산(Evidence Assets) locator: [`./evidence/BIP-FR-003-MR-20260902T114420Z/`](./evidence/BIP-FR-003-MR-20260902T114420Z/)
+- Evidence integrity: 실행 종료 후 `MANIFEST.sha256` 생성·검증 예정
+
+직접 매핑:
+
+```text
+BIP-FR-003-MR-20260902T114420Z → BIP-FR-003-RC-R2
+```
+
 ## 5. 사전 Verification 상태
 
 ### 1. 실험 유효성(Experiment Validity)
 
-- 평가: 첫 실행 시도는 `INCONCLUSIVE`; 재실행은 미판정
+- 평가: R1 실행 2건은 `INCONCLUSIVE`; R2 실행은 미판정
 - 사전 확인: 계약 R1, Human Gate 참조와 단일 Revision 매핑을 고정함
 
 ### 2. 증거 충분성(Evidence Sufficiency)
 
-- 평가: 첫 실행 시도는 불충분; 재실행은 미판정
+- 평가: R1 실행 2건은 중앙 Signature 판정에 불충분; R2 실행은 미판정
 - 요구사항: Contract 10절의 runtime/config/timeline/identity Evidence를 수집해야 함
 
 ### 3. 실패 징후 평가(Failure Signature Evaluation)
 
-- 평가: 첫 실행 시도는 미수행; 재실행은 미판정
+- 평가: R1 실행 2건은 미수행; R2 실행은 미판정
 
 ### 4. Outcome
 
-- Outcome: `BIP-FR-003-MR-20260902T112532Z = INCONCLUSIVE`; 재실행은 미배정
+- Outcome: R1 실행 2건 `INCONCLUSIVE`; R2 실행은 미배정
 - 허용 값: `REPRODUCED | PARTIALLY_REPRODUCED | NOT_REPRODUCED | INCONCLUSIVE`
 
 Outcome은 실험 유효성 → 증거 충분성 → 실패 징후 평가 뒤에만 배정한다.
@@ -110,6 +138,7 @@ Outcome은 실험 유효성 → 증거 충분성 → 실패 징후 평가 뒤에
 - [x] Human Gate 승인 대상과 Risk/Blast Radius 경계를 기록했다.
 - [x] 승인 시각이나 식별자를 추정해 생성하지 않았다.
 - [x] 첫 실행 시도의 Evidence locator와 SHA-256 manifest를 보존·검증한다.
+- [x] 두 번째 R1 실행의 편차와 Revision 결정을 보존한다.
 - [ ] 재실행 후 Evidence locator와 SHA-256 manifest를 검증한다.
 - [ ] 실행 후 정해진 Verification 순서와 허용 Outcome을 적용한다.
 - [ ] 실행 후 검증된 재현 주장과 제한을 Evidence 범위 안에서 기록한다.

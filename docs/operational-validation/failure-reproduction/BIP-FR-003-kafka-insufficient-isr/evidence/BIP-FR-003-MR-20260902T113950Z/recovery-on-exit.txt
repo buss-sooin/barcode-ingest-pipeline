@@ -1,0 +1,2 @@
+ Container bip-fr-002-broker-2 Starting 
+ Container bip-fr-002-broker-2 Started 

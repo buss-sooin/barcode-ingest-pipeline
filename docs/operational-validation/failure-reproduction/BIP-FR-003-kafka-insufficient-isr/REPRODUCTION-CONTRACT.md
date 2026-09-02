@@ -3,7 +3,7 @@
 ## 1. 계약 식별과 책임
 
 - Contract ID: `BIP-FR-003-RC`
-- Current Revision: `BIP-FR-003-RC-R1`
+- Current Revision: `BIP-FR-003-RC-R2`
 - Scenario: `BIP-FR-003 — Kafka Insufficient ISR Write Unavailability During Active Scan`
 - Workflow: Failure Reproduction Workflow v0.1 (`Effective`, 2026-08-28)
 - 상태: 승인 의도 기록 완료, 최초 판정 대상 실행(Material Run) 준비
@@ -23,6 +23,22 @@
 | 기존 Human Gate 경계 안의 변경 | 해당 없음. 승인된 최초 경계를 그대로 기록 |
 
 정확한 승인 시각과 별도 승인 식별자는 제공되거나 독립 Evidence로 확인되지 않았다. 이를 생성하지 않는다. 승인 근거는 `Task #52 — BIP-FR-003 Approved Intent Recording & Execution Preparation`에서 권한 있는 사용자가 명시한 Human Gate 승인과 실행 경계다.
+
+<a id="bip-fr-003-rc-r2"></a>
+
+### 1.2 `BIP-FR-003-RC-R2` — ISR=2 안정화 Revision
+
+| 항목 | 값 |
+|---|---|
+| Contract Revision | `BIP-FR-003-RC-R2` |
+| Previous Revision | `BIP-FR-003-RC-R1` |
+| Effective Point | `BIP-FR-003-MR-20260902T114420Z` 실행 정체성 기록 전 R2와 revised runner를 commit한 시점 |
+| Revision Reason | R1 실행이 첫 ISR=2 관측 즉시 degraded witness를 보내 “stabilize new leader with ISR=2”를 충분히 구현하지 못한 절차 편차 수정 |
+| 기존 Human Gate 경계 안의 변경 | 예. 승인 topology, 두 broker 동시 down 위험, failure targets, Failure Signature, 성공·실패·정합성·claim 경계 불변 |
+
+R1 적용 실행 `BIP-FR-003-MR-20260902T113950Z`에서는 `2026-09-02T11:42:34Z`에 새 leader 3과 ISR `3,1`을 처음 관측한 즉시 degraded witness를 보냈다. Ingest는 5초 확인 경계에서 HTTP 503을 반환했지만 같은 underlying send는 `11:42:41.601Z`에 partition 1 offset 168 acknowledgment를 받았다. 이 실행은 ISR=2의 최종 write 가능성을 관측했으나, 첫 metadata sample과 witness가 같은 초에 있어 승인된 안정화 선행 조건을 충족했다고 볼 수 없다.
+
+R2는 첫 leader 전이 후 같은 `L1`과 ISR=2를 2초 간격의 연속 두 sample에서 확인하고, 추가 10초 동안 `L0`를 down으로 유지한 뒤, witness 직전에 `leader=L1`, ISR=2, `L0 ∉ ISR`, `F1 ∈ ISR`를 다시 확인하도록 orchestration을 변경한다. 실패 징후나 acceptance threshold를 사후 완화한 것이 아니라 승인된 “stabilize” 조건을 실행 절차로 명시한 material procedure redesign이다. 새 Human Gate가 필요한 승인 경계 변경은 없다.
 
 ## 2. 실패 질문(Failure Question)
 
@@ -252,3 +268,4 @@ generated unique identities
 - 모든 Material Run은 정확히 하나의 식별 가능한 Contract Revision을 직접 참조한다.
 - 최초 할당은 `BIP-FR-003-MR-20260902T112532Z → BIP-FR-003-RC-R1`이다.
 - 최초 시도가 사전 조건 Evidence 캡처 단계에서 종료된 뒤, 계약·실험 절차를 바꾸지 않는 `docker inspect` 템플릿 호환성 결함만 수정한 재실행 할당은 `BIP-FR-003-MR-20260902T113950Z → BIP-FR-003-RC-R1`이다. 이는 material experiment redesign이 아니므로 새 Revision을 만들지 않는다.
+- ISR=2 안정화 절차를 material하게 고친 후속 실행 할당은 `BIP-FR-003-MR-20260902T114420Z → BIP-FR-003-RC-R2`다.

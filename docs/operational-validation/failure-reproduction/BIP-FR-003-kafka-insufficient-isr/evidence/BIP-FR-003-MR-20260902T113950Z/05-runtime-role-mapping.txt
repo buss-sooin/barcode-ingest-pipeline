@@ -1,0 +1,8 @@
+observed_at_utc=2026-09-02T11:42:22Z
+P=1
+L0=2
+initial_isr=3,1,2
+mapping_scan_time_ms=1788349336000
+baseline_target_offset=167
+producer_ack=bip-fr-002-ingest  | 2026-09-02T11:42:17.091Z  INFO 1 --- [barcode-ingest-service] [vice-producer-1] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: 8807586099617, Partition: 1, Offset: 167
+metadata=	Topic: barcode-events	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 3,1,2	Elr: 	LastKnownElr: 

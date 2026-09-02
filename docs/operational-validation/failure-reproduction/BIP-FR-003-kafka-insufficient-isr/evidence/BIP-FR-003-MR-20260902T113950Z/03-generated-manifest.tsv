@@ -1,0 +1,3 @@
+requested_at_utc	completed_at_utc	phase	sequence	scan_time_ms	barcode	http_status	curl_status	time_total_seconds
+2026-09-02T11:42:16Z	2026-09-02T11:42:16Z	mapping-healthy	0	1788349336000	scanner-generated	200	0	0.170122
+2026-09-02T11:42:34Z	2026-09-02T11:42:39Z	isr2-degraded-witness	1	1788349354101	9913493541015	503	0	5.038253
