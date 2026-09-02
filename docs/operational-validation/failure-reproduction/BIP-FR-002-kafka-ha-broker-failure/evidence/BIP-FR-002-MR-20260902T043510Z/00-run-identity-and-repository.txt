@@ -1,0 +1,8 @@
+run_id=BIP-FR-002-MR-20260902T043510Z
+created_at_utc=2026-09-02T04:35:10Z
+repository=/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline
+branch=validation/bip-fr-002-kafka-ha-broker-failure
+head=1530bc6346c8255909c3e5851cbbae714305917c
+working_tree_porcelain_begin
+?? docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/evidence/
+working_tree_porcelain_end

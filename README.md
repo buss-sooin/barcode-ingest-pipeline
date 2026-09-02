@@ -287,7 +287,9 @@ flowchart LR
 
 성능 비교와 별도로 실제 구성 요소 장애를 제한된 범위에서 재현하고, 장애 영향부터 복구 후 백로그 수렴과 종단 간 정합성 확인까지 검증했습니다.
 
-현재 시나리오인 **BIP-FR-001 — Kafka Broker Unavailable During Active Scan**에서는 active scan 중 Kafka를 사용할 수 없게 하자 Ingest의 전송 확인 실패와 downstream 진행 중단이 관측되었습니다. 동일 Kafka broker의 availability만 복원한 뒤 processing이 재개되고 retry와 백로그가 소진되어, `820 logical events → 820 MySQL unique persisted`로 수렴했습니다. 최종 비즈니스 중복 행은 `0`건이었습니다.
+BIP-FR-001에서는 active scan 중 단일 Kafka broker 전체가 unavailable인 경계에서 장애 영향, 복구, 백로그 소진과 `820 logical events → 820 MySQL unique persisted` 수렴을 확인했습니다.
+
+BIP-FR-002에서는 복제 계수(Replication Factor, RF) 3인 로컬 Kafka에서 active traffic 도중 partition leader broker 하나를 SIGKILL했습니다. 장애 전 ISR member가 clean leader로 선출된 뒤 broker가 DOWN인 상태에서도 새 쓰기와 downstream 처리가 재개됐고, 같은 volume으로 broker를 복구한 뒤 ISR 3으로 수렴했습니다. 주 실행 결과는 `STRICT PASS`이며 `66 logical events → 75 Kafka records → 9 duplicate detections → 66 unique business results`였습니다. 추가 record는 application/HTTP resend 경계에서 발생했고 최종 비즈니스 중복은 0이었습니다.
 
 검증 범위, 정량 결과, 비주장 범위와 상세 문서는 [Operational Validation](docs/operational-validation/README.md)에서 확인할 수 있습니다.
 

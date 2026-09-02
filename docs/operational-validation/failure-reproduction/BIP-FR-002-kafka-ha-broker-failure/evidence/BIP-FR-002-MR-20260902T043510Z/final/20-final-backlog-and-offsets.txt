@@ -1,0 +1,33 @@
+[kafka_offsets_final]
+barcode-events:0:0
+barcode-events:1:92
+barcode-events:2:0
+[kafka_group_final]
+
+GROUP                    TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                                              HOST            CLIENT-ID
+barcode-processing-group barcode-events  2          -               0               -               consumer-barcode-processing-group-3-6f0f9061-ad93-42e2-be83-45d1c44df196 /172.18.0.8     consumer-barcode-processing-group-3
+barcode-processing-group barcode-events  0          -               0               -               consumer-barcode-processing-group-1-cea98916-de2e-4024-a00e-88e9c701174d /172.18.0.8     consumer-barcode-processing-group-1
+barcode-processing-group barcode-events  1          92              92              0               consumer-barcode-processing-group-2-7859d6b0-72a8-44b7-a4c9-ffd216fc75c0 /172.18.0.8     consumer-barcode-processing-group-2
+[dlt_offsets_final]
+barcode-events-dlt:0:0
+barcode-events-dlt:1:0
+barcode-events-dlt:2:0
+[redis_final]
+92
+0
+name
+barcode-persistence-group
+consumers
+2
+pending
+0
+last-delivered-id
+1788325567087-0
+entries-read
+92
+lag
+0
+0
+
+
+

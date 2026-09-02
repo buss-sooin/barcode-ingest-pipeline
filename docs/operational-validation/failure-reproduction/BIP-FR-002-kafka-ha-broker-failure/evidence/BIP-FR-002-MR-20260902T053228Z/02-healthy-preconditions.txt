@@ -1,0 +1,31 @@
+observed_at_utc=2026-09-02T05:36:09Z
+repository=/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline
+branch=validation/bip-fr-002-kafka-ha-broker-failure
+head=1530bc6346c8255909c3e5851cbbae714305917c
+historical_evidence_preserved=BIP-FR-002-MR-20260902T043510Z
+controller_status=available leader_id=100 current_voters=100 max_follower_lag=0
+registered_brokers=1,2,3
+broker_health=3/3 healthy
+barcode_events_partitions=3
+barcode_events_replication_factor=3
+barcode_events_all_partition_isr_size=3
+barcode_events_min_insync_replicas=2
+barcode_events_unclean_leader_election_enable=false
+under_replicated_partitions=0
+unavailable_partitions=0
+processing_consumer_group_partition_1_lag=0
+redis_stream_length_baseline=92
+redis_group_lag=0
+redis_pending=0
+redis_dlq_length=0
+kafka_dlt_offsets=0,0,0
+ingest_health=UP
+processing_health=UP
+scanner_health=UP
+worker_1_health=UP
+worker_2_health=UP
+ingest_bootstrap=broker-1:29092,broker-2:29092,broker-3:29092
+processing_bootstrap=broker-1:29092,broker-2:29092,broker-3:29092
+ingest_producer_acks=all
+evidence_detail=before/00-compose-ps.txt,before/01-controller-quorum-status.txt,before/02-controller-quorum-replication.txt,before/03-reachable-brokers.txt,before/04-registered-broker-log-dirs.txt,before/05-barcode-events-topic.txt,before/06-barcode-events-config.txt,before/07-under-replicated-partitions.txt,before/08-unavailable-partitions.txt,before/09-processing-consumer-group.txt
+

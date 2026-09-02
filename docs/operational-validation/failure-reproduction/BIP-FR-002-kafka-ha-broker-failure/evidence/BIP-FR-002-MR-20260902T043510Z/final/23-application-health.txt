@@ -1,0 +1,5 @@
+http://127.0.0.1:18081/actuator/health {"status":"UP"}
+http://127.0.0.1:18082/actuator/health {"status":"UP"}
+http://127.0.0.1:18084/actuator/health {"status":"UP"}
+http://127.0.0.1:18085/actuator/health {"status":"UP"}
+http://127.0.0.1:18086/actuator/health {"status":"UP"}

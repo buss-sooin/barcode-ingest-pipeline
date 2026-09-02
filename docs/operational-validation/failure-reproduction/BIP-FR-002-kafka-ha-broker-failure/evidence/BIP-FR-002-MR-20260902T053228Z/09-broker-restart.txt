@@ -1,0 +1,17 @@
+target_service=broker-2
+before_restart_at_utc=2026-09-02T05:39:32Z
+container_before_restart=id=e45e53fee983aef932abbb3c0a416c334395306703f025d4c88375a781257cf0 pid=0 status=exited exit_code=137 oom_killed=false restart_count=0
+[mounts_before_restart]
+volume source=bip-fr-002-kafka-ha_kafka-broker-2-data destination=/var/lib/kafka/data rw=true
+volume source=f6db7ac56c210c94b273a3b326eb7085d67eb566586643b523beb789f3bbc254 destination=/etc/kafka/secrets rw=true
+
+restart_command=docker compose --env-file .env -f docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/docker-compose.validation.yml start broker-2
+restart_requested_at_utc=2026-09-02T05:39:32Z
+ Container bip-fr-002-broker-2 Starting 
+ Container bip-fr-002-broker-2 Started 
+restart_command_completed_at_utc=2026-09-02T05:39:32Z
+container_after_start=id=e45e53fee983aef932abbb3c0a416c334395306703f025d4c88375a781257cf0 pid=37836 status=running exit_code=0 oom_killed=false restart_count=0
+[mounts_after_start]
+volume source=bip-fr-002-kafka-ha_kafka-broker-2-data destination=/var/lib/kafka/data rw=true
+volume source=f6db7ac56c210c94b273a3b326eb7085d67eb566586643b523beb789f3bbc254 destination=/etc/kafka/secrets rw=true
+

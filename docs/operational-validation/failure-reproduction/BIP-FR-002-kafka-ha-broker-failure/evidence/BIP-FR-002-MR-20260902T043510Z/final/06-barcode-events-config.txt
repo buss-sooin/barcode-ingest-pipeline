@@ -1,0 +1,7 @@
+captured_at_utc=2026-09-02T05:09:09Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/docker-compose.validation.yml exec -T broker-1 kafka-configs --bootstrap-server broker-1:29092\,broker-2:29092\,broker-3:29092 --describe --entity-type topics --entity-name barcode-events 
+
+Dynamic configs for topic barcode-events are:
+  min.insync.replicas=2 sensitive=false synonyms={DYNAMIC_TOPIC_CONFIG:min.insync.replicas=2, DYNAMIC_DEFAULT_BROKER_CONFIG:min.insync.replicas=1, STATIC_BROKER_CONFIG:min.insync.replicas=2, DEFAULT_CONFIG:min.insync.replicas=1}
+
+exit_code=0

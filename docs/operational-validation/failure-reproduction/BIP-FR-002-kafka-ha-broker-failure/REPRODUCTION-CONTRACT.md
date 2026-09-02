@@ -4,7 +4,17 @@
 
 이 문서는 승인된 BIP-FR-002 설계를 구현과 실행보다 먼저 고정하는 재현 계약(Reproduction Contract)이다. 구현 산출물과 이후 Material Run은 이 계약을 충족해야 하며, 실행 결과가 계약과 다르면 결과를 유리하게 해석하지 않고 실험을 실패 또는 무효로 판정한다.
 
-현재 승인 범위는 **Implementation Phase A**까지다. Phase A는 전용 HA 토폴로지, 명시적 토픽 초기화, 읽기 전용 증거 수집 도구의 구현과 정적 검증만 포함한다. Kafka 클러스터 시작, 트래픽 실행, 장애 주입과 복구 검증은 포함하지 않는다.
+계약 체결 당시 승인 범위는 **Implementation Phase A**까지였다. Phase A는 전용 HA 토폴로지, 명시적 토픽 초기화, 읽기 전용 증거 수집 도구의 구현과 정적 검증만 포함하며, Kafka 클러스터 시작, 트래픽 실행, 장애 주입과 복구 검증은 포함하지 않았다. 이후 각 Human Gate 승인 아래 실행이 완료됐으며, 이 문서의 사전 성공 기준은 사후 결과에 맞춰 변경하지 않는다.
+
+### 실행 lifecycle 상태
+
+- 실행 상태: 완료
+- 주 검증 결과: `STRICT PASS`
+- 주 실행: `BIP-FR-002-MR-20260902T053228Z`
+- 최초 실행: `BIP-FR-002-MR-20260902T043510Z` (`Partial / Inconclusive Evidence`, 시간 중첩 편차를 포함한 유효한 이력)
+- 결과 해석: [Technical Report](./TECHNICAL-REPORT.md)
+- 실행·증거 이력: [Reproduction Record](./REPRODUCTION-RECORD.md)
+- 증거: [evidence/](./evidence/)
 
 ## 2. 시나리오와 Failure Question
 

@@ -1,0 +1,16 @@
+failure_decision_at_utc=2026-09-02T05:36:57Z
+scanner_identity=SEOUL-CENTER-PC-001
+target_partition=1
+runtime_revalidated_leader=2
+authorized_target_service=broker-2
+live_target_metadata=	Topic: barcode-events	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 3,1,2	Elr: 	LastKnownElr: 
+baseline_target_end_offset=93
+pre_kill_target_end_offset=103
+multiple_run_scoped_offsets_progressed_before_kill=10
+container_before_sigkill=id=e45e53fee983aef932abbb3c0a416c334395306703f025d4c88375a781257cf0 pid=66798 status=running exit_code=0 oom_killed=false restart_count=0
+exact_failure_command=docker compose --env-file .env -f docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/docker-compose.validation.yml kill -s SIGKILL broker-2
+sigkill_issued_at_utc=2026-09-02T05:36:59Z
+ Container bip-fr-002-broker-2 Killing 
+ Container bip-fr-002-broker-2 Killed 
+sigkill_completed_at_utc=2026-09-02T05:36:59Z
+container_after_sigkill=id=e45e53fee983aef932abbb3c0a416c334395306703f025d4c88375a781257cf0 pid=0 status=exited exit_code=137 oom_killed=false restart_count=0

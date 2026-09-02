@@ -1,0 +1,15 @@
+reconciled_at_utc=2026-09-02T05:09:19Z
+generated_count=91
+generated_unique_scan_times=91
+manifest_non_200_scanner_responses=0
+mysql_run_scoped_rows=91
+mysql_unique_scan_times=91
+mysql_unique_barcodes=91
+missing_scan_times=0
+extra_scan_times=0
+generated_duplicate_scan_times=0
+business_duplicate_barcodes=0
+transport_records_baseline_partition_1=1
+transport_records_final_partition_1=92
+transport_record_delta=91
+transport_duplicate_delta=0

@@ -1,0 +1,8 @@
+observed_at_utc=2026-09-02T04:40:29Z
+scanner_identity=SEOUL-CENTER-PC-001
+mapping_scan_time_ms=1788324021101
+mapping_barcode=8808900075829
+target_partition=1
+target_leader_broker_id=2
+target_partition_metadata=	Topic: barcode-events	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 2,3,1	Elr: 	LastKnownElr: 
+producer_ack_evidence=bip-fr-002-ingest      | 2026-09-02T04:40:22.495Z  INFO 1 --- [barcode-ingest-service] [vice-producer-1] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: 8808900075829, Partition: 1, Offset: 1

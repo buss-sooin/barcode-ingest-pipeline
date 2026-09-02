@@ -1,0 +1,14 @@
+captured_at_utc=2026-09-02T05:44:16Z
+repository=/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline
+branch=validation/bip-fr-002-kafka-ha-broker-failure
+head=1530bc6346c8255909c3e5851cbbae714305917c
+git_status_short_branch_begin
+## validation/bip-fr-002-kafka-ha-broker-failure
+?? docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/evidence/
+git_status_short_branch_end
+files_changed=Only new untracked evidence under docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/evidence/BIP-FR-002-MR-20260902T053228Z; the previously untracked historical evidence directory remains preserved.
+commits_created=0
+head_changed=false
+tracked_source_or_configuration_changed=false
+git_diff_check=PASS
+

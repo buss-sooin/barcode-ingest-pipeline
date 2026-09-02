@@ -1,0 +1,3 @@
+restart_command=docker compose --env-file .env -f docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/docker-compose.validation.yml start broker-2
+restart_requested_at_utc=2026-09-02T05:07:13Z
+restart_command_completed_at_utc=2026-09-02T05:07:14Z

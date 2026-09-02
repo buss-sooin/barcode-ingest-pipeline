@@ -1,0 +1,440 @@
+captured_at_utc=2026-09-02T05:33:35Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/docker-compose.validation.yml logs --no-color --since 30m --tail 3000 scanner worker-1 worker-2 
+
+bip-fr-002-worker-1  | 2026-09-02T05:05:54.053Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-1  | 2026-09-02T05:05:54.072Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  | 2026-09-02T05:05:53.169Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-2  | 2026-09-02T05:05:53.190Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | Hibernate: 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | 2026-09-02T05:05:53.208Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-2  | 2026-09-02T05:05:55.049Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-2  | 2026-09-02T05:05:55.052Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | Hibernate: 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | 2026-09-02T05:05:55.062Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-2  | 2026-09-02T05:05:57.075Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-2  | 2026-09-02T05:05:57.078Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-scanner  | 2026-09-02T05:05:52.474Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-4] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-scanner  | 2026-09-02T05:05:53.020Z  INFO 1 --- [barcode-scanner-service] [    transmit-18] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:05:53.151Z  INFO 1 --- [barcode-scanner-service] [    transmit-18] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-worker-2  | Hibernate: 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-scanner  | 2026-09-02T05:05:53.512Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-5] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-scanner  | 2026-09-02T05:05:54.021Z  INFO 1 --- [barcode-scanner-service] [    transmit-19] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:05:54.049Z  INFO 1 --- [barcode-scanner-service] [    transmit-19] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:05:54.557Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-7] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-scanner  | 2026-09-02T05:05:55.022Z  INFO 1 --- [barcode-scanner-service] [    transmit-20] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:05:55.048Z  INFO 1 --- [barcode-scanner-service] [    transmit-20] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | 2026-09-02T05:05:57.094Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-2  | 2026-09-02T05:05:59.076Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-2  | 2026-09-02T05:05:59.077Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | Hibernate: 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | 2026-09-02T05:05:59.088Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-1  | Hibernate: 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | 2026-09-02T05:05:54.090Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-1  | 2026-09-02T05:05:56.054Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-1  | 2026-09-02T05:05:56.057Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | Hibernate: 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | 2026-09-02T05:05:56.066Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-1  | 2026-09-02T05:05:58.066Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-1  | 2026-09-02T05:05:58.069Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-2  | 2026-09-02T05:06:01.075Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-2  | 2026-09-02T05:06:01.077Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-scanner  | 2026-09-02T05:05:55.594Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-9] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-scanner  | 2026-09-02T05:05:56.028Z  INFO 1 --- [barcode-scanner-service] [     transmit-1] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:05:56.051Z  INFO 1 --- [barcode-scanner-service] [     transmit-1] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | Hibernate: 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-scanner  | 2026-09-02T05:05:56.633Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-1] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-scanner  | 2026-09-02T05:05:57.041Z  INFO 1 --- [barcode-scanner-service] [     transmit-2] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:05:57.073Z  INFO 1 --- [barcode-scanner-service] [     transmit-2] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:05:57.672Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-3] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-scanner  | 2026-09-02T05:05:58.042Z  INFO 1 --- [barcode-scanner-service] [     transmit-3] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:05:58.065Z  INFO 1 --- [barcode-scanner-service] [     transmit-3] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:05:58.712Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-5] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-scanner  | 2026-09-02T05:05:59.045Z  INFO 1 --- [barcode-scanner-service] [     transmit-4] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | Hibernate: 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | 2026-09-02T05:06:01.085Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-2  | 2026-09-02T05:06:03.078Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-2  | 2026-09-02T05:06:03.081Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-scanner  | 2026-09-02T05:05:59.075Z  INFO 1 --- [barcode-scanner-service] [     transmit-4] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:05:59.749Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-7] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | 2026-09-02T05:05:58.080Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-1  | 2026-09-02T05:06:00.077Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-1  | 2026-09-02T05:06:00.079Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | Hibernate: 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | 2026-09-02T05:06:00.099Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-1  | 2026-09-02T05:06:02.082Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-1  | 2026-09-02T05:06:02.085Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | Hibernate: 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | 2026-09-02T05:06:02.094Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-1  | 2026-09-02T05:06:04.081Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-1  | 2026-09-02T05:06:04.083Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-scanner  | 2026-09-02T05:06:00.046Z  INFO 1 --- [barcode-scanner-service] [     transmit-5] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:06:00.075Z  INFO 1 --- [barcode-scanner-service] [     transmit-5] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:06:00.783Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-9] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-scanner  | 2026-09-02T05:06:01.048Z  INFO 1 --- [barcode-scanner-service] [     transmit-6] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:06:01.074Z  INFO 1 --- [barcode-scanner-service] [     transmit-6] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:06:01.821Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-1] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-scanner  | 2026-09-02T05:06:02.052Z  INFO 1 --- [barcode-scanner-service] [     transmit-7] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:06:02.080Z  INFO 1 --- [barcode-scanner-service] [     transmit-7] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:06:02.853Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-3] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-scanner  | 2026-09-02T05:06:03.053Z  INFO 1 --- [barcode-scanner-service] [     transmit-8] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:06:03.075Z  INFO 1 --- [barcode-scanner-service] [     transmit-8] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:06:03.891Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-5] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-scanner  | 2026-09-02T05:06:04.054Z  INFO 1 --- [barcode-scanner-service] [     transmit-9] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:06:04.079Z  INFO 1 --- [barcode-scanner-service] [     transmit-9] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | Hibernate: 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-scanner  | 2026-09-02T05:06:04.921Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-7] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-scanner  | 2026-09-02T05:06:05.057Z  INFO 1 --- [barcode-scanner-service] [    transmit-10] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:06:05.079Z  INFO 1 --- [barcode-scanner-service] [    transmit-10] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:06:05.955Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-9] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-scanner  | 2026-09-02T05:06:06.062Z  INFO 1 --- [barcode-scanner-service] [    transmit-11] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | Hibernate: 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-scanner  | 2026-09-02T05:06:06.090Z  INFO 1 --- [barcode-scanner-service] [    transmit-11] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:06:06.992Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-1] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-scanner  | 2026-09-02T05:06:07.062Z  INFO 1 --- [barcode-scanner-service] [    transmit-12] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T05:06:07.087Z  INFO 1 --- [barcode-scanner-service] [    transmit-12] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | 2026-09-02T05:06:03.093Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-2  | 2026-09-02T05:06:05.081Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-2  | 2026-09-02T05:06:05.084Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | 2026-09-02T05:06:04.093Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-1  | 2026-09-02T05:06:06.091Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-1  | 2026-09-02T05:06:06.092Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | Hibernate: 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | 2026-09-02T05:06:06.099Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | Hibernate: 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | 2026-09-02T05:06:05.095Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-2  | 2026-09-02T05:06:07.088Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-2  | 2026-09-02T05:06:07.090Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | Hibernate: 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | 2026-09-02T05:06:07.098Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+
+exit_code=0

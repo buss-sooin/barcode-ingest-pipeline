@@ -1,0 +1,10 @@
+captured_at_utc=2026-09-02T05:40:17Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/docker-compose.validation.yml exec -T controller kafka-metadata-quorum --bootstrap-controller controller:29093 describe --replication 
+
+NodeId	DirectoryId           	LogEndOffset	Lag	LastFetchTimestamp	LastCaughtUpTimestamp	Status  	
+100   	AAAAAAAAAAAAAAAAAAAAAA	13668       	0  	1788327618017     	1788327618017        	Leader  	
+2     	zcJPvsDyAaE7dyniwvwKgA	13668       	0  	1788327617746     	1788327617746        	Observer	
+3     	LeGpADv9GKfCaYDh86Howw	13668       	0  	1788327617746     	1788327617746        	Observer	
+1     	aj-SlIoHtrLTNfTnLx_ZfQ	13668       	0  	1788327617746     	1788327617746        	Observer	
+
+exit_code=0

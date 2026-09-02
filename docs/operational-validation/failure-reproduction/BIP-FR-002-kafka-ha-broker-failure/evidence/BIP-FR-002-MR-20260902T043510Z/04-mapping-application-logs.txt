@@ -1,0 +1,10 @@
+bip-fr-002-scanner  | 2026-09-02T04:40:21.646Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-4] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+bip-fr-002-scanner  | 2026-09-02T04:40:22.377Z  INFO 1 --- [barcode-scanner-service] [     transmit-2] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 1 건
+bip-fr-002-scanner  | 2026-09-02T04:40:22.499Z  INFO 1 --- [barcode-scanner-service] [     transmit-2] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 1 건
+bip-fr-002-ingest   | 2026-09-02T04:40:22.428Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-5] c.b.b.c.BarcodeIngestController          : Received 1 barcode requests
+bip-fr-002-ingest      | 2026-09-02T04:40:22.495Z  INFO 1 --- [barcode-ingest-service] [vice-producer-1] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: 8808900075829, Partition: 1, Offset: 1
+bip-fr-002-processing  | 2026-09-02T04:40:22.506Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 1
+bip-fr-002-processing  | 2026-09-02T04:40:22.507Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: 8808900075829, Device: SEOUL-CENTER-PC-001, scanTime: 1788324021101
+bip-fr-002-processing  | 2026-09-02T04:40:22.508Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted 8808900075829 → DLV-SEOUL-CENTER-PC-001-260902-01M1G6P27CWJYD7KAYJJZDDD8N
+bip-fr-002-processing  | 2026-09-02T04:40:22.523Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: 8808900075829
+bip-fr-002-processing  | 2026-09-02T04:40:22.523Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: 8808900075829

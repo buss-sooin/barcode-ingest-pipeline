@@ -1,0 +1,11 @@
+bip-fr-002-controller	1.38%	282.7MiB / 5.785GiB	4.77%	57
+bip-fr-002-broker-1	1.72%	654.1MiB / 5.785GiB	11.04%	100
+bip-fr-002-broker-2	5.96%	401.8MiB / 5.785GiB	6.78%	100
+bip-fr-002-broker-3	1.85%	670.6MiB / 5.785GiB	11.32%	100
+bip-fr-002-ingest	0.27%	357.4MiB / 5.785GiB	6.03%	136
+bip-fr-002-processing	0.78%	403.7MiB / 5.785GiB	6.81%	50
+bip-fr-002-scanner	0.21%	342.3MiB / 5.785GiB	5.78%	64
+bip-fr-002-worker-1	0.29%	492.8MiB / 5.785GiB	8.32%	56
+bip-fr-002-worker-2	0.60%	509.3MiB / 5.785GiB	8.60%	56
+bip-fr-002-mysql	0.68%	490.8MiB / 5.785GiB	8.28%	45
+bip-fr-002-redis	0.37%	20.11MiB / 5.785GiB	0.34%	6

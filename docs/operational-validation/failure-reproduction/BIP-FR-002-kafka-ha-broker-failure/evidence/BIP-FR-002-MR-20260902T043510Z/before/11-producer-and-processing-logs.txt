@@ -1,0 +1,5 @@
+captured_at_utc=2026-09-02T04:35:24Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/docker-compose.validation.yml logs --no-color --since 15m --tail 2000 ingest processing 
+
+
+exit_code=0

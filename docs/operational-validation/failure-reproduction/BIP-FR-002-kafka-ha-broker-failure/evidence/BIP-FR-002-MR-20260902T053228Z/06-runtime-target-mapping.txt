@@ -1,0 +1,16 @@
+observed_at_utc=2026-09-02T05:36:46Z
+scanner_identity=SEOUL-CENTER-PC-001
+mapping_scan_time_ms=1788327400000
+producer_ack_evidence=bip-fr-002-ingest  | 2026-09-02T05:36:40.463Z  INFO 1 --- [barcode-ingest-service] [vice-producer-1] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: 8806719365100, Partition: 1, Offset: 92
+target_partition=1
+target_leader_broker_id=2
+authorized_target_service=broker-2
+target_partition_metadata=	Topic: barcode-events	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 3,1,2	Elr: 	LastKnownElr: 
+target_isr_size=3
+baseline_target_end_offset=93
+target_container_state_before_traffic=id=e45e53fee983aef932abbb3c0a416c334395306703f025d4c88375a781257cf0 pid=66798 status=running exit_code=0 oom_killed=false restart_count=0
+[topic_immediately_before_traffic]
+Topic: barcode-events	TopicId: 1ojqpZ39RquvwSBQvd5bXw	PartitionCount: 3	ReplicationFactor: 3	Configs: compression.type=snappy,min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: barcode-events	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 1,3,2	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 3,1,2	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 2	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 

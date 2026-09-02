@@ -42,8 +42,9 @@ Broker 또는 container가 다시 실행된 사실만으로 복구 완료(Recove
 | Scenario | Failure Boundary | Result | Primary Report |
 |---|---|---|---|
 | BIP-FR-001 — Kafka Broker Unavailable During Active Scan | Active synthetic scan 중 local single Kafka broker unavailable | `REPRODUCED / RECONCILED` | [Technical Report](./failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/TECHNICAL-REPORT.md) |
+| BIP-FR-002 — Kafka HA Single Broker Failure | Active scan 중 RF=3 Kafka의 partition leader broker 1개 SIGKILL | `STRICT PASS` | [Technical Report](./failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/TECHNICAL-REPORT.md) |
 
-`REPRODUCED`는 승인된 장애가 관측 가능한 영향과 함께 재현되었다는 Workflow Outcome이고, `RECONCILED`는 해당 bounded run에서 백로그 소진과 identity-level end-to-end reconciliation이 완료되었다는 결과를 뜻합니다. 이후 시나리오는 이 catalog에 항목을 추가하는 방식으로 확장합니다.
+`REPRODUCED`는 승인된 장애가 관측 가능한 영향과 함께 재현되었다는 Workflow Outcome이고, `RECONCILED`는 해당 bounded run에서 백로그 소진과 identity-level end-to-end reconciliation이 완료되었다는 결과를 뜻합니다. `STRICT PASS`는 사전 계약의 시간 조건을 포함한 성공 기준과 최종 정합성 기준을 모두 충족했다는 BIP-FR-002 판정입니다. 이후 시나리오는 이 catalog에 항목을 추가하는 방식으로 확장합니다.
 
 ## BIP-FR-001 Highlight
 
@@ -102,7 +103,45 @@ Generated unique 820
 + unaccounted 0
 ```
 
-## Claim Boundary
+## BIP-FR-002 Highlight
+
+### Scenario Boundary
+
+- 격리된 로컬 Docker 환경
+- 전용 KRaft controller 1개와 broker-only 3개
+- `barcode-events`: partitions 3, 복제 계수(Replication Factor, RF) 3, `min.insync.replicas=2`
+- producer `acks=all`, unclean leader election 비활성화
+- active traffic과 시간적으로 겹친 partition 1 leader broker 2 SIGKILL
+- broker 2만 같은 container와 volume으로 복구
+
+### Observed Lifecycle
+
+```text
+active traffic
+→ leader broker 2 SIGKILL / fencing
+→ clean leader 2 → 3 / ISR 3 → 2
+→ broker 2 DOWN 상태의 새 쓰기와 downstream 진행
+→ 같은 volume의 broker 2 복구
+→ ISR 3 / URP 0 / unavailable 0
+→ 실행 범위 정합성 확인
+```
+
+주 검증 실행 `BIP-FR-002-MR-20260902T053228Z`는 `STRICT PASS`다. 장애 전 ISR member였던 broker 3이 새 leader가 됐고, 남은 ISR 두 개가 `min.insync.replicas=2`를 충족해 `acks=all` 새 쓰기와 downstream 처리가 재개됐다. 최초 실행 `BIP-FR-002-MR-20260902T043510Z`는 active traffic이 SIGKILL 201초 전에 끝난 편차 때문에 `Partial / Inconclusive Evidence`로 보존되며, Kafka HA·저하 상태 쓰기·복구 관측은 유효하다.
+
+### Quantitative Highlight
+
+```text
+66 logical events
+→ 75 Kafka records
+→ 9 duplicate detections
+→ 66 unique business results
+```
+
+추가 record 9개는 Scanner의 명시적 단건 폴백 7회와 HTTP client의 503 자동 재실행 2회에서 발생했다. Kafka leader election이 저장된 record를 독립적으로 다시 보냈다는 뜻이 아니다. Processing의 중복 제거(Deduplication) 뒤 MySQL unique 66, DLQ 0, DLT 0, pending 0, unaccounted 0, missing 0, extra 0, business duplicate 0으로 수렴했다.
+
+## Scenario Claim Boundaries
+
+### BIP-FR-001
 
 이 검증이 지지하는 최대 결론은 다음 범위입니다.
 
@@ -124,6 +163,12 @@ bounded Kafka failure
 - storage-loss durability
 - 다른 Kafka failure mode에서도 동일한 결과가 발생한다는 보장
 
+### BIP-FR-002
+
+BIP-FR-002는 승인된 로컬 토폴로지와 bounded traffic run에서 단일 controller가 유지되는 동안 partition 1 leader broker 2의 SIGKILL, pre-failure ISR member의 clean leader 선출, broker DOWN 중 새 쓰기·downstream 진행, 같은 volume 복구와 최종 identity reconciliation을 검증했다.
+
+이는 일반적인 정확히 한 번 처리(exactly-once), 중복 없는 transport, production 고가용성(High Availability, HA)·서비스 수준 협약(Service Level Agreement, SLA)·복구 시간/시점 목표(RTO/RPO), controller HA, broker 2개 동시 장애, 네트워크·storage 장애, 임의 topic/partition, 결합 장애, 성능·장시간 soak 또는 다른 Kafka/client/인프라에서의 동일 동작을 보장하지 않는다. 정확한 최대 주장과 전체 비주장은 [BIP-FR-002 Technical Report](./failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/TECHNICAL-REPORT.md#17-최대-검증-주장)를 따른다.
+
 또한 이 영역은 문서의 의미·탐색·책임을 분리하지만, Artifact가 별도 Repository로 물리적으로 이동해도 수정 없이 동작한다는 portability를 검증하지 않습니다.
 
 ## BIP-FR-001 Artifact Navigation
@@ -136,5 +181,15 @@ bounded Kafka failure
 | [Kafka Failure Learning Note](./failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/KAFKA-FAILURE-LEARNING-NOTE.md) | 장애 메커니즘, retry와 duplicate semantics |
 | [Runbook](./failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/RUNBOOK.md) | 장애 진단과 통제된 운영 복구 절차 |
 | [AI ↔ Human Resolution Mapping](./failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/AI-HUMAN-RESOLUTION-MAPPING.md) | 책임, escalation과 resolution boundary |
+
+## BIP-FR-002 Artifact Navigation
+
+| Artifact | Responsibility |
+|---|---|
+| [Technical Report](./failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/TECHNICAL-REPORT.md) | Kafka HA 전이, 중복 책임, 복구·정합성과 최대 검증 결론 |
+| [Reproduction Record](./failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/REPRODUCTION-RECORD.md) | 두 Material Run의 역할, 편차, 시간선과 Evidence → Claim mapping |
+| [Reproduction Contract](./failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/REPRODUCTION-CONTRACT.md) | 실행 전에 승인된 조건·판정 기준과 lifecycle 결과 navigation |
+| [First Material Run Evidence](./failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/evidence/BIP-FR-002-MR-20260902T043510Z/) | `Partial / Inconclusive Evidence`와 SHA-256 manifest |
+| [Strict Material Run Evidence](./failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/evidence/BIP-FR-002-MR-20260902T053228Z/) | `STRICT PASS` 주 실행 증거와 SHA-256 manifest |
 
 [Project README로 돌아가기](../../README.md)

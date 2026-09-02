@@ -1,0 +1,55 @@
+run_id=BIP-FR-002-MR-20260902T043510Z
+
+[directly_observed_timeline_utc]
+2026-09-02T04:40:22Z mapping event acknowledged at partition=1 offset=1
+2026-09-02T04:40:29Z runtime mapping recorded: SEOUL-CENTER-PC-001 -> partition 1 -> leader broker 2
+2026-09-02T04:47:00Z 75-request active traffic session started
+2026-09-02T04:48:18Z 75-request active traffic session completed
+2026-09-02T04:51:39Z broker-2 SIGKILL issued and completed; exit_code=137, oom_killed=false
+2026-09-02T04:51:47Z controller fenced broker 2
+2026-09-02T05:05:49Z broker-down write probe started; broker 2 remained exited
+2026-09-02T05:05:53Z first broker-down producer acknowledgment: partition=1 offset=77
+2026-09-02T05:06:07Z fifteenth broker-down producer acknowledgment: partition=1 offset=91
+2026-09-02T05:06:16Z broker-down state: leader=3, ISR=3,1, end_offset=92, consumer_lag=0, Redis lag/PEL/DLQ=0, MySQL global context count=92
+2026-09-02T05:07:08Z terminal broker-down sample: broker 2 exited; leader=3, ISR=3,1, end_offset=92
+2026-09-02T05:07:13Z broker-2 restart requested with the existing container and volume
+2026-09-02T05:07:16Z broker 2 registered, caught up, and was unfenced
+2026-09-02T05:07:40Z recovery sample: broker 2 healthy; ISR=3 on all barcode-events partitions; URP=0; unavailable=0
+2026-09-02T05:09:19Z run-scoped reconciliation completed
+2026-09-02T05:10:06Z terminal convergence sample completed
+
+[verified_state_transition]
+target_partition=1
+leader_before=2
+replicas_before=2,3,1
+isr_before=2,3,1
+leader_while_broker_2_down=3
+isr_while_broker_2_down=3,1
+end_offset_before_broker_down_probe=77
+end_offset_after_broker_down_probe=92
+producer_acknowledgments_while_broker_2_down=15
+leader_after_recovery_terminal_sample=2
+isr_after_recovery=3,1,2
+under_replicated_after_recovery=0
+unavailable_after_recovery=0
+
+[run_scoped_reconciliation]
+generated_unique=91
+mysql_unique=91
+dlq=0
+dlt=0
+pending=0
+unaccounted=0
+business_duplicate_rows=0
+transport_record_delta=91
+transport_duplicates=0
+
+[execution_deviation]
+The approved active traffic session and SIGKILL did not overlap in wall-clock time.
+The traffic session ended at 04:48:18Z and SIGKILL occurred at 04:51:39Z, a gap of 201 seconds caused by execution approval/tool latency.
+Therefore this run does not prove behavior for a request already in flight at the instant of SIGKILL.
+It does directly prove that, with broker 2 still down after the leader/ISR transition, 15 new acks=all writes advanced partition 1 from end offset 77 to 92 and converged downstream.
+
+[claim_boundary]
+The Kafka single-broker-down HA mechanism, degraded-state acknowledged writes, recovery, and run-scoped integrity criteria passed.
+The stricter scenario phrase "failure during temporally overlapping active scan traffic" was not fully satisfied.

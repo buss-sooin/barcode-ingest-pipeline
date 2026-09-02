@@ -1,0 +1,5 @@
+captured_at_utc=2026-09-02T05:33:31Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/docker-compose.validation.yml exec -T broker-1 kafka-topics --bootstrap-server broker-1:29092\,broker-2:29092\,broker-3:29092 --describe --under-replicated-partitions 
+
+
+exit_code=0

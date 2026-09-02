@@ -1,0 +1,13 @@
+captured_at_utc=2026-09-02T04:35:11Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/docker-compose.validation.yml exec -T controller kafka-metadata-quorum --bootstrap-controller controller:29093 describe --status 
+
+ClusterId:              MkU3OEVBNTcwNTJENDM2Qk
+LeaderId:               100
+LeaderEpoch:            1
+HighWatermark:          5628
+MaxFollowerLag:         0
+MaxFollowerLagTimeMs:   0
+CurrentVoters:          [{"id": 100, "endpoints": ["CONTROLLER://controller:29093"]}]
+CurrentObservers:       [{"id": 2, "directoryId": "zcJPvsDyAaE7dyniwvwKgA"}, {"id": 3, "directoryId": "LeGpADv9GKfCaYDh86Howw"}, {"id": 1, "directoryId": "aj-SlIoHtrLTNfTnLx_ZfQ"}]
+
+exit_code=0

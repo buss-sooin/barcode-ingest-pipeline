@@ -1,0 +1,6 @@
+traffic_started_at_utc=2026-09-02T05:36:46Z
+request_count=60
+kill_before_sequence=10
+base_scan_time_ms=1788327400100
+traffic_completed_at_utc=2026-09-02T05:37:54Z
+failed_broker_state_at_traffic_end=id=e45e53fee983aef932abbb3c0a416c334395306703f025d4c88375a781257cf0 pid=0 status=exited exit_code=137 oom_killed=false restart_count=0
