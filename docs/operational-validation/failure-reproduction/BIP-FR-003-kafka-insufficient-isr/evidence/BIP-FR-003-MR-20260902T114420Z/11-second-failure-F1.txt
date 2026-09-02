@@ -1,0 +1,15 @@
+decision_at_utc=2026-09-02T11:48:46Z
+P=1
+L1=3
+F1=1
+revalidated_metadata=	Topic: barcode-events	Partition: 1	Leader: 3	Replicas: 2,3,1	Isr: 3,1	Elr: 	LastKnownElr: 
+leader_alive=id=cd231843ae08e9f3af62aac8168d551db3436a93c266cde2d3e1a749f6424aea pid=2647 status=running health=healthy exit_code=0 oom_killed=false restart_count=0
+follower_before=id=75aba125e6a2b33bc7ee482ed55f396d68892ea09abddd42ed98377a7bc64eef pid=2644 status=running health=healthy exit_code=0 oom_killed=false restart_count=0
+mount_before=type=volume source=bip-fr-002-kafka-ha_kafka-broker-1-data destination=/var/lib/kafka/data rw=true
+command=docker compose ... kill -s SIGKILL broker-1
+issued_at_utc=2026-09-02T11:48:46Z
+ Container bip-fr-002-broker-1 Killing 
+ Container bip-fr-002-broker-1 Killed 
+completed_at_utc=2026-09-02T11:48:46Z
+follower_after=id=75aba125e6a2b33bc7ee482ed55f396d68892ea09abddd42ed98377a7bc64eef pid=0 status=exited health=unhealthy exit_code=137 oom_killed=false restart_count=0
+leader_after=id=cd231843ae08e9f3af62aac8168d551db3436a93c266cde2d3e1a749f6424aea pid=2647 status=running health=healthy exit_code=0 oom_killed=false restart_count=0

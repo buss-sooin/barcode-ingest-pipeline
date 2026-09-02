@@ -1,0 +1,10 @@
+restart_requested_at_utc=2026-09-02T11:49:27Z
+L0=2
+container_before=id=e45e53fee983aef932abbb3c0a416c334395306703f025d4c88375a781257cf0 pid=0 status=exited health=unhealthy exit_code=137 oom_killed=false restart_count=0
+mount_before=type=volume source=bip-fr-002-kafka-ha_kafka-broker-2-data destination=/var/lib/kafka/data rw=true
+command=docker compose ... start broker-2
+ Container bip-fr-002-broker-2 Starting 
+ Container bip-fr-002-broker-2 Started 
+restart_completed_at_utc=2026-09-02T11:49:27Z
+container_after=id=e45e53fee983aef932abbb3c0a416c334395306703f025d4c88375a781257cf0 pid=48859 status=running health=starting exit_code=0 oom_killed=false restart_count=0
+mount_after=type=volume source=bip-fr-002-kafka-ha_kafka-broker-2-data destination=/var/lib/kafka/data rw=true

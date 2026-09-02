@@ -1,0 +1,16 @@
+run_id=BIP-FR-003-MR-20260902T114420Z
+contract_id=BIP-FR-003-RC
+contract_revision=BIP-FR-003-RC-R2
+run_to_revision=BIP-FR-003-MR-20260902T114420Z -> BIP-FR-003-RC-R2
+human_gate_reference=Task #52 — BIP-FR-003 Approved Intent Recording & Execution Preparation
+run_started_at_utc=2026-09-02T11:47:47Z
+repository=/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline
+branch=validation/bip-fr-003-kafka-insufficient-isr
+head=baed9cca55167ca024a307b7278b7fc0595d8fe0
+[git_status]
+## validation/bip-fr-003-kafka-insufficient-isr
+[origin]
+git@github.com:buss-sooin/barcode-ingest-pipeline.git
+[topology_asset_sha256]
+7fc48224b51f7652ea8030089b01aff5fab36e17ddf63aa1d3283fe2d49c34c8  /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/docker-compose.validation.yml
+eb0c009d5a003c505943ad8754e04f543e47873036fb0acc201efea8f9115ab0  /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/init-kafka-topics.sh

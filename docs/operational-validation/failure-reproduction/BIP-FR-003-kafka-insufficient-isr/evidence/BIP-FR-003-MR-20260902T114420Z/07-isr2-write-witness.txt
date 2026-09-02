@@ -1,0 +1,14 @@
+requested_at_utc=2026-09-02T11:48:37Z
+completed_at_utc=2026-09-02T11:48:37Z
+phase=isr2-degraded-witness
+sequence=1
+scan_time_ms=1788349717101
+barcode=9913497171010
+device_id=SEOUL-CENTER-PC-001
+curl_retry=0
+curl_status=0
+http_status=200
+time_total_seconds=0.039343
+[response_body]
+Ingested barcode 9913497171010
+[response_stderr]

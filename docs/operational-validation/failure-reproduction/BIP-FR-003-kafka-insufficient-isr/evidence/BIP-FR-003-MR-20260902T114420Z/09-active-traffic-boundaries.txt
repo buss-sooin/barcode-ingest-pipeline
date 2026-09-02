@@ -1,0 +1,5 @@
+traffic_started_at_utc=2026-09-02T11:48:40Z
+request_count=50
+interval_seconds=1
+base_scan_time_ms=1788349720000
+traffic_completed_at_utc=2026-09-02T11:49:33Z

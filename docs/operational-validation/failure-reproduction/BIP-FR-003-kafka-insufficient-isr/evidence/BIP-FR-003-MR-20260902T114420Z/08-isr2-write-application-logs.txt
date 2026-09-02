@@ -1,0 +1,56 @@
+bip-fr-002-ingest  | 2026-09-02T11:48:37.761Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-5] c.b.b.c.BarcodeIngestController          : Received barcode request: 9913497171010
+bip-fr-002-ingest  | 2026-09-02T11:48:37.778Z  WARN 1 --- [barcode-ingest-service] [vice-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=barcode-ingest-service-producer-1] Error connecting to node broker-2:29092 (id: 2 rack: null)
+bip-fr-002-ingest  | 
+bip-fr-002-ingest  | java.net.UnknownHostException: broker-2: Name or service not known
+bip-fr-002-ingest  | 	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method) ~[na:na]
+bip-fr-002-ingest  | 	at java.base/java.net.Inet6AddressImpl.lookupAllHostAddr(Unknown Source) ~[na:na]
+bip-fr-002-ingest  | 	at java.base/java.net.InetAddress$PlatformResolver.lookupByName(Unknown Source) ~[na:na]
+bip-fr-002-ingest  | 	at java.base/java.net.InetAddress.getAddressesFromNameService(Unknown Source) ~[na:na]
+bip-fr-002-ingest  | 	at java.base/java.net.InetAddress$NameServiceAddresses.get(Unknown Source) ~[na:na]
+bip-fr-002-ingest  | 	at java.base/java.net.InetAddress.getAllByName0(Unknown Source) ~[na:na]
+bip-fr-002-ingest  | 	at java.base/java.net.InetAddress.getAllByName(Unknown Source) ~[na:na]
+bip-fr-002-ingest  | 	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-3.9.1.jar!/:na]
+bip-fr-002-ingest  | 	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:125) ~[kafka-clients-3.9.1.jar!/:na]
+bip-fr-002-ingest  | 	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-3.9.1.jar!/:na]
+bip-fr-002-ingest  | 	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-3.9.1.jar!/:na]
+bip-fr-002-ingest  | 	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.access$200(ClusterConnectionStates.java:466) ~[kafka-clients-3.9.1.jar!/:na]
+bip-fr-002-ingest  | 	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-3.9.1.jar!/:na]
+bip-fr-002-ingest  | 	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1075) ~[kafka-clients-3.9.1.jar!/:na]
+bip-fr-002-ingest  | 	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:321) ~[kafka-clients-3.9.1.jar!/:na]
+bip-fr-002-ingest  | 	at org.apache.kafka.clients.producer.internals.Sender.sendProducerData(Sender.java:389) ~[kafka-clients-3.9.1.jar!/:na]
+bip-fr-002-ingest  | 	at org.apache.kafka.clients.producer.internals.Sender.runOnce(Sender.java:348) ~[kafka-clients-3.9.1.jar!/:na]
+bip-fr-002-ingest  | 	at org.apache.kafka.clients.producer.internals.Sender.run(Sender.java:251) ~[kafka-clients-3.9.1.jar!/:na]
+bip-fr-002-ingest  | 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+bip-fr-002-ingest  | 
+bip-fr-002-ingest  | 2026-09-02T11:48:37.791Z  INFO 1 --- [barcode-ingest-service] [vice-producer-1] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: 9913497171010, Partition: 1, Offset: 170
+bip-fr-002-worker-2  | 2026-09-02T11:48:37.802Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-2  | 2026-09-02T11:48:37.803Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | Hibernate: 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | 2026-09-02T11:48:37.811Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-processing  | 2026-09-02T11:48:37.794Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 170
+bip-fr-002-processing  | 2026-09-02T11:48:37.794Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: 9913497171010, Device: SEOUL-CENTER-PC-001, scanTime: 1788349717101
+bip-fr-002-processing  | 2026-09-02T11:48:37.794Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted 9913497171010 → DLV-SEOUL-CENTER-PC-001-260902-01M1GZ6792KZS26RAX073249NY
+bip-fr-002-processing  | 2026-09-02T11:48:37.802Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: 9913497171010
+bip-fr-002-processing  | 2026-09-02T11:48:37.802Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: 9913497171010

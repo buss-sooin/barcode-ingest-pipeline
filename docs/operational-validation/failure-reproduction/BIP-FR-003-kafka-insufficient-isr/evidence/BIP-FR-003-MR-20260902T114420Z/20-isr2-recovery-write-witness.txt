@@ -1,0 +1,14 @@
+requested_at_utc=2026-09-02T11:49:24Z
+completed_at_utc=2026-09-02T11:49:24Z
+phase=isr2-recovery-witness
+sequence=3
+scan_time_ms=1788349764505
+barcode=9913497645054
+device_id=SEOUL-CENTER-PC-001
+curl_retry=0
+curl_status=0
+http_status=200
+time_total_seconds=0.018881
+[response_body]
+Ingested barcode 9913497645054
+[response_stderr]

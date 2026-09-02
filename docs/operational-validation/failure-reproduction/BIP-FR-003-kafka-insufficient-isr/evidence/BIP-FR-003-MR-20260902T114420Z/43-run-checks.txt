@@ -1,0 +1,8 @@
+run_completed_at_utc=2026-09-02T11:50:21Z
+status=material_run_completed_checks_passed
+contract_mapping=BIP-FR-003-MR-20260902T114420Z -> BIP-FR-003-RC-R2
+P=1
+L0=2
+L1=3
+F1=1
+semantic_progression=ISR3 -> L0 SIGKILL -> ISR2/write200 -> active traffic -> F1 SIGKILL -> ISR1/write503 -> F1 recovery -> ISR2/write200 -> L0 recovery -> ISR3

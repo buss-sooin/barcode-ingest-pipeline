@@ -6,7 +6,7 @@
 - Current Revision: `BIP-FR-003-RC-R2`
 - Scenario: `BIP-FR-003 — Kafka Insufficient ISR Write Unavailability During Active Scan`
 - Workflow: Failure Reproduction Workflow v0.1 (`Effective`, 2026-08-28)
-- 상태: 승인 의도 기록 완료, 최초 판정 대상 실행(Material Run) 준비
+- 상태: 실행·검증 완료 / 주 실행 Outcome `REPRODUCED`
 
 이 문서는 판정 대상 실행 전에 승인된 실행·검증 경계를 고정하는 재현 계약(Reproduction Contract)이다. 실행 결과에 맞춰 실패 징후(Failure Signature), 성공 기준 또는 주장 경계를 사후 완화하지 않는다.
 
@@ -18,7 +18,7 @@
 |---|---|
 | Contract Revision | `BIP-FR-003-RC-R1` |
 | Previous Revision | 없음 — Initial Revision |
-| Effective Point | 이 Revision을 포함하는 준비 commit부터 최초 Material Run에 적용 |
+| Effective Point | 준비 commit `4078118b4f4ad71daf7763e0582d09b4076e8bfb`부터 R1 Material Run에 적용 |
 | Revision Reason | 승인된 BIP-FR-003 의도, 실패 징후, 검증·Evidence·안전 경계를 첫 실행 전에 고정 |
 | 기존 Human Gate 경계 안의 변경 | 해당 없음. 승인된 최초 경계를 그대로 기록 |
 
@@ -32,13 +32,26 @@
 |---|---|
 | Contract Revision | `BIP-FR-003-RC-R2` |
 | Previous Revision | `BIP-FR-003-RC-R1` |
-| Effective Point | `BIP-FR-003-MR-20260902T114420Z` 실행 정체성 기록 전 R2와 revised runner를 commit한 시점 |
+| Effective Point | 준비 commit `baed9cca55167ca024a307b7278b7fc0595d8fe0`부터 `BIP-FR-003-MR-20260902T114420Z`에 적용 |
 | Revision Reason | R1 실행이 첫 ISR=2 관측 즉시 degraded witness를 보내 “stabilize new leader with ISR=2”를 충분히 구현하지 못한 절차 편차 수정 |
 | 기존 Human Gate 경계 안의 변경 | 예. 승인 topology, 두 broker 동시 down 위험, failure targets, Failure Signature, 성공·실패·정합성·claim 경계 불변 |
 
 R1 적용 실행 `BIP-FR-003-MR-20260902T113950Z`에서는 `2026-09-02T11:42:34Z`에 새 leader 3과 ISR `3,1`을 처음 관측한 즉시 degraded witness를 보냈다. Ingest는 5초 확인 경계에서 HTTP 503을 반환했지만 같은 underlying send는 `11:42:41.601Z`에 partition 1 offset 168 acknowledgment를 받았다. 이 실행은 ISR=2의 최종 write 가능성을 관측했으나, 첫 metadata sample과 witness가 같은 초에 있어 승인된 안정화 선행 조건을 충족했다고 볼 수 없다.
 
 R2는 첫 leader 전이 후 같은 `L1`과 ISR=2를 2초 간격의 연속 두 sample에서 확인하고, 추가 10초 동안 `L0`를 down으로 유지한 뒤, witness 직전에 `leader=L1`, ISR=2, `L0 ∉ ISR`, `F1 ∈ ISR`를 다시 확인하도록 orchestration을 변경한다. 실패 징후나 acceptance threshold를 사후 완화한 것이 아니라 승인된 “stabilize” 조건을 실행 절차로 명시한 material procedure redesign이다. 새 Human Gate가 필요한 승인 경계 변경은 없다.
+
+### 1.3 실행 lifecycle
+
+- 주 Material Run: `BIP-FR-003-MR-20260902T114420Z → BIP-FR-003-RC-R2`
+- 실험 유효성(Experiment Validity): `VALID`
+- 증거 충분성(Evidence Sufficiency): `SUFFICIENT`
+- Failure Signature: `SATISFIED`
+- Workflow Outcome: `REPRODUCED`
+- 결과 해석: [TECHNICAL-REPORT.md](./TECHNICAL-REPORT.md)
+- 실행·Revision·편차 이력: [REPRODUCTION-RECORD.md](./REPRODUCTION-RECORD.md)
+- Evidence: [주 실행 디렉터리](./evidence/BIP-FR-003-MR-20260902T114420Z/), [SHA-256 manifest](./evidence/BIP-FR-003-MR-20260902T114420Z/MANIFEST.sha256)
+
+이 lifecycle 표시는 실행 전 고정한 아래 Failure Question, 성공·실패·무효 기준 또는 claim boundary를 변경하지 않는다.
 
 ## 2. 실패 질문(Failure Question)
 

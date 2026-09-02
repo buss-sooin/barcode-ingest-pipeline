@@ -1,0 +1,3 @@
+barcode-events:0:0
+barcode-events:1:169
+barcode-events:2:0

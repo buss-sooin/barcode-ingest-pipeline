@@ -1,0 +1,2 @@
+sample=1 observed_at_utc=2026-09-02T11:49:19Z leader=3 isr=3 isr_size=1 metadata=	Topic: barcode-events	Partition: 1	Leader: 3	Replicas: 2,3,1	Isr: 3	Elr: 1	LastKnownElr: 
+sample=2 observed_at_utc=2026-09-02T11:49:23Z leader=3 isr=3,1 isr_size=2 metadata=	Topic: barcode-events	Partition: 1	Leader: 3	Replicas: 2,3,1	Isr: 3,1	Elr: 	LastKnownElr: 

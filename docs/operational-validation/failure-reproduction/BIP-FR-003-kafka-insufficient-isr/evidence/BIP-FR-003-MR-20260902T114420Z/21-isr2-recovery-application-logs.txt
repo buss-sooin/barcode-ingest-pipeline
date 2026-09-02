@@ -1,0 +1,132 @@
+bip-fr-002-worker-1  | 2026-09-02T11:49:24.243Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-1  | 2026-09-02T11:49:24.245Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | Hibernate: 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | 2026-09-02T11:49:24.251Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-1  | 2026-09-02T11:49:25.813Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-1  | 2026-09-02T11:49:25.815Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | Hibernate: 
+bip-fr-002-worker-1  |     select
+bip-fr-002-worker-1  |         dcme1_0.id,
+bip-fr-002-worker-1  |         dcme1_0.center_id,
+bip-fr-002-worker-1  |         dcme1_0.center_name,
+bip-fr-002-worker-1  |         dcme1_0.device_id,
+bip-fr-002-worker-1  |         dcme1_0.saved_time,
+bip-fr-002-worker-1  |         dcme1_0.updated_time 
+bip-fr-002-worker-1  |     from
+bip-fr-002-worker-1  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-1  |     where
+bip-fr-002-worker-1  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-1  | 2026-09-02T11:49:25.824Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-2  | 2026-09-02T11:49:24.813Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-2  | 2026-09-02T11:49:24.815Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | Hibernate: 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | 2026-09-02T11:49:24.824Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-worker-2  | 2026-09-02T11:49:26.815Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+bip-fr-002-worker-2  | 2026-09-02T11:49:26.818Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | Hibernate: 
+bip-fr-002-worker-2  |     select
+bip-fr-002-worker-2  |         dcme1_0.id,
+bip-fr-002-worker-2  |         dcme1_0.center_id,
+bip-fr-002-worker-2  |         dcme1_0.center_name,
+bip-fr-002-worker-2  |         dcme1_0.device_id,
+bip-fr-002-worker-2  |         dcme1_0.saved_time,
+bip-fr-002-worker-2  |         dcme1_0.updated_time 
+bip-fr-002-worker-2  |     from
+bip-fr-002-worker-2  |         device_center_mapping dcme1_0 
+bip-fr-002-worker-2  |     where
+bip-fr-002-worker-2  |         dcme1_0.device_id in (?)
+bip-fr-002-worker-2  | 2026-09-02T11:49:26.827Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+bip-fr-002-processing  | 2026-09-02T11:49:24.241Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 213
+bip-fr-002-processing  | 2026-09-02T11:49:24.241Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: 9913497645054, Device: SEOUL-CENTER-PC-001, scanTime: 1788349764505
+bip-fr-002-processing  | 2026-09-02T11:49:24.242Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted 9913497645054 → DLV-SEOUL-CENTER-PC-001-260902-01M1GZ7MMJH8D6993ZP9S9M5RP
+bip-fr-002-processing  | 2026-09-02T11:49:24.243Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: 9913497645054
+bip-fr-002-processing  | 2026-09-02T11:49:24.243Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: 9913497645054
+bip-fr-002-processing  | 2026-09-02T11:49:24.810Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 214
+bip-fr-002-processing  | 2026-09-02T11:49:24.810Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: 8800506618738, Device: SEOUL-CENTER-PC-001, scanTime: 1788349720041
+bip-fr-002-processing  | 2026-09-02T11:49:24.810Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted 8800506618738 → DLV-SEOUL-CENTER-PC-001-260902-01M1GZ7N6AC33QXD401GD5S43H
+bip-fr-002-processing  | 2026-09-02T11:49:24.813Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: 8800506618738
+bip-fr-002-processing  | 2026-09-02T11:49:24.813Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: 8800506618738
+bip-fr-002-processing  | 2026-09-02T11:49:25.810Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 215
+bip-fr-002-processing  | 2026-09-02T11:49:25.810Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: 8804803473076, Device: SEOUL-CENTER-PC-001, scanTime: 1788349720042
+bip-fr-002-processing  | 2026-09-02T11:49:25.810Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted 8804803473076 → DLV-SEOUL-CENTER-PC-001-260902-01M1GZ7P5JR5047Q8ZAP5CBPXK
+bip-fr-002-processing  | 2026-09-02T11:49:25.813Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: 8804803473076
+bip-fr-002-processing  | 2026-09-02T11:49:25.813Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: 8804803473076
+bip-fr-002-processing  | 2026-09-02T11:49:26.812Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 216
+bip-fr-002-processing  | 2026-09-02T11:49:26.813Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: 8802053168766, Device: SEOUL-CENTER-PC-001, scanTime: 1788349720043
+bip-fr-002-processing  | 2026-09-02T11:49:26.813Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted 8802053168766 → DLV-SEOUL-CENTER-PC-001-260902-01M1GZ7Q4XE3SF7Y1C8MGV38TR
+bip-fr-002-processing  | 2026-09-02T11:49:26.815Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: 8802053168766
+bip-fr-002-processing  | 2026-09-02T11:49:26.815Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: 8802053168766
+bip-fr-002-ingest      | 2026-09-02T11:49:24.226Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-4] c.b.b.c.BarcodeIngestController          : Received barcode request: 9913497645054
+bip-fr-002-ingest      | 2026-09-02T11:49:24.241Z  INFO 1 --- [barcode-ingest-service] [vice-producer-2] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: 9913497645054, Partition: 1, Offset: 213
+bip-fr-002-ingest      | 2026-09-02T11:49:24.792Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-6] c.b.b.c.BarcodeIngestController          : Received 1 barcode requests
+bip-fr-002-ingest      | 2026-09-02T11:49:24.809Z  INFO 1 --- [barcode-ingest-service] [vice-producer-2] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: 8800506618738, Partition: 1, Offset: 214
+bip-fr-002-ingest      | 2026-09-02T11:49:25.793Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-7] c.b.b.c.BarcodeIngestController          : Received 1 barcode requests
+bip-fr-002-ingest      | 2026-09-02T11:49:25.810Z  INFO 1 --- [barcode-ingest-service] [vice-producer-2] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: 8804803473076, Partition: 1, Offset: 215
+bip-fr-002-ingest      | 2026-09-02T11:49:26.794Z  INFO 1 --- [barcode-ingest-service] [io-8081-exec-13] c.b.b.c.BarcodeIngestController          : Received 1 barcode requests
+bip-fr-002-ingest      | 2026-09-02T11:49:26.812Z  INFO 1 --- [barcode-ingest-service] [vice-producer-2] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: 8802053168766, Partition: 1, Offset: 216
