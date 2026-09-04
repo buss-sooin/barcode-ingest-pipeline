@@ -42,6 +42,7 @@ echo "compose_file_sha256=$(shasum -a 256 "$compose_file" | awk '{print $1}')"
 logical_cpu="$(sysctl -n hw.logicalcpu)"
 host_memory_bytes="$(sysctl -n hw.memsize)"
 memory_pressure_output="$(memory_pressure -Q)"
+memory_free_percentage="$(printf '%s\n' "$memory_pressure_output" | awk -F': ' '/System-wide memory free percentage/ {gsub(/%/, "", $2); print $2}')"
 disk_available_kib="$(df -Pk "$repo_root" | awk 'NR==2 {print $4}')"
 docker_info="$(docker info 2>/dev/null || true)"
 docker_cpu="$(docker info --format '{{.NCPU}}')"
@@ -55,6 +56,8 @@ echo "docker_cpu=$docker_cpu"
 echo "docker_memory_bytes=$docker_memory_bytes"
 
 test -n "$docker_info"
+test -n "$memory_free_percentage"
+test "$memory_free_percentage" -ge 10
 test "$disk_available_kib" -ge "$minimum_disk_kib"
 test "$docker_memory_bytes" -ge "$minimum_docker_memory_bytes"
 
@@ -84,6 +87,7 @@ for container_name in "${required_containers[@]}"; do
   echo "container=$container_name state=$state health=$health restart_count=$restart_count oom_killed=$oom_killed"
   test "$state" = "running"
   test "$oom_killed" = "false"
+  test "$restart_count" -eq 0
 done
 
 for healthy_container in bip-fr-002-broker-1 bip-fr-002-broker-2 bip-fr-002-broker-3 bip-fr-002-mysql bip-fr-002-redis; do
@@ -104,6 +108,11 @@ full_isr_count="$(printf '%s\n' "$topic_description" | awk '
   END {print count+0}')"
 test "$partition_count" -eq 3
 test "$full_isr_count" -eq 3
+test "$(printf '%s\n' "$topic_description" | awk '/Partition: [0-9]+/ && /Replicas: [0-9]+,[0-9]+,[0-9]+/ {count++} END {print count+0}')" -eq 3
+
+topic_config="$("${compose[@]}" exec -T broker-1 kafka-configs --bootstrap-server "$bootstrap" --entity-type topics --entity-name barcode-events --describe)"
+printf '%s\n' "$topic_config"
+printf '%s\n' "$topic_config" | grep -q 'min.insync.replicas=2'
 
 under_replicated="$("${compose[@]}" exec -T broker-1 kafka-topics --bootstrap-server "$bootstrap" --describe --under-replicated-partitions)"
 unavailable="$("${compose[@]}" exec -T broker-1 kafka-topics --bootstrap-server "$bootstrap" --describe --unavailable-partitions)"
