@@ -15,6 +15,8 @@ SCENARIO_DIR="docs/operational-validation/failure-reproduction/BIP-FR-004-mysql-
 COMPOSE_FILE="docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/docker-compose.validation.yml"
 RUN_ID="BIP-FR-004-MR-$(date -u +%Y%m%dT%H%M%SZ)"
 EVIDENCE_DIR="$SCENARIO_DIR/evidence/$RUN_ID"
+TRAFFIC_REQUEST_COUNT=750
+TRAFFIC_RATE=5
 ```
 
 `RUN_ID`와 Evidence 경로가 기존 항목과 충돌하면 시작하지 않는다. 모든 capture 명령은 stdout와 stderr, UTC와 exit code가 보존되게 실행한다. Credential이나 `.env` 원문은 Evidence에 복사하지 않는다.
@@ -91,7 +93,8 @@ docker compose --env-file .env -f "$COMPOSE_FILE" exec -T redis redis-cli XLEN b
 ```bash
 BASE_SCAN_TIME_MS=$(($(date +%s) * 1000))
 BIP_FR_004_SCANNER_URL=http://127.0.0.1:18084/scan/barcode \
-  "$SCENARIO_DIR/traffic-driver.sh" fr004-active "$BASE_SCAN_TIME_MS" 750 5 \
+  "$SCENARIO_DIR/traffic-driver.sh" fr004-active "$BASE_SCAN_TIME_MS" \
+  "$TRAFFIC_REQUEST_COUNT" "$TRAFFIC_RATE" \
   | tee "$EVIDENCE_DIR/02-traffic/traffic-driver.txt" &
 TRAFFIC_PID=$!
 ```
@@ -217,7 +220,7 @@ docker compose --env-file .env -f "$COMPOSE_FILE" exec -T redis redis-cli XPENDI
 MySQL cohort query는 `.env`를 출력하지 않고 container 환경을 사용한다.
 
 ```bash
-LAST_SCAN_TIME_MS=$((BASE_SCAN_TIME_MS + 749))
+LAST_SCAN_TIME_MS=$((BASE_SCAN_TIME_MS + TRAFFIC_REQUEST_COUNT - 1))
 SQL="SELECT CAST(ROUND(UNIX_TIMESTAMP(scan_time)*1000) AS UNSIGNED), original_barcode, internal_barcode_id, device_id FROM barcodes WHERE CAST(ROUND(UNIX_TIMESTAMP(scan_time)*1000) AS UNSIGNED) BETWEEN $BASE_SCAN_TIME_MS AND $LAST_SCAN_TIME_MS ORDER BY scan_time, id"
 docker compose --env-file .env -f "$COMPOSE_FILE" exec -T mysql \
   sh -lc 'mysql -N -B -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE" -e "$1"' sh "$SQL"
