@@ -36,7 +36,7 @@ echo "repository=$repo_root"
 echo "branch=$expected_branch"
 echo "head=$expected_head"
 echo "contract_id=BIP-FR-004-RC"
-echo "contract_revision=BIP-FR-004-RC-R1"
+echo "contract_revision=BIP-FR-004-RC-R2"
 echo "compose_file_sha256=$(shasum -a 256 "$compose_file" | awk '{print $1}')"
 
 logical_cpu="$(sysctl -n hw.logicalcpu)"
