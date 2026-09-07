@@ -1,0 +1,32 @@
+=== E1 KAFKA / APPLICATION BASELINE — CORRECTED ===
+CAPTURE_UTC=2026-09-04T09:30:40Z
+
+=== KAFKA TOPIC ===
+Topic: barcode-events	TopicId: 1ojqpZ39RquvwSBQvd5bXw	PartitionCount: 3	ReplicationFactor: 3	Configs: compression.type=snappy,min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: barcode-events	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 3,1,2	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 3,1,2	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 2	Leader: 3	Replicas: 3,1,2	Isr: 3,1,2	Elr: 	LastKnownElr: 
+
+=== KAFKA CONFIG ===
+Dynamic configs for topic barcode-events are:
+  min.insync.replicas=2 sensitive=false synonyms={DYNAMIC_TOPIC_CONFIG:min.insync.replicas=2, DYNAMIC_DEFAULT_BROKER_CONFIG:min.insync.replicas=1, STATIC_BROKER_CONFIG:min.insync.replicas=2, DEFAULT_CONFIG:min.insync.replicas=1}
+
+=== UNDER-REPLICATED PARTITIONS ===
+NONE
+
+=== UNAVAILABLE PARTITIONS ===
+NONE
+
+=== APPLICATION HEALTH ===
+port=18081 {"status":"UP"}
+port=18082 {"status":"UP"}
+port=18084 {"status":"UP"}
+port=18085 {"status":"UP"}
+port=18086 {"status":"UP"}
+
+=== APPLICATION / WORKER STATE ===
+container=/bip-fr-002-ingest state=running restart_count=0 oom_killed=false
+container=/bip-fr-002-processing state=running restart_count=0 oom_killed=false
+container=/bip-fr-002-scanner state=running restart_count=0 oom_killed=false
+container=/bip-fr-002-worker-1 state=running restart_count=0 oom_killed=false
+container=/bip-fr-002-worker-2 state=running restart_count=0 oom_killed=false

@@ -1,0 +1,26 @@
+=== E0 REPOSITORY / ARTIFACT BASELINE ===
+CAPTURE_UTC=2026-09-04T09:12:28Z
+
+=== REPOSITORY ===
+/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline
+validation/bip-fr-004-mysql-persistence-unavailable
+78669f385eb63b103dfcb77ad8c703ea2bbc2ecd
+git@github.com:buss-sooin/barcode-ingest-pipeline.git
+
+=== CURRENT WORKING TREE ===
+ M docs/operational-validation/failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/REPRODUCTION-RECORD.md
+?? docs/operational-validation/failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/evidence/
+
+=== RUN MAPPING ===
+BIP-FR-004-MR-20260904T090410Z → BIP-FR-004-RC-R1
+Human Gate Reference: 00I — 2026-09-04 Human approval
+Material Run Authorization: GRANTED
+Run Start UTC: 2026-09-04T09:04:10Z
+
+=== FROZEN ARTIFACT SHA-256 ===
+29addce2f3ac18c32f31c52c1644e20bfb6184cdac648277c6eac72a8563263d  docs/operational-validation/failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/REPRODUCTION-CONTRACT.md
+c96865a03122b1bbbac45c4363c544c61b8b1ce3830ce329c78c234db7728f8b  docs/operational-validation/failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/preflight.sh
+4e9e9df4aea1f131d02378cc8444602a579dcbaacbf4d71a6b7df5ed12b61d16  docs/operational-validation/failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/traffic-driver.sh
+7fc48224b51f7652ea8030089b01aff5fab36e17ddf63aa1d3283fe2d49c34c8  docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/docker-compose.validation.yml
+
+CAPTURE_EXIT_CODE=0

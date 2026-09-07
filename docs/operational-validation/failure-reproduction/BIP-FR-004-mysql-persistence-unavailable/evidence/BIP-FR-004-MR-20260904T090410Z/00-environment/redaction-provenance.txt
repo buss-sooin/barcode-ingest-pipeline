@@ -1,0 +1,11 @@
+MATERIAL_RUN_ID=BIP-FR-004-MR-20260904T090410Z
+SOURCE_REPOSITORY_RELATIVE_PATH=docs/operational-validation/failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/evidence/BIP-FR-004-MR-20260904T090410Z/01-baseline/mysql-redis-baseline.txt
+ORIGINAL_SECURE_LOCAL_LOCATOR=/Users/sooinlee/Documents/CodexProjects/.secure-evidence/barcode-ingest-pipeline/BIP-FR-004/BIP-FR-004-MR-20260904T090410Z/01-baseline/mysql-redis-baseline.raw.txt
+ORIGINAL_SHA256=7a3dc5b432eb3a3c155080a560173d6bc4c98ed9fe7778701af82a5c7d952f3c
+REDACTED_DERIVATIVE_REPOSITORY_PATH=docs/operational-validation/failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/evidence/BIP-FR-004-MR-20260904T090410Z/01-baseline/mysql-redis-baseline.txt
+REDACTED_DERIVATIVE_SHA256=e989e6ba9c617c329de14bf7d50a087c04a760296754abed3ac9b02e99e28450
+REDACTED_FIELDS=MYSQL_EXPORTER_PASSWORD,MYSQL_ROOT_PASSWORD,MYSQL_PASSWORD
+REDACTION_REASON=Credential protection
+REDACTION_TOKEN=[REDACTED]
+ORIGINAL_RAW_EVIDENCE_COMMITTED_TO_GIT=NO
+TRANSFORMATION=Credential values only; field names, ordering, timestamps, command results, and non-credential content preserved

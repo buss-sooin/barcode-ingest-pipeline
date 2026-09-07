@@ -1,0 +1,11 @@
+RECOVERY_REQUEST_UTC=2026-09-04T11:54:54Z
+ Container bip-fr-002-mysql Starting 
+ Container bip-fr-002-mysql Started 
+MYSQL_START_EXIT=0
+MYSQL_READINESS_RESTORED=1
+READINESS_UTC=2026-09-04T11:54:56Z
+MYSQL_CONTAINER_ID_BEFORE=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e
+MYSQL_CONTAINER_ID_AFTER=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e
+state=running restart=0 oom=false
+mysql_mount_source=/var/lib/docker/volumes/bip-fr-002-kafka-ha_mysql-data/_data
+SAME_CONTAINER=YES

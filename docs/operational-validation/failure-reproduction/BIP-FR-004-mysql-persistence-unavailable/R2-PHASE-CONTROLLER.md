@@ -6,7 +6,7 @@
 
 Human operator는 controller의 `start`가 PASS한 뒤 승인된 exact runtime command를 별도로 실행하고, 결과 Evidence가 준비된 뒤 `finish`를 호출한다. 선행 단계가 PASS가 아니거나 precondition이 없으면 다음 단계를 거부한다.
 
-현재 `BIP-FR-004-RC-R2`는 아직 freeze되지 않았으므로 controller를 새 Material Run에 사용할 권한은 없다. R2 Contract freeze와 별도 Human Gate PASS 뒤에만 `register`할 수 있다.
+`BIP-FR-004-RC-R2`는 [R2 Reproduction Contract](./REPRODUCTION-CONTRACT-R2.md)에 freeze됐다. 기존 사람 승인 관문(Human Gate)의 Scope와 위험 경계는 유지되지만 `NEW MATERIAL RUN AUTHORIZATION`은 `00J`의 readiness 검토 전까지 `SUSPENDED`다. 따라서 authorization 복원 전에는 `register`하거나 runtime phase를 시작하지 않는다.
 
 ## 2. 고정 phase graph
 
@@ -44,7 +44,7 @@ CONTROLLER="$SCENARIO_DIR/r2-phase-controller.sh"
 "$CONTROLLER" register "$RUN_ID" \
   approved_head="$APPROVED_HEAD" \
   gate_reference="$HUMAN_GATE_REFERENCE" \
-  contract_file="$SCENARIO_DIR/REPRODUCTION-CONTRACT.md"
+  contract_file="$SCENARIO_DIR/REPRODUCTION-CONTRACT-R2.md"
 
 "$CONTROLLER" start "$RUN_ID" <phase> [key=value ...]
 "$CONTROLLER" finish "$RUN_ID" <phase> <PASS|FAIL|STOP> [key=value ...]
@@ -62,6 +62,8 @@ CONTROLLER="$SCENARIO_DIR/r2-phase-controller.sh"
 - 이미 등록된 Run ID
 
 Contract path와 SHA-256은 controller state에 함께 고정된다.
+
+`register`의 clean-tree 검사는 아직 untracked file까지 거부하지만, 등록 뒤 phase 검사는 run-scoped untracked Evidence를 허용한다. R1 Evidence를 canonical commit에 포함해 clean registration prerequisite를 충족하는 현재 경로에서는 실행을 막지 않는다. 설명과 구현의 이 비대칭은 `NON-BLOCKING FOLLOW-UP DEFECT`이며, 이번 R2 계약이나 controller semantics를 재설계하는 근거로 사용하지 않는다.
 
 ## 4. Phase별 precondition과 Evidence
 

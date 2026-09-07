@@ -1,0 +1,10 @@
+RUN_ID=BIP-FR-004-MR-20260904T095755Z
+HEAD=78669f385eb63b103dfcb77ad8c703ea2bbc2ecd
+MYSQL id=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e state=running restart=0 oom=false
+mysqladmin: [Warning] Using a password on the command line interface can be insecure.
+mysqld is alive
+MYSQL_READY=0
+PENDING=0
+DLQ=0
+URP=NONE
+UNAVAILABLE=NONE

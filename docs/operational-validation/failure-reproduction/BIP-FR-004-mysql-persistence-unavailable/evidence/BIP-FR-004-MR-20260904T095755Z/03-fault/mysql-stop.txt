@@ -1,0 +1,7 @@
+FAULT_REQUEST_UTC=2026-09-04T11:53:30Z
+PRE_FAULT id=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e state=running restart=0 oom=false
+ Container bip-fr-002-mysql Stopping 
+ Container bip-fr-002-mysql Stopped 
+FAULT_COMPLETE_UTC=2026-09-04T11:53:35Z
+MYSQL_STOP_EXIT=0
+POST_FAULT id=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e state=exited exit=0

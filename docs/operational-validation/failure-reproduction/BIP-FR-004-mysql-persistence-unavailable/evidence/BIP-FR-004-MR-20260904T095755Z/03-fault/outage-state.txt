@@ -1,0 +1,18 @@
+OBSERVED_UTC=2026-09-04T11:54:54Z
+
+=== TRAFFIC ===
+TRAFFIC_STATE=ENDED
+DRIVER_EVENT phase=fr004-active sequence=741 scan_time_ms=1788522672741 requested_at=2026-09-04T11:54:18Z completed_at=2026-09-04T11:54:18Z curl_status=0 http_status=200 time_total_seconds=0.003542 detail=none
+DRIVER_EVENT phase=fr004-active sequence=742 scan_time_ms=1788522672742 requested_at=2026-09-04T11:54:18Z completed_at=2026-09-04T11:54:18Z curl_status=0 http_status=200 time_total_seconds=0.003150 detail=none
+DRIVER_EVENT phase=fr004-active sequence=743 scan_time_ms=1788522672743 requested_at=2026-09-04T11:54:18Z completed_at=2026-09-04T11:54:19Z curl_status=0 http_status=200 time_total_seconds=0.003409 detail=none
+DRIVER_EVENT phase=fr004-active sequence=744 scan_time_ms=1788522672744 requested_at=2026-09-04T11:54:19Z completed_at=2026-09-04T11:54:19Z curl_status=0 http_status=200 time_total_seconds=0.003735 detail=none
+DRIVER_EVENT phase=fr004-active sequence=745 scan_time_ms=1788522672745 requested_at=2026-09-04T11:54:19Z completed_at=2026-09-04T11:54:19Z curl_status=0 http_status=200 time_total_seconds=0.004361 detail=none
+DRIVER_EVENT phase=fr004-active sequence=746 scan_time_ms=1788522672746 requested_at=2026-09-04T11:54:19Z completed_at=2026-09-04T11:54:19Z curl_status=0 http_status=200 time_total_seconds=0.002906 detail=none
+DRIVER_EVENT phase=fr004-active sequence=747 scan_time_ms=1788522672747 requested_at=2026-09-04T11:54:19Z completed_at=2026-09-04T11:54:19Z curl_status=0 http_status=200 time_total_seconds=0.003139 detail=none
+DRIVER_EVENT phase=fr004-active sequence=748 scan_time_ms=1788522672748 requested_at=2026-09-04T11:54:20Z completed_at=2026-09-04T11:54:20Z curl_status=0 http_status=200 time_total_seconds=0.004062 detail=none
+DRIVER_EVENT phase=fr004-active sequence=749 scan_time_ms=1788522672749 requested_at=2026-09-04T11:54:20Z completed_at=2026-09-04T11:54:20Z curl_status=0 http_status=200 time_total_seconds=0.012155 detail=none
+DRIVER_END phase=fr004-active finished_at=2026-09-04T11:54:20Z attempted=750 http_200=750 http_other=0 transport_error=0 first_scan_time_ms=1788522672000 last_scan_time_ms=1788522672749
+
+=== MYSQL ===
+id=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e state=exited exit=0
+MYSQL_PORT=CLOSED

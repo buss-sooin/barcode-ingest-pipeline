@@ -1,0 +1,32 @@
+=== POST-ABORT CLEAN BASELINE CHECK ===
+CAPTURE_UTC=2026-09-04T09:41:42Z
+
+=== TRAFFIC PROCESS ===
+
+=== MYSQL READINESS ===
+read /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline: is a directory
+MYSQL_READINESS_EXIT=1
+
+=== REDIS GROUP ===
+read /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline: is a directory
+
+=== REDIS PENDING ===
+read /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline: is a directory
+
+=== REDIS DLQ ===
+read /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline: is a directory
+
+=== KAFKA URP ===
+read /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline: is a directory
+NONE
+
+=== KAFKA UNAVAILABLE ===
+read /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline: is a directory
+NONE
+
+=== APPLICATION HEALTH ===
+port=18081 {"status":"UP"}
+port=18082 {"status":"UP"}
+port=18084 {"status":"UP"}
+port=18085 {"status":"UP"}
+port=18086 {"status":"UP"}

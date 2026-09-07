@@ -1,0 +1,8 @@
+0f5240fd6f9dfdce069cd9f330e66c7219efe64c6dc5a9c0e2feb1b10da35477  ./00-environment/run-registration.txt
+7a779690e3f46045029ed0eb6355b1a3a1cadcc5dcc3317af3c5252faf5cd880  ./01-baseline/run3-baseline.txt
+015d07c2974710f600fdf8d7df05204c08b67bedd0ca4190b77970fdad372abc  ./02-traffic/traffic-driver.txt
+54e93e63123db269bcc6d86c8c794979d6dbc028ce69e77142c077032c8bae36  ./03-fault/mysql-stop.txt
+f40dd575960b55eb20e5b7161f11f0d9d3530befcf539cb26414c1c9fd507c2c  ./03-fault/outage-state.txt
+59abfda0b4d31b5c3a951f6b9faee57f334bdd8605d9d22240003988f0e27f73  ./04-worker/outage-worker.log
+f140614ca3ae2d7dc55b954b0eb123493b522b49d267ce75f0e7b9a927e00299  ./05-redis/outage-pending.txt
+3cf548b3fa74121ec3c682bae94031320c710f6aecc61e99ade403c43307a83d  ./07-recovery/mysql-recovery.txt

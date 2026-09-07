@@ -1,0 +1,393 @@
+=== E1 MYSQL / REDIS HEALTHY BASELINE ===
+CAPTURE_UTC=2026-09-04T09:18:03Z
+
+=== COMPOSE SERVICES ===
+NAME                    IMAGE                                COMMAND                   SERVICE      CREATED      STATUS                  PORTS
+bip-fr-002-broker-1     confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   broker-1     2 days ago   Up 45 hours (healthy)   0.0.0.0:19092->9092/tcp, [::]:19092->9092/tcp
+bip-fr-002-broker-2     confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   broker-2     2 days ago   Up 3 hours (healthy)    0.0.0.0:19093->9092/tcp, [::]:19093->9092/tcp
+bip-fr-002-broker-3     confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   broker-3     2 days ago   Up 2 days (healthy)     0.0.0.0:19094->9092/tcp, [::]:19094->9092/tcp
+bip-fr-002-controller   confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   controller   2 days ago   Up 2 days               9092/tcp
+bip-fr-002-ingest       bip-fr-002-kafka-ha-ingest           "java -jar app.jar"       ingest       2 days ago   Up 2 days               0.0.0.0:18081->8081/tcp, [::]:18081->8081/tcp
+bip-fr-002-mysql        mysql:8                              "docker-entrypoint.s…"   mysql        2 days ago   Up 2 days (healthy)     0.0.0.0:13306->3306/tcp, [::]:13306->3306/tcp
+bip-fr-002-processing   bip-fr-002-kafka-ha-processing       "java -jar app.jar"       processing   2 days ago   Up 2 days               0.0.0.0:18082->8082/tcp, [::]:18082->8082/tcp
+bip-fr-002-redis        redis:alpine                         "docker-entrypoint.s…"   redis        2 days ago   Up 2 days (healthy)     0.0.0.0:16379->6379/tcp, [::]:16379->6379/tcp
+bip-fr-002-scanner      bip-fr-002-kafka-ha-scanner          "java -jar app.jar"       scanner      2 days ago   Up 2 days               0.0.0.0:18084->8084/tcp, [::]:18084->8084/tcp
+bip-fr-002-worker-1     bip-fr-002-kafka-ha-worker-1         "java -jar app.jar"       worker-1     2 days ago   Up 2 days               0.0.0.0:18085->8085/tcp, [::]:18085->8085/tcp
+bip-fr-002-worker-2     bip-fr-002-kafka-ha-worker-2         "java -jar app.jar"       worker-2     2 days ago   Up 2 days               0.0.0.0:18086->8086/tcp, [::]:18086->8086/tcp
+
+=== MYSQL CONTAINER ID ===
+a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e
+
+=== MYSQL CONTAINER INSPECT ===
+[
+    {
+        "Id": "a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e",
+        "Created": "2026-09-02T03:31:38.900150718Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "--character-set-server=utf8mb4",
+            "--collation-server=utf8mb4_unicode_ci",
+            "--plugin-load-add=mysql_native_password.so",
+            "--performance-schema=ON",
+            "--slow-query-log=1",
+            "--slow-query-log-file=/var/log/mysql/mysql-slow.log",
+            "--long-query-time=0.01",
+            "--transaction-isolation=READ-COMMITTED"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 2435,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-09-02T03:31:39.224023634Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2026-09-04T09:17:42.771002097Z",
+                        "End": "2026-09-04T09:17:42.827058805Z",
+                        "ExitCode": 0,
+                        "Output": "mysqladmin: [Warning] Using a password on the command line interface can be insecure.\nmysqld is alive\n"
+                    },
+                    {
+                        "Start": "2026-09-04T09:17:47.82700046Z",
+                        "End": "2026-09-04T09:17:47.879768002Z",
+                        "ExitCode": 0,
+                        "Output": "mysqladmin: [Warning] Using a password on the command line interface can be insecure.\nmysqld is alive\n"
+                    },
+                    {
+                        "Start": "2026-09-04T09:17:52.881991796Z",
+                        "End": "2026-09-04T09:17:52.955986421Z",
+                        "ExitCode": 0,
+                        "Output": "mysqladmin: [Warning] Using a password on the command line interface can be insecure.\nmysqld is alive\n"
+                    },
+                    {
+                        "Start": "2026-09-04T09:17:57.957574131Z",
+                        "End": "2026-09-04T09:17:58.000418881Z",
+                        "ExitCode": 0,
+                        "Output": "mysqladmin: [Warning] Using a password on the command line interface can be insecure.\nmysqld is alive\n"
+                    },
+                    {
+                        "Start": "2026-09-04T09:18:03.000729634Z",
+                        "End": "2026-09-04T09:18:03.061573842Z",
+                        "ExitCode": 0,
+                        "Output": "mysqladmin: [Warning] Using a password on the command line interface can be insecure.\nmysqld is alive\n"
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:5e7e005a680e75d935984d3d9390990d2a709b3ed67e92708e9e6747f1f754c9",
+        "ResolvConfPath": "/var/lib/docker/containers/a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e/hostname",
+        "HostsPath": "/var/lib/docker/containers/a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e/hosts",
+        "LogPath": "/var/lib/docker/containers/a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e/a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e-json.log",
+        "Name": "/bip-fr-002-mysql",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/mysql-init/init_exporter_user.sh:/docker-entrypoint-initdb.d/init_exporter_user.sh:ro",
+                "bip-fr-002-kafka-ha_mysql-data:/var/lib/mysql:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "bip-fr-002-net",
+            "PortBindings": {
+                "3306/tcp": [
+                    {
+                        "HostIp": "",
+                        "HostPort": "13306"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e",
+                "LowerDir": "/var/lib/docker/overlay2/fd94963666750f44f1ee4a57712a08a27069b6e0378178bab48afc9705a82c31-init/diff:/var/lib/docker/overlay2/d4f1a39fcc7e79e75b88dd0581f1683678389d1c77e81047103883eca6a57e6e/diff:/var/lib/docker/overlay2/0f05e4d32d70fdca4cf17ad927afef72f6f352abaa7f6e450cba52f40a75944f/diff:/var/lib/docker/overlay2/7664dbc353e30bab1f9923603b0b426aa261e043b9fd2e1f14c141daf6b73fc7/diff:/var/lib/docker/overlay2/590ba83614f0df0d1bb7c175ec63ac40790a1dbfce060e4edc9f10b4cc64d1a2/diff:/var/lib/docker/overlay2/e3d0a3165dce1cf2fddf43b1f9f837e8d96a85771703dac02f9d90e7180346bf/diff:/var/lib/docker/overlay2/ab39b5ab2c6686c25de4ba2d3eca35fb6e6e4d2dcbe37a328e35c5def0c9175c/diff:/var/lib/docker/overlay2/72540a2092e423356e780e284f5cb082cee408f05d8ee5073717bf456e9e45bc/diff:/var/lib/docker/overlay2/f6815e95ddb8217cfe287180119797264097ce3574586e5142da996dc0769a4e/diff:/var/lib/docker/overlay2/b06ddadad5e20e11633ec4bc2cc1f7a8b37ead2e6f0d9a9cc4d5396252179010/diff:/var/lib/docker/overlay2/01d08b2ebbd8ccd76cf09c79133adab5dd582bcb15a8a271a5934a12e395195b/diff",
+                "MergedDir": "/var/lib/docker/overlay2/fd94963666750f44f1ee4a57712a08a27069b6e0378178bab48afc9705a82c31/merged",
+                "UpperDir": "/var/lib/docker/overlay2/fd94963666750f44f1ee4a57712a08a27069b6e0378178bab48afc9705a82c31/diff",
+                "WorkDir": "/var/lib/docker/overlay2/fd94963666750f44f1ee4a57712a08a27069b6e0378178bab48afc9705a82c31/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/mysql-init/init_exporter_user.sh",
+                "Destination": "/docker-entrypoint-initdb.d/init_exporter_user.sh",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "volume",
+                "Name": "bip-fr-002-kafka-ha_mysql-data",
+                "Source": "/var/lib/docker/volumes/bip-fr-002-kafka-ha_mysql-data/_data",
+                "Destination": "/var/lib/mysql",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "a206fd09d079",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "3306/tcp": {},
+                "33060/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "MYSQL_EXPORTER_PASSWORD=[REDACTED]",
+                "MYSQL_ROOT_PASSWORD=[REDACTED]",
+                "MYSQL_DATABASE=delivery",
+                "MYSQL_USER=delivery_user",
+                "MYSQL_PASSWORD=[REDACTED]",
+                "MYSQL_EXPORTER_USER=exporter_user",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.19",
+                "MYSQL_MAJOR=8.4",
+                "MYSQL_VERSION=8.4.11-1.el9",
+                "MYSQL_SHELL_VERSION=8.4.10-1.el9"
+            ],
+            "Cmd": [
+                "--character-set-server=utf8mb4",
+                "--collation-server=utf8mb4_unicode_ci",
+                "--plugin-load-add=mysql_native_password.so",
+                "--performance-schema=ON",
+                "--slow-query-log=1",
+                "--slow-query-log-file=/var/log/mysql/mysql-slow.log",
+                "--long-query-time=0.01",
+                "--transaction-isolation=READ-COMMITTED"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD-SHELL",
+                    "mysqladmin ping -h localhost -u root -p$MYSQL_ROOT_PASSWORD --silent"
+                ],
+                "Interval": 5000000000,
+                "Timeout": 5000000000,
+                "StartPeriod": 20000000000,
+                "Retries": 24
+            },
+            "Image": "mysql:8",
+            "Volumes": {
+                "/var/lib/mysql": {}
+            },
+            "WorkingDir": "/",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "f4ec03c5e96017ead2870628316561c197f581688c79df578229ffec5ac99e91",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:5e7e005a680e75d935984d3d9390990d2a709b3ed67e92708e9e6747f1f754c9",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "bip-fr-002-kafka-ha",
+                "com.docker.compose.project.config_files": "/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/docker-compose.validation.yml",
+                "com.docker.compose.project.environment_file": "/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env",
+                "com.docker.compose.project.working_dir": "/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure",
+                "com.docker.compose.service": "mysql",
+                "com.docker.compose.version": "5.3.1"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "736968f1b7f6fa81085349d6ab4dbce20a37f54d9aa8cf681e50827c2e00acef",
+            "SandboxKey": "/var/run/docker/netns/736968f1b7f6",
+            "Ports": {
+                "3306/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "13306"
+                    },
+                    {
+                        "HostIp": "::",
+                        "HostPort": "13306"
+                    }
+                ]
+            },
+            "Networks": {
+                "bip-fr-002-net": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "bip-fr-002-mysql",
+                        "mysql"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "82475b5c07c8464fef2e3cd2acdeeaa8c80528dd5634ce87be1cd34563d9c0cf",
+                    "EndpointID": "5706aa046e6f6bdcb6dd2297a485618c573a1a4f0836cd4cbf0788b62649ff10",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.4",
+                    "MacAddress": "8e:39:29:68:05:3c",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "bip-fr-002-mysql",
+                        "mysql",
+                        "a206fd09d079"
+                    ]
+                }
+            }
+        }
+    }
+]
+
+=== MYSQL READINESS ===
+mysqladmin: [Warning] Using a password on the command line interface can be insecure.
+mysqld is alive
+MYSQL_READINESS_EXIT=0
+
+=== REDIS STREAM LENGTH ===
+213
+
+=== REDIS GROUP ===
+name
+barcode-persistence-group
+consumers
+2
+pending
+0
+last-delivered-id
+1788349772808-0
+entries-read
+213
+lag
+0
+
+=== REDIS CONSUMERS ===
+name
+worker-1
+pending
+0
+idle
+3156
+inactive
+163712314
+name
+worker-2
+pending
+0
+idle
+3158
+inactive
+163711324
+
+=== REDIS PENDING ===
+0
+
+
+
+
+=== REDIS DLQ LENGTH ===
+0

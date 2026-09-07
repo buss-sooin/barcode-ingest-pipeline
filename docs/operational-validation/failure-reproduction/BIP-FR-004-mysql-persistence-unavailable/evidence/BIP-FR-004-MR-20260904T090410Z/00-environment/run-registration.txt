@@ -1,0 +1,4 @@
+BIP-FR-004-MR-20260904T090410Z → BIP-FR-004-RC-R1
+Human Gate Reference: 00I — 2026-09-04 Human approval
+Material Run Authorization: GRANTED
+Run Start UTC: 2026-09-04T09:04:10Z

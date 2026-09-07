@@ -1,0 +1,48 @@
+=== RUN 2 E0/E1 BASELINE ===
+CAPTURE_UTC=2026-09-04T09:49:37Z
+RUN_ID=BIP-FR-004-MR-20260904T094838Z
+
+=== REPOSITORY ===
+BRANCH=validation/bip-fr-004-mysql-persistence-unavailable
+HEAD=78669f385eb63b103dfcb77ad8c703ea2bbc2ecd
+
+=== MYSQL ===
+id=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e state=running restart=0 oom=false image=sha256:5e7e005a680e75d935984d3d9390990d2a709b3ed67e92708e9e6747f1f754c9
+mysql_mount_source=/var/lib/docker/volumes/bip-fr-002-kafka-ha_mysql-data/_data
+mysqladmin: [Warning] Using a password on the command line interface can be insecure.
+mysqld is alive
+MYSQL_READINESS_EXIT=0
+
+=== REDIS ===
+name
+barcode-persistence-group
+consumers
+2
+pending
+0
+last-delivered-id
+1788514631487-0
+entries-read
+963
+lag
+0
+0
+
+
+
+DLQ_LENGTH=0
+
+=== KAFKA ===
+URP=NONE
+UNAVAILABLE=NONE
+
+=== APPLICATIONS ===
+port=18081 {"status":"UP"}
+port=18082 {"status":"UP"}
+port=18084 {"status":"UP"}
+port=18085 {"status":"UP"}
+port=18086 {"status":"UP"}
+
+=== WORKERS ===
+container=/bip-fr-002-worker-1 state=running restart=0 oom=false
+container=/bip-fr-002-worker-2 state=running restart=0 oom=false
