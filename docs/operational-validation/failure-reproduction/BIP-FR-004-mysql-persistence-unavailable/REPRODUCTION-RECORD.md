@@ -6,9 +6,10 @@
 - Contract ID: `BIP-FR-004-RC`
 - Workflow: Failure Reproduction Workflow v0.1 (`Effective`)
 - R1 lifecycle: `HISTORICAL / CLOSED`
-- R2 lifecycle: `FROZEN / ACTIVE REVISION`
+- R2 lifecycle: `FROZEN / CLOSED`
 - Existing Human Gate: `PASS` — `00I — 2026-09-04 Human approval`
-- Current Material Run Authorization: `EXECUTION COMPLETE / CONTROL PLANE DECISION REQUIRED`
+- Scenario Closure: `BIP-FR-004 = CLOSED / PARTIALLY_REPRODUCED`
+- Current Material Run Authorization: `CLOSED / NO FURTHER MATERIAL RUN AUTHORIZED`
 - Material Runs: R1 3개, R2 4개
 
 이 문서는 판정 대상 실행(Material Run)과 계약 개정(Contract Revision)의 일대일 mapping, 실행 편차, 검증 순서, Evidence locator와 제한을 보존한다. R1의 불완전한 실행을 R2 Evidence로 재분류하지 않으며, 중단된 R2 Run을 다른 실행에 재사용하지 않는다.
@@ -34,7 +35,7 @@ R2는 R1 실행에서 확인된 pending reclaim 구현 결함과 단계별 Evide
 | `BIP-FR-004-MR-20260908T021905Z` | `BIP-FR-004-RC-R2` | `00I — 2026-09-04 Human approval` | traffic 5건 뒤 driver 비정상 종료, fault 미주입 | `FAIL` | `SUFFICIENT FOR INVALID EXECUTION / INSUFFICIENT FOR FAILURE SIGNATURE` | `INCONCLUSIVE` | [Evidence](./evidence/BIP-FR-004-MR-20260908T021905Z/) / [Manifest](./evidence/BIP-FR-004-MR-20260908T021905Z/MANIFEST.sha256) |
 | `BIP-FR-004-MR-20260908T045054Z` | `BIP-FR-004-RC-R2` | `00I — 2026-09-04 Human approval` | 정상 traffic 750건 완료 뒤 fault 경계 미진입 | `FAIL` | `SUFFICIENT FOR INVALID EXECUTION / INSUFFICIENT FOR FAILURE SIGNATURE` | `INCONCLUSIVE` | [Evidence](./evidence/BIP-FR-004-MR-20260908T045054Z/) / [Manifest](./evidence/BIP-FR-004-MR-20260908T045054Z/MANIFEST.sha256) |
 | `BIP-FR-004-MR-20260908T052751Z` | `BIP-FR-004-RC-R2` | `00I — 2026-09-04 Human approval` | baseline 646초 경과로 controller가 traffic-fault 전환 거부, fault 미주입 | `FAIL` | `SUFFICIENT FOR INVALID EXECUTION / INSUFFICIENT FOR FAILURE SIGNATURE` | `INCONCLUSIVE` | [Evidence](./evidence/BIP-FR-004-MR-20260908T052751Z/) / [Manifest](./evidence/BIP-FR-004-MR-20260908T052751Z/MANIFEST.sha256) |
-| `BIP-FR-004-MR-20260908T055225Z` | `BIP-FR-004-RC-R2` | `00I — 2026-09-04 Human approval` / `71F` execution routing | controller 전 단계 PASS, active traffic 중 MySQL fault와 same-container recovery, natural reclaim 및 750건 reconciliation 완료 | `PASS` | `PARTIAL — sufficient for partial reproduction claim, insufficient for full record-level ownership claim` | `PARTIALLY_REPRODUCED` | [Evidence](./evidence/BIP-FR-004-MR-20260908T055225Z/) / [Manifest](./evidence/BIP-FR-004-MR-20260908T055225Z/MANIFEST.sha256) |
+| `BIP-FR-004-MR-20260908T055225Z` | `BIP-FR-004-RC-R2` | `00I — 2026-09-04 Human approval` / `71F` execution routing | controller 전 단계 PASS, active traffic 중 MySQL fault와 same-container recovery, natural reclaim 및 750건 reconciliation 완료 | `PASS` | `PARTIAL — sufficient for partial reproduction claim` | `PARTIALLY_REPRODUCED` | [Evidence](./evidence/BIP-FR-004-MR-20260908T055225Z/) / [Manifest](./evidence/BIP-FR-004-MR-20260908T055225Z/MANIFEST.sha256) |
 
 첫 Run의 `INCONCLUSIVE`는 raw `run-deviation.txt`의 `OUTCOME_CANDIDATE`와 일치한다. 둘째와 셋째 Run의 `INCONCLUSIVE`는 Effective Workflow의 판정 순서에 따라, 유효하지 않거나 Outcome 판정에 Evidence가 부족한 실행에는 `NOT_REPRODUCED`를 사용하지 않는다는 규칙을 적용한 closure classification이다. 시스템 실패를 새로 추정한 Outcome이 아니다.
 
@@ -203,7 +204,7 @@ R1 세 번째 Run 종료 뒤 별도 recovery/implementation verification에서 �
   - application-owned reclaim 완료: `06:08:25Z`; 남은 PEL `132 → 0`, MySQL cohort `618 → 750`
   - reconciliation 완료: `06:08:42Z`; Redis run identity `750`, MySQL unique `750`, Redis DLQ `0`, Kafka DLT `0`, pending `0`, group lag `0`, unaccounted `0`, multi-state conflict `0`
 - Experiment Validity: `PASS`
-- Evidence Sufficiency: `PARTIAL — sufficient for partial reproduction claim, insufficient for full record-level ownership claim`
+- Evidence Sufficiency: `PARTIAL — sufficient for partial reproduction claim`
 - Failure Signature Evaluation:
   - FS-1 Fault authenticity: `SATISFIED`
   - FS-2 Upstream isolation: `SATISFIED`
@@ -220,6 +221,9 @@ R1 세 번째 Run 종료 뒤 별도 recovery/implementation verification에서 �
 
   > 현재 Evidence는 동일한 Redis `RecordId` 하나를 `DB failure → no XACK → PEL retention → explicit-ID XCLAIM → persistence → XACK` 전체 사슬에 걸쳐 직접 연결하지 못한다. 따라서 record-level ownership/ACK traceability는 부분적으로만 검증됐다.
 
+- Limitation Classification: `Known Claim Limitation / Optional Future Traceability Enhancement`
+- Closure effect: Material Run validity, Root Cause, remediation 또는 RC-R3 필요 조건으로 분류하지 않는다.
+
 - Evidence locators:
   - controller phase graph와 exact timeline: [`controller/events.tsv`](./evidence/BIP-FR-004-MR-20260908T055225Z/controller/events.tsv), [`timeline.tsv`](./evidence/BIP-FR-004-MR-20260908T055225Z/00-environment/timeline.tsv)
   - baseline/fault overlap: [`baseline.txt`](./evidence/BIP-FR-004-MR-20260908T055225Z/01-baseline/baseline.txt), [`immediate-pre-fault-witness.txt`](./evidence/BIP-FR-004-MR-20260908T055225Z/03-fault/immediate-pre-fault-witness.txt)
@@ -228,14 +232,16 @@ R1 세 번째 Run 종료 뒤 별도 recovery/implementation verification에서 �
   - reconciliation/final health: [`reconciliation.txt`](./evidence/BIP-FR-004-MR-20260908T055225Z/08-reconciliation/reconciliation.txt), [`final-preflight.txt`](./evidence/BIP-FR-004-MR-20260908T055225Z/08-reconciliation/final-preflight.txt)
   - Evidence integrity: [`MANIFEST.sha256`](./evidence/BIP-FR-004-MR-20260908T055225Z/MANIFEST.sha256), [`credential-check.txt`](./evidence/BIP-FR-004-MR-20260908T055225Z/00-environment/credential-check.txt)
 
-## 7. Control Plane 결정 대기
+## 7. Control Plane closure 결정
 
-`BIP-FR-004-MR-20260908T055225Z`의 `PARTIALLY_REPRODUCED` 결과는 동기화됐다. 이 Record는 추가 Material Run을 등록하거나 RC-R3를 생성·승인하지 않는다.
+Control Plane decision은 `BIP-FR-004 — CLOSE / PARTIALLY_REPRODUCED`다. `BIP-FR-004-MR-20260908T055225Z`의 검증 결과와 제한을 canonical result로 사용해 BIP-FR-004를 닫는다.
 
-Control Plane은 다음 중 하나를 결정한다.
+- RC-R3는 closure에 필요하지 않다.
+- 추가 Material Run은 실행하지 않는다.
+- exact Redis `RecordId` 수준의 XCLAIM/XACK traceability gap은 `Known Claim Limitation / Optional Future Traceability Enhancement`이며 closure blocker나 required remediation이 아니다.
+- 더 강한 full-record ownership claim이 미래에 필요할 때만 별도 Evidence enhancement task로 평가할 수 있다.
 
-1. 현재 verified partial claim과 limitation으로 BIP-FR-004를 닫는다.
-2. 동일 Redis `RecordId`의 XCLAIM/XACK traceability가 closure에 필수라면 RC-R3 assessment를 별도로 수행한다.
+이 Record는 Outcome을 `REPRODUCED`로 강화하지 않으며 RC-R3를 생성하거나 승인하지 않는다.
 
 ## 8. R2 verification과 Evidence navigation
 
@@ -267,7 +273,7 @@ Raw Evidence는 정규화, 덮어쓰기 또는 다른 Run/Revision으로 이동�
 - R2 Material Runs: 세 historical `INCONCLUSIVE` Run과 `BIP-FR-004-MR-20260908T055225Z` 한 개의 `PARTIALLY_REPRODUCED` Run. 모두 각각 `BIP-FR-004-RC-R2` 하나만 참조한다.
 - R2 verified claim: active traffic 중 MySQL persistence unavailable, Worker DB access failure, PEL accumulation, same-container recovery, application-owned reclaim activity, PEL 0과 750건 MySQL reconciliation까지 검증됐다.
 - R2 claim limitation: 동일 Redis `RecordId`를 DB failure부터 XACK까지 직접 연결하는 record-level ownership/ACK traceability는 부분 검증이다.
-- Next responsibility: `PARTIALLY_REPRODUCED`로 BIP-FR-004를 닫을지, record-level XCLAIM/XACK traceability를 위한 RC-R3 assessment가 필요한지 Control Plane이 결정한다. 이 Record는 RC-R3를 생성하거나 승인하지 않는다.
+- Closure: `BIP-FR-004 — CLOSED / PARTIALLY_REPRODUCED`. RC-R3는 요구되지 않으며 exact Redis `RecordId` traceability는 non-blocking optional future work다.
 - Unresolved historical field: R2의 exact approval timestamp와 독립 approval ID는 repository Evidence에 없음
 
 ## 10. Record integrity checks
