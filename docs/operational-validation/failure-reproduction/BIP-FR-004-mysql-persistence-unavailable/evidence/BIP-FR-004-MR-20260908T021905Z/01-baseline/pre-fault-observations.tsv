@@ -1,0 +1,2 @@
+sample	utc	driver_alive	events	http200	http_other	transport_error	last_sequence	kafka_log_end	full_isr	urp	unavailable	redis_xlen	redis_entries_read	redis_lag	redis_pending	mysql_cohort	mysql_health	worker1	worker2	broker_ooms	memory_free_pct
+1	2026-09-08T03:44:11Z	NO	5	5	0	0	4	1728	3	0	0	1718	1718	0	0	5	running/healthy/false	running/false/0	running/false/0	0	49

@@ -1,0 +1,23 @@
+checked_at_utc=2026-09-08T03:25:32Z
+run_id=BIP-FR-004-MR-20260908T021905Z
+contract_revision=BIP-FR-004-RC-R2
+verdict=STOP_HUMAN_RESOLUTION_REQUIRED
+reason=unexpected_broker_3_oom_exit_invalidates_pre_fault_baseline
+broker_3=id=cd231843ae08e9f3af62aac8168d551db3436a93c266cde2d3e1a749f6424aea state=exited health=unhealthy oom=true exit=137 restart_count=0 started_at=2026-09-07T07:35:21.324448553Z finished_at=2026-09-08T03:07:08.033189375Z
+kafka_barcode_events_full_isr=0/3
+kafka_urp=56
+kafka_unavailable=0
+kafka_dlt=0
+mysql=id=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e state=running health=healthy oom=false restart_count=0 started_at=2026-09-04T11:54:55.098684668Z
+mysql_read=1
+redis_pending=0
+redis_lag=0
+redis_dlq=0
+worker_1=state=running oom=false restart_count=0 image=bip/persistence-worker:1ed4675e0d39c05a9656f46c44a76e520cf2c8c1 image_id=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec health={"status":"UP"}
+worker_2=state=running oom=false restart_count=0 image=bip/persistence-worker:1ed4675e0d39c05a9656f46c44a76e520cf2c8c1 image_id=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec health={"status":"UP"}
+host_memory_free_percent=35
+traffic_driver=NONE
+mysql_fault_injected=NO
+baseline_phase=NOT_STARTED
+traffic_pre_phase=NOT_STARTED
+traffic_fault_phase=NOT_STARTED

@@ -1,0 +1,26 @@
+2026-09-08T03:42:50.657Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-09-08T03:42:50.704Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+    select
+        dcme1_0.id,
+        dcme1_0.center_id,
+        dcme1_0.center_name,
+        dcme1_0.device_id,
+        dcme1_0.saved_time,
+        dcme1_0.updated_time 
+    from
+        device_center_mapping dcme1_0 
+    where
+        dcme1_0.device_id in (?)
+Hibernate: 
+    select
+        dcme1_0.id,
+        dcme1_0.center_id,
+        dcme1_0.center_name,
+        dcme1_0.device_id,
+        dcme1_0.saved_time,
+        dcme1_0.updated_time 
+    from
+        device_center_mapping dcme1_0 
+    where
+        dcme1_0.device_id in (?)
+2026-09-08T03:42:50.750Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages

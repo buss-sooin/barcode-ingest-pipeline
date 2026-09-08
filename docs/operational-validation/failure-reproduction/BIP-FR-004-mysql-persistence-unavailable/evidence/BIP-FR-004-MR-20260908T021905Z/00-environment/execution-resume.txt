@@ -1,0 +1,3 @@
+execution_resume_utc=2026-09-08T03:22:25Z
+run_id=BIP-FR-004-MR-20260908T021905Z
+contract_revision=BIP-FR-004-RC-R2

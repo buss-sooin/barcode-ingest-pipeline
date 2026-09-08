@@ -1,0 +1,4 @@
+sample=1 utc=2026-09-08T03:38:40Z broker3=running|healthy|false|0|0|cd231843ae08e9f3af62aac8168d551db3436a93c266cde2d3e1a749f6424aea members=broker-1:29092,broker-2:29092,broker-3:29092 total=56 rf3=56 full_rf3=56 urp=0 unavailable=0
+sample=2 utc=2026-09-08T03:38:57Z broker3=running|healthy|false|0|0|cd231843ae08e9f3af62aac8168d551db3436a93c266cde2d3e1a749f6424aea members=broker-1:29092,broker-2:29092,broker-3:29092 total=56 rf3=56 full_rf3=56 urp=0 unavailable=0
+sample=3 utc=2026-09-08T03:39:14Z broker3=running|healthy|false|0|0|cd231843ae08e9f3af62aac8168d551db3436a93c266cde2d3e1a749f6424aea members=broker-1:29092,broker-2:29092,broker-3:29092 total=56 rf3=56 full_rf3=56 urp=0 unavailable=0
+sample=4 utc=2026-09-08T03:39:30Z broker3=running|healthy|false|0|0|cd231843ae08e9f3af62aac8168d551db3436a93c266cde2d3e1a749f6424aea members=broker-1:29092,broker-2:29092,broker-3:29092 total=56 rf3=56 full_rf3=56 urp=0 unavailable=0

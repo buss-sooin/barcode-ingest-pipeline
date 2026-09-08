@@ -1,0 +1,9 @@
+classification=NON-MATERIAL_NON-CLAIM
+phase=BIP-FR-004-NON-MATERIAL-LIFECYCLE-20260908T042715Z
+base_scan_time_ms=1788841635000
+last_scan_time_ms=1788841635149
+request_count=150
+requests_per_second=5
+mysql_cohort_baseline=0
+process_pid=26154
+started_at_utc=2026-09-08T04:27:15Z

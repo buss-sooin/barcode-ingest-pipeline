@@ -1,0 +1,46 @@
+checked_at_utc=2026-09-08T03:24:00Z
+repository=/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline
+branch=validation/bip-fr-004-mysql-persistence-unavailable
+head=1244e742b88e29762e894c74b025e1e97e95cdba
+contract_id=BIP-FR-004-RC
+contract_revision=BIP-FR-004-RC-R2
+compose_file_sha256=7fc48224b51f7652ea8030089b01aff5fab36e17ddf63aa1d3283fe2d49c34c8
+host_logical_cpu=8
+host_memory_bytes=17179869184
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 41%
+repository_disk_available_kib=58550828
+docker_cpu=8
+docker_memory_bytes=6212071424
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          23        7         2.794GB   679MB (24%)
+Containers      12        10        4.154MB   771.1kB (18%)
+Local Volumes   12        12        3.9GB     0B (0%)
+Build Cache     46        0         1.955GB   1.664GB
+name=bip-fr-002-worker-2 cpu=0.43% memory=505.2MiB / 5.785GiB memory_percent=8.53% pids=55
+name=bip-fr-002-worker-1 cpu=0.45% memory=506MiB / 5.785GiB memory_percent=8.54% pids=55
+name=bip-fr-002-scanner cpu=0.20% memory=183.4MiB / 5.785GiB memory_percent=3.10% pids=64
+name=bip-fr-002-ingest cpu=0.47% memory=247.1MiB / 5.785GiB memory_percent=4.17% pids=294
+name=bip-fr-002-processing cpu=0.63% memory=368.9MiB / 5.785GiB memory_percent=6.23% pids=51
+name=bip-fr-002-broker-2 cpu=1.87% memory=1GiB / 5.785GiB memory_percent=17.29% pids=110
+name=bip-fr-002-broker-1 cpu=2.37% memory=663MiB / 5.785GiB memory_percent=11.19% pids=103
+name=bip-fr-002-controller cpu=1.09% memory=528MiB / 5.785GiB memory_percent=8.91% pids=57
+name=bip-fr-002-mysql cpu=0.99% memory=142.9MiB / 5.785GiB memory_percent=2.41% pids=46
+name=bip-fr-002-redis cpu=0.31% memory=14.43MiB / 5.785GiB memory_percent=0.24% pids=6
+NAME                    IMAGE                                                             COMMAND                  SERVICE      CREATED        STATUS                       PORTS
+bip-fr-002-broker-1     confluentinc/cp-kafka:8.1.0-1-ubi9                                "/etc/confluent/dock…"   broker-1     6 days ago     Up About an hour (healthy)   0.0.0.0:19092->9092/tcp, [::]:19092->9092/tcp
+bip-fr-002-broker-2     confluentinc/cp-kafka:8.1.0-1-ubi9                                "/etc/confluent/dock…"   broker-2     6 days ago     Up 3 days (healthy)          0.0.0.0:19093->9092/tcp, [::]:19093->9092/tcp
+bip-fr-002-controller   confluentinc/cp-kafka:8.1.0-1-ubi9                                "/etc/confluent/dock…"   controller   6 days ago     Up 6 days                    9092/tcp
+bip-fr-002-ingest       bip-fr-002-kafka-ha-ingest                                        "java -jar app.jar"      ingest       6 days ago     Up 6 days                    0.0.0.0:18081->8081/tcp, [::]:18081->8081/tcp
+bip-fr-002-mysql        mysql:8                                                           "docker-entrypoint.s…"   mysql        6 days ago     Up 3 days (healthy)          0.0.0.0:13306->3306/tcp, [::]:13306->3306/tcp
+bip-fr-002-processing   bip-fr-002-kafka-ha-processing                                    "java -jar app.jar"      processing   6 days ago     Up 6 days                    0.0.0.0:18082->8082/tcp, [::]:18082->8082/tcp
+bip-fr-002-redis        redis:alpine                                                      "docker-entrypoint.s…"   redis        6 days ago     Up 6 days (healthy)          0.0.0.0:16379->6379/tcp, [::]:16379->6379/tcp
+bip-fr-002-scanner      bip-fr-002-kafka-ha-scanner                                       "java -jar app.jar"      scanner      6 days ago     Up 6 days                    0.0.0.0:18084->8084/tcp, [::]:18084->8084/tcp
+bip-fr-002-worker-1     bip/persistence-worker:1ed4675e0d39c05a9656f46c44a76e520cf2c8c1   "java -jar app.jar"      worker-1     20 hours ago   Up 20 hours                  0.0.0.0:18085->8085/tcp, [::]:18085->8085/tcp
+bip-fr-002-worker-2     bip/persistence-worker:1ed4675e0d39c05a9656f46c44a76e520cf2c8c1   "java -jar app.jar"      worker-2     20 hours ago   Up 20 hours                  0.0.0.0:18086->8086/tcp, [::]:18086->8086/tcp
+container=bip-fr-002-controller state=running health=none restart_count=0 oom_killed=false
+container=bip-fr-002-broker-1 state=running health=healthy restart_count=0 oom_killed=false
+container=bip-fr-002-broker-2 state=running health=healthy restart_count=0 oom_killed=false
+container=bip-fr-002-broker-3 state=exited health=unhealthy restart_count=0 oom_killed=true
+preflight_exit=1
+untracked_policy=registered_run_scoped_evidence_only

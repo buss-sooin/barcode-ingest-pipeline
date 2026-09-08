@@ -1,0 +1,25 @@
+2026-09-08T03:42:50.616Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 1723
+2026-09-08T03:42:50.617Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: 8807661520098, Device: SEOUL-CENTER-PC-001, scanTime: 1788837745001
+2026-09-08T03:42:50.621Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted 8807661520098 → DLV-SEOUL-CENTER-PC-001-260908-01M1ZHS17WN3GTEBT6F6JKHK8C
+2026-09-08T03:42:50.650Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: 8807661520098
+2026-09-08T03:42:50.650Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: 8807661520098
+2026-09-08T03:42:50.651Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 1724
+2026-09-08T03:42:50.651Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: 8806676860847, Device: SEOUL-CENTER-PC-001, scanTime: 1788837745002
+2026-09-08T03:42:50.651Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted 8806676860847 → DLV-SEOUL-CENTER-PC-001-260908-01M1ZHS18VF2WRP04HQKZ8DG8P
+2026-09-08T03:42:50.653Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: 8806676860847
+2026-09-08T03:42:50.653Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: 8806676860847
+2026-09-08T03:42:50.653Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 1725
+2026-09-08T03:42:50.653Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: 8807843248543, Device: SEOUL-CENTER-PC-001, scanTime: 1788837745000
+2026-09-08T03:42:50.654Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted 8807843248543 → DLV-SEOUL-CENTER-PC-001-260908-01M1ZHS18YHGK9VNP0F6WT5KFK
+2026-09-08T03:42:50.656Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: 8807843248543
+2026-09-08T03:42:50.656Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: 8807843248543
+2026-09-08T03:42:51.274Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 1726
+2026-09-08T03:42:51.274Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: 8806185487429, Device: SEOUL-CENTER-PC-001, scanTime: 1788837745003
+2026-09-08T03:42:51.274Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted 8806185487429 → DLV-SEOUL-CENTER-PC-001-260908-01M1ZHS1WAS2RCERCTBKTX1ACQ
+2026-09-08T03:42:51.275Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: 8806185487429
+2026-09-08T03:42:51.276Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: 8806185487429
+2026-09-08T03:42:51.276Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 1727
+2026-09-08T03:42:51.276Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: 8806910784977, Device: SEOUL-CENTER-PC-001, scanTime: 1788837745004
+2026-09-08T03:42:51.276Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted 8806910784977 → DLV-SEOUL-CENTER-PC-001-260908-01M1ZHS1WCHP75XZGKT2TCVPGH
+2026-09-08T03:42:51.277Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: 8806910784977
+2026-09-08T03:42:51.277Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: 8806910784977

@@ -1,0 +1,8 @@
+recorded_at_utc=2026-09-08T03:24:00Z
+first_attempt=FAIL_BEFORE_RUNTIME_CHECKS
+reason=registered_run_scoped_untracked_directory_visible_to_preflight_clean_tree_check
+first_attempt_evidence=docs/operational-validation/failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/evidence/BIP-FR-004-MR-20260908T021905Z/00-environment/preflight.txt
+second_attempt_policy=invocation_local_git_status_untracked_suppression
+independent_scope_check=ONLY_THIS_REGISTERED_RUN_DIRECTORY_UNTRACKED
+tracked_diff=0
+staged_diff=0

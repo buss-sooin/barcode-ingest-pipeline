@@ -1,0 +1,9 @@
+2026-09-08T03:42:49.572Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-4] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+2026-09-08T03:42:49.862Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-5] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 2건. (배치 임계값 250 미달)
+2026-09-08T03:42:50.129Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-7] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 3건. (배치 임계값 250 미달)
+2026-09-08T03:42:50.246Z  INFO 1 --- [barcode-scanner-service] [    transmit-15] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 3 건
+2026-09-08T03:42:50.393Z DEBUG 1 --- [barcode-scanner-service] [nio-8084-exec-9] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 1건. (배치 임계값 250 미달)
+2026-09-08T03:42:50.624Z DEBUG 1 --- [barcode-scanner-service] [io-8084-exec-10] c.b.b.service.BarcodeBatchSender         : 바코드 추가됨. 현재 버퍼 2건. (배치 임계값 250 미달)
+2026-09-08T03:42:50.659Z  INFO 1 --- [barcode-scanner-service] [    transmit-15] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 3 건
+2026-09-08T03:42:51.242Z  INFO 1 --- [barcode-scanner-service] [     transmit-5] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 시작. 전송 건수: 2 건
+2026-09-08T03:42:51.299Z  INFO 1 --- [barcode-scanner-service] [     transmit-5] c.b.b.service.ApiGatewayTransmitter      : 바코드 배치 전송 완료. 전송 건수: 2 건

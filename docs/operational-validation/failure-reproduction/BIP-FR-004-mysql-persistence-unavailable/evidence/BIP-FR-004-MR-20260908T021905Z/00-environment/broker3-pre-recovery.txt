@@ -1,0 +1,12 @@
+captured_at_utc=2026-09-08T03:37:15Z
+run_id=BIP-FR-004-MR-20260908T021905Z
+contract_revision=BIP-FR-004-RC-R2
+container=id=cd231843ae08e9f3af62aac8168d551db3436a93c266cde2d3e1a749f6424aea name=bip-fr-002-broker-3 state=exited health=unhealthy oom=true exit=137 restart_count=0 started_at=2026-09-07T07:35:21.324448553Z finished_at=2026-09-08T03:07:08.033189375Z image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+mounts=volume:bip-fr-002-kafka-ha_kafka-broker-3-data:/var/lib/docker/volumes/bip-fr-002-kafka-ha_kafka-broker-3-data/_data:/var/lib/kafka/data;volume:e5541eca42f3988dc18784ec044d18af4934be03779ae98223322630edb1361a:/var/lib/docker/volumes/e5541eca42f3988dc18784ec044d18af4934be03779ae98223322630edb1361a/_data:/etc/kafka/secrets;
+compose_project=bip-fr-002-kafka-ha
+compose_service=broker-3
+host_memory_free_percent=48
+docker_memory_bytes=6212071424
+repository_disk_available_kib=59537676
+traffic_driver=NONE
+mysql=running|healthy|2026-09-04T11:54:55.098684668Z

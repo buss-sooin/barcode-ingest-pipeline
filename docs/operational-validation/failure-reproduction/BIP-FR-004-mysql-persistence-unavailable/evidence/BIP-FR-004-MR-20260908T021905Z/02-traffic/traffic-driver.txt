@@ -1,0 +1,6 @@
+DRIVER_START phase=BIP-FR-004-MR-20260908T021905Z started_at=2026-09-08T03:42:49Z base_scan_time_ms=1788837745000 request_count=750 requests_per_second=5 endpoint=http://127.0.0.1:18084/scan/barcode curl_retry=0
+DRIVER_EVENT phase=BIP-FR-004-MR-20260908T021905Z sequence=0 scan_time_ms=1788837745000 requested_at=2026-09-08T03:42:49Z completed_at=2026-09-08T03:42:49Z curl_status=0 http_status=200 time_total_seconds=0.076745 detail=none
+DRIVER_EVENT phase=BIP-FR-004-MR-20260908T021905Z sequence=1 scan_time_ms=1788837745001 requested_at=2026-09-08T03:42:49Z completed_at=2026-09-08T03:42:49Z curl_status=0 http_status=200 time_total_seconds=0.010981 detail=none
+DRIVER_EVENT phase=BIP-FR-004-MR-20260908T021905Z sequence=2 scan_time_ms=1788837745002 requested_at=2026-09-08T03:42:50Z completed_at=2026-09-08T03:42:50Z curl_status=0 http_status=200 time_total_seconds=0.005894 detail=none
+DRIVER_EVENT phase=BIP-FR-004-MR-20260908T021905Z sequence=3 scan_time_ms=1788837745003 requested_at=2026-09-08T03:42:50Z completed_at=2026-09-08T03:42:50Z curl_status=0 http_status=200 time_total_seconds=0.005864 detail=none
+DRIVER_EVENT phase=BIP-FR-004-MR-20260908T021905Z sequence=4 scan_time_ms=1788837745004 requested_at=2026-09-08T03:42:50Z completed_at=2026-09-08T03:42:50Z curl_status=0 http_status=200 time_total_seconds=0.006398 detail=none
