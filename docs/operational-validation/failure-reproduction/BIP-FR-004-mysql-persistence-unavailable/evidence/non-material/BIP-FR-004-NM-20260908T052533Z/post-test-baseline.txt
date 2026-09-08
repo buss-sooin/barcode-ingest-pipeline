@@ -1,0 +1,12 @@
+captured_at_utc=2026-09-08T05:25:53Z
+kafka_urp=0
+kafka_unavailable=0
+kafka_full_isr_partitions=3
+redis_pending=0
+redis_lag=0
+redis_dlq=0
+mysql=running/healthy/false
+mysql_cohort=60
+worker_1=UP
+worker_2=UP
+active_traffic=NO

@@ -1,0 +1,8 @@
+run_id=BIP-FR-004-MR-20260908T045054Z
+launch_utc=2026-09-08T04:54:48Z
+invocation_mode=foreground_primary_process
+pid=32470
+base_scan_time_ms=1788843243000
+request_count=750
+requests_per_second=5
+log=/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/evidence/BIP-FR-004-MR-20260908T045054Z/02-traffic/traffic-driver.txt

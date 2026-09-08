@@ -1,0 +1,13 @@
+run_id=BIP-FR-004-MR-20260908T045054Z
+contract_revision=BIP-FR-004-RC-R2
+experiment_validity=FAIL
+evidence_sufficiency=SUFFICIENT_FOR_INVALID_EXECUTION_INSUFFICIENT_FOR_FAILURE_SIGNATURE
+failure_signature_evaluation=NOT_EVALUABLE
+outcome=INCONCLUSIVE
+verified_reproduction_claim=NONE
+reason=traffic_completed_before_mysql_fault_boundary
+normal_requests_attempted=750
+normal_requests_http_200=750
+mysql_fault_injected=NO
+run_reuse=PROHIBITED
+rc_r2_impact=NONE

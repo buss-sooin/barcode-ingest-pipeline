@@ -1,0 +1,4 @@
+sample	utc	elapsed_s	driver_alive	events	http200	http_other	transport_error	last_sequence	kafka_log_end	full_isr	urp	unavailable	redis_xlen	redis_entries_read	redis_lag	redis_pending	redis_dlq	kafka_dlt	mysql_cohort	mysql_health	worker1	worker2	broker_ooms	restart_anomalies	memory_free_pct
+1	2026-09-08T04:56:38Z	110	YES	440	440	0	0	440	2323	3	0	0	2333	2333	0	0	0	0	477	running/healthy/false	running/false/0/UP	running/false/0/UP	0	0	66
+2	2026-09-08T04:56:58Z	130	YES	522	522	0	0	521	2403	3	0	0	2414	2414	0	0	0	0	558	running/healthy/false	running/false/0/UP	running/false/0/UP	0	0	66
+3	2026-09-08T04:57:18Z	150	YES	603	603	0	0	602	2485	3	0	0	2499	2495	1	0	0	0	639	running/healthy/false	running/false/0/UP	running/false/0/UP	0	0	66
