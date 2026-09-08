@@ -1,0 +1,12 @@
+recovery_requested_utc=2026-09-08T06:03:37Z
+command=docker compose --env-file .env -f <approved-compose> start mysql
+expected_id=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e
+expected_volume=/var/lib/docker/volumes/bip-fr-002-kafka-ha_mysql-data/_data
+ Container bip-fr-002-mysql Starting 
+ Container bip-fr-002-mysql Started 
+start_exit=0
+readiness_restored=1
+recovery_completed_utc=2026-09-08T06:03:43Z
+actual_id=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e
+actual_volume=/var/lib/docker/volumes/bip-fr-002-kafka-ha_mysql-data/_data
+actual_state=running/healthy/false/0

@@ -1,0 +1,4 @@
+parent_pid=50673
+invocation=traffic_child_inside_single_long_lived_parent
+child_pid=51051
+run_id=BIP-FR-004-MR-20260908T055225Z

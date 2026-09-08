@@ -1,0 +1,11 @@
+fault_requested_utc=2026-09-08T06:02:30Z
+command=docker compose --env-file .env -f <approved-compose> stop mysql
+pre_id=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e
+pre_volume=/var/lib/docker/volumes/bip-fr-002-kafka-ha_mysql-data/_data
+pre_state=running/healthy/false/0
+ Container bip-fr-002-mysql Stopping 
+ Container bip-fr-002-mysql Stopped 
+stop_exit=0
+fault_completed_utc=2026-09-08T06:02:34Z
+post_id=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e
+post_state=exited/0/false/0

@@ -1,0 +1,81 @@
+checked_at_utc=2026-09-08T06:01:36Z
+repository=/Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline
+branch=validation/bip-fr-004-mysql-persistence-unavailable
+head=c4a8e46b36039b3fbe8328c11a660babeea5100a
+contract_id=BIP-FR-004-RC
+contract_revision=BIP-FR-004-RC-R2
+compose_file_sha256=7fc48224b51f7652ea8030089b01aff5fab36e17ddf63aa1d3283fe2d49c34c8
+host_logical_cpu=8
+host_memory_bytes=17179869184
+The system has 17179869184 (1048576 pages with a page size of 16384).
+System-wide memory free percentage: 66%
+repository_disk_available_kib=60428876
+docker_cpu=8
+docker_memory_bytes=6212071424
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          23        7         2.794GB   679MB (24%)
+Containers      12        11        4.292MB   0B (0%)
+Local Volumes   12        12        3.915GB   0B (0%)
+Build Cache     46        0         1.955GB   1.664GB
+name=bip-fr-002-worker-2 cpu=0.27% memory=495.9MiB / 5.785GiB memory_percent=8.37% pids=55
+name=bip-fr-002-worker-1 cpu=0.30% memory=507.9MiB / 5.785GiB memory_percent=8.57% pids=55
+name=bip-fr-002-scanner cpu=0.19% memory=212.8MiB / 5.785GiB memory_percent=3.59% pids=64
+name=bip-fr-002-ingest cpu=0.26% memory=295MiB / 5.785GiB memory_percent=4.98% pids=294
+name=bip-fr-002-processing cpu=0.83% memory=352.6MiB / 5.785GiB memory_percent=5.95% pids=51
+name=bip-fr-002-broker-3 cpu=1.92% memory=657.5MiB / 5.785GiB memory_percent=11.10% pids=100
+name=bip-fr-002-broker-2 cpu=2.14% memory=946.7MiB / 5.785GiB memory_percent=15.98% pids=111
+name=bip-fr-002-broker-1 cpu=1.93% memory=782.3MiB / 5.785GiB memory_percent=13.21% pids=104
+name=bip-fr-002-controller cpu=1.11% memory=597.3MiB / 5.785GiB memory_percent=10.08% pids=57
+name=bip-fr-002-mysql cpu=0.91% memory=118.8MiB / 5.785GiB memory_percent=2.01% pids=46
+name=bip-fr-002-redis cpu=0.40% memory=5.781MiB / 5.785GiB memory_percent=0.10% pids=6
+NAME                    IMAGE                                                             COMMAND                  SERVICE      CREATED        STATUS                 PORTS
+bip-fr-002-broker-1     confluentinc/cp-kafka:8.1.0-1-ubi9                                "/etc/confluent/dock…"   broker-1     6 days ago     Up 4 hours (healthy)   0.0.0.0:19092->9092/tcp, [::]:19092->9092/tcp
+bip-fr-002-broker-2     confluentinc/cp-kafka:8.1.0-1-ubi9                                "/etc/confluent/dock…"   broker-2     6 days ago     Up 3 days (healthy)    0.0.0.0:19093->9092/tcp, [::]:19093->9092/tcp
+bip-fr-002-broker-3     confluentinc/cp-kafka:8.1.0-1-ubi9                                "/etc/confluent/dock…"   broker-3     6 days ago     Up 2 hours (healthy)   0.0.0.0:19094->9092/tcp, [::]:19094->9092/tcp
+bip-fr-002-controller   confluentinc/cp-kafka:8.1.0-1-ubi9                                "/etc/confluent/dock…"   controller   6 days ago     Up 6 days              9092/tcp
+bip-fr-002-ingest       bip-fr-002-kafka-ha-ingest                                        "java -jar app.jar"      ingest       6 days ago     Up 6 days              0.0.0.0:18081->8081/tcp, [::]:18081->8081/tcp
+bip-fr-002-mysql        mysql:8                                                           "docker-entrypoint.s…"   mysql        6 days ago     Up 3 days (healthy)    0.0.0.0:13306->3306/tcp, [::]:13306->3306/tcp
+bip-fr-002-processing   bip-fr-002-kafka-ha-processing                                    "java -jar app.jar"      processing   6 days ago     Up 6 days              0.0.0.0:18082->8082/tcp, [::]:18082->8082/tcp
+bip-fr-002-redis        redis:alpine                                                      "docker-entrypoint.s…"   redis        6 days ago     Up 6 days (healthy)    0.0.0.0:16379->6379/tcp, [::]:16379->6379/tcp
+bip-fr-002-scanner      bip-fr-002-kafka-ha-scanner                                       "java -jar app.jar"      scanner      6 days ago     Up 6 days              0.0.0.0:18084->8084/tcp, [::]:18084->8084/tcp
+bip-fr-002-worker-1     bip/persistence-worker:1ed4675e0d39c05a9656f46c44a76e520cf2c8c1   "java -jar app.jar"      worker-1     23 hours ago   Up 23 hours            0.0.0.0:18085->8085/tcp, [::]:18085->8085/tcp
+bip-fr-002-worker-2     bip/persistence-worker:1ed4675e0d39c05a9656f46c44a76e520cf2c8c1   "java -jar app.jar"      worker-2     23 hours ago   Up 23 hours            0.0.0.0:18086->8086/tcp, [::]:18086->8086/tcp
+container=bip-fr-002-controller state=running health=none restart_count=0 oom_killed=false
+container=bip-fr-002-broker-1 state=running health=healthy restart_count=0 oom_killed=false
+container=bip-fr-002-broker-2 state=running health=healthy restart_count=0 oom_killed=false
+container=bip-fr-002-broker-3 state=running health=healthy restart_count=0 oom_killed=false
+container=bip-fr-002-mysql state=running health=healthy restart_count=0 oom_killed=false
+container=bip-fr-002-redis state=running health=healthy restart_count=0 oom_killed=false
+container=bip-fr-002-ingest state=running health=none restart_count=0 oom_killed=false
+container=bip-fr-002-processing state=running health=none restart_count=0 oom_killed=false
+container=bip-fr-002-scanner state=running health=none restart_count=0 oom_killed=false
+container=bip-fr-002-worker-1 state=running health=none restart_count=0 oom_killed=false
+container=bip-fr-002-worker-2 state=running health=none restart_count=0 oom_killed=false
+Topic: barcode-events	TopicId: 1ojqpZ39RquvwSBQvd5bXw	PartitionCount: 3	ReplicationFactor: 3	Configs: compression.type=snappy,min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: barcode-events	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 2,1,3	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 2,1,3	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 2	Leader: 3	Replicas: 3,1,2	Isr: 2,1,3	Elr: 	LastKnownElr: 
+Dynamic configs for topic barcode-events are:
+  min.insync.replicas=2 sensitive=false synonyms={DYNAMIC_TOPIC_CONFIG:min.insync.replicas=2, DYNAMIC_DEFAULT_BROKER_CONFIG:min.insync.replicas=1, STATIC_BROKER_CONFIG:min.insync.replicas=2, DEFAULT_CONFIG:min.insync.replicas=1}
+under_replicated=NONE
+unavailable=NONE
+application_port=18081 health={"status":"UP"}
+application_port=18082 health={"status":"UP"}
+application_port=18084 health={"status":"UP"}
+application_port=18085 health={"status":"UP"}
+application_port=18086 health={"status":"UP"}
+mysqladmin: [Warning] Using a password on the command line interface can be insecure.
+mysqld is alive
+redis_group=[{"name":"barcode-persistence-group","consumers":2,"pending":0,"last-delivered-id":"1788845974543-0","entries-read":2849,"lag":0}]
+redis_pending=[0,null,null,null]
+redis_consumers=[{"name":"worker-1","pending":0,"idle":5087,"inactive":1333778},{"name":"worker-2","pending":0,"idle":2670,"inactive":1332743}]
+redis_dlq=0
+kafka_dlt=0
+
+GROUP                    TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                                              HOST            CLIENT-ID
+barcode-processing-group barcode-events  2          -               0               -               consumer-barcode-processing-group-3-6f0f9061-ad93-42e2-be83-45d1c44df196 /172.18.0.8     consumer-barcode-processing-group-3
+barcode-processing-group barcode-events  0          -               0               -               consumer-barcode-processing-group-1-cea98916-de2e-4024-a00e-88e9c701174d /172.18.0.8     consumer-barcode-processing-group-1
+barcode-processing-group barcode-events  1          2859            2859            0               consumer-barcode-processing-group-2-7859d6b0-72a8-44b7-a4c9-ffd216fc75c0 /172.18.0.8     consumer-barcode-processing-group-2
+RESOURCE_PREFLIGHT=PASS
+preflight_exit=0
+untracked_policy=registered_run_scoped_evidence_only

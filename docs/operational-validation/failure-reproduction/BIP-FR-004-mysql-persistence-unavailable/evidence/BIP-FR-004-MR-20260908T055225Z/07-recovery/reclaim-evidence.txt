@@ -1,0 +1,20 @@
+observe_reclaim_start_utc=2026-09-08T06:04:16Z
+poll=1 utc=2026-09-08T06:04:16Z pending=132 lag=1 mysql_rows=419 dlq=0
+poll=2 utc=2026-09-08T06:04:31Z pending=132 lag=0 mysql_rows=476 dlq=0
+poll=3 utc=2026-09-08T06:04:47Z pending=132 lag=0 mysql_rows=538 dlq=0
+poll=4 utc=2026-09-08T06:05:03Z pending=132 lag=0 mysql_rows=596 dlq=0
+poll=5 utc=2026-09-08T06:05:18Z pending=132 lag=0 mysql_rows=618 dlq=0
+poll=6 utc=2026-09-08T06:05:33Z pending=132 lag=0 mysql_rows=618 dlq=0
+poll=7 utc=2026-09-08T06:05:49Z pending=132 lag=0 mysql_rows=618 dlq=0
+poll=8 utc=2026-09-08T06:06:04Z pending=132 lag=0 mysql_rows=618 dlq=0
+poll=9 utc=2026-09-08T06:06:20Z pending=132 lag=0 mysql_rows=618 dlq=0
+poll=10 utc=2026-09-08T06:06:36Z pending=132 lag=0 mysql_rows=618 dlq=0
+poll=11 utc=2026-09-08T06:06:51Z pending=132 lag=0 mysql_rows=618 dlq=0
+poll=12 utc=2026-09-08T06:07:07Z pending=132 lag=0 mysql_rows=618 dlq=0
+poll=13 utc=2026-09-08T06:07:22Z pending=132 lag=0 mysql_rows=618 dlq=0
+poll=14 utc=2026-09-08T06:07:38Z pending=132 lag=0 mysql_rows=618 dlq=0
+poll=15 utc=2026-09-08T06:07:53Z pending=132 lag=0 mysql_rows=618 dlq=0
+poll=16 utc=2026-09-08T06:08:09Z pending=132 lag=0 mysql_rows=618 dlq=0
+poll=17 utc=2026-09-08T06:08:24Z pending=0 lag=0 mysql_rows=750 dlq=0
+pending=0
+traffic_exit=0

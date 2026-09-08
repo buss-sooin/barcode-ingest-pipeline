@@ -1,0 +1,9 @@
+captured_at_utc=2026-09-08T06:03:36Z
+mysql_id=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e
+mysql_state=exited/0/false/0
+mysql_port_open=NO
+traffic_pid_alive=YES
+driver_end_absent=YES
+driver_events=404
+redis_group=[{"name":"barcode-persistence-group","consumers":2,"pending":252,"last-delivered-id":"1788847414497-0","entries-read":3245,"lag":8}]
+redis_consumers=[{"name":"worker-1","pending":205,"idle":2066,"inactive":2066},{"name":"worker-2","pending":47,"idle":1171,"inactive":1171}]

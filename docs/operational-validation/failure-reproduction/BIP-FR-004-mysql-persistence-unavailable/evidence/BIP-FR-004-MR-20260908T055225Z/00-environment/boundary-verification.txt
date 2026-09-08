@@ -1,0 +1,14 @@
+run_id=BIP-FR-004-MR-20260908T055225Z
+contract_revision=BIP-FR-004-RC-R2
+approved_head=c4a8e46b36039b3fbe8328c11a660babeea5100a
+contract_sha256=8d765bd3b2d71820dade244d0ab7bf525cf6b28f374f358ac19b653d2cd7f9cf
+previous_run_reused=NO
+new_run_created=YES
+rc_r2_changed=NO
+baseline_ttl_controller_changed=NO
+application_source_changed=NO
+configuration_changed=NO
+mysql_fault_within_approved_boundary=YES
+human_command_execution_required=NO
+worker_1_final=running/false/0/2026-09-07T07:21:15.612041425Z
+worker_2_final=running/false/0/2026-09-07T07:21:15.611613592Z
