@@ -44,8 +44,9 @@ Broker 또는 container가 다시 실행된 사실만으로 복구 완료(Recove
 | BIP-FR-001 — Kafka Broker Unavailable During Active Scan | Active synthetic scan 중 local single Kafka broker unavailable | `REPRODUCED / RECONCILED` | [Technical Report](./failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/TECHNICAL-REPORT.md) |
 | BIP-FR-002 — Kafka HA Single Broker Failure | Active scan 중 RF=3 Kafka의 partition leader broker 1개 SIGKILL | `STRICT PASS` | [Technical Report](./failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/TECHNICAL-REPORT.md) |
 | BIP-FR-003 — Kafka Insufficient ISR Write Unavailability | Leader가 살아 있는 target partition에서 두 broker를 순차 중단해 ISR=1 < minISR=2 | `REPRODUCED` | [Technical Report](./failure-reproduction/BIP-FR-003-kafka-insufficient-isr/TECHNICAL-REPORT.md) |
+| BIP-FR-004 — MySQL Persistence Unavailability | Active scan 중 MySQL만 중단해 Worker DB failure, Redis PEL ownership과 application reclaim 검증 | `PARTIALLY_REPRODUCED` | [Technical Report](./failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/TECHNICAL-REPORT.md) |
 
-`REPRODUCED`는 승인된 장애가 관측 가능한 영향과 함께 재현되었다는 Workflow Outcome이고, `RECONCILED`는 해당 bounded run에서 백로그 소진과 identity-level end-to-end reconciliation이 완료되었다는 결과를 뜻합니다. `STRICT PASS`는 사전 계약의 시간 조건을 포함한 성공 기준과 최종 정합성 기준을 모두 충족했다는 BIP-FR-002 판정입니다.
+`REPRODUCED`는 승인된 장애가 관측 가능한 영향과 함께 재현되었다는 Workflow Outcome이고, `PARTIALLY_REPRODUCED`는 핵심 failure/recovery lifecycle은 검증됐지만 명시된 Evidence gap 때문에 최대 주장을 축소한 Outcome입니다. `RECONCILED`는 해당 bounded run에서 백로그 소진과 identity-level end-to-end reconciliation이 완료되었다는 결과를 뜻합니다. `STRICT PASS`는 사전 계약의 시간 조건을 포함한 성공 기준과 최종 정합성 기준을 모두 충족했다는 BIP-FR-002 판정입니다.
 
 ## BIP-FR-001 Highlight
 
@@ -153,6 +154,26 @@ active traffic
 
 R1 실행 2건은 각각 preflight inspection 오류와 ISR=2 안정화 절차 편차 때문에 `INCONCLUSIVE`로 보존했다. Material procedure redesign은 R2로 추적하며 승인된 Risk/Blast Radius는 바꾸지 않았다.
 
+## BIP-FR-004 Highlight
+
+`BIP-FR-004-MR-20260908T055225Z`는 active traffic 중 MySQL만 중단했을 때 Worker DB access failure와 Redis PEL 증가를 관찰했다. 같은 MySQL container/volume을 복구하자 Worker restart 없이 신규 persistence가 재개됐고, application-owned reclaim 뒤 PEL `132 → 0`, MySQL cohort `618 → 750`으로 수렴했다.
+
+```text
+MySQL availability failure
+→ Worker DB access failure
+→ PEL unfinished ownership 증가
+→ MySQL availability recovery
+→ new-flow persistence
+→ application-owned reclaim
+→ PEL drain
+→ 750/750 terminal reconciliation
+→ Recovery Complete
+```
+
+핵심 운영 교훈은 **`MySQL healthy ≠ Persistence Pipeline Recovery Complete`**다. MySQL readiness가 돌아온 뒤에도 이미 Worker에 전달된 unfinished work가 PEL에 남을 수 있다. `group lag=0`도 새 delivery backlog가 없다는 뜻일 뿐 PEL completion을 보장하지 않는다. Recovery Complete는 Worker processing, application reclaim, pending/group lag 수렴과 terminal reconciliation까지 확인한 뒤 판단한다.
+
+Outcome은 `PARTIALLY_REPRODUCED`다. MySQL failure, Worker DB failure, PEL accumulation, same-container recovery, application reclaim activity, PEL drain과 accepted `750`건의 MySQL reconciliation은 검증됐다. 그러나 동일 Redis `RecordId` 하나를 `DB failure → no XACK → PEL → XCLAIM → persistence → XACK` 전체 사슬로 직접 연결하지 못했다. 이 Known Limitation은 closure blocker가 아니며 RC-R3나 추가 Material Run은 요구되지 않는다.
+
 ## Scenario Claim Boundaries
 
 ### BIP-FR-001
@@ -189,6 +210,12 @@ BIP-FR-003는 승인된 로컬 R2 run에서 leader가 존재해도 ISR size 1이
 
 이는 production HA/SLA/RTO/RPO, controller HA, 세 broker 동시 장애, network/storage failure, 일반 exactly-once, duplicate-free transport, 모든 topic/version/infra, 특정 SIGKILL 순간의 in-flight request, 성능·장시간 soak를 보장하지 않는다. 정확한 최대 주장과 비주장은 [BIP-FR-003 Technical Report](./failure-reproduction/BIP-FR-003-kafka-insufficient-isr/TECHNICAL-REPORT.md#16-maximum-verified-claim)를 따른다.
 
+### BIP-FR-004
+
+BIP-FR-004는 승인된 로컬 R2 run에서 active traffic 중 MySQL persistence unavailable 상태, Worker DB access failure와 PEL unfinished ownership 증가를 관찰했다. 동일 MySQL container/volume 복구 뒤 Worker restart나 설정 완화 없이 신규 persistence와 application-owned reclaim activity가 나타났고, PEL `0`, group lag `0`, MySQL unique `750`, DLQ/DLT/unaccounted/conflict `0`으로 수렴했다.
+
+동일 Redis `RecordId`의 DB failure부터 최종 XACK까지의 전체 lifecycle을 직접 증명하지 않았으므로 Outcome은 `PARTIALLY_REPRODUCED`다. 이는 일반적인 exactly-once, production availability/SLA/RTO/RPO, 다른 DB·storage·network·복합 장애 또는 모든 retry/DLQ path를 보장하지 않는다. 정확한 최대 주장과 비주장은 [BIP-FR-004 Technical Report](./failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/TECHNICAL-REPORT.md#13-outcome-정밀도와-최대-검증-주장)를 따른다.
+
 또한 이 영역은 문서의 의미·탐색·책임을 분리하지만, Artifact가 별도 Repository로 물리적으로 이동해도 수정 없이 동작한다는 portability를 검증하지 않습니다.
 
 ## BIP-FR-001 Artifact Navigation
@@ -222,5 +249,14 @@ BIP-FR-003는 승인된 로컬 R2 run에서 leader가 존재해도 ISR size 1이
 | [R1 Preflight Evidence](./failure-reproduction/BIP-FR-003-kafka-insufficient-isr/evidence/BIP-FR-003-MR-20260902T112532Z/) | 주입 전 `INCONCLUSIVE` 이력과 manifest |
 | [R1 Stabilization Evidence](./failure-reproduction/BIP-FR-003-kafka-insufficient-isr/evidence/BIP-FR-003-MR-20260902T113950Z/) | ISR=2 절차 편차 `INCONCLUSIVE` 이력과 manifest |
 | [R2 Material Run Evidence](./failure-reproduction/BIP-FR-003-kafka-insufficient-isr/evidence/BIP-FR-003-MR-20260902T114420Z/) | `REPRODUCED` 주 실행 증거와 manifest |
+
+## BIP-FR-004 Artifact Navigation
+
+| Artifact | Responsibility |
+|---|---|
+| [Technical Report](./failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/TECHNICAL-REPORT.md) | MySQL persistence failure 진단, PEL/reclaim 의미, 복구·정합성과 최대 검증 주장 |
+| [Reproduction Record](./failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/REPRODUCTION-RECORD.md) | R1/R2 lineage, 일곱 Material Run, 편차, closure와 Evidence mapping |
+| [Reproduction Contract R2](./failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/REPRODUCTION-CONTRACT-R2.md) | 승인된 R2 조건, failure signature, Evidence·Recovery Complete 판정 경계 |
+| [R2 Material Run Evidence](./failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/evidence/BIP-FR-004-MR-20260908T055225Z/) | `PARTIALLY_REPRODUCED` 주 실행 증거와 manifest |
 
 [Project README로 돌아가기](../../README.md)
