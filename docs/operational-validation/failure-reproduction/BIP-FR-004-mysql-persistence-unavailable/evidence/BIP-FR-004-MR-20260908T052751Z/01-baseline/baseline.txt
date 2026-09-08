@@ -1,0 +1,27 @@
+captured_at_utc=2026-09-08T05:29:23Z
+run_id=BIP-FR-004-MR-20260908T052751Z
+contract_revision=BIP-FR-004-RC-R2
+approved_head=5f320d75b1b858d0cf874b9a442b8d480753bf19
+contract_sha256=8d765bd3b2d71820dade244d0ab7bf525cf6b28f374f358ac19b653d2cd7f9cf
+base_scan_time_ms=1788845357000
+last_scan_time_ms=1788845357749
+mysql_container_id=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e
+mysql_volume=/var/lib/docker/volumes/bip-fr-002-kafka-ha_mysql-data/_data
+mysql_state=running/healthy/false/0
+mysql_read=1
+mysql_cohort_rows=0
+mysql_total_rows=2678
+redis_xlen=2678
+redis_entries_read=2678
+redis_pending=0
+redis_lag=0
+redis_dlq=0
+kafka_full_isr=3
+kafka_urp=0
+kafka_unavailable=0
+kafka_dlt=0
+worker=bip-fr-002-worker-1 state=running oom=false restart=0 image=bip/persistence-worker:1ed4675e0d39c05a9656f46c44a76e520cf2c8c1 image_id=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec started=2026-09-07T07:21:15.612041425Z
+worker=bip-fr-002-worker-2 state=running oom=false restart=0 image=bip/persistence-worker:1ed4675e0d39c05a9656f46c44a76e520cf2c8c1 image_id=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec started=2026-09-07T07:21:15.611613592Z
+worker_1_health=UP
+worker_2_health=UP
+traffic_driver=NONE

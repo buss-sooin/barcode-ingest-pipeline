@@ -1,0 +1,3 @@
+registered_run=BIP-FR-004-MR-20260908T052751Z
+contract_revision=BIP-FR-004-RC-R2
+approved_head=5f320d75b1b858d0cf874b9a442b8d480753bf19

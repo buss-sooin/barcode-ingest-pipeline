@@ -8,8 +8,8 @@
 - R1 lifecycle: `HISTORICAL / CLOSED`
 - R2 lifecycle: `FROZEN / ACTIVE REVISION`
 - Existing Human Gate: `PASS` — `00I — 2026-09-04 Human approval`
-- Current Material Run Authorization: `RESTORED FOR 71E BOUNDED EXECUTION` — 현재 Control Plane routing
-- Material Runs: R1 3개, R2 2개
+- Current Material Run Authorization: `RESTORED FOR 71F BOUNDED EXECUTION` — 현재 Control Plane routing
+- Material Runs: R1 3개, R2 3개
 
 이 문서는 판정 대상 실행(Material Run)과 계약 개정(Contract Revision)의 일대일 mapping, 실행 편차, 검증 순서, Evidence locator와 제한을 보존한다. R1의 불완전한 실행을 R2 Evidence로 재분류하지 않으며, 중단된 R2 Run을 다른 실행에 재사용하지 않는다.
 
@@ -33,6 +33,7 @@ R2는 R1 실행에서 확인된 pending reclaim 구현 결함과 단계별 Evide
 | `BIP-FR-004-MR-20260904T095755Z` | `BIP-FR-004-RC-R1` | `00I — 2026-09-04 Human approval` | fault/recovery 수행 후 invalid closure | `FAIL` | `PARTIAL / INSUFFICIENT FOR OUTCOME` | `INCONCLUSIVE` | [Evidence](./evidence/BIP-FR-004-MR-20260904T095755Z/) / [Manifest](./evidence/BIP-FR-004-MR-20260904T095755Z/MANIFEST.sha256) |
 | `BIP-FR-004-MR-20260908T021905Z` | `BIP-FR-004-RC-R2` | `00I — 2026-09-04 Human approval` | traffic 5건 뒤 driver 비정상 종료, fault 미주입 | `FAIL` | `SUFFICIENT FOR INVALID EXECUTION / INSUFFICIENT FOR FAILURE SIGNATURE` | `INCONCLUSIVE` | [Evidence](./evidence/BIP-FR-004-MR-20260908T021905Z/) / [Manifest](./evidence/BIP-FR-004-MR-20260908T021905Z/MANIFEST.sha256) |
 | `BIP-FR-004-MR-20260908T045054Z` | `BIP-FR-004-RC-R2` | `00I — 2026-09-04 Human approval` | 정상 traffic 750건 완료 뒤 fault 경계 미진입 | `FAIL` | `SUFFICIENT FOR INVALID EXECUTION / INSUFFICIENT FOR FAILURE SIGNATURE` | `INCONCLUSIVE` | [Evidence](./evidence/BIP-FR-004-MR-20260908T045054Z/) / [Manifest](./evidence/BIP-FR-004-MR-20260908T045054Z/MANIFEST.sha256) |
+| `BIP-FR-004-MR-20260908T052751Z` | `BIP-FR-004-RC-R2` | `00I — 2026-09-04 Human approval` | baseline 646초 경과로 controller가 traffic-fault 전환 거부, fault 미주입 | `FAIL` | `SUFFICIENT FOR INVALID EXECUTION / INSUFFICIENT FOR FAILURE SIGNATURE` | `INCONCLUSIVE` | [Evidence](./evidence/BIP-FR-004-MR-20260908T052751Z/) / [Manifest](./evidence/BIP-FR-004-MR-20260908T052751Z/MANIFEST.sha256) |
 
 첫 Run의 `INCONCLUSIVE`는 raw `run-deviation.txt`의 `OUTCOME_CANDIDATE`와 일치한다. 둘째와 셋째 Run의 `INCONCLUSIVE`는 Effective Workflow의 판정 순서에 따라, 유효하지 않거나 Outcome 판정에 Evidence가 부족한 실행에는 `NOT_REPRODUCED`를 사용하지 않는다는 규칙을 적용한 closure classification이다. 시스템 실패를 새로 추정한 Outcome이 아니다.
 
@@ -162,6 +163,25 @@ R1 세 번째 Run 종료 뒤 별도 recovery/implementation verification에서 �
 - Concurrent lifecycle verification: repository 밖 비판정 검증에서 하나의 살아 있는 parent shell이 traffic child를 소유한 상태로 read-only checkpoint 전·후 child liveness를 유지했고, 60/60 HTTP 200, 정확히 하나의 `DRIVER_END`와 PID cleanup을 확인했다. Post-test Kafka/Redis/MySQL/Worker baseline도 PASS했다. [Non-material Evidence](./evidence/non-material/BIP-FR-004-NM-20260908T052533Z/)
 - Run reuse: `NO`. 두 번째 traffic invocation 또는 이 Run ID를 사용한 fault 실행은 허용하지 않는다.
 
+### 6.3 `BIP-FR-004-MR-20260908T052751Z`
+
+- Mapping: `BIP-FR-004-MR-20260908T052751Z → BIP-FR-004-RC-R2`
+- Register: `2026-09-08T05:27:52Z`, controller `register=PASS`
+- Approved HEAD: `5f320d75b1b858d0cf874b9a442b8d480753bf19`
+- Baseline: full deterministic preflight와 controller baseline이 PASS했다. Controller는 baseline `PASS` 완료 시각 `2026-09-08T05:29:23Z`의 epoch를 freshness clock 시작점으로 기록했다.
+- Traffic execution:
+  - single long-lived parent가 traffic child를 소유하는 검증된 concurrent lifecycle로 `2026-09-08T05:38:51Z`에 driver를 시작했다.
+  - controller `traffic-pre`는 PASS했고, child가 살아 있는 동안 171개 `DRIVER_EVENT`가 HTTP 200으로 완료됐다. `DRIVER_END`는 없었다.
+  - pre-fault 관찰에서 Kafka full ISR/URP 0/unavailable 0, Redis ingress와 MySQL persistence 진행, Redis PEL/lag 0을 확인했다.
+  - `traffic-fault` 전환 시 baseline age가 허용 최대 600초보다 큰 646초여서 controller가 `stale_baseline`으로 거부했다. 계약에 따라 MySQL fault를 주입하지 않고 traffic child를 종료했다.
+- Limited observation: 성공한 pre-fault 관찰은 정상 경로 Evidence로만 보존하며 BIP-FR-004 재현 Evidence로 사용하지 않는다.
+- Experiment Validity: `FAIL`
+- Evidence Sufficiency: invalid Material Run 실행을 확정하기에는 충분하지만 BIP-FR-004 Failure Signature를 평가하기에는 부족하다.
+- Failure Signature Evaluation: `NOT EVALUABLE`
+- Outcome: `INCONCLUSIVE`
+- Verified Reproduction Claim: 없음
+- Run reuse: `NO`. 이 Run ID, baseline, traffic cohort 또는 정상 경로 Evidence를 후속 재현 실행에 재사용하지 않는다.
+
 ## 7. 다음 R2 Run mapping 준비
 
 다음 형식은 후속 Material Run의 새 identity를 위한 placeholder이며, 위 historical Run을 다시 여는 수단이 아니다.
@@ -207,8 +227,8 @@ Raw Evidence는 정규화, 덮어쓰기 또는 다른 Run/Revision으로 이동�
 - R1 Verified Claim: 세 번째 Run에서 active traffic과 겹친 MySQL stop, mapping lookup DB failure와 PEL 형성까지만 직접 관측
 - Claim limitations: 유효한 post-recovery traffic, identity-level ACK correlation, natural reclaim와 final reconciliation이 단일 R1 Run Evidence로 완결되지 않음
 - R2 Contract: `BIP-FR-004-RC-R2`
-- R2 Material Runs: `BIP-FR-004-MR-20260908T021905Z`, `BIP-FR-004-MR-20260908T045054Z` 2개, 모두 `INCONCLUSIVE`, 재사용 금지
-- R2 readiness responsibility: 71E의 bounded authorization에 따라 concurrent child traffic과 fault control을 하나의 장기 parent execution에서 먼저 비판정 검증하고, clean baseline과 clean tree가 확인된 경우에만 새 Run ID를 등록한다.
+- R2 Material Runs: `BIP-FR-004-MR-20260908T021905Z`, `BIP-FR-004-MR-20260908T045054Z`, `BIP-FR-004-MR-20260908T052751Z` 3개, 모두 `INCONCLUSIVE`, 재사용 금지
+- R2 readiness responsibility: 71F의 bounded authorization에 따라 새 Run 등록 전에 실행 준비와 이전 Run 폐쇄를 완료하고, baseline PASS 직후 concurrent traffic과 fault 전환을 수행한다.
 - Unresolved historical field: R2의 exact approval timestamp와 독립 approval ID는 repository Evidence에 없음
 
 ## 10. Record integrity checks
@@ -221,6 +241,7 @@ Raw Evidence는 정규화, 덮어쓰기 또는 다른 Run/Revision으로 이동�
 - [x] 최초 R2 Run은 `BIP-FR-004-RC-R2` 하나만 참조하고 invalid execution과 `INCONCLUSIVE` closure를 보존한다.
 - [x] 최초 R2 Run의 5건 traffic Evidence를 삭제하거나 성공한 pre-fault interval로 재해석하지 않았다.
 - [x] 두 번째 R2 Run은 정상 traffic 750건을 보존하되 fault 미주입 실행을 `INCONCLUSIVE`로 닫고 재사용하지 않는다.
+- [x] 세 번째 R2 Run은 stale baseline으로 controller가 fault 전환을 거부한 invalid execution을 `INCONCLUSIVE`로 닫고, pre-fault 정상 경로 관찰을 재현 Evidence로 승격하지 않는다.
 - [x] 비판정 traffic invocation 검증은 Material Run Evidence/Claim과 분리했다.
 - [x] 후속 R2 Run mapping 구조는 준비됐지만 새 Run은 등록하지 않았다.
 - [x] R1 recovery follow-up을 R2 Material Run Outcome으로 재분류하지 않았다.

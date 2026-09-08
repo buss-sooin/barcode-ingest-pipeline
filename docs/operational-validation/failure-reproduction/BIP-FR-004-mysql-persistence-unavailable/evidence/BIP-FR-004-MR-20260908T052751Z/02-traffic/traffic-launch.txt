@@ -1,0 +1,6 @@
+parent_pid=44145
+invocation=child_inside_single_long_lived_parent
+run_id=BIP-FR-004-MR-20260908T052751Z
+base_scan_time_ms=1788845357000
+request_count=750
+requests_per_second=5
