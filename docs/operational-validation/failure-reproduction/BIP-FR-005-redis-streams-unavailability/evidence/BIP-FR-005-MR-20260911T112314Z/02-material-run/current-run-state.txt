@@ -1,0 +1,6 @@
+formal_run_state_transition=ACTIVE_THEN_ABORTED
+canonical_registration_artifact=UNCHANGED
+contract=BIP-FR-005-RC-R1_UNCHANGED
+outcome=NOT_ASSIGNED
+verified_reproduction_claim=NONE
+next_required_action=EXECUTION_INVALIDATION / BLOCKER DECISION

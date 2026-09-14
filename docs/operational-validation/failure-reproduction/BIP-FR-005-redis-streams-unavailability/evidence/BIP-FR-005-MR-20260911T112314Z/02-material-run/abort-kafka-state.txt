@@ -1,0 +1,18 @@
+captured_at_utc=2026-09-14T09:07:15Z
+container=/bip-fr-002-broker-1 state=running health=healthy exit_code=0 oom=false restart_count=0 started_at=2026-09-14T08:39:17.671583383Z finished_at=2026-09-11T11:26:45.027199217Z
+container=/bip-fr-002-broker-2 state=running health=healthy exit_code=0 oom=false restart_count=0 started_at=2026-09-10T05:12:18.110419799Z finished_at=2026-09-09T04:20:18.580282304Z
+container=/bip-fr-002-broker-3 state=exited health=unhealthy exit_code=137 oom=true restart_count=0 started_at=2026-09-11T10:18:52.366599721Z finished_at=2026-09-14T09:03:21.830371884Z
+topic_state_begin
+Topic: barcode-events	TopicId: 1ojqpZ39RquvwSBQvd5bXw	PartitionCount: 3	ReplicationFactor: 3	Configs: compression.type=snappy,min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: barcode-events	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 2	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+Topic: barcode-events-dlt	TopicId: jL9ViC_KSL-4XsQQPjeA0w	PartitionCount: 3	ReplicationFactor: 3	Configs: compression.type=snappy,min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: barcode-events-dlt	Partition: 0	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: barcode-events-dlt	Partition: 1	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: barcode-events-dlt	Partition: 2	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+Topic: barcode-events-quarantine	TopicId: fndoeqP2RDeBbpj4CO_JAw	PartitionCount: 3	ReplicationFactor: 3	Configs: compression.type=snappy,min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: barcode-events-quarantine	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: barcode-events-quarantine	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: barcode-events-quarantine	Partition: 2	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+topic_state_end

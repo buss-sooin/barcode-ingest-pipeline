@@ -1,0 +1,2 @@
+CreateTime:1789376518236	Partition:1	Offset:3610	NO_HEADERS	SEOUL-CENTER-PC-001	{"barcode":"BIP-FR-005-MR-20260911T112314Z-C0-001","scanTime":1789376518000,"deviceId":"SEOUL-CENTER-PC-001"}
+Processed a total of 1 messages

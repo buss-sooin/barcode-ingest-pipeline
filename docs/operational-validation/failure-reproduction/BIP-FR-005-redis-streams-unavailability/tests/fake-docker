@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+mode="${BIP_FAKE_MODE:-pass}"
+action_log="${BIP_FAKE_ACTION_LOG:?BIP_FAKE_ACTION_LOG is required}"
+
+case "${1:-}" in
+  inspect)
+    broker="${@: -1}"
+    if [ "$broker" = bip-fr-002-broker-3 ] && [ "$mode" = oom ]; then
+      echo 'exited|true|137|0|unhealthy'
+    elif [ "$broker" = bip-fr-002-broker-3 ] && [ "$mode" = exited ]; then
+      echo 'exited|false|1|0|unhealthy'
+    elif [ "$broker" = bip-fr-002-broker-3 ] && [ "$mode" = unhealthy ]; then
+      echo 'running|false|0|0|unhealthy'
+    else
+      echo 'running|false|0|0|healthy'
+    fi
+    ;;
+  exec)
+    shift
+    broker="${1:-}"
+    shift
+    test "$broker" = bip-fr-002-broker-1
+    topic=''
+    previous=''
+    for argument in "$@"; do
+      if [ "$previous" = --topic ]; then
+        topic="$argument"
+      fi
+      previous="$argument"
+    done
+    if printf '%s\n' "$*" | grep -q -- '--under-replicated-partitions'; then
+      [ "$mode" != urp ] || echo "Topic: $topic Partition: 0 Leader: 1 Replicas: 1,2,3 Isr: 1,2"
+    elif printf '%s\n' "$*" | grep -q -- '--unavailable-partitions'; then
+      [ "$mode" != unavailable ] || echo "Topic: $topic Partition: 0 Leader: -1 Replicas: 1,2,3 Isr:"
+    else
+      echo "Topic: $topic PartitionCount: 3 ReplicationFactor: 3"
+      echo "Topic: $topic Partition: 0 Leader: 1 Replicas: 1,2,3 Isr: 1,2,3"
+      if [ "$mode" = isr ]; then
+        echo "Topic: $topic Partition: 1 Leader: 2 Replicas: 2,3,1 Isr: 2,1"
+      else
+        echo "Topic: $topic Partition: 1 Leader: 2 Replicas: 2,3,1 Isr: 2,3,1"
+      fi
+      echo "Topic: $topic Partition: 2 Leader: 3 Replicas: 3,1,2 Isr: 3,1,2"
+    fi
+    ;;
+  stop)
+    printf '%s\n' "$*" >> "$action_log"
+    echo bip-fr-002-redis
+    ;;
+  *)
+    echo "unexpected fake docker invocation: $*" >&2
+    exit 90
+    ;;
+esac

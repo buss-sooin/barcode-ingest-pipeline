@@ -1,0 +1,5 @@
+[2026-09-14 09:03:00,666] INFO [UnifiedLog partition=__cluster_metadata-0, dir=/var/lib/kafka/data] Incremented log start offset to 226317 due to snapshot generated (org.apache.kafka.storage.internals.log.UnifiedLog)
+[2026-09-14 09:03:00,668] INFO [MetadataLog partition=__cluster_metadata-0, nodeId=3] Marking snapshot OffsetAndEpoch[offset=219136, epoch=1] for deletion because its timestamp (1788771765080) is now (1789376580665) older than the
+retention (604800000) (kafka.raft.KafkaMetadataLog)
+[2026-09-14 09:03:00,668] INFO [MetadataLog partition=__cluster_metadata-0, nodeId=3] Marking snapshot OffsetAndEpoch[offset=219136, epoch=1] for deletion because its timestamp (1788771765080) is now (1789376580665) older than the
+retention (604800000) (kafka.raft.KafkaMetadataLog)

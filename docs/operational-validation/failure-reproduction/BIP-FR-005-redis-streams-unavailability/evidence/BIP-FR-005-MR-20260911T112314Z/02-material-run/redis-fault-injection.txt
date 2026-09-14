@@ -1,0 +1,7 @@
+fault_start_requested_at_utc=2026-09-14T09:03:24Z
+Flag --time has been deprecated, use --timeout instead
+bip-fr-002-redis
+fault_unavailable_observed_at_utc=2026-09-14T09:03:25Z
+container=/bip-fr-002-redis state=exited exit_code=0 oom=false restart_count=0 finished_at=2026-09-14T09:03:24.839746636Z
+Error response from daemon: container e87508df0ca6f51e3e25c15b0acd8305ab59deb764e5b32989283b9ae14e0945 is not running
+redis_ping_exit_code=1

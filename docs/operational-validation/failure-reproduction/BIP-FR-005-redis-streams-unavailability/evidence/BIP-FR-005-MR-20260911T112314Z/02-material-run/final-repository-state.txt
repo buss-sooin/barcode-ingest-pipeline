@@ -1,0 +1,90 @@
+captured_at_utc=2026-09-14T09:11:18Z
+branch=validation/bip-fr-005-redis-streams-unavailability
+head=00c831355d7fdcac8cd3562bb572573a2078f66d
+upstream=origin/validation/bip-fr-005-redis-streams-unavailability
+upstream_head=00c831355d7fdcac8cd3562bb572573a2078f66d
+ahead_behind=0	0
+status_porcelain_begin
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/abort-kafka-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/action-boundary.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/broker-3-abort-logs.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-completion-poll.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-ingest-logs.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-processing-logs.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-send.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-source-record.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-worker-1-logs.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-worker-2-logs.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c1-c2-dlt-records.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c1-c2-source-records.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c1-send.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c2-source-publish.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/cohort-accounting.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/current-run-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/execution-abort.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/execution-control-deviation.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/fault-window-dlt-poll-extended.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/fault-window-dlt-poll.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/fault-window-kafka-health.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/fault-window-processing-logs.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/fault-window-processing-terminal-excerpt.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/final-entry-cohort-contract.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/final-entry-preflight-v2.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/final-repository-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/final-runtime-summary.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/identity-chain-extract.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/material-entry-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/post-abort-kafka-state-initial.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/post-abort-runtime-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/post-abort-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/pre-fault-gate.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/preliminary-signature-evaluation.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/redis-abort-recovery.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/redis-fault-injection.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/repository-entry-gate.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/run-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/timeline.txt
+status_porcelain_end
+ignored_evidence_begin
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/abort-kafka-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/action-boundary.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/broker-3-abort-logs.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-completion-poll.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-ingest-logs.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-processing-logs.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-send.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-source-record.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-worker-1-logs.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c0-worker-2-logs.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c1-c2-dlt-records.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c1-c2-source-records.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c1-send.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c2-source-publish.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/cohort-accounting.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/current-run-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/execution-abort.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/execution-control-deviation.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/fault-window-dlt-poll-extended.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/fault-window-dlt-poll.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/fault-window-kafka-health.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/fault-window-processing-logs.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/fault-window-processing-terminal-excerpt.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/final-entry-cohort-contract.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/final-entry-preflight-v2.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/final-repository-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/final-runtime-summary.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/identity-chain-extract.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/material-entry-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/post-abort-kafka-state-initial.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/post-abort-runtime-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/post-abort-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/pre-fault-gate.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/preliminary-signature-evaluation.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/redis-abort-recovery.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/redis-fault-injection.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/repository-entry-gate.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/run-state.txt
+?? docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/timeline.txt
+ignored_evidence_end

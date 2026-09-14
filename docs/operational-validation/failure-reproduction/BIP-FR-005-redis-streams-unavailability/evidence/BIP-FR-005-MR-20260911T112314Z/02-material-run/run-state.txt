@@ -1,0 +1,10 @@
+run_id=BIP-FR-005-MR-20260911T112314Z
+contract=BIP-FR-005-RC-R1
+formal_start_utc=2026-09-14T09:01:58Z
+execution_state=ACTIVE
+outcome=NOT_ASSIGNED
+abort_recorded_at_utc=2026-09-14T09:07:15Z
+execution_state=ABORTED
+abort_phase=REDIS_FAULT_WINDOW
+first_failed_predicate=UNEXPECTED_KAFKA_BROKER_OOM
+outcome=NOT_ASSIGNED

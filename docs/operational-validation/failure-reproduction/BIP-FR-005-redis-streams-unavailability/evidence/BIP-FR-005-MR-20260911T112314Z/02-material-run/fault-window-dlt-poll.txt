@@ -1,0 +1,21 @@
+sample=1 at=2026-09-14T09:04:02Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=2 at=2026-09-14T09:04:07Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=3 at=2026-09-14T09:04:11Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=4 at=2026-09-14T09:04:16Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=5 at=2026-09-14T09:04:20Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=6 at=2026-09-14T09:04:25Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=7 at=2026-09-14T09:04:29Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=8 at=2026-09-14T09:04:34Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=9 at=2026-09-14T09:04:39Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=10 at=2026-09-14T09:04:43Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=11 at=2026-09-14T09:04:48Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=12 at=2026-09-14T09:04:52Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=13 at=2026-09-14T09:04:57Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=14 at=2026-09-14T09:05:01Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=15 at=2026-09-14T09:05:06Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=16 at=2026-09-14T09:05:10Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=17 at=2026-09-14T09:05:15Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=18 at=2026-09-14T09:05:20Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=19 at=2026-09-14T09:05:24Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+sample=20 at=2026-09-14T09:05:29Z dlt_total_end_offset=0 source_group_lag=0 redis_state=exited
+FAULT_WINDOW_DLT=FAIL

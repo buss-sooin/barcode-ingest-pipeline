@@ -1,0 +1,27 @@
+captured_at_utc=2026-09-14T09:08:19Z
+barcode-events:0:2
+barcode-events:1:3611
+barcode-events:2:0
+barcode-events-dlt:0:2
+barcode-events-dlt:1:0
+barcode-events-dlt:2:0
+barcode-events-quarantine:0:0
+barcode-events-quarantine:1:0
+barcode-events-quarantine:2:0
+
+GROUP                    TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                                              HOST            CLIENT-ID
+barcode-processing-group barcode-events  1          3611            3611            0               consumer-barcode-processing-group-2-1f2389b9-36ff-4417-b7d7-57b609868415 /172.18.0.8     consumer-barcode-processing-group-2
+barcode-processing-group barcode-events  0          2               2               0               consumer-barcode-processing-group-1-fec83a5e-c3fc-4c91-88ca-ab3cb15db139 /172.18.0.8     consumer-barcode-processing-group-1
+barcode-processing-group barcode-events  2          -               0               -               consumer-barcode-processing-group-3-5b5fe292-7914-41c7-bdbe-23466e6258b2 /172.18.0.8     consumer-barcode-processing-group-3
+
+Error: Executing consumer group command failed due to org.apache.kafka.common.errors.GroupIdNotFoundException: Group barcode-events-dlt-disposition not found.
+java.util.concurrent.ExecutionException: org.apache.kafka.common.errors.GroupIdNotFoundException: Group barcode-events-dlt-disposition not found.
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.base/java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:155)
+	at org.apache.kafka.tools.consumer.group.ConsumerGroupCommand$ConsumerGroupService.describeConsumerGroups(ConsumerGroupCommand.java:830)
+	at org.apache.kafka.tools.consumer.group.ConsumerGroupCommand$ConsumerGroupService.collectGroupsOffsets(ConsumerGroupCommand.java:846)
+	at org.apache.kafka.tools.consumer.group.ConsumerGroupCommand$ConsumerGroupService.describeGroups(ConsumerGroupCommand.java:577)
+	at org.apache.kafka.tools.consumer.group.ConsumerGroupCommand.run(ConsumerGroupCommand.java:139)
+	at org.apache.kafka.tools.consumer.group.ConsumerGroupCommand.main(ConsumerGroupCommand.java:123)
+Caused by: org.apache.kafka.common.errors.GroupIdNotFoundException: Group barcode-events-dlt-disposition not found.

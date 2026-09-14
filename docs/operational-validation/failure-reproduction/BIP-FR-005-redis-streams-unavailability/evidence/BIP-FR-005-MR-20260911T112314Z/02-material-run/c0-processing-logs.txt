@@ -1,0 +1,5 @@
+2026-09-14T09:01:58.349Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 3610
+2026-09-14T09:01:58.350Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-005-MR-20260911T112314Z-C0-001, Device: SEOUL-CENTER-PC-001, scanTime: 1789376518000
+2026-09-14T09:01:58.351Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-005-MR-20260911T112314Z-C0-001 → DLV-SEOUL-CENTER-PC-001-260914-01M2FJDP6E7C70DS36P3ZJF6V6
+2026-09-14T09:01:58.371Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: BIP-FR-005-MR-20260911T112314Z-C0-001
+2026-09-14T09:01:58.372Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: BIP-FR-005-MR-20260911T112314Z-C0-001

@@ -1,0 +1,10 @@
+deviation=PRE_FAULT_GATE_COLLECTED_BUT_NOT_ASSERTED
+broker_3_finished_at_utc=2026-09-14T09:03:21.830371884Z
+pre_fault_gate_checked_at_utc=2026-09-14T09:03:22Z
+redis_fault_requested_at_utc=2026-09-14T09:03:24Z
+effect=Redis fault and C1/C2 publication occurred after an already-failed Kafka predicate
+validity=FAIL
+continuation_after_detection=NONE
+disposition=NOT_EXECUTED
+C3=NOT_SENT
+outcome=NOT_ASSIGNED

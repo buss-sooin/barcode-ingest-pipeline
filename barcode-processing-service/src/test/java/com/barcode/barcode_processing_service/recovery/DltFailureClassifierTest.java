@@ -3,6 +3,7 @@ package com.barcode.barcode_processing_service.recovery;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.dao.QueryTimeoutException;
 import org.springframework.data.redis.RedisConnectionFailureException;
 
 import com.barcode.barcode_processing_service.exception.PermanentEventValidationException;
@@ -15,6 +16,14 @@ class DltFailureClassifierTest {
     void classifiesRedisConnectionFailureAsTransient() {
         RuntimeException wrapped = new RuntimeException(
             new RedisConnectionFailureException("redis unavailable"));
+
+        assertThat(classifier.classify(wrapped)).isEqualTo(FailureCategory.TRANSIENT_REDIS);
+    }
+
+    @Test
+    void classifiesRedisCommandTimeoutAsTransient() {
+        RuntimeException wrapped = new RuntimeException(
+            new QueryTimeoutException("Redis command timed out"));
 
         assertThat(classifier.classify(wrapped)).isEqualTo(FailureCategory.TRANSIENT_REDIS);
     }

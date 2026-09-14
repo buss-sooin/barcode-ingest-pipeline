@@ -1,0 +1,10 @@
+verified_at_utc=2026-09-14T09:00:40Z
+branch=validation/bip-fr-005-redis-streams-unavailability
+head=00c831355d7fdcac8cd3562bb572573a2078f66d
+upstream=origin/validation/bip-fr-005-redis-streams-unavailability
+upstream_head_before_fetch=00c831355d7fdcac8cd3562bb572573a2078f66d
+upstream_head_after_fetch=00c831355d7fdcac8cd3562bb572573a2078f66d
+ahead_behind=0	0
+working_tree_porcelain_begin
+working_tree_porcelain_end
+1ed738712229c27320b59dd0ac13748baedfadbd350cdbdb0078692883880865  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/REPRODUCTION-CONTRACT.md

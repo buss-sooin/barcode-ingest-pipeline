@@ -1,5 +1,6 @@
 package com.barcode.barcode_processing_service.recovery;
 
+import org.springframework.dao.QueryTimeoutException;
 import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +13,8 @@ public class DltFailureClassifier {
         if (contains(failure, PermanentEventValidationException.class)) {
             return FailureCategory.PERMANENT_VALIDATION;
         }
-        if (contains(failure, RedisConnectionFailureException.class)) {
+        if (contains(failure, RedisConnectionFailureException.class)
+            || contains(failure, QueryTimeoutException.class)) {
             return FailureCategory.TRANSIENT_REDIS;
         }
         return FailureCategory.UNKNOWN;

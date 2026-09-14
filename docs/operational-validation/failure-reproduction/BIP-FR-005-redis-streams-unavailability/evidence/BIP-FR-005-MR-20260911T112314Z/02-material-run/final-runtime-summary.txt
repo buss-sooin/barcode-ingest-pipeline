@@ -1,0 +1,103 @@
+captured_at_utc=2026-09-14T09:11:11Z
+container=/bip-fr-002-controller state=running health= exit_code=0 oom=false restart_count=0 image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+container=/bip-fr-002-broker-1 state=running health=healthy exit_code=0 oom=false restart_count=0 image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+container=/bip-fr-002-broker-2 state=running health=healthy exit_code=0 oom=false restart_count=0 image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+container=/bip-fr-002-broker-3 state=exited health=unhealthy exit_code=137 oom=true restart_count=0 image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+container=/bip-fr-002-mysql state=running health=healthy exit_code=0 oom=false restart_count=0 image=sha256:5e7e005a680e75d935984d3d9390990d2a709b3ed67e92708e9e6747f1f754c9
+container=/bip-fr-002-redis state=running health=healthy exit_code=0 oom=false restart_count=0 image=sha256:59c08762bdbcf53fa132aa0bae464a57a1309dc3fff8a034bb3e16d7a0b30ec5
+container=/bip-fr-002-ingest state=running health= exit_code=0 oom=false restart_count=0 image=sha256:0bc5151c97bc7cf4ed3c0bf9e801ff4e1231f192447f735f5c6bc37725596c6d
+container=/bip-fr-002-processing state=running health= exit_code=0 oom=false restart_count=0 image=sha256:525e3ee5d7c0966878fe33f31585361560b2a3721ed49a790cc75c41c0a30ea9
+container=/bip-fr-002-scanner state=running health= exit_code=0 oom=false restart_count=0 image=sha256:ddafb8a95bbddb398f4cdf4cb34469aa1315eef24c9abdfc9b6ae66f76a16561
+container=/bip-fr-002-worker-1 state=running health= exit_code=0 oom=false restart_count=0 image=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec
+container=/bip-fr-002-worker-2 state=running health= exit_code=0 oom=false restart_count=0 image=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec
+processing_image_labels={"io.bip.contract":"BIP-FR-005-RC-R1","io.bip.implementation.sha256":"47c238fc9078a37422f81ce353ccf0a626c3341d7d9ddd7b6d49e73aea3a756e","io.bip.material-run":"BIP-FR-005-MR-20260911T112314Z","org.opencontainers.image.created":"2026-09-01T20:40:13.648724+00:00","org.opencontainers.image.description":"The Ubuntu container image maintained by Canonical
+
+Ubuntu is a Debian-based Linux operating system that runs from the desktop to the cloud, to all your internet connected things.
+It is the world's most popular operating system across public clouds and OpenStack clouds.
+It is the number one platform for containers; from Docker to Kubernetes to LXD, Ubuntu can run your containers at scale.
+Fast, secure and simple, Ubuntu powers millions of PCs worldwide.
+","org.opencontainers.image.revision":"57b59577ac856d664fd69f5a6c4867f1f583be8c","org.opencontainers.image.title":"ubuntu","org.opencontainers.image.version":"26.04"}
+redis_ping=PONG
+redis_pending=[0,null,null,null]
+under_replicated_partitions_begin
+	Topic: barcode-events-dlt	Partition: 0	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: barcode-events-dlt	Partition: 1	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: barcode-events-dlt	Partition: 2	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: barcode-events-quarantine	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: barcode-events-quarantine	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: barcode-events-quarantine	Partition: 2	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 2	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 0	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 1	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 2	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 3	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 4	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 5	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 6	Leader: 2	Replicas: 3,2,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 7	Leader: 2	Replicas: 2,1,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 8	Leader: 1	Replicas: 1,3,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 9	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 10	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 11	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 12	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 13	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 14	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 15	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 16	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 17	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 18	Leader: 2	Replicas: 2,1,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 19	Leader: 1	Replicas: 1,3,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 20	Leader: 2	Replicas: 3,2,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 21	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 22	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 23	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 24	Leader: 2	Replicas: 2,1,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 25	Leader: 1	Replicas: 1,3,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 26	Leader: 2	Replicas: 3,2,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 27	Leader: 1	Replicas: 1,3,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 28	Leader: 2	Replicas: 3,2,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 29	Leader: 2	Replicas: 2,1,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 30	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 31	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 32	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 33	Leader: 2	Replicas: 2,1,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 34	Leader: 1	Replicas: 1,3,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 35	Leader: 2	Replicas: 3,2,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 36	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 37	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 38	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 39	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 40	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 41	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 42	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 43	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 44	Leader: 2	Replicas: 2,3,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 45	Leader: 1	Replicas: 1,3,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 46	Leader: 2	Replicas: 3,2,1	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 47	Leader: 2	Replicas: 2,1,3	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 48	Leader: 1	Replicas: 3,1,2	Isr: 2,1	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 49	Leader: 1	Replicas: 1,2,3	Isr: 2,1	Elr: 	LastKnownElr: 
+under_replicated_partitions_end
+unavailable_partitions_begin
+unavailable_partitions_end
+barcode-events:0:2
+barcode-events:1:3611
+barcode-events:2:0
+barcode-events-dlt:0:2
+barcode-events-dlt:1:0
+barcode-events-dlt:2:0
+barcode-events-quarantine:0:0
+barcode-events-quarantine:1:0
+barcode-events-quarantine:2:0
+
+GROUP                    TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                                              HOST            CLIENT-ID
+barcode-processing-group barcode-events  1          3611            3611            0               consumer-barcode-processing-group-2-1f2389b9-36ff-4417-b7d7-57b609868415 /172.18.0.8     consumer-barcode-processing-group-2
+barcode-processing-group barcode-events  0          2               2               0               consumer-barcode-processing-group-1-fec83a5e-c3fc-4c91-88ca-ab3cb15db139 /172.18.0.8     consumer-barcode-processing-group-1
+barcode-processing-group barcode-events  2          -               0               -               consumer-barcode-processing-group-3-5b5fe292-7914-41c7-bdbe-23466e6258b2 /172.18.0.8     consumer-barcode-processing-group-3
+application_port=18081 health={"status":"UP"}
+application_port=18082 health={"status":"UP"}
+application_port=18084 health={"status":"UP"}
+application_port=18085 health={"status":"UP"}
+application_port=18086 health={"status":"UP"}

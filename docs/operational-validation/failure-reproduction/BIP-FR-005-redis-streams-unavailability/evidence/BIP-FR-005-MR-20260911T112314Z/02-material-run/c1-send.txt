@@ -1,0 +1,11 @@
+sent_at_utc=2026-09-14T09:03:42Z
+redis_state_at_send=exited
+scan_time_epoch_ms=1789376622000
+key=SEOUL-CENTER-PC-002
+payload={"barcode":"BIP-FR-005-MR-20260911T112314Z-C1-001","scanTime":1789376622000,"deviceId":"SEOUL-CENTER-PC-002"}
+HTTP/1.1 200 
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 54
+Date: Mon, 14 Sep 2026 09:03:42 GMT
+
+http_body=Ingested barcode BIP-FR-005-MR-20260911T112314Z-C1-001

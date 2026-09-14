@@ -1,0 +1,7 @@
+C0|source=barcode-events:1:3610|redis_stream_id=1789376518366-0|mysql_internal_id=DLV-SEOUL-CENTER-PC-001-260914-01M2FJDP6E7C70DS36P3ZJF6V6|DLT=NONE|quarantine=NONE|terminal=PERSISTED
+C1|source=barcode-events:0:0|deliveries=4|DLT=barcode-events-dlt:0:0|classification=UNKNOWN|disposition=NOT_EXECUTED|quarantine=NONE|terminal=DLT_PENDING_DISPOSITION
+C2|source=barcode-events:0:1|deliveries=1|DLT=barcode-events-dlt:0:1|classification=PERMANENT_VALIDATION|disposition=NOT_EXECUTED|quarantine=NONE|terminal=DLT_PENDING_DISPOSITION
+C3|source=NOT_SENT|DLT=NONE|quarantine=NONE|terminal=NOT_EXECUTED
+unaccounted_source_identities=0
+same_generation_duplicate_outputs=0_observed_before_abort
+reconciliation_scope=PARTIAL_ABORT_STATE

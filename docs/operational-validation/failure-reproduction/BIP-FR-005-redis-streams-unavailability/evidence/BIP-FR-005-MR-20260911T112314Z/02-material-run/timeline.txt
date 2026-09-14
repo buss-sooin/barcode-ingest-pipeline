@@ -1,0 +1,9 @@
+2026-09-14T09:01:58Z formal Material Run start recorded ACTIVE
+2026-09-14T09:01:58Z C0 source request sent
+2026-09-14T09:02:20Z C0 MySQL persistence and Redis handoff PASS
+2026-09-14T09:03:24Z Redis unavailable fault injection started
+2026-09-14T09:03:42Z C1 source request sent during Redis unavailable
+2026-09-14T09:03:42Z C2 deterministic invalid source record published during Redis unavailable
+2026-09-14T09:07:15Z Material Run ABORTED unexpected broker-3 OOM and Kafka under-replication
+2026-09-14T09:07:48Z Redis recovered for abort cleanup; no execution continuation
+2026-09-14T09:07:48Z in-flight C1 retries exhausted to DLT and C2 permanent record reached DLT after abort was recorded

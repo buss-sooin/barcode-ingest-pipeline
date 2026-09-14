@@ -1,0 +1,15 @@
+redis_fault_injection=EXECUTED
+redis_recovery=EXECUTED_AS_ABORT_CLEANUP
+C0=EXECUTED
+C1=EXECUTED
+C2=EXECUTED
+C3=NOT_EXECUTED
+dlt_disposition=NOT_EXECUTED
+dlt_replay=NOT_EXECUTED
+quarantine_replay=NOT_EXECUTED
+manual_offset_change=NOT_EXECUTED
+dlt_or_quarantine_deletion=NOT_EXECUTED
+manual_result_correction_publication=NOT_EXECUTED
+source_or_configuration_change=NOT_EXECUTED
+broker_recovery_after_abort=NOT_EXECUTED
+outcome_assignment=NOT_EXECUTED

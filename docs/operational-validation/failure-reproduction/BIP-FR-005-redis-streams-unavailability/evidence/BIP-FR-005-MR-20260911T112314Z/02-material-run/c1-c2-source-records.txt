@@ -1,0 +1,4 @@
+[2026-09-14 09:08:45,774] WARN Couldn't resolve server broker-3:29092 from bootstrap.servers as DNS resolution failed for broker-3 (org.apache.kafka.clients.ClientUtils)
+CreateTime:1789376622166	Partition:0	Offset:0	NO_HEADERS	SEOUL-CENTER-PC-002	{"barcode":"BIP-FR-005-MR-20260911T112314Z-C1-001","scanTime":1789376622000,"deviceId":"SEOUL-CENTER-PC-002"}
+CreateTime:1789376623087	Partition:0	Offset:1	NO_HEADERS	bip-fr-005-c2-invalid	{"barcode":"BIP-FR-005-MR-20260911T112314Z-C2-001","scanTime":1789376622000,"deviceId":""}
+Processed a total of 2 messages

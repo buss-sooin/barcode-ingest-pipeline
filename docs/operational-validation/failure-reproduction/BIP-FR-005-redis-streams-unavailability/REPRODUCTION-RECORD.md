@@ -7,10 +7,10 @@
 | Record ID | `BIP-FR-005-RR` |
 | Contract Revision | `BIP-FR-005-RC-R1` |
 | Contract Status | `FROZEN` |
-| Historical Material Run | `BIP-FR-005-MR-20260909T124024Z` |
-| Historical Outcome | `INCONCLUSIVE` |
-| Current Material Run | `BIP-FR-005-MR-20260911T112314Z` |
-| Current Run State | `REGISTERED / NOT_EXECUTED / NOT_ASSIGNED` |
+| Historical Material Runs | `BIP-FR-005-MR-20260909T124024Z`, `BIP-FR-005-MR-20260911T112314Z` |
+| Historical Outcomes | `INCONCLUSIVE`, `INCONCLUSIVE` |
+| Current executable Run | 없음 |
+| Next Material Run | 새 등록 필요 |
 | Verified Reproduction Claim | 없음 |
 
 이 문서는 동결된 재현 계약(Reproduction Contract)의 의미를 변경하지 않고, 등록된 두 판정 대상 실행(Material Run)의 이력과 Failure Reproduction Workflow v0.1 검증 결과를 동기화한다. 실행 처분(Execution Disposition)은 Run의 재사용 가능 여부를, Outcome은 계약에 따른 장애 재현 판정을 나타내므로 서로 대체하지 않는다.
@@ -24,9 +24,9 @@ Execution Disposition != Failure Reproduction Outcome
 | Material Run | 역할 | 실행 상태 | 실험 유효성 | Evidence Sufficiency | Outcome | 재사용 |
 |---|---|---|---|---|---|---|
 | `BIP-FR-005-MR-20260909T124024Z` | Historical Run | `ABORTED / SUPERSEDED` | `FAIL` | `SUFFICIENT FOR INVALID EXECUTION / INSUFFICIENT FOR FAILURE SIGNATURE` | `INCONCLUSIVE` | `NOT_REUSABLE` |
-| `BIP-FR-005-MR-20260911T112314Z` | Current execution candidate | `REGISTERED / NOT_EXECUTED` | 평가 전 | 실행 Evidence 없음 | `NOT_ASSIGNED` | 실행 후보 |
+| `BIP-FR-005-MR-20260911T112314Z` | Historical Run #2 | `ABORTED` | `FAIL` | `SUFFICIENT FOR INVALIDATION / INSUFFICIENT FOR COMPLETE FAILURE-SIGNATURE EVALUATION` | `INCONCLUSIVE` | `NOT_REUSABLE` |
 
-두 Run은 각각 정확히 `BIP-FR-005-RC-R1`을 참조한다. 후속 Run registration에 기록된 첫 Run의 `INCONCLUSIVE`는 참조값일 뿐 이 Record의 권위 근거가 아니다. 3절의 검증 순서로 독립 판정했다.
+두 Run은 각각 정확히 `BIP-FR-005-RC-R1`을 참조한다. 두 실행 모두 유효성 실패로 종료됐으며 현재 실행 가능한 Run은 없다. 다음 실행은 새 Material Run 등록이 필요하다.
 
 ## 3. Historical Run — `BIP-FR-005-MR-20260909T124024Z`
 
@@ -75,55 +75,78 @@ Evidence는 formal start, `C0`의 source→Kafka→Redis→Worker DLQ 경로, My
 
 Evidence는 실행이 무효라는 결론에는 충분하지만, Redis Streams unavailable 시나리오가 재현되는지 여부에는 답하지 못한다. 따라서 유효한 장애 실험에서 Failure Signature가 성립하지 않았음을 뜻하는 `NOT_REPRODUCED`로 분류하지 않는다. `INCONCLUSIVE`는 시스템 failure의 부재나 존재를 주장하지 않으며, 전제조건 실패로 Outcome 판단 능력을 잃은 Run이라는 뜻이다.
 
-## 4. Current Run — `BIP-FR-005-MR-20260911T112314Z`
+## 4. Historical Run #2 — `BIP-FR-005-MR-20260911T112314Z`
 
-### 4.1 등록 상태
+### 4.1 실행 이력과 제어 편차
+
+- Repository identity, frozen image, `NORMAL_COHORT_DATA_CONTRACT`와 runtime entry preflight는 formal start 전에 모두 `PASS`했다.
+- `2026-09-14T09:01:58Z`에 formal Run을 시작했고 `C0`는 `barcode-events/1/3610`에서 Redis Streams와 MySQL까지 정상 처리됐다.
+- `bip-fr-002-broker-3`는 `09:03:21.830371884Z`에 `exit_code=137`, `oom_killed=true`로 종료됐다.
+- `09:03:22Z` pre-fault collection은 이미 이 상태를 관측했지만, collection과 Redis fault action이 하나의 fail-closed 전이로 묶이지 않아 실패 Predicate를 assertion으로 차단하지 못했다.
+- Redis fault는 `09:03:24Z`에 주입됐고 `C1`, `C2`는 `09:03:42Z`에 발행됐다. 이는 Redis 단독 장애라는 계약 유효성 전제가 이미 깨진 뒤의 실행 제어 편차다.
+- Run은 `09:07:15Z`에 `UNEXPECTED_KAFKA_BROKER_OOM`으로 중단됐다. Redis는 중단 정리 목적으로만 복구했고 DLT disposition, replay, quarantine 처리와 `C3` 전송은 수행하지 않았다.
+- 실행 처분: `ABORTED / NOT_REUSABLE`. 후속 Run이 아직 등록되지 않았으므로 `SUPERSEDED`로 표기하지 않는다.
+
+주요 Evidence:
+
+- [Material Run manifest](./evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/MANIFEST.sha256)
+- [Execution abort](./evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/execution-abort.txt)
+- [Execution-control deviation](./evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/execution-control-deviation.txt)
+- [Pre-fault gate observation](./evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/pre-fault-gate.txt)
+- [Timeline](./evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/timeline.txt)
+- [Cohort accounting](./evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/cohort-accounting.txt)
+- [Failure-signature observations](./evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/preliminary-signature-evaluation.txt)
+
+### 4.2 실험 유효성(Experiment Validity)
+
+`FAIL`
+
+Redis fault 전에 Kafka broker OOM과 9개 시나리오 topic partition의 under-replication이 발생했다. 다른 failure domain이 동시에 활성화됐고 pre-fault infrastructure Predicate 실패 뒤에도 fault transition이 진행됐으므로 이 실행은 R1의 Redis-only failure lifecycle을 판정하는 유효한 Material Run이 아니다.
+
+### 4.3 증거 충분성(Evidence Sufficiency)
+
+`SUFFICIENT FOR INVALIDATION / INSUFFICIENT FOR COMPLETE FAILURE-SIGNATURE EVALUATION`
+
+Evidence는 entry PASS, C0 정상 처리, broker OOM 시각, pre-fault 관측, 이후의 잘못된 fault transition, C1/C2 source와 DLT identity, 중단 및 Redis 정리 복구를 재구성하기에 충분하다. 반면 중단 뒤 DLT disposition, replay, quarantine과 C3를 수행하지 않았으므로 전체 Failure Signature와 최종 lifecycle을 평가하기에는 불충분하다.
+
+### 4.4 실패 징후 평가(Failure Signature Evaluation)
+
+| Failure Signature | invalid Run 관측 상태 |
+|---|---|
+| `FS-01` | `OBSERVED` |
+| `FS-02` | `OBSERVED` |
+| `FS-03` | `NOT_OBSERVED` |
+| `FS-04` ~ `FS-09` | `NOT_EVALUABLE` |
+
+`FS-01`, `FS-02`는 무효 실행에서 직접 관측된 사실일 뿐 Verified Reproduction Claim이 아니다. `C1`은 Redis command timeout 뒤 DLT에 도달했지만 failure category가 `TRANSIENT_REDIS`가 아닌 `UNKNOWN`이어서 `FS-03`은 `NOT_OBSERVED`다. 중단 뒤 단계가 필요한 `FS-04`부터 `FS-09`까지는 판정할 수 없다.
+
+### 4.5 Outcome
+
+`INCONCLUSIVE`
+
+실행 무효화는 확정할 수 있지만 복합 장애와 중단된 lifecycle로 인해 R1 시나리오의 최종 재현 여부를 판단할 수 없다. 따라서 이 Run을 `NOT_REPRODUCED`나 Verified Reproduction Claim으로 승격하지 않는다.
+
+### 4.6 Corrective Fast Path와 다음 Run 경계
+
+확인된 실행 제어 회귀는 기존 pre-fault Predicate와 Engineering Intent를 바꾸지 않고 최소 교정한다. `pre-fault-gate.sh`는 required broker의 running/health/OOM/exit/restart 상태와 세 scenario topic의 RF=3, full ISR, URP=0, unavailable=0을 검증한다. `material-run-controller.sh`는 이 gate가 `PASS`일 때만 Redis fault action을 호출하고, 실패하면 `ABORTED / redis_fault_action=NOT_EXECUTED`로 전이를 거부한다.
+
+Invalid Run에서 Redis `QueryTimeoutException`이 `UNKNOWN`으로 분류된 것은 “Redis 연결 실패는 `TRANSIENT_REDIS`”라는 R1의 기존 의미와 일치하지 않는 classifier 누락이다. 새 정책을 추가하지 않고 같은 cause chain의 `QueryTimeoutException`을 `TRANSIENT_REDIS`로 분류하며 deterministic test로 고정한다.
 
 ```text
-REGISTERED
-NOT_EXECUTED
-Outcome = NOT_ASSIGNED
+CONTRACT_REVISION_REQUIRED=NO
+NEW_RUN_REQUIRED=YES
+Current executable Run=NONE
 ```
 
-이 Run은 현재 등록된 실행 후보다. formal start, cohort traffic, Redis 장애 주입, DLT disposition은 모두 수행되지 않았고 새 frozen release도 배포되지 않았다. 성공, 실패, 재현, 미재현 또는 `INCONCLUSIVE` Outcome을 부여하지 않는다.
-
-### 4.2 서로 독립적인 두 gate
-
-```text
-NORMAL_COHORT_DATA_CONTRACT=PASS
-!=
-RUNTIME_PREFLIGHT=PASS
-```
-
-- 결정적 데이터 계약 관문(Deterministic Data-contract Gate): `PASS`. `C0`, `C1`, `C3`의 `device_center_mapping`이 각각 1건임을 확인했고 `C2`는 빈 `deviceId`를 사용하는 permanent-validation cohort이므로 mapping 대상이 아니다. reference-data mutation은 `NO`다.
-- Runtime entry: `BLOCKED`. 최초 blocker는 `bip-fr-002-broker-1`의 `state=exited`, `exit_code=137`, `oom_killed=true`다.
-- Frozen release deployment: `NOT YET DEPLOYED`.
-
-Evidence:
-
-- [Run registration](./evidence/BIP-FR-005-MR-20260911T112314Z/00-environment/run-registration.txt)
-- [Normal cohort data contract](./evidence/BIP-FR-005-MR-20260911T112314Z/00-environment/normal-cohort-data-contract.txt)
-- [Preparation verification](./evidence/BIP-FR-005-MR-20260911T112314Z/00-environment/preparation-verification.txt)
-- [Current manifest](./evidence/BIP-FR-005-MR-20260911T112314Z/MANIFEST.sha256)
-
-### 4.3 Repository identity reconciliation
-
-등록 당시 frozen image와 Evidence의 identity는 변경하지 않는다. 등록 base `57b59577ac856d664fd69f5a6c4867f1f583be8c`의 tracked diff와 untracked implementation/test set은 canonical implementation commit `e540d4238480cddd08ceb4578a93e935ed731b8b`의 내용과 정확히 일치하며, canonicalization anchor `7eba27e22a36a5e50109351f7dbd518d3c78b71b`는 application, test 또는 기존 release-preparation byte를 변경하지 않는다.
-
-기존 `preflight.sh`와 Current Run manifest는 등록 시점 Evidence로 보존한다. 후속 entry requalification은 versioned `preflight-v2.sh`를 사용한다. v2는 historical registration base, canonical implementation commit, canonicalization anchor와 실행 시점의 clean preparation HEAD를 서로 다른 identity로 검증하고, 기존 frozen image ID 및 label은 그대로 확인한다. Repository-side static verification은 `PASS`지만 runtime preflight는 다시 실행하지 않았으므로 현재 gate는 계속 `BLOCKED`다.
-
-Additive Evidence:
-
-- [Identity reconciliation Evidence](./evidence/BIP-FR-005-MR-20260911T112314Z/01-identity-reconciliation/reconciliation-evidence.txt)
-- [Identity reconciliation manifest](./evidence/BIP-FR-005-MR-20260911T112314Z/01-identity-reconciliation/RECONCILIATION-MANIFEST.sha256)
+현재 Run은 formal start, C0/C1/C2, Redis fault와 DLT 상태를 생성했으므로 다시 사용할 수 없다. successor Run의 registration, release identity와 runtime preparation은 이 교정의 repository synchronization 이후 별도 책임에서 수행한다.
 
 ## 5. Contract와 manifest 무결성
 
 - `REPRODUCTION-CONTRACT.md`의 SHA-256은 `1ed738712229c27320b59dd0ac13748baedfadbd350cdbdb0078692883880865`이며 두 Run manifest에 기록된 값과 일치한다.
 - `BIP-FR-005-RC-R1`은 `FROZEN` 상태를 유지한다. 이 Record는 계약의 Failure Signature, Verification Criteria, Scope, 승인 실행 경계 또는 의미를 변경하지 않는다.
 - 계약에 남아 있는 pre-execution `Material Run = NOT EXECUTED`와 placeholder 설명은 freeze 시점의 상태다. 실행 이력의 현재 정본은 이 Record이며, frozen 계약을 runtime status log로 사용하지 않는다.
-- 현재 Run의 `MANIFEST.sha256`은 등재 항목 전체가 현재 repository byte와 일치한다.
-- Identity reconciliation은 기존 Current Run `MANIFEST.sha256`을 수정하거나 포괄 범위를 소급 확장하지 않는다. 추가된 v2 preflight와 reconciliation Evidence는 별도 `RECONCILIATION-MANIFEST.sha256`으로 검증한다.
+- 두 번째 Run의 등록 시점 `MANIFEST.sha256`은 그대로 보존한다. Material Run의 44개 파일은 self-excluding 43-entry `02-material-run/MANIFEST.sha256`으로 별도 검증하며 등재 항목 전체가 일치한다.
+- Identity reconciliation은 두 번째 Run의 등록 시점 `MANIFEST.sha256`을 수정하거나 포괄 범위를 소급 확장하지 않는다. 추가된 v2 preflight와 reconciliation Evidence는 별도 `RECONCILIATION-MANIFEST.sha256`으로 검증한다.
 - 첫 Run의 최상위 `MANIFEST.sha256`은 Run-local environment Evidence와 계약 등은 일치하지만, 현재의 공유 준비 artifact 4개(`docker-compose.release.yml`, `preflight.sh`, `capture-state.sh`, `EXECUTION-PREPARATION.txt`)와는 일치하지 않는다. 이는 첫 Run manifest의 과거 snapshot과 현재 공유 파일 사이의 byte drift이며, 해당 manifest를 현재 전체 디렉터리 검증값으로 사용해서는 안 된다.
 - 첫 Run Attempt 2의 `ATTEMPT-2-MANIFEST.sha256`은 등재된 17개 Run-local Evidence 전부와 일치한다. 따라서 3절의 판정은 무결성이 확인된 Attempt 2 Evidence에 근거한다.
 
@@ -132,8 +155,8 @@ Additive Evidence:
 - FR-005 implementation, test, release-preparation, canonical documentation과 Evidence corpus는 전용 branch `validation/bip-fr-005-redis-streams-unavailability`에서 추적한다.
 - Canonical implementation commit은 `e540d4238480cddd08ceb4578a93e935ed731b8b`, canonicalization anchor는 `7eba27e22a36a5e50109351f7dbd518d3c78b71b`다.
 - `REPRODUCTION-CONTRACT.md`와 이 `REPRODUCTION-RECORD.md`는 `.gitignore`를 변경하지 않고 path-specific explicit tracking으로 보존한다.
-- 최종 preparation HEAD를 특정 SHA로 상수화하지 않는다. `preflight-v2.sh`는 canonicalization anchor의 descendant인 clean checkout에서 canonical implementation 및 기존 release-preparation byte가 변하지 않았음을 검증하고 실제 HEAD를 Evidence 출력에 별도로 기록한다.
+- 두 번째 Run의 등록·release identity·기존 manifest는 historical Evidence로 변경하지 않는다. classifier와 실행 제어 교정은 successor Run에서 새 implementation/release identity로 등록해야 한다.
 
 ## 7. 다음 실행 관문
 
-Repository-side identity reconciliation과 `preflight-v2.sh static`은 `PASS`다. 현재 Run을 시작하기 전에 v2로 runtime entry를 다시 검증해야 한다. `NORMAL_COHORT_DATA_CONTRACT=PASS`는 유지되지만 `RUNTIME_PREFLIGHT=BLOCKED`를 대체하지 않는다. Runtime 복구, frozen release 배포와 Material Run 시작은 별도 승인된 실행 책임에서 수행해야 하며, 이 Record는 이를 실행하거나 Outcome을 선배정하지 않는다.
+현재 실행 가능한 Run은 없다. 다음 책임은 runtime baseline을 복구한 뒤 교정된 implementation과 실행 Controller를 대상으로 successor Material Run을 새로 등록·준비하고 runtime entry를 재검증해야 한다. 이 Record는 successor Run을 등록하거나 실행 Surface를 선결정하지 않는다.

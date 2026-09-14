@@ -1,0 +1,7 @@
+sent_at_utc=2026-09-14T09:03:42Z
+redis_state_at_send=exited
+scan_time_epoch_ms=1789376622000
+key=bip-fr-005-c2-invalid
+payload={"barcode":"BIP-FR-005-MR-20260911T112314Z-C2-001","scanTime":1789376622000,"deviceId":""}
+[2026-09-14 09:03:42,922] WARN Couldn't resolve server broker-3:29092 from bootstrap.servers as DNS resolution failed for broker-3 (org.apache.kafka.clients.ClientUtils)
+producer_exit_code=0

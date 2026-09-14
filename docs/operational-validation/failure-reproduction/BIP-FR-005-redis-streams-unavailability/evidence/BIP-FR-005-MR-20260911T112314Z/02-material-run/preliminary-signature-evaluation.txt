@@ -1,0 +1,15 @@
+run_id=BIP-FR-005-MR-20260911T112314Z
+experiment_validity=FAIL
+validity_reason=unexpected broker-3 OOM before Redis fault; Redis was not sole active failure domain
+FS-01=OBSERVED
+FS-02=OBSERVED
+FS-03=NOT_OBSERVED
+FS-04=NOT_EVALUABLE
+FS-05=NOT_EVALUABLE
+FS-06=NOT_EVALUABLE
+FS-07=NOT_EVALUABLE
+FS-08=NOT_EVALUABLE
+FS-09=NOT_EVALUABLE
+note=FS-03 failed because C1 DLT header is UNKNOWN while C2 is PERMANENT_VALIDATION
+note=FS-04 through FS-09 require disposition/replay/final reconciliation prohibited after abort
+outcome=NOT_ASSIGNED

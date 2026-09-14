@@ -1,0 +1,27 @@
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2026-09-14T09:07:48.676Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-14T09:07:48.690Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=barcode-processing-service-producer-1] Instantiated an idempotent producer.
+2026-09-14T09:07:48.699Z  WARN 1 --- [barcode-processing-service] [ntainer#0-0-C-1] org.apache.kafka.clients.ClientUtils     : Couldn't resolve server broker-3:29092 from bootstrap.servers as DNS resolution failed for broker-3
+2026-09-14T09:07:48.726Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2026-09-14T09:07:48.726Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2026-09-14T09:07:48.726Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1789376868726
+2026-09-14T09:07:48.731Z  INFO 1 --- [barcode-processing-service] [vice-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=barcode-processing-service-producer-1] Cluster ID: MkU3OEVBNTcwNTJENDM2Qk
+2026-09-14T09:07:48.847Z  INFO 1 --- [barcode-processing-service] [vice-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=barcode-processing-service-producer-1] ProducerId set to 2000 with epoch 0
+2026-09-14T09:07:48.864Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Seeking to offset 1 for partition barcode-events-0
+2026-09-14T09:08:04.240Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-4] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-14T09:08:04.251Z  INFO 1 --- [barcode-processing-service] [ioEventLoop-5-6] i.l.core.protocol.ReconnectionHandler    : Reconnected to redis/<unresolved>:6379

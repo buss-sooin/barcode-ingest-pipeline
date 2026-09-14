@@ -1,0 +1,30 @@
+checked_at_utc=2026-09-14T09:03:22Z
+container=/bip-fr-002-controller state=running restart_count=0 oom=false image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+container=/bip-fr-002-broker-1 state=running restart_count=0 oom=false image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+container=/bip-fr-002-broker-2 state=running restart_count=0 oom=false image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+container=/bip-fr-002-broker-3 state=exited restart_count=0 oom=true image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+container=/bip-fr-002-mysql state=running restart_count=0 oom=false image=sha256:5e7e005a680e75d935984d3d9390990d2a709b3ed67e92708e9e6747f1f754c9
+container=/bip-fr-002-redis state=running restart_count=0 oom=false image=sha256:59c08762bdbcf53fa132aa0bae464a57a1309dc3fff8a034bb3e16d7a0b30ec5
+container=/bip-fr-002-ingest state=running restart_count=0 oom=false image=sha256:0bc5151c97bc7cf4ed3c0bf9e801ff4e1231f192447f735f5c6bc37725596c6d
+container=/bip-fr-002-processing state=running restart_count=0 oom=false image=sha256:525e3ee5d7c0966878fe33f31585361560b2a3721ed49a790cc75c41c0a30ea9
+container=/bip-fr-002-scanner state=running restart_count=0 oom=false image=sha256:ddafb8a95bbddb398f4cdf4cb34469aa1315eef24c9abdfc9b6ae66f76a16561
+container=/bip-fr-002-worker-1 state=running restart_count=0 oom=false image=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec
+container=/bip-fr-002-worker-2 state=running restart_count=0 oom=false image=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec
+[2026-09-14 09:03:23,026] WARN Couldn't resolve server broker-3:29092 from bootstrap.servers as DNS resolution failed for broker-3 (org.apache.kafka.clients.ClientUtils)
+[2026-09-14 09:03:23,189] WARN [AdminClient clientId=adminclient-1] Error connecting to node broker-3:29092 (id: 3 rack: null isFenced: false) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: broker-3
+	at java.base/java.net.InetAddress$CachedLookup.get(Unknown Source) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName0(Unknown Source) ~[?:?]
+	at java.base/java.net.InetAddress.getAllByName(Unknown Source) ~[?:?]
+	at org.apache.kafka.clients.DefaultHostResolver.resolve(DefaultHostResolver.java:27) ~[kafka-clients-8.1.0-ccs.jar:?]
+	at org.apache.kafka.clients.ClientUtils.resolve(ClientUtils.java:125) ~[kafka-clients-8.1.0-ccs.jar:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.resolveAddresses(ClusterConnectionStates.java:536) ~[kafka-clients-8.1.0-ccs.jar:?]
+	at org.apache.kafka.clients.ClusterConnectionStates$NodeConnectionState.currentAddress(ClusterConnectionStates.java:511) ~[kafka-clients-8.1.0-ccs.jar:?]
+	at org.apache.kafka.clients.ClusterConnectionStates.currentAddress(ClusterConnectionStates.java:173) ~[kafka-clients-8.1.0-ccs.jar:?]
+	at org.apache.kafka.clients.NetworkClient.initiateConnect(NetworkClient.java:1140) ~[kafka-clients-8.1.0-ccs.jar:?]
+	at org.apache.kafka.clients.NetworkClient.ready(NetworkClient.java:368) ~[kafka-clients-8.1.0-ccs.jar:?]
+	at org.apache.kafka.clients.admin.KafkaAdminClient$AdminClientRunnable.sendEligibleCalls(KafkaAdminClient.java:1255) ~[kafka-clients-8.1.0-ccs.jar:?]
+	at org.apache.kafka.clients.admin.KafkaAdminClient$AdminClientRunnable.processRequests(KafkaAdminClient.java:1516) ~[kafka-clients-8.1.0-ccs.jar:?]
+	at org.apache.kafka.clients.admin.KafkaAdminClient$AdminClientRunnable.run(KafkaAdminClient.java:1459) ~[kafka-clients-8.1.0-ccs.jar:?]
+	at java.base/java.lang.Thread.run(Unknown Source) [?:?]
+[2026-09-14 09:03:24,133] WARN Couldn't resolve server broker-3:29092 from bootstrap.servers as DNS resolution failed for broker-3 (org.apache.kafka.clients.ClientUtils)

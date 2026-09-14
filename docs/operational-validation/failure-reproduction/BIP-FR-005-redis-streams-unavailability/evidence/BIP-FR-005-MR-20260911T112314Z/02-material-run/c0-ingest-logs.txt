@@ -1,0 +1,2 @@
+2026-09-14T09:01:58.201Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-4] c.b.b.c.BarcodeIngestController          : Received barcode request: BIP-FR-005-MR-20260911T112314Z-C0-001
+2026-09-14T09:01:58.287Z  INFO 1 --- [barcode-ingest-service] [vice-producer-2] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: BIP-FR-005-MR-20260911T112314Z-C0-001, Partition: 1, Offset: 3610
