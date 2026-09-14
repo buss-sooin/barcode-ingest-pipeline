@@ -10,10 +10,12 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.barcode.barcode_processing_service.dto.BarcodeEvent;
 import com.barcode.barcode_processing_service.dto.InternalBarcode;
+import com.barcode.barcode_processing_service.exception.PermanentEventValidationException;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +27,7 @@ import reactor.core.publisher.Mono;
  */
 @Slf4j
 @Service
+@Profile("!dlt-disposition")
 @RequiredArgsConstructor
 public class BarcodeEventConsumer {
 
@@ -52,6 +55,8 @@ public class BarcodeEventConsumer {
         @Header(KafkaHeaders.OFFSET) long offset,
         @Header(KafkaHeaders.RECEIVED_KEY) String key
     ) {
+        validate(event);
+
         log.info("Received barcode event - Key: {}, Partition: {}, Offset: {}",
             key, partition, offset);
         log.info("Barcode: {}, Device: {}, scanTime: {}",
@@ -59,6 +64,12 @@ public class BarcodeEventConsumer {
 
         processEvent(event).block();
         log.info("Successfully processed barcode: {}", event.barcode());
+    }
+
+    private void validate(BarcodeEvent event) {
+        if (event.deviceId() == null || event.deviceId().isBlank()) {
+            throw new PermanentEventValidationException("deviceId must not be null or blank");
+        }
     }
 
     /**

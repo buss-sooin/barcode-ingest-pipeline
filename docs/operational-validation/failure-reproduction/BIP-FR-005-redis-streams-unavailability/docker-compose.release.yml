@@ -1,0 +1,37 @@
+services:
+  controller:
+    image: sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+    pull_policy: never
+  broker-1:
+    image: sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+    pull_policy: never
+  broker-2:
+    image: sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+    pull_policy: never
+  broker-3:
+    image: sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+    pull_policy: never
+  topic-init:
+    image: sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+    pull_policy: never
+  mysql:
+    image: sha256:5e7e005a680e75d935984d3d9390990d2a709b3ed67e92708e9e6747f1f754c9
+    pull_policy: never
+  redis:
+    image: sha256:59c08762bdbcf53fa132aa0bae464a57a1309dc3fff8a034bb3e16d7a0b30ec5
+    pull_policy: never
+  ingest:
+    image: sha256:0bc5151c97bc7cf4ed3c0bf9e801ff4e1231f192447f735f5c6bc37725596c6d
+    pull_policy: never
+  processing:
+    image: barcode-processing-service:bip-fr-005-mr-20260911t112314z
+    pull_policy: never
+  scanner:
+    image: sha256:ddafb8a95bbddb398f4cdf4cb34469aa1315eef24c9abdfc9b6ae66f76a16561
+    pull_policy: never
+  worker-1:
+    image: sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec
+    pull_policy: never
+  worker-2:
+    image: sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec
+    pull_policy: never

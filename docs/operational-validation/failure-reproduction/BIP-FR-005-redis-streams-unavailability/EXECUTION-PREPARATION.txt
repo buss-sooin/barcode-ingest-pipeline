@@ -1,0 +1,59 @@
+BIP-FR-005-MR-20260911T112314Z -> BIP-FR-005-RC-R1
+
+STATE
+  REGISTERED / NOT EXECUTED
+  Outcome: NOT_ASSIGNED
+  Verified Reproduction Claim: NONE
+
+DEPLOYMENT IDENTITY
+  Base: BIP-FR-002 validation Compose (existing project validation topology)
+  Override: docker-compose.release.yml
+  Required invocation: docker compose --env-file .env -f <base> -f <override> up -d --no-build
+  Never use --build for this Run. The Processing image ID must be
+  sha256:525e3ee5d7c0966878fe33f31585361560b2a3721ed49a790cc75c41c0a30ea9.
+
+PRE-MATERIAL DEPLOYMENT ORDER
+  1. Restore/start the validation topology without fault injection.
+  2. Recreate Processing with the frozen image using --no-build.
+  3. Run provision-quarantine-topic.sh --apply before the Material Run starts.
+  4. Run preflight.sh runtime. Any non-zero exit blocks fault injection.
+  5. Require NORMAL_COHORT_DATA_CONTRACT=PASS in the runtime preflight output.
+  6. Capture baseline with capture-state.sh baseline.
+
+MATERIAL RUN COHORTS
+  The immutable namespace is recorded in evidence/.../cohort.tsv.
+  C0, C1, C2 and C3 originalBarcode values are unique within the Run.
+  C0 uses the existing mapping SEOUL-CENTER-PC-001, C1 uses
+  SEOUL-CENTER-PC-002, and C3 uses SEOUL-CENTER-PC-003. The blocking normal
+  cohort data-contract gate verifies those mappings and proves that every Run
+  identity is absent from MySQL, the Redis Stream, the Worker DLQ and Redis
+  dedupe state. Reference data must not be changed to satisfy this gate.
+  C2 must be published as a source barcode-events record with value.deviceId=""
+  and Kafka key bip-fr-005-c2-invalid. It cannot traverse Ingest because Ingest
+  correctly rejects blank deviceId before Kafka; direct source-topic injection is
+  the listener-reachable contract path, not a result-correction publication.
+  Resolve each EXECUTION_EPOCH_MS only immediately before its authorized send and
+  preserve the exact payload, key, partition and offset as Evidence.
+
+ONE-SHOT DISPOSITION
+  Invoke only after Redis recovery is operationally confirmed:
+    docker compose --env-file .env -f <base> -f <override> run --rm --no-deps \
+      -e SPRING_PROFILES_ACTIVE=dlt-disposition processing
+  The image is the frozen Processing release. The dlt-disposition profile excludes
+  BarcodeEventConsumer, snapshots all DLT partition end offsets, publishes before
+  commitSync, and exits success/failure observably.
+
+READ-ONLY EVIDENCE
+  capture-state.sh <phase> captures container identity, topic watermarks, group
+  offsets, Redis Stream/group/PEL and MySQL rows for this Run namespace.
+  capture-kafka-window.sh <topic> <partition> <offset> <count> captures exact key,
+  headers, value, partition and offset for source/DLT/quarantine reconciliation.
+  Capture source, DLT and quarantine windows from the pre-registered watermarks;
+  do not commit, delete, seek or manually correct DLT offsets.
+
+FAULT-INJECTION GATE
+  Fault injection is forbidden unless preflight.sh runtime prints
+  RUNTIME_PREFLIGHT=PASS. A mismatch in contract/source/image/container identity,
+  an unhealthy dependency, source lag, non-empty DLT/quarantine baseline or Redis
+  PEL blocks execution. Non-transactional publication/commit duplicate risk remains
+  an explicit observation boundary; exactly-once replay is not claimed.

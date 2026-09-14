@@ -9,6 +9,9 @@ import org.springframework.kafka.listener.DeadLetterPublishingRecoverer;
 import org.springframework.kafka.listener.DefaultErrorHandler;
 import org.springframework.util.backoff.FixedBackOff;
 
+import com.barcode.barcode_processing_service.exception.PermanentEventValidationException;
+import com.barcode.barcode_processing_service.recovery.DltFailureHeaders;
+
 import io.micrometer.core.instrument.MeterRegistry;
 
 /**
@@ -16,20 +19,38 @@ import io.micrometer.core.instrument.MeterRegistry;
  * ConcurrentKafkaListenerContainerFactory에 자동으로 연결한다(TECH-NOTES 참고).
  * 별도 팩토리 빈이나 @KafkaListener(containerFactory=...) 지정이 필요 없다.
  *
- * 이 서비스에서 실제로 발생하는 예외는 전부 Redis 호출 실패(일시적)뿐이라
- * 커스텀 비재시도 예외 분류는 넣지 않는다. Kafka 기본 비재시도 목록
- * (DeserializationException 등)이 유일하게 실재하는 비재시도 케이스를 이미 커버한다.
+ * Redis 연결 실패는 기존 FixedBackOff로 재시도하고, 생산 계약을 위반한 이벤트는
+ * 재시도 없이 DLT로 보낸다.
  */
 @Configuration
 public class KafkaConfig {
 
     @Bean
-    public CommonErrorHandler errorHandler(KafkaTemplate<Object, Object> kafkaTemplate, MeterRegistry meterRegistry) {
-        DeadLetterPublishingRecoverer publisher = new DeadLetterPublishingRecoverer(kafkaTemplate);
+    public CommonErrorHandler errorHandler(
+        KafkaTemplate<Object, Object> kafkaTemplate,
+        MeterRegistry meterRegistry,
+        DltFailureHeaders failureHeaders
+    ) {
+        DeadLetterPublishingRecoverer publisher = dltPublisher(kafkaTemplate, failureHeaders);
+
         ConsumerRecordRecoverer countingRecoverer = (record, exception) -> {
-            meterRegistry.counter("barcode.processing.dlt.sent").increment();
             publisher.accept(record, exception);
+            meterRegistry.counter("barcode.processing.dlt.sent").increment();
         };
-        return new DefaultErrorHandler(countingRecoverer, new FixedBackOff(2000L, 3L));
+        DefaultErrorHandler handler =
+            new DefaultErrorHandler(countingRecoverer, new FixedBackOff(2000L, 3L));
+        handler.addNotRetryableExceptions(PermanentEventValidationException.class);
+        return handler;
+    }
+
+    DeadLetterPublishingRecoverer dltPublisher(
+        KafkaTemplate<Object, Object> kafkaTemplate,
+        DltFailureHeaders failureHeaders
+    ) {
+        DeadLetterPublishingRecoverer publisher = new DeadLetterPublishingRecoverer(kafkaTemplate);
+        publisher.setAppendOriginalHeaders(false);
+        publisher.setHeadersFunction(failureHeaders::create);
+        publisher.setFailIfSendResultIsError(true);
+        return publisher;
     }
 }
