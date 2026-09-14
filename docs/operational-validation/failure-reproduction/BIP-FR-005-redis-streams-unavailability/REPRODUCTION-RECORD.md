@@ -106,23 +106,34 @@ Evidence:
 - [Preparation verification](./evidence/BIP-FR-005-MR-20260911T112314Z/00-environment/preparation-verification.txt)
 - [Current manifest](./evidence/BIP-FR-005-MR-20260911T112314Z/MANIFEST.sha256)
 
+### 4.3 Repository identity reconciliation
+
+등록 당시 frozen image와 Evidence의 identity는 변경하지 않는다. 등록 base `57b59577ac856d664fd69f5a6c4867f1f583be8c`의 tracked diff와 untracked implementation/test set은 canonical implementation commit `e540d4238480cddd08ceb4578a93e935ed731b8b`의 내용과 정확히 일치하며, canonicalization anchor `7eba27e22a36a5e50109351f7dbd518d3c78b71b`는 application, test 또는 기존 release-preparation byte를 변경하지 않는다.
+
+기존 `preflight.sh`와 Current Run manifest는 등록 시점 Evidence로 보존한다. 후속 entry requalification은 versioned `preflight-v2.sh`를 사용한다. v2는 historical registration base, canonical implementation commit, canonicalization anchor와 실행 시점의 clean preparation HEAD를 서로 다른 identity로 검증하고, 기존 frozen image ID 및 label은 그대로 확인한다. Repository-side static verification은 `PASS`지만 runtime preflight는 다시 실행하지 않았으므로 현재 gate는 계속 `BLOCKED`다.
+
+Additive Evidence:
+
+- [Identity reconciliation Evidence](./evidence/BIP-FR-005-MR-20260911T112314Z/01-identity-reconciliation/reconciliation-evidence.txt)
+- [Identity reconciliation manifest](./evidence/BIP-FR-005-MR-20260911T112314Z/01-identity-reconciliation/RECONCILIATION-MANIFEST.sha256)
+
 ## 5. Contract와 manifest 무결성
 
 - `REPRODUCTION-CONTRACT.md`의 SHA-256은 `1ed738712229c27320b59dd0ac13748baedfadbd350cdbdb0078692883880865`이며 두 Run manifest에 기록된 값과 일치한다.
 - `BIP-FR-005-RC-R1`은 `FROZEN` 상태를 유지한다. 이 Record는 계약의 Failure Signature, Verification Criteria, Scope, 승인 실행 경계 또는 의미를 변경하지 않는다.
 - 계약에 남아 있는 pre-execution `Material Run = NOT EXECUTED`와 placeholder 설명은 freeze 시점의 상태다. 실행 이력의 현재 정본은 이 Record이며, frozen 계약을 runtime status log로 사용하지 않는다.
 - 현재 Run의 `MANIFEST.sha256`은 등재 항목 전체가 현재 repository byte와 일치한다.
+- Identity reconciliation은 기존 Current Run `MANIFEST.sha256`을 수정하거나 포괄 범위를 소급 확장하지 않는다. 추가된 v2 preflight와 reconciliation Evidence는 별도 `RECONCILIATION-MANIFEST.sha256`으로 검증한다.
 - 첫 Run의 최상위 `MANIFEST.sha256`은 Run-local environment Evidence와 계약 등은 일치하지만, 현재의 공유 준비 artifact 4개(`docker-compose.release.yml`, `preflight.sh`, `capture-state.sh`, `EXECUTION-PREPARATION.txt`)와는 일치하지 않는다. 이는 첫 Run manifest의 과거 snapshot과 현재 공유 파일 사이의 byte drift이며, 해당 manifest를 현재 전체 디렉터리 검증값으로 사용해서는 안 된다.
 - 첫 Run Attempt 2의 `ATTEMPT-2-MANIFEST.sha256`은 등재된 17개 Run-local Evidence 전부와 일치한다. 따라서 3절의 판정은 무결성이 확인된 Attempt 2 Evidence에 근거한다.
 
 ## 6. Repository 추적 상태
 
-- `docs/operational-validation/README.md`는 tracked file이며 이번 동기화 전에 이미 수정 상태였다. 이 Record는 기존 변경 중 BIP-FR-005 항목만 현재 Run history와 맞췄다.
-- 현재 Git index에는 `BIP-FR-005-redis-streams-unavailability/` 아래 파일이 하나도 없다. Markdown 이외의 준비/Evidence 파일은 untracked다.
-- `.gitignore:34`의 `*.md` 규칙 때문에 `REPRODUCTION-CONTRACT.md`와 이 `REPRODUCTION-RECORD.md`는 ignored 상태다.
-- 후속 Codex CLI 책임에서는 최소한 수정된 `docs/operational-validation/README.md`를 일반 추적하고, 두 canonical Markdown artifact는 ignore 예외를 명시해 강제 추적해야 한다. 그 밖의 FR-005 준비/Evidence corpus도 명시적으로 선택해 index에 추가해야 canonical locator가 repository clone에서 유효해진다.
-- 이 문서 동기화에서는 `.gitignore` 변경, `git add`, commit 또는 push를 수행하지 않았다.
+- FR-005 implementation, test, release-preparation, canonical documentation과 Evidence corpus는 전용 branch `validation/bip-fr-005-redis-streams-unavailability`에서 추적한다.
+- Canonical implementation commit은 `e540d4238480cddd08ceb4578a93e935ed731b8b`, canonicalization anchor는 `7eba27e22a36a5e50109351f7dbd518d3c78b71b`다.
+- `REPRODUCTION-CONTRACT.md`와 이 `REPRODUCTION-RECORD.md`는 `.gitignore`를 변경하지 않고 path-specific explicit tracking으로 보존한다.
+- 최종 preparation HEAD를 특정 SHA로 상수화하지 않는다. `preflight-v2.sh`는 canonicalization anchor의 descendant인 clean checkout에서 canonical implementation 및 기존 release-preparation byte가 변하지 않았음을 검증하고 실제 HEAD를 Evidence 출력에 별도로 기록한다.
 
 ## 7. 다음 실행 관문
 
-현재 Run을 시작하기 전에 runtime entry를 재검증해야 한다. `NORMAL_COHORT_DATA_CONTRACT=PASS`는 유지되지만 `RUNTIME_PREFLIGHT=BLOCKED`를 대체하지 않는다. Runtime 복구, frozen release 배포와 Material Run 시작은 별도 승인된 실행 책임에서 수행해야 하며, 이 Record는 이를 실행하거나 Outcome을 선배정하지 않는다.
+Repository-side identity reconciliation과 `preflight-v2.sh static`은 `PASS`다. 현재 Run을 시작하기 전에 v2로 runtime entry를 다시 검증해야 한다. `NORMAL_COHORT_DATA_CONTRACT=PASS`는 유지되지만 `RUNTIME_PREFLIGHT=BLOCKED`를 대체하지 않는다. Runtime 복구, frozen release 배포와 Material Run 시작은 별도 승인된 실행 책임에서 수행해야 하며, 이 Record는 이를 실행하거나 Outcome을 선배정하지 않는다.
