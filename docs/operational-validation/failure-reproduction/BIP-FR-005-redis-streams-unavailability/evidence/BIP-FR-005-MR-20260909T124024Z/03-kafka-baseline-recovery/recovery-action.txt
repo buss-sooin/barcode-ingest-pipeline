@@ -1,0 +1,7 @@
+recovery_started_at_utc=2026-09-11T10:18:52Z
+action=existing_container_start
+container_id_before=cd231843ae08e9f3af62aac8168d551db3436a93c266cde2d3e1a749f6424aea
+bip-fr-002-broker-3
+container_id_after=cd231843ae08e9f3af62aac8168d551db3436a93c266cde2d3e1a749f6424aea
+state=running health=starting exit_code=0 oom_killed=false restart_count=0 image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249 started_at=2026-09-11T10:18:52.366599721Z
+recreated=NO

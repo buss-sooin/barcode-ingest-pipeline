@@ -1,0 +1,9 @@
+barcode-events:0:0
+barcode-events:1:3610
+barcode-events:2:0
+barcode-events-dlt:0:0
+barcode-events-dlt:1:0
+barcode-events-dlt:2:0
+barcode-events-quarantine:0:0
+barcode-events-quarantine:1:0
+barcode-events-quarantine:2:0

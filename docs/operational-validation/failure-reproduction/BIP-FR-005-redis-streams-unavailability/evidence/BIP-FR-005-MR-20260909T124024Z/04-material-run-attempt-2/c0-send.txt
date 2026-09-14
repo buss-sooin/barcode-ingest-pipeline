@@ -1,0 +1,5 @@
+sent_at_utc=2026-09-11T10:37:00Z
+scan_time_epoch_ms=1789123020000
+key=bip-fr-005-c0-device
+payload={"barcode":"BIP-FR-005-MR-20260909T124024Z-C0-001","scanTime":1789123020000,"deviceId":"bip-fr-005-c0-device"}
+http_response=Ingested barcode BIP-FR-005-MR-20260909T124024Z-C0-001

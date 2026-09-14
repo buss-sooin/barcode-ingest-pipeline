@@ -1,0 +1,13 @@
+command=cd barcode-processing-service && ./gradlew clean test bootJar --no-daemon
+executed_at_local=2026-09-09T21:38:29+09:00
+result=PASS
+build_result=BUILD_SUCCESSFUL
+test_suites=9
+tests=23
+failures=0
+errors=0
+skipped=0
+test_results_set_sha256=d2f910de5a624d1284461884b4505299e6d128a8ca36d62148e2053d3a55ea42
+boot_jar=barcode-processing-service/build/libs/barcode-processing-service-0.0.1-SNAPSHOT.jar
+boot_jar_sha256=f8c0f1ecd9d6f38cdabfbda262becb6f599b8f096125ab4307bca09457f642b6
+material_run_executed=NO

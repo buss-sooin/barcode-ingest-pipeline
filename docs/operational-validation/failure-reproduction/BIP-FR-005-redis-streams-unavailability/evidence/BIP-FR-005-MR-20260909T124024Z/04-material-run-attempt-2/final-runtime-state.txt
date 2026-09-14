@@ -1,0 +1,56 @@
+captured_at_utc=2026-09-11T10:40:04Z
+phase=material-run-aborted-c0
+run_id=BIP-FR-005-MR-20260909T124024Z
+processing_container=930661d0c8cdb6752344eb8e2b65ce796c1e42f0894f6f3d74be907ed137136f processing_image=sha256:2231bee6168819a3c2734f84833b88aa78fc250f29096ef927b12858724d6650 state=running restart_count=0
+kafka_topic=barcode-events
+barcode-events:0:0
+barcode-events:1:3610
+barcode-events:2:0
+kafka_topic=barcode-events-dlt
+barcode-events-dlt:0:0
+barcode-events-dlt:1:0
+barcode-events-dlt:2:0
+kafka_topic=barcode-events-quarantine
+barcode-events-quarantine:0:0
+barcode-events-quarantine:1:0
+barcode-events-quarantine:2:0
+kafka_group=barcode-processing-group
+
+GROUP                    TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                                              HOST            CLIENT-ID
+barcode-processing-group barcode-events  1          3610            3610            0               consumer-barcode-processing-group-2-8c962e0b-d53e-4cde-baa6-6e082b871068 /172.18.0.8     consumer-barcode-processing-group-2
+barcode-processing-group barcode-events  2          -               0               -               consumer-barcode-processing-group-3-07de3cb8-8066-446d-b731-b1ff48120a22 /172.18.0.8     consumer-barcode-processing-group-3
+barcode-processing-group barcode-events  0          -               0               -               consumer-barcode-processing-group-1-37fb89ca-44b9-48b7-93e0-52cc44086b02 /172.18.0.8     consumer-barcode-processing-group-1
+kafka_group=barcode-events-dlt-disposition
+
+Error: Executing consumer group command failed due to org.apache.kafka.common.errors.GroupIdNotFoundException: Group barcode-events-dlt-disposition not found.
+java.util.concurrent.ExecutionException: org.apache.kafka.common.errors.GroupIdNotFoundException: Group barcode-events-dlt-disposition not found.
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(Unknown Source)
+	at java.base/java.util.concurrent.CompletableFuture.get(Unknown Source)
+	at org.apache.kafka.common.internals.KafkaFutureImpl.get(KafkaFutureImpl.java:155)
+	at org.apache.kafka.tools.consumer.group.ConsumerGroupCommand$ConsumerGroupService.describeConsumerGroups(ConsumerGroupCommand.java:830)
+	at org.apache.kafka.tools.consumer.group.ConsumerGroupCommand$ConsumerGroupService.collectGroupsOffsets(ConsumerGroupCommand.java:846)
+	at org.apache.kafka.tools.consumer.group.ConsumerGroupCommand$ConsumerGroupService.describeGroups(ConsumerGroupCommand.java:577)
+	at org.apache.kafka.tools.consumer.group.ConsumerGroupCommand.run(ConsumerGroupCommand.java:139)
+	at org.apache.kafka.tools.consumer.group.ConsumerGroupCommand.main(ConsumerGroupCommand.java:123)
+Caused by: org.apache.kafka.common.errors.GroupIdNotFoundException: Group barcode-events-dlt-disposition not found.
+redis_stream_info={"length":3600,"radix-tree-keys":110,"radix-tree-nodes":136,"last-generated-id":"1789123021132-0","max-deleted-entry-id":"0-0","entries-added":3600,"recorded-first-entry-id":"1788320589193-0","idmp-duration":100,"idmp-maxsize":100,"pids-tracked":0,"iids-tracked":0,"iids-added":0,"iids-duplicates":0,"groups":1,"first-entry":["1788320589193-0",["internalBarcodeId","DLV-SEOUL-CENTER-PC-001-260902-01M1G3D9AXADVMF53QTXS734MJ","originalBarcode","8801328710426","deviceId","SEOUL-CENTER-PC-001","scanTime","1788320585000","processedTime","1788320589151"]],"last-entry":["1789123021132-0",["internalBarcodeId","DLV-bip-fr-005-c0-device-260911-01M280NJ9C36T6Q7AQVFT2D55D","originalBarcode","BIP-FR-005-MR-20260909T124024Z-C0-001","deviceId","bip-fr-005-c0-device","scanTime","1789123020000","processedTime","1789123021100"]]}
+redis_group_info=[{"name":"barcode-persistence-group","consumers":2,"pending":0,"last-delivered-id":"1789123021132-0","entries-read":3600,"lag":0}]
+redis_pending=[0,null,null,null]
+redis_run_records=[
+  [
+    "1789123021132-0",
+    [
+      "internalBarcodeId",
+      "DLV-bip-fr-005-c0-device-260911-01M280NJ9C36T6Q7AQVFT2D55D",
+      "originalBarcode",
+      "BIP-FR-005-MR-20260909T124024Z-C0-001",
+      "deviceId",
+      "bip-fr-005-c0-device",
+      "scanTime",
+      "1789123020000",
+      "processedTime",
+      "1789123021100"
+    ]
+  ]
+]
+mysql: [Warning] Using a password on the command line interface can be insecure.

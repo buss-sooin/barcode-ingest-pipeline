@@ -1,0 +1,57 @@
+checked_at_utc=2026-09-11T10:21:41Z
+mode=runtime
+run_id=BIP-FR-005-MR-20260909T124024Z
+contract_revision=BIP-FR-005-RC-R1
+branch=validation/bip-fr-004-mysql-persistence-unavailable
+head=57b59577ac856d664fd69f5a6c4867f1f583be8c
+tracked_diff_sha256=8b80e8d182b00b0e5a476a7185bfb3fc9b7d5c1712202e1b62a0244bcc936f37
+untracked_set_sha256=c46004e897fbc560945f66ece023f7470d210aaa9386b0d956af2d63f75c49e2
+implementation_identity_sha256=47c238fc9078a37422f81ce353ccf0a626c3341d7d9ddd7b6d49e73aea3a756e
+processing_image=barcode-processing-service:bip-fr-005-mr-20260909t124024z
+processing_image_id=sha256:2231bee6168819a3c2734f84833b88aa78fc250f29096ef927b12858724d6650
+container=bip-fr-002-controller state=running image_id=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249 restart_count=0
+container=bip-fr-002-broker-1 state=running image_id=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249 restart_count=0
+container=bip-fr-002-broker-2 state=running image_id=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249 restart_count=0
+container=bip-fr-002-broker-3 state=running image_id=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249 restart_count=0
+container=bip-fr-002-mysql state=running image_id=sha256:5e7e005a680e75d935984d3d9390990d2a709b3ed67e92708e9e6747f1f754c9 restart_count=0
+container=bip-fr-002-redis state=running image_id=sha256:59c08762bdbcf53fa132aa0bae464a57a1309dc3fff8a034bb3e16d7a0b30ec5 restart_count=0
+container=bip-fr-002-ingest state=running image_id=sha256:0bc5151c97bc7cf4ed3c0bf9e801ff4e1231f192447f735f5c6bc37725596c6d restart_count=0
+container=bip-fr-002-processing state=running image_id=sha256:2231bee6168819a3c2734f84833b88aa78fc250f29096ef927b12858724d6650 restart_count=0
+container=bip-fr-002-scanner state=running image_id=sha256:ddafb8a95bbddb398f4cdf4cb34469aa1315eef24c9abdfc9b6ae66f76a16561 restart_count=0
+container=bip-fr-002-worker-1 state=running image_id=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec restart_count=0
+container=bip-fr-002-worker-2 state=running image_id=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec restart_count=0
+container=bip-fr-002-broker-1 health=healthy
+container=bip-fr-002-broker-2 health=healthy
+container=bip-fr-002-broker-3 health=healthy
+container=bip-fr-002-mysql health=healthy
+container=bip-fr-002-redis health=healthy
+application_port=18081 health={"status":"UP"}
+application_port=18082 health={"status":"UP"}
+application_port=18084 health={"status":"UP"}
+application_port=18085 health={"status":"UP"}
+application_port=18086 health={"status":"UP"}
+Topic: barcode-events	TopicId: 1ojqpZ39RquvwSBQvd5bXw	PartitionCount: 3	ReplicationFactor: 3	Configs: compression.type=snappy,min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: barcode-events	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 1,2,3	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 2	Leader: 3	Replicas: 3,1,2	Isr: 1,2,3	Elr: 	LastKnownElr: 
+Topic: barcode-events-dlt	TopicId: jL9ViC_KSL-4XsQQPjeA0w	PartitionCount: 3	ReplicationFactor: 3	Configs: compression.type=snappy,min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: barcode-events-dlt	Partition: 0	Leader: 3	Replicas: 3,1,2	Isr: 1,2,3	Elr: 	LastKnownElr: 
+	Topic: barcode-events-dlt	Partition: 1	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3	Elr: 	LastKnownElr: 
+	Topic: barcode-events-dlt	Partition: 2	Leader: 2	Replicas: 2,3,1	Isr: 1,2,3	Elr: 	LastKnownElr: 
+Topic: barcode-events-quarantine	TopicId: fndoeqP2RDeBbpj4CO_JAw	PartitionCount: 3	ReplicationFactor: 3	Configs: compression.type=snappy,min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: barcode-events-quarantine	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 1,2,3	Elr: 	LastKnownElr: 
+	Topic: barcode-events-quarantine	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 2,1,3	Elr: 	LastKnownElr: 
+	Topic: barcode-events-quarantine	Partition: 2	Leader: 3	Replicas: 3,1,2	Isr: 1,2,3	Elr: 	LastKnownElr: 
+
+GROUP                    TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                                              HOST            CLIENT-ID
+barcode-processing-group barcode-events  1          3609            3609            0               consumer-barcode-processing-group-2-8c962e0b-d53e-4cde-baa6-6e082b871068 /172.18.0.8     consumer-barcode-processing-group-2
+barcode-processing-group barcode-events  2          -               0               -               consumer-barcode-processing-group-3-07de3cb8-8066-446d-b731-b1ff48120a22 /172.18.0.8     consumer-barcode-processing-group-3
+barcode-processing-group barcode-events  0          -               0               -               consumer-barcode-processing-group-1-37fb89ca-44b9-48b7-93e0-52cc44086b02 /172.18.0.8     consumer-barcode-processing-group-1
+dlt_disposition_group=ABSENT_BEFORE_FIRST_EXECUTION
+redis_groups=[{"name":"barcode-persistence-group","consumers":2,"pending":0,"last-delivered-id":"1788847508665-0","entries-read":3599,"lag":0}]
+redis_pending=[0,null,null,null]
+mysqladmin: [Warning] Using a password on the command line interface can be insecure.
+mysqld is alive
+topic=barcode-events-dlt total_end_offset=0
+topic=barcode-events-quarantine total_end_offset=0
+RUNTIME_PREFLIGHT=PASS

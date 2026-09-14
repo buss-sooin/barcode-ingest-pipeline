@@ -1,0 +1,16 @@
+checked_at_utc=2026-09-10T05:11:49Z
+contract_revision=BIP-FR-005-RC-R1
+contract_sha256=1ed738712229c27320b59dd0ac13748baedfadbd350cdbdb0078692883880865
+run_id=BIP-FR-005-MR-20260909T124024Z
+run_state=REGISTERED_NOT_EXECUTED
+branch=validation/bip-fr-004-mysql-persistence-unavailable
+head=57b59577ac856d664fd69f5a6c4867f1f583be8c
+implementation_identity_sha256=47c238fc9078a37422f81ce353ccf0a626c3341d7d9ddd7b6d49e73aea3a756e
+release_image=barcode-processing-service:bip-fr-005-mr-20260909t124024z
+release_image_id=sha256:2231bee6168819a3c2734f84833b88aa78fc250f29096ef927b12858724d6650
+preparation_manifest_sha256=2979a4136660b8aa090791ea89e5ee6a51178c1530d8a5d08961e86e6f8f3b46
+preparation_manifest_check=PASS
+implementation_files_check=PASS
+static_preflight=PASS
+image_labels_check=PASS
+frozen_identity_verdict=PASS

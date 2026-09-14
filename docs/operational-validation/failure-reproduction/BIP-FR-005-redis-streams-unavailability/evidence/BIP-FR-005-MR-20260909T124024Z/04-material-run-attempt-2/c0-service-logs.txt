@@ -1,0 +1,59 @@
+===== bip-fr-002-ingest =====
+2026-09-11T10:37:00.826250669Z 2026-09-11T10:37:00.815Z  INFO 1 --- [barcode-ingest-service] [io-8081-exec-13] c.b.b.c.BarcodeIngestController          : Received barcode request: BIP-FR-005-MR-20260909T124024Z-C0-001
+2026-09-11T10:37:00.974262710Z 2026-09-11T10:37:00.971Z  INFO 1 --- [barcode-ingest-service] [vice-producer-2] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: bip-fr-005-c0-device, Barcode: BIP-FR-005-MR-20260909T124024Z-C0-001, Partition: 1, Offset: 3609
+===== bip-fr-002-processing =====
+2026-09-11T10:37:01.096960627Z 2026-09-11T10:37:01.096Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: bip-fr-005-c0-device, Partition: 1, Offset: 3609
+2026-09-11T10:37:01.097314336Z 2026-09-11T10:37:01.096Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-005-MR-20260909T124024Z-C0-001, Device: bip-fr-005-c0-device, scanTime: 1789123020000
+2026-09-11T10:37:01.100556836Z 2026-09-11T10:37:01.100Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-005-MR-20260909T124024Z-C0-001 → DLV-bip-fr-005-c0-device-260911-01M280NJ9C36T6Q7AQVFT2D55D
+2026-09-11T10:37:01.145738794Z 2026-09-11T10:37:01.145Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: BIP-FR-005-MR-20260909T124024Z-C0-001
+2026-09-11T10:37:01.145785252Z 2026-09-11T10:37:01.145Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: BIP-FR-005-MR-20260909T124024Z-C0-001
+===== bip-fr-002-worker-1 =====
+2026-09-11T10:37:01.147520002Z 2026-09-11T10:37:01.142Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 1 messages from Redis Stream
+2026-09-11T10:37:01.177972961Z 2026-09-11T10:37:01.177Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+2026-09-11T10:37:01.177993919Z     select
+2026-09-11T10:37:01.177995419Z         dcme1_0.id,
+2026-09-11T10:37:01.177996711Z         dcme1_0.center_id,
+2026-09-11T10:37:01.177997711Z         dcme1_0.center_name,
+2026-09-11T10:37:01.177998669Z         dcme1_0.device_id,
+2026-09-11T10:37:01.177999544Z         dcme1_0.saved_time,
+2026-09-11T10:37:01.178000419Z         dcme1_0.updated_time 
+2026-09-11T10:37:01.178001336Z     from
+2026-09-11T10:37:01.178002294Z         device_center_mapping dcme1_0 
+2026-09-11T10:37:01.178003252Z     where
+2026-09-11T10:37:01.178004169Z         dcme1_0.device_id in (?)
+2026-09-11T10:37:01.178806752Z Hibernate: 
+2026-09-11T10:37:01.178811752Z     select
+2026-09-11T10:37:01.178812752Z         dcme1_0.id,
+2026-09-11T10:37:01.178813711Z         dcme1_0.center_id,
+2026-09-11T10:37:01.178814627Z         dcme1_0.center_name,
+2026-09-11T10:37:01.178815544Z         dcme1_0.device_id,
+2026-09-11T10:37:01.178816461Z         dcme1_0.saved_time,
+2026-09-11T10:37:01.178817377Z         dcme1_0.updated_time 
+2026-09-11T10:37:01.178818336Z     from
+2026-09-11T10:37:01.178819252Z         device_center_mapping dcme1_0 
+2026-09-11T10:37:01.178820211Z     where
+2026-09-11T10:37:01.178821086Z         dcme1_0.device_id in (?)
+2026-09-11T10:37:01.204053377Z 2026-09-11T10:37:01.200Z ERROR 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Failed to map record: 1789123021132-0
+2026-09-11T10:37:01.204075127Z 
+2026-09-11T10:37:01.204079169Z java.lang.IllegalStateException: Unknown deviceId: bip-fr-005-c0-device
+2026-09-11T10:37:01.204081877Z 	at com.barcode.barcode_persistence_worker.service.RedisStreamConsumer.mapToEntity(RedisStreamConsumer.java:472) ~[!/:0.0.1-SNAPSHOT]
+2026-09-11T10:37:01.204095836Z 	at com.barcode.barcode_persistence_worker.service.RedisStreamConsumer.processAndSaveRecords(RedisStreamConsumer.java:235) ~[!/:0.0.1-SNAPSHOT]
+2026-09-11T10:37:01.204097127Z 	at com.barcode.barcode_persistence_worker.service.RedisStreamConsumer.processBatch(RedisStreamConsumer.java:138) ~[!/:0.0.1-SNAPSHOT]
+2026-09-11T10:37:01.204098086Z 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source) ~[na:na]
+2026-09-11T10:37:01.204098961Z 	at java.base/java.lang.reflect.Method.invoke(Unknown Source) ~[na:na]
+2026-09-11T10:37:01.204102086Z 	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.2.12.jar!/:6.2.12]
+2026-09-11T10:37:01.204105961Z 	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.12.jar!/:6.2.12]
+2026-09-11T10:37:01.204107419Z 	at io.micrometer.observation.Observation.observe(Observation.java:498) ~[micrometer-observation-1.15.5.jar!/:1.15.5]
+2026-09-11T10:37:01.204111002Z 	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.2.12.jar!/:6.2.12]
+2026-09-11T10:37:01.204112169Z 	at org.springframework.scheduling.config.Task$OutcomeTrackingRunnable.run(Task.java:87) ~[spring-context-6.2.12.jar!/:6.2.12]
+2026-09-11T10:37:01.204113711Z 	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.2.12.jar!/:6.2.12]
+2026-09-11T10:37:01.204114669Z 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) ~[na:na]
+2026-09-11T10:37:01.204115586Z 	at java.base/java.util.concurrent.FutureTask.runAndReset(Unknown Source) ~[na:na]
+2026-09-11T10:37:01.204116502Z 	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source) ~[na:na]
+2026-09-11T10:37:01.204120086Z 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[na:na]
+2026-09-11T10:37:01.204122377Z 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[na:na]
+2026-09-11T10:37:01.204125502Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-11T10:37:01.204126294Z 
+2026-09-11T10:37:01.224330836Z 2026-09-11T10:37:01.223Z  WARN 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : DLQ로 이동: 1건, 사유=매핑 실패 또는 데이터 형식 오류
+2026-09-11T10:37:01.225051461Z 2026-09-11T10:37:01.224Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 1 messages
+===== bip-fr-002-worker-2 =====

@@ -1,0 +1,6 @@
+C0|originalBarcode=BIP-FR-005-MR-20260909T124024Z-C0-001|source=barcode-events/1/3609|DLT=NONE|replay=NONE|quarantine=NONE|Redis=1789123021132-0|WorkerDLQ=1789123021220-0|MySQL=NONE|unresolved=NONE
+C1|originalBarcode=BIP-FR-005-MR-20260909T124024Z-C1-001|source=NOT_SENT|DLT=NONE|replay=NONE|quarantine=NONE|Redis=NONE|WorkerDLQ=NONE|MySQL=NONE|unresolved=NONE
+C2|originalBarcode=BIP-FR-005-MR-20260909T124024Z-C2-001|source=NOT_SENT|DLT=NONE|replay=NONE|quarantine=NONE|Redis=NONE|WorkerDLQ=NONE|MySQL=NONE|unresolved=NONE
+C3|originalBarcode=BIP-FR-005-MR-20260909T124024Z-C3-001|source=NOT_SENT|DLT=NONE|replay=NONE|quarantine=NONE|Redis=NONE|WorkerDLQ=NONE|MySQL=NONE|unresolved=NONE
+C0_failure=UNKNOWN_DEVICE_ID_BIP_FR_005_C0_DEVICE
+C0_baseline_completion=FAIL

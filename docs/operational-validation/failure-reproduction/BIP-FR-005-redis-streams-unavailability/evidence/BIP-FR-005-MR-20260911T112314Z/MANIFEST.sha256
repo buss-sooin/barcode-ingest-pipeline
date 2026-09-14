@@ -1,0 +1,15 @@
+1ed738712229c27320b59dd0ac13748baedfadbd350cdbdb0078692883880865  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/REPRODUCTION-CONTRACT.md
+986b88ea610fb30b7d65acb3e817f4a33dda7086346f0864e18df97a16c6fbd8  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/docker-compose.release.yml
+82e51d44bf96f6356c49fe2c564a507f4c1064ccfc03796b86f53371de743a88  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/preflight.sh
+d10919f2a2bceefb72d70e5f910d13518e04d9d8dc1a51efeb3f72facb7ae939  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/normal-cohort-data-contract.sh
+bfe751a4f5e51c5822196938ef1352ef512cdb17940f919982a9714d2a6dab65  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/provision-quarantine-topic.sh
+8f6027dee4e7a40f4ec438b2db940045611a60c3b21d25c370deb3b4c98dc5ea  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/capture-state.sh
+05b0acd74086a0b12f40e78effd1b79643cf545ba74ab68e5a3ba687346219f1  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/capture-kafka-window.sh
+b93713ab64ba278c38ee20b6a3ece777a37c1fecf0fb035cb9af146c472d6404  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/EXECUTION-PREPARATION.txt
+65c137961477b1a25aa9aa9453139860f6b61d680d62dc42720df0935e0e3d1c  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/00-environment/run-registration.txt
+1918c27af56b3f15bfbc2cd8a836cab6d8adf413598e083bc57f4e6b517f2656  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/00-environment/implementation-files.sha256
+46f7ab950922572ffc0f1473058718302f301d12028531dc7c05c59f47bcf029  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/00-environment/test-verification.txt
+3198f1b433d5f1cc552e35a641e4fd8f8d86e9d9832b2b00d3fcf7338fb766fe  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/00-environment/release-identity.txt
+e1cc3359ca3ba94dc30803a8a1411dcb22aecf7692ed073c77347505fa55b589  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/00-environment/cohort.tsv
+fc020ac220d2abd7da8e5976e8af5ba68a015932191592e8a0a93cda7bc25cfe  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/00-environment/normal-cohort-data-contract.txt
+ba3889995f7d0abbc250d8656bde3001ec416d148bdc3c817bd3547cd1b1eff4  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/00-environment/preparation-verification.txt

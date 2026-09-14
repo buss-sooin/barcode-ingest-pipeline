@@ -1,0 +1,24 @@
+captured_at_utc=2026-09-11T10:39:04Z
+worker_dlq_records=[
+  [
+    "1789123021220-0",
+    [
+      "internalBarcodeId",
+      "DLV-bip-fr-005-c0-device-260911-01M280NJ9C36T6Q7AQVFT2D55D",
+      "originalBarcode",
+      "BIP-FR-005-MR-20260909T124024Z-C0-001",
+      "originalRecordId",
+      "1789123021132-0",
+      "scanTime",
+      "1789123020000",
+      "failureReason",
+      "매핑 실패 또는 데이터 형식 오류",
+      "deviceId",
+      "bip-fr-005-c0-device",
+      "processedTime",
+      "1789123021100"
+    ]
+  ]
+]
+device_mapping_rows=
+mysql: [Warning] Using a password on the command line interface can be insecure.

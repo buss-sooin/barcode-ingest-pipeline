@@ -1,0 +1,19 @@
+contract_revision=BIP-FR-005-RC-R1
+run_id=BIP-FR-005-MR-20260909T124024Z
+source_implementation_sha256=47c238fc9078a37422f81ce353ccf0a626c3341d7d9ddd7b6d49e73aea3a756e
+docker_build_command=docker build --no-cache --pull=false --label org.opencontainers.image.revision=57b59577ac856d664fd69f5a6c4867f1f583be8c --label io.bip.implementation.sha256=47c238fc9078a37422f81ce353ccf0a626c3341d7d9ddd7b6d49e73aea3a756e --label io.bip.contract=BIP-FR-005-RC-R1 --label io.bip.material-run=BIP-FR-005-MR-20260909T124024Z -t barcode-processing-service:bip-fr-005-mr-20260909t124024z barcode-processing-service
+docker_build_result=PASS
+processing_image_created_at_utc=2026-09-09T12:41:10.040884044Z
+dockerfile_sha256=01ea6c0dc350d636868f8b85046119bca046091c79f91b6aaded4f171632bc9a
+processing_image=barcode-processing-service:bip-fr-005-mr-20260909t124024z
+processing_image_id=sha256:2231bee6168819a3c2734f84833b88aa78fc250f29096ef927b12858724d6650
+processing_image_repo_digest=LOCAL_BUILD_NONE
+image_label_org.opencontainers.image.revision=57b59577ac856d664fd69f5a6c4867f1f583be8c
+image_label_io.bip.implementation.sha256=47c238fc9078a37422f81ce353ccf0a626c3341d7d9ddd7b6d49e73aea3a756e
+image_label_io.bip.contract=BIP-FR-005-RC-R1
+image_label_io.bip.material-run=BIP-FR-005-MR-20260909T124024Z
+deployment_override=docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/docker-compose.release.yml
+deployment_rule=use both validation and release compose files with --no-build; preflight must prove actual container image ID equality
+current_deployment_match=NO
+current_deployed_processing_image_id=sha256:bfbefafadf163a422c2aeaf156702bc12cd97e21fadb489a0fa0f24eed2495ea
+runtime_preflight=NOT_EXECUTED

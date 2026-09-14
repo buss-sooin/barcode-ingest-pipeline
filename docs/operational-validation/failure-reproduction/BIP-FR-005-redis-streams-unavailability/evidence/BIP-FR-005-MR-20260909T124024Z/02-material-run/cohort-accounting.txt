@@ -1,0 +1,11 @@
+C0|originalBarcode=BIP-FR-005-MR-20260909T124024Z-C0-001|source=NOT_SENT|DLT=NONE|replay=NONE|quarantine=NONE|Redis=NONE|MySQL=NONE|unresolved=NONE
+C1|originalBarcode=BIP-FR-005-MR-20260909T124024Z-C1-001|source=NOT_SENT|DLT=NONE|replay=NONE|quarantine=NONE|Redis=NONE|MySQL=NONE|unresolved=NONE
+C2|originalBarcode=BIP-FR-005-MR-20260909T124024Z-C2-001|source=NOT_SENT|DLT=NONE|replay=NONE|quarantine=NONE|Redis=NONE|MySQL=NONE|unresolved=NONE
+C3|originalBarcode=BIP-FR-005-MR-20260909T124024Z-C3-001|source=NOT_SENT|DLT=NONE|replay=NONE|quarantine=NONE|Redis=NONE|MySQL=NONE|unresolved=NONE
+duplicate_output_count=0
+same_generation_duplicate_count=0
+unexpected_replay_count=0
+unexpected_quarantine_count=0
+identity_conflict_count=0
+unaccounted_identity_count=0
+accounting_basis=NO_COHORT_RECORD_WAS_PUBLISHED

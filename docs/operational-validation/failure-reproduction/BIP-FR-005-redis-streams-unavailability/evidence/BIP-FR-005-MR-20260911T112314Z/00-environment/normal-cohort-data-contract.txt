@@ -1,0 +1,10 @@
+checked_at_utc=2026-09-11T11:30:25Z
+run_id=BIP-FR-005-MR-20260911T112314Z
+cohort=C0 role=baseline-good original_barcode=BIP-FR-005-MR-20260911T112314Z-C0-001 device_id=SEOUL-CENTER-PC-001 mapping=1 mysql=0 redis_stream=0 worker_dlq=0 dedupe_exists=0
+cohort=C1 role=transient-redis-failure original_barcode=BIP-FR-005-MR-20260911T112314Z-C1-001 device_id=SEOUL-CENTER-PC-002 mapping=1 mysql=0 redis_stream=0 worker_dlq=0 dedupe_exists=0
+cohort=C2 role=permanent-validation original_barcode=BIP-FR-005-MR-20260911T112314Z-C2-001 device_id=<BLANK> mapping=NOT_APPLICABLE mysql=0 redis_stream=0 worker_dlq=0 dedupe_exists=0
+cohort=C3 role=post-recovery-good original_barcode=BIP-FR-005-MR-20260911T112314Z-C3-001 device_id=SEOUL-CENTER-PC-003 mapping=1 mysql=0 redis_stream=0 worker_dlq=0 dedupe_exists=0
+NORMAL_COHORT_DATA_CONTRACT=PASS
+reference_data_mutation=NO
+material_traffic=NOT_EXECUTED
+redis_fault_injection=NOT_EXECUTED

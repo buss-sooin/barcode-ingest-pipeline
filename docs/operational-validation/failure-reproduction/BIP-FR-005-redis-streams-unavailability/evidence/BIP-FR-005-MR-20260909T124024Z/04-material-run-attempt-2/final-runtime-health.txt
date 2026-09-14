@@ -1,0 +1,15 @@
+captured_at_utc=2026-09-11T10:40:04Z
+/bip-fr-002-controller state=running exit=0 oom=false restart=0 image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+/bip-fr-002-broker-1 state=running exit=0 oom=false restart=0 image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+/bip-fr-002-broker-2 state=running exit=0 oom=false restart=0 image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+/bip-fr-002-broker-3 state=running exit=0 oom=false restart=0 image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+/bip-fr-002-processing state=running exit=0 oom=false restart=0 image=sha256:2231bee6168819a3c2734f84833b88aa78fc250f29096ef927b12858724d6650
+/bip-fr-002-redis state=running exit=0 oom=false restart=0 image=sha256:59c08762bdbcf53fa132aa0bae464a57a1309dc3fff8a034bb3e16d7a0b30ec5
+/bip-fr-002-worker-1 state=running exit=0 oom=false restart=0 image=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec
+/bip-fr-002-worker-2 state=running exit=0 oom=false restart=0 image=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec
+/bip-fr-002-mysql state=running exit=0 oom=false restart=0 image=sha256:5e7e005a680e75d935984d3d9390990d2a709b3ed67e92708e9e6747f1f754c9
+under_replicated_partitions=0
+unavailable_partitions=0
+PONG
+mysqladmin: [Warning] Using a password on the command line interface can be insecure.
+mysqld is alive

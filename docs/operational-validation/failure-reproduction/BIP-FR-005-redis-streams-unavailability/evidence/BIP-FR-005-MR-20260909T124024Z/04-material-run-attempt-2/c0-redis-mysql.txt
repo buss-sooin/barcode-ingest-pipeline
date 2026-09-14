@@ -1,0 +1,21 @@
+redis_record=[
+  [
+    "1789123021132-0",
+    [
+      "internalBarcodeId",
+      "DLV-bip-fr-005-c0-device-260911-01M280NJ9C36T6Q7AQVFT2D55D",
+      "originalBarcode",
+      "BIP-FR-005-MR-20260909T124024Z-C0-001",
+      "deviceId",
+      "bip-fr-005-c0-device",
+      "scanTime",
+      "1789123020000",
+      "processedTime",
+      "1789123021100"
+    ]
+  ]
+]
+redis_group=[{"name":"barcode-persistence-group","consumers":2,"pending":0,"last-delivered-id":"1789123021132-0","entries-read":3600,"lag":0}]
+redis_pending=[0,null,null,null]
+mysql_rows=
+mysql: [Warning] Using a password on the command line interface can be insecure.

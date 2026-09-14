@@ -1,0 +1,12 @@
+contract_revision=BIP-FR-005-RC-R1
+run_id=BIP-FR-005-MR-20260909T124024Z
+attempt=2
+attempt_1=PRE_ENTRY_ABORTED
+final_entry_preflight=PASS
+formal_run_start=MATERIAL_RUN_ACTIVE
+run_started_at_utc=2026-09-11T10:36:41Z
+execution_state=ABORTED
+first_stop_condition=C0_BASELINE_MYSQL_PERSISTENCE_NOT_OBSERVED
+stop_cause=UNKNOWN_DEVICE_ID_BIP_FR_005_C0_DEVICE
+run_aborted_at_utc=2026-09-11T10:39:05Z
+outcome=NOT_ASSIGNED

@@ -1,0 +1,19 @@
+captured_at_utc=2026-09-11T10:22:52Z
+container=bip-fr-002-controller id=d4e4a592a82351ad4fe912f5062a065c17556f62292056ddf8108875a5b0772c state=running exit=0 oom=false restart=0 image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249 health=not_configured
+container=bip-fr-002-broker-1 id=75aba125e6a2b33bc7ee482ed55f396d68892ea09abddd42ed98377a7bc64eef state=running exit=0 oom=false restart=0 image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249 health=healthy
+container=bip-fr-002-broker-2 id=e45e53fee983aef932abbb3c0a416c334395306703f025d4c88375a781257cf0 state=running exit=0 oom=false restart=0 image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249 health=healthy
+container=bip-fr-002-broker-3 id=cd231843ae08e9f3af62aac8168d551db3436a93c266cde2d3e1a749f6424aea state=running exit=0 oom=false restart=0 image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249 health=healthy
+container=bip-fr-002-processing id=930661d0c8cdb6752344eb8e2b65ce796c1e42f0894f6f3d74be907ed137136f state=running exit=0 oom=false restart=0 image=sha256:2231bee6168819a3c2734f84833b88aa78fc250f29096ef927b12858724d6650 health=not_configured
+container=bip-fr-002-redis id=e87508df0ca6f51e3e25c15b0acd8305ab59deb764e5b32989283b9ae14e0945 state=running exit=0 oom=false restart=0 image=sha256:59c08762bdbcf53fa132aa0bae464a57a1309dc3fff8a034bb3e16d7a0b30ec5 health=healthy
+container=bip-fr-002-worker-1 id=6678257672e01b5edcd1c865727e562413039ec0e4b39a80ee9bbe0a580435c0 state=running exit=0 oom=false restart=0 image=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec health=not_configured
+container=bip-fr-002-worker-2 id=447372c53f92fab499b86119b44e839132f434b1e9ecae1f71372949b83027c8 state=running exit=0 oom=false restart=0 image=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec health=not_configured
+container=bip-fr-002-mysql id=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e state=running exit=0 oom=false restart=0 image=sha256:5e7e005a680e75d935984d3d9390990d2a709b3ed67e92708e9e6747f1f754c9 health=healthy
+container=bip-fr-002-controller cpu=1.62% memory=569.9MiB / 5.785GiB memory_percent=9.62% pids=57
+container=bip-fr-002-broker-1 cpu=2.24% memory=971.7MiB / 5.785GiB memory_percent=16.40% pids=112
+container=bip-fr-002-broker-2 cpu=2.29% memory=828.3MiB / 5.785GiB memory_percent=13.98% pids=105
+container=bip-fr-002-broker-3 cpu=3.37% memory=399.7MiB / 5.785GiB memory_percent=6.75% pids=100
+container=bip-fr-002-processing cpu=0.72% memory=410.5MiB / 5.785GiB memory_percent=6.93% pids=53
+container=bip-fr-002-redis cpu=0.44% memory=17.25MiB / 5.785GiB memory_percent=0.29% pids=6
+container=bip-fr-002-worker-1 cpu=0.23% memory=469.8MiB / 5.785GiB memory_percent=7.93% pids=56
+container=bip-fr-002-worker-2 cpu=0.21% memory=474.9MiB / 5.785GiB memory_percent=8.02% pids=56
+container=bip-fr-002-mysql cpu=0.73% memory=135MiB / 5.785GiB memory_percent=2.28% pids=45

@@ -1,0 +1,7 @@
+2026-09-11T08:04:17Z frozen preparation manifests verified PASS
+2026-09-11T08:04:17Z static preflight verified PASS
+2026-09-11T08:05:34Z final entry runtime preflight started
+2026-09-11T08:05:34Z final entry runtime preflight stopped at bip-fr-002-broker-3 state=exited
+2026-09-11T08:05:42Z aborted final runtime state captured
+2026-09-11T08:06:01Z broker-3 diagnostic captured: exit_code=137 oom_killed=true
+2026-09-11T08:06:21Z run execution recorded ABORTED; formal Material Run start was not reached

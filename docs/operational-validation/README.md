@@ -45,8 +45,11 @@ Broker 또는 container가 다시 실행된 사실만으로 복구 완료(Recove
 | BIP-FR-002 — Kafka HA Single Broker Failure | Active scan 중 RF=3 Kafka의 partition leader broker 1개 SIGKILL | `STRICT PASS` | [Technical Report](./failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/TECHNICAL-REPORT.md) |
 | BIP-FR-003 — Kafka Insufficient ISR Write Unavailability | Leader가 살아 있는 target partition에서 두 broker를 순차 중단해 ISR=1 < minISR=2 | `REPRODUCED` | [Technical Report](./failure-reproduction/BIP-FR-003-kafka-insufficient-isr/TECHNICAL-REPORT.md) |
 | BIP-FR-004 — MySQL Persistence Unavailability | Active scan 중 MySQL만 중단해 Worker DB failure, Redis PEL ownership과 application reclaim 검증 | `PARTIALLY_REPRODUCED` | [Technical Report](./failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/TECHNICAL-REPORT.md) |
+| BIP-FR-005 — Redis Streams Unavailability | Active traffic 중 Redis handoff failure, source retry, DLT와 bounded disposition 검증 예정 | Historical `INCONCLUSIVE` / Current `NOT_ASSIGNED` | [Reproduction Record](./failure-reproduction/BIP-FR-005-redis-streams-unavailability/REPRODUCTION-RECORD.md) |
 
 `REPRODUCED`는 승인된 장애가 관측 가능한 영향과 함께 재현되었다는 Workflow Outcome이고, `PARTIALLY_REPRODUCED`는 핵심 failure/recovery lifecycle은 검증됐지만 명시된 Evidence gap 때문에 최대 주장을 축소한 Outcome입니다. `RECONCILED`는 해당 bounded run에서 백로그 소진과 identity-level end-to-end reconciliation이 완료되었다는 결과를 뜻합니다. `STRICT PASS`는 사전 계약의 시간 조건을 포함한 성공 기준과 최종 정합성 기준을 모두 충족했다는 BIP-FR-002 판정입니다.
+
+`BIP-FR-005-RC-R1`은 `FROZEN` 상태다. Historical Run `BIP-FR-005-MR-20260909T124024Z`는 정상 영속화 기준선의 `device_center_mapping` 전제조건 실패로 Redis 장애 주입 전에 중단됐으며, `ABORTED / SUPERSEDED / NOT_REUSABLE`, Outcome `INCONCLUSIVE`로 보존한다. Current Run `BIP-FR-005-MR-20260911T112314Z`는 corrected cohort의 `NORMAL_COHORT_DATA_CONTRACT=PASS`와 별개로 `RUNTIME_PREFLIGHT=BLOCKED`이며 `REGISTERED / NOT_EXECUTED / NOT_ASSIGNED` 상태다. Runtime entry 재검증 전에는 시작하지 않는다.
 
 ## BIP-FR-001 Highlight
 

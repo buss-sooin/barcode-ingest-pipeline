@@ -1,0 +1,11 @@
+2026-09-11T10:36:17Z final same-Run entry preflight started
+2026-09-11T10:36:35Z final same-Run entry preflight PASS
+2026-09-11T10:36:41Z formal Material Run start recorded ACTIVE
+2026-09-11T10:37:00Z C0 source request sent
+2026-09-11T10:37:00Z C0 Kafka publication confirmed partition=1 offset=3609
+2026-09-11T10:37:01Z C0 Processing received source record and Redis publication succeeded
+2026-09-11T10:37:01Z Worker read C0 Redis record
+2026-09-11T10:37:01Z Worker rejected C0 with Unknown deviceId and published Worker DLQ record
+2026-09-11T10:37:01Z Worker acknowledged original Redis Stream record after DLQ publication
+2026-09-11T10:37:47Z bounded C0 completion predicate failed: MySQL row count remained zero
+2026-09-11T10:39:05Z Attempt #2 recorded ABORTED; Redis fault was never injected

@@ -1,0 +1,2 @@
+CreateTime:1789123020841	Partition:1	Offset:3609	NO_HEADERS	bip-fr-005-c0-device	{"barcode":"BIP-FR-005-MR-20260909T124024Z-C0-001","scanTime":1789123020000,"deviceId":"bip-fr-005-c0-device"}
+Processed a total of 1 messages

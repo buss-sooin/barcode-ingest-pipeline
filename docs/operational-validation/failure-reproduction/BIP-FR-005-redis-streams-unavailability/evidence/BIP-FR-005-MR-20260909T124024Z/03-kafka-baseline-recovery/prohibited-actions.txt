@@ -1,0 +1,15 @@
+kafka_configuration_change=NOT_EXECUTED
+broker_recreation=NOT_EXECUTED
+broker_image_rebuild=NOT_EXECUTED
+topic_recreation=NOT_EXECUTED
+partition_reassignment=NOT_EXECUTED
+consumer_group_reset=NOT_EXECUTED
+offset_reset=NOT_EXECUTED
+kafka_data_deletion=NOT_EXECUTED
+source_config_test_contract_mutation=NOT_EXECUTED
+material_run_traffic=NOT_EXECUTED
+redis_fault_injection=NOT_EXECUTED
+dlt_disposition=NOT_EXECUTED
+outcome_assignment=NOT_EXECUTED
+git_commit=NOT_EXECUTED
+git_push=NOT_EXECUTED

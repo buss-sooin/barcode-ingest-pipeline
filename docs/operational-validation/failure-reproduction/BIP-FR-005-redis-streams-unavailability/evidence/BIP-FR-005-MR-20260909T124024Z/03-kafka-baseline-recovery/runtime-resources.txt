@@ -1,0 +1,24 @@
+captured_at_utc=2026-09-11T10:21:25Z
+/bip-fr-002-broker-1|id=75aba125e6a2b33bc7ee482ed55f396d68892ea09abddd42ed98377a7bc64eef|state=running|health=healthy|oom=false|restart=0|image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+/bip-fr-002-broker-2|id=e45e53fee983aef932abbb3c0a416c334395306703f025d4c88375a781257cf0|state=running|health=healthy|oom=false|restart=0|image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+/bip-fr-002-broker-3|id=cd231843ae08e9f3af62aac8168d551db3436a93c266cde2d3e1a749f6424aea|state=running|health=healthy|oom=false|restart=0|image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+/bip-fr-002-redis|id=e87508df0ca6f51e3e25c15b0acd8305ab59deb764e5b32989283b9ae14e0945|state=running|health=healthy|oom=false|restart=0|image=sha256:59c08762bdbcf53fa132aa0bae464a57a1309dc3fff8a034bb3e16d7a0b30ec5
+/bip-fr-002-mysql|id=a206fd09d079142eff9a2cca562ea2ab981d6547cc8e49234db05958c97b882e|state=running|health=healthy|oom=false|restart=0|image=sha256:5e7e005a680e75d935984d3d9390990d2a709b3ed67e92708e9e6747f1f754c9
+template parsing error: template: :1:63: executing "" at <.State.Health>: map has no entry for key "Health"
+template parsing error: template: :1:63: executing "" at <.State.Health>: map has no entry for key "Health"
+template parsing error: template: :1:63: executing "" at <.State.Health>: map has no entry for key "Health"
+template parsing error: template: :1:63: executing "" at <.State.Health>: map has no entry for key "Health"
+container=bip-fr-002-controller cpu=0.85% memory=584.7MiB / 5.785GiB memory_percent=9.87% pids=57
+container=bip-fr-002-broker-1 cpu=281.24% memory=1.126GiB / 5.785GiB memory_percent=19.46% pids=158
+container=bip-fr-002-broker-2 cpu=1.98% memory=857.5MiB / 5.785GiB memory_percent=14.47% pids=105
+container=bip-fr-002-broker-3 cpu=3.05% memory=396.4MiB / 5.785GiB memory_percent=6.69% pids=100
+container=bip-fr-002-processing cpu=0.36% memory=397.7MiB / 5.785GiB memory_percent=6.71% pids=48
+container=bip-fr-002-redis cpu=1.37% memory=16.98MiB / 5.785GiB memory_percent=0.29% pids=6
+container=bip-fr-002-worker-1 cpu=0.14% memory=471.5MiB / 5.785GiB memory_percent=7.96% pids=55
+container=bip-fr-002-worker-2 cpu=0.14% memory=480.3MiB / 5.785GiB memory_percent=8.11% pids=55
+container=bip-fr-002-mysql cpu=0.43% memory=179.7MiB / 5.785GiB memory_percent=3.03% pids=45
+port=18081 {"status":"UP"}
+port=18082 {"status":"UP"}
+port=18084 {"status":"UP"}
+port=18085 {"status":"UP"}
+port=18086 {"status":"UP"}

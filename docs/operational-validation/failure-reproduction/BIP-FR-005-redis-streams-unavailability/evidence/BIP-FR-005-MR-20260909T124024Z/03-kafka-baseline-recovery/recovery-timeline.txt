@@ -1,0 +1,10 @@
+2026-09-11T10:18:22Z frozen identity and manifests verified PASS
+2026-09-11T10:18:39Z broker-3 pre-recovery state captured
+2026-09-11T10:18:52Z existing broker-3 container started once
+2026-09-11T10:19:12Z Kafka first convergence observed: broker-3 healthy, URP=0, unavailable=0
+2026-09-11T10:19:41Z bounded stability observation started
+2026-09-11T10:20:55Z bounded stability observation PASS; OOM recurrence=NO
+2026-09-11T10:21:25Z final Kafka/runtime/run-boundary Evidence captured
+2026-09-11T10:21:41Z frozen runtime preflight started
+2026-09-11T10:21:57Z frozen runtime preflight completed PASS
+2026-09-11T10:22:09Z same-Run resume recorded ELIGIBLE
