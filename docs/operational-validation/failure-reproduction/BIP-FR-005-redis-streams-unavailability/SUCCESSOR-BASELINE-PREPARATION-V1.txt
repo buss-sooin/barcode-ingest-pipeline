@@ -1,0 +1,80 @@
+BIP-FR-005 SUCCESSOR BASELINE PREPARATION V1
+
+PURPOSE
+  Qualify a newly registered successor Material Run without deleting historical
+  Kafka, Redis or MySQL state. Global DLT/quarantine counts are diagnostics only.
+  Entry is decided from partition watermarks, exact historical ownership and
+  successor root-identity absence.
+
+FROZEN ROOT
+  Contract revision: BIP-FR-005-RC-R1
+  Contract SHA-256: 1ed738712229c27320b59dd0ac13748baedfadbd350cdbdb0078692883880865
+  Corrected application implementation: 83eaa799e2359a353e748e567a5fbfc0df0cf9c3
+  Historical residue inventory: known-historical-residue-v1.tsv
+
+SUCCESSOR REGISTRATION PREREQUISITE
+  Only after the runtime topology is healthy and stable, allocate exactly one
+  candidate Run ID with the existing registration mechanism and create its
+  Run-local staging directory under evidence/. Before finalizing REGISTERED
+  state, the directory must contain:
+
+    00-environment/run-registration.txt
+    00-environment/release-identity.txt
+    00-environment/cohort.tsv
+    01-entry-baseline/baseline-watermarks.tsv
+    01-entry-baseline/observed-residue.tsv
+    01-entry-baseline/successor-identity-state.tsv
+    01-entry-baseline/runtime-metrics.tsv
+
+  run-registration.txt must bind one new Run ID to BIP-FR-005-RC-R1, application
+  implementation 83eaa799e2359a353e748e567a5fbfc0df0cf9c3, the clean preparation
+  revision, baseline isolation version 1 and the SHA-256 of
+  known-historical-residue-v1.tsv. State must be REGISTERED / NOT_EXECUTED /
+  NOT_ASSIGNED with Verified Reproduction Claim NONE.
+
+  release-identity.txt must bind the same Run ID and Contract to one frozen image
+  built from the corrected application implementation. The image ID and labels
+  org.opencontainers.image.revision, io.bip.contract and io.bip.material-run are
+  mandatory. Registration artifacts must be synchronized before entry preflight
+  so the preparation checkout is clean and traceable.
+
+BASELINE CAPTURE
+  successor-baseline-capture-v1.sh reads, but does not mutate, Kafka, Redis or
+  MySQL. It records partition start/end offsets for barcode-events-dlt and
+  barcode-events-quarantine, every readable record inside those ranges, per-root
+  successor state, source consumer lag, Redis group lag and Redis PEL.
+
+  Required invocation before registration is finalized:
+
+    successor-baseline-capture-v1.sh \
+      <successor-run-id> \
+      <run-dir>/00-environment/cohort.tsv \
+      <run-dir>/01-entry-baseline
+
+  The output directory must not already exist. Capture is bounded to 10000
+  records per topic and fails closed if that bound is exceeded.
+
+PREFLIGHT
+  Static registered-Evidence verification:
+
+    successor-preflight-v3.sh static <run-dir>
+
+  Fresh runtime verification and Run-local Evidence capture:
+
+    successor-preflight-v3.sh runtime <run-dir> <new-runtime-evidence-dir>
+
+  Runtime PASS requires the fresh partition watermarks to equal the registered
+  baseline, exact equality with known-historical-residue-v1.tsv, complete offset
+  coverage, valid historical owner/root identity, and absence of every successor
+  identity from MySQL, Redis Stream, Worker DLQ and dedupe state. Source consumer
+  lag, Redis group lag and Redis PEL must each be zero.
+
+FAIL-CLOSED BOUNDARY
+  A new or missing record, an unknown owner, a watermark drift, an incomplete
+  inventory, a successor collision, positive source lag, positive Redis group lag
+  or positive Redis PEL blocks entry. Aggregate topic totals cannot override any
+  identity- or partition-level failure and cannot establish a successor claim.
+
+PROHIBITED
+  Topic deletion/truncation, offset reset, Redis/MySQL residue deletion, Contract
+  revision, successor registration by these scripts, traffic and fault injection.

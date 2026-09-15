@@ -1,0 +1,3 @@
+topic	partition	offset	owner_run_id	root_identity	evidence_file	evidence_sha256
+barcode-events-dlt	0	0	BIP-FR-005-MR-20260911T112314Z	BIP-FR-005-MR-20260911T112314Z-C1-001	docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c1-c2-dlt-records.txt	33ea7d1c08ee16767fdec5a9b183e650232551d6d71b370a5f03286db0ca189c
+barcode-events-dlt	0	1	BIP-FR-005-MR-20260911T112314Z	BIP-FR-005-MR-20260911T112314Z-C2-001	docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260911T112314Z/02-material-run/c1-c2-dlt-records.txt	33ea7d1c08ee16767fdec5a9b183e650232551d6d71b370a5f03286db0ca189c

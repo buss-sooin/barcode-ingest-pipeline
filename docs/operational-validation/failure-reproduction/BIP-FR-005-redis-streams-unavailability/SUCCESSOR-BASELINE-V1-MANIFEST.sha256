@@ -1,0 +1,6 @@
+b1019e724a3d8353f9134acfb8d32da00f100b24e801af9802e342cbda14efaa  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/SUCCESSOR-BASELINE-PREPARATION-V1.txt
+2afac243749c714367a744b525f2f41e518add6378b549a710d16bf68b8cd068  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/known-historical-residue-v1.tsv
+f8c13420e997d731227d24c662a56ff1000720d8cf47459838f739cd0dbe4188  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/successor-baseline-capture-v1.sh
+d4b80752e3b4eaa8b9663dda8b15fe50a77c786daf6ee4b9c85c05302356bf99  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/successor-baseline-reconciliation-v1.sh
+6a63c7b3167386608fd3cc84cd3858d320eb8052db40a83211a06be3b85a86f2  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/successor-preflight-v3.sh
+f43b5baf250bf9f9a4b18324c61422040cd12dfce8b205f5014f371f14776c4d  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/tests/successor-baseline-reconciliation-v1-test.sh

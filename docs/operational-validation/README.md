@@ -49,7 +49,7 @@ Broker 또는 container가 다시 실행된 사실만으로 복구 완료(Recove
 
 `REPRODUCED`는 승인된 장애가 관측 가능한 영향과 함께 재현되었다는 Workflow Outcome이고, `PARTIALLY_REPRODUCED`는 핵심 failure/recovery lifecycle은 검증됐지만 명시된 Evidence gap 때문에 최대 주장을 축소한 Outcome입니다. `RECONCILED`는 해당 bounded run에서 백로그 소진과 identity-level end-to-end reconciliation이 완료되었다는 결과를 뜻합니다. `STRICT PASS`는 사전 계약의 시간 조건을 포함한 성공 기준과 최종 정합성 기준을 모두 충족했다는 BIP-FR-002 판정입니다.
 
-`BIP-FR-005-RC-R1`은 `FROZEN` 상태다. Historical Run #1 `BIP-FR-005-MR-20260909T124024Z`는 정상 영속화 기준선 실패로 Redis 장애 주입 전에 중단됐으며 `ABORTED / SUPERSEDED / NOT_REUSABLE`, Outcome `INCONCLUSIVE`로 보존한다. Historical Run #2 `BIP-FR-005-MR-20260911T112314Z`는 pre-fault collection이 `broker-3` OOM을 관측했지만 fault transition을 차단하지 못한 실행 제어 편차로 `ABORTED / NOT_REUSABLE`, Experiment Validity `FAIL`, Outcome `INCONCLUSIVE`다. 무효 Run의 `FS-01/FS-02` 관측은 Verified Reproduction Claim이 아니다. 현재 실행 가능한 Run은 없으며 교정 동기화와 runtime baseline 복구 뒤 successor Run을 새로 등록해야 한다.
+`BIP-FR-005-RC-R1`은 `FROZEN` 상태다. Historical Run #1 `BIP-FR-005-MR-20260909T124024Z`는 정상 영속화 기준선 실패로 Redis 장애 주입 전에 중단됐으며 `ABORTED / SUPERSEDED / NOT_REUSABLE`, Outcome `INCONCLUSIVE`로 보존한다. Historical Run #2 `BIP-FR-005-MR-20260911T112314Z`는 pre-fault collection이 `broker-3` OOM을 관측했지만 fault transition을 차단하지 못한 실행 제어 편차로 `ABORTED / NOT_REUSABLE`, Experiment Validity `FAIL`, Outcome `INCONCLUSIVE`다. 무효 Run의 `FS-01/FS-02` 관측은 Verified Reproduction Claim이 아니다. 현재 실행 가능한 Run은 없다. Successor baseline V1은 historical DLT를 삭제하지 않고 partition watermark, exact record ownership과 successor root-identity absence로 격리하며, unknown residue·watermark drift·identity collision은 fail closed로 차단한다. 안정적인 runtime에서 이 baseline Evidence를 새 고유 Run에 고정한 뒤 successor Run을 등록해야 한다.
 
 ## BIP-FR-001 Highlight
 

@@ -11,6 +11,7 @@
 | Historical Outcomes | `INCONCLUSIVE`, `INCONCLUSIVE` |
 | Current executable Run | 없음 |
 | Next Material Run | 새 등록 필요 |
+| Successor baseline enforcement | `SUCCESSOR-BASELINE-PREPARATION-V1` |
 | Verified Reproduction Claim | 없음 |
 
 이 문서는 동결된 재현 계약(Reproduction Contract)의 의미를 변경하지 않고, 등록된 두 판정 대상 실행(Material Run)의 이력과 Failure Reproduction Workflow v0.1 검증 결과를 동기화한다. 실행 처분(Execution Disposition)은 Run의 재사용 가능 여부를, Outcome은 계약에 따른 장애 재현 판정을 나타내므로 서로 대체하지 않는다.
@@ -140,13 +141,29 @@ Current executable Run=NONE
 
 현재 Run은 formal start, C0/C1/C2, Redis fault와 DLT 상태를 생성했으므로 다시 사용할 수 없다. successor Run의 registration, release identity와 runtime preparation은 이 교정의 repository synchronization 이후 별도 책임에서 수행한다.
 
+### 4.7 Successor baseline 격리 교정
+
+Historical DLT/quarantine 전체 건수를 `0`으로 요구하면 보존해야 하는 이전 Run Evidence와 successor Run의 진입 가능성이 충돌한다. Successor entry는 전역 삭제나 offset reset 대신 다음 독립 Predicate로 판정한다.
+
+1. `barcode-events-dlt`와 `barcode-events-quarantine`의 partition별 log start/end watermark를 등록 시점에 고정한다.
+2. watermark 구간의 모든 record를 topic/partition/offset/root identity 단위로 inventory화한다.
+3. 기존 record가 `known-historical-residue-v1.tsv`와 정확히 일치하고 immutable Run Evidence의 해시로 소유권을 증명하는지 검증한다.
+4. 새 Run의 모든 root identity가 MySQL, Redis Stream, Worker DLQ와 dedupe state에 없음을 개별 확인한다.
+5. runtime 재검증 시 partition watermark와 inventory가 등록 baseline에서 변하지 않았는지 확인한다.
+
+알 수 없는 record, owner, 누락된 offset, watermark drift 또는 successor identity collision은 fail closed로 entry를 차단한다. Source consumer lag, Redis consumer-group lag와 Redis PEL은 계속 `0`이어야 한다. 전역 DLT/quarantine end-offset 합계는 운영 진단값일 뿐 successor의 부재나 Failure Reproduction Claim을 판정하지 않는다.
+
+이 교정은 `SUCCESSOR-BASELINE-PREPARATION-V1.txt`, `successor-baseline-capture-v1.sh`, `successor-baseline-reconciliation-v1.sh`와 `successor-preflight-v3.sh`로 버전 고정한다. 기존 Run 전용 `EXECUTION-PREPARATION.txt`, `preflight.sh`, `preflight-v2.sh`, Run Evidence와 manifest는 변경하지 않는다. 이 변경은 R1의 root-identity reconciliation을 실행 전 baseline에도 적용한 것이며 DLT 삭제, topic truncate 또는 offset correction을 허용하지 않는다.
+
+현재 알려진 inventory는 Historical Run #2의 `barcode-events-dlt/0/0` C1과 `/0/1` C2 두 record만 허용한다. Kafka retention이나 log-start 변화, 새 residue, JSON `.barcode`로 식별할 수 없는 payload 또는 topic당 10,000건을 넘는 baseline은 자동 승인하지 않고 새 Evidence와 versioned inventory reconciliation을 요구한다.
+
 ## 5. Contract와 manifest 무결성
 
 - `REPRODUCTION-CONTRACT.md`의 SHA-256은 `1ed738712229c27320b59dd0ac13748baedfadbd350cdbdb0078692883880865`이며 두 Run manifest에 기록된 값과 일치한다.
 - `BIP-FR-005-RC-R1`은 `FROZEN` 상태를 유지한다. 이 Record는 계약의 Failure Signature, Verification Criteria, Scope, 승인 실행 경계 또는 의미를 변경하지 않는다.
 - 계약에 남아 있는 pre-execution `Material Run = NOT EXECUTED`와 placeholder 설명은 freeze 시점의 상태다. 실행 이력의 현재 정본은 이 Record이며, frozen 계약을 runtime status log로 사용하지 않는다.
 - 두 번째 Run의 등록 시점 `MANIFEST.sha256`은 그대로 보존한다. Material Run의 44개 파일은 self-excluding 43-entry `02-material-run/MANIFEST.sha256`으로 별도 검증하며 등재 항목 전체가 일치한다.
-- Identity reconciliation은 두 번째 Run의 등록 시점 `MANIFEST.sha256`을 수정하거나 포괄 범위를 소급 확장하지 않는다. 추가된 v2 preflight와 reconciliation Evidence는 별도 `RECONCILIATION-MANIFEST.sha256`으로 검증한다.
+- Identity reconciliation은 두 번째 Run의 등록 시점 `MANIFEST.sha256`을 수정하거나 포괄 범위를 소급 확장하지 않는다. 당시 v2 preflight와 reconciliation Evidence는 별도 `RECONCILIATION-MANIFEST.sha256`으로 고정했다. 그 manifest가 포함한 공유 `REPRODUCTION-RECORD.md` 항목은 해당 reconciliation 시점의 canonical snapshot이며, 이번 successor baseline additive update 이후 현재 Record byte 검증값으로 사용하지 않는다. Historical manifest를 다시 쓰지 않았으므로 `preflight-v2.sh`와 Run-local reconciliation Evidence 항목은 계속 일치하지만 현재 Record 항목은 의도적으로 drift한다.
 - 첫 Run의 최상위 `MANIFEST.sha256`은 Run-local environment Evidence와 계약 등은 일치하지만, 현재의 공유 준비 artifact 4개(`docker-compose.release.yml`, `preflight.sh`, `capture-state.sh`, `EXECUTION-PREPARATION.txt`)와는 일치하지 않는다. 이는 첫 Run manifest의 과거 snapshot과 현재 공유 파일 사이의 byte drift이며, 해당 manifest를 현재 전체 디렉터리 검증값으로 사용해서는 안 된다.
 - 첫 Run Attempt 2의 `ATTEMPT-2-MANIFEST.sha256`은 등재된 17개 Run-local Evidence 전부와 일치한다. 따라서 3절의 판정은 무결성이 확인된 Attempt 2 Evidence에 근거한다.
 
@@ -156,7 +173,8 @@ Current executable Run=NONE
 - Canonical implementation commit은 `e540d4238480cddd08ceb4578a93e935ed731b8b`, canonicalization anchor는 `7eba27e22a36a5e50109351f7dbd518d3c78b71b`다.
 - `REPRODUCTION-CONTRACT.md`와 이 `REPRODUCTION-RECORD.md`는 `.gitignore`를 변경하지 않고 path-specific explicit tracking으로 보존한다.
 - 두 번째 Run의 등록·release identity·기존 manifest는 historical Evidence로 변경하지 않는다. classifier와 실행 제어 교정은 successor Run에서 새 implementation/release identity로 등록해야 한다.
+- Successor baseline V1은 Historical Run #2의 DLT Evidence 파일 SHA-256 `33ea7d1c08ee16767fdec5a9b183e650232551d6d71b370a5f03286db0ca189c`를 ownership anchor로 사용한다. 기존 Evidence byte를 수정하지 않고 새 inventory에서 참조한다.
 
 ## 7. 다음 실행 관문
 
-현재 실행 가능한 Run은 없다. 다음 책임은 runtime baseline을 복구한 뒤 교정된 implementation과 실행 Controller를 대상으로 successor Material Run을 새로 등록·준비하고 runtime entry를 재검증해야 한다. 이 Record는 successor Run을 등록하거나 실행 Surface를 선결정하지 않는다.
+현재 실행 가능한 Run은 없다. Successor 등록의 선행조건은 안정적인 Kafka/Redis/MySQL/application topology에서 새 고유 Run ID와 cohort를 만들고, `successor-baseline-capture-v1.sh`가 생성한 partition watermarks·exact residue inventory·identity-state·lag/PEL snapshot을 Run-local `01-entry-baseline`에 고정하는 것이다. 등록은 `BIP-FR-005-RC-R1`, corrected application revision `83eaa799e2359a353e748e567a5fbfc0df0cf9c3`, clean preparation revision, baseline isolation version `1`과 `known-historical-residue-v1.tsv` 해시를 정확히 하나씩 연결해야 한다. 이후 새 frozen release identity를 같은 Run에 연결하고 `successor-preflight-v3.sh static|runtime`을 통과해야 한다. 이 Record는 successor Run을 등록하거나 실행 Surface를 선결정하지 않는다.
