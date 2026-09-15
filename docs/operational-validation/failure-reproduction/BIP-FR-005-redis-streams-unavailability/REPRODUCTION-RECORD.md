@@ -11,7 +11,7 @@
 | Historical Outcomes | `INCONCLUSIVE`, `INCONCLUSIVE` |
 | Current executable Run | `BIP-FR-005-MR-20260915T031000Z` |
 | Current Run state | `REGISTERED / NOT_EXECUTED / NOT_ASSIGNED` |
-| Current gate | `FROZEN_RELEASE_BUILT / DEPLOYMENT_NOT_EXECUTED` |
+| Current gate | `RUNTIME_PREFLIGHT=BLOCKED` — `bip-fr-002-broker-2` OOM / required full ISR 실패 |
 | Successor baseline enforcement | `SUCCESSOR-BASELINE-PREPARATION-V1` |
 | Successor registration authority | `successor-registration-controller-v1.sh` |
 | Verified Reproduction Claim | 없음 |
@@ -179,7 +179,9 @@ REPRODUCTION-RECORD.md + Git commit/push = synchronization
 
 6회 bounded stability 관측에서 필수 container의 running 상태, OOM=false, restart count=0, Kafka full ISR/URP=0/unavailable=0, Redis PONG, MySQL과 application health가 유지됐다. 고유 C0-C3 identity는 MySQL, Redis Stream, Worker DLQ와 dedupe state에 없었고 source consumer lag, Redis group lag, PEL은 모두 `0`이었다. DLT의 기존 2개 record는 canonical historical inventory와 정확히 일치했으며 quarantine record는 없었다. 따라서 `SUCCESSOR_BASELINE_RECONCILIATION=PASS`, `NORMAL_COHORT_DATA_CONTRACT=PASS`다.
 
-애플리케이션 경계는 implementation revision `83eaa799e2359a353e748e567a5fbfc0df0cf9c3`과 차이가 없고 24개 Gradle test가 통과했다. 이 소스에서 successor 전용 Processing image `barcode-processing-service:bip-fr-005-mr-20260915t031000z`를 한 번 빌드했으며 image ID는 `sha256:7c88b61745ffd1c52b15ddd5bbfe1fcaf1c2bbd2a3de0e2051ec80dd42e696b8`이다. Preparation과 registration controller revision은 별도 label로 보존한다. 아직 배포와 entry preflight는 수행하지 않았다. 이 결과는 registration 및 entry preparation Evidence이며 Material Run start나 Outcome을 의미하지 않는다.
+애플리케이션 경계는 implementation revision `83eaa799e2359a353e748e567a5fbfc0df0cf9c3`과 차이가 없고 24개 Gradle test가 통과했다. 이 소스에서 successor 전용 Processing image `barcode-processing-service:bip-fr-005-mr-20260915t031000z`를 한 번 빌드했으며 image ID는 `sha256:7c88b61745ffd1c52b15ddd5bbfe1fcaf1c2bbd2a3de0e2051ec80dd42e696b8`이다. Preparation과 registration controller revision은 별도 label로 보존하며, run-local no-build override로 Processing에 배포해 image identity, restart=0, OOM=false와 actuator UP을 확인했다.
+
+Static successor preflight는 `PASS`했다. 이어진 runtime preflight는 `bip-fr-002-broker-2`가 이미 `2026-09-15T03:15:53.574025216Z`에 exit 137/OOM으로 종료된 상태를 발견해 `required_container_not_running:bip-fr-002-broker-2`에서 fail closed로 중단됐다. 후속 관측에서 세 scenario topic의 9개 partition은 모두 under-replicated였고 unavailable partition은 `0`이었다. Runtime baseline 재캡처, traffic, Redis fault와 Outcome 할당은 수행하지 않았다. 따라서 이 Run은 계속 `REGISTERED / NOT_EXECUTED / NOT_ASSIGNED`이고 entry gate만 `BLOCKED`다.
 
 ## 5. Contract와 manifest 무결성
 
@@ -201,4 +203,4 @@ REPRODUCTION-RECORD.md + Git commit/push = synchronization
 
 ## 7. 다음 실행 관문
 
-현재 successor Run은 `REGISTERED / NOT_EXECUTED / NOT_ASSIGNED`이며 registration eligibility는 `PASS`다. 다음 관문은 frozen Processing image의 identity-only/no-build 배포와 `successor-preflight-v3.sh static|runtime`이다. 이 Record는 Material Run start, fault injection 또는 Outcome을 승인하지 않는다.
+현재 successor Run은 `REGISTERED / NOT_EXECUTED / NOT_ASSIGNED`이며 registration eligibility와 static preflight는 `PASS`다. Runtime preflight는 broker-2 OOM과 full ISR 실패로 `BLOCKED`다. 다음 관문은 이 런타임 안정성 blocker의 해결과 fresh runtime preflight 재수행이다. 이 Record는 Material Run start, fault injection 또는 Outcome을 승인하지 않는다.
