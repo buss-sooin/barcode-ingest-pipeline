@@ -285,7 +285,7 @@ flowchart LR
 
 ## 운영 장애 검증
 
-성능 비교와 별도로 실제 구성 요소 장애를 제한된 범위에서 재현하고, 장애 영향부터 복구 후 백로그 수렴과 종단 간 정합성 확인까지 검증했습니다.
+성능 비교와 별도로 실제 구성 요소 장애를 제한된 범위에서 재현하고, 장애 영향부터 복구 후 백로그 수렴과 종단 간 정합성 확인까지 검증했습니다. 이 작업의 성격은 **“controlled reproduction and verification of production-relevant failure semantics and recovery correctness”**입니다.
 
 BIP-FR-001에서는 active scan 중 단일 Kafka broker 전체가 unavailable인 경계에서 장애 영향, 복구, 백로그 소진과 `820 logical events → 820 MySQL unique persisted` 수렴을 확인했습니다.
 
@@ -293,7 +293,21 @@ BIP-FR-002에서는 복제 계수(Replication Factor, RF) 3인 로컬 Kafka에�
 
 BIP-FR-003에서는 같은 로컬 RF=3 토폴로지에서 leader를 유지한 채 ISR을 1로 낮춰 `min.insync.replicas=2`와 `acks=all` 경계의 쓰기 불가를 검증했습니다. Active traffic 중 새 application witness가 HTTP 503과 `NotEnoughReplicasException`을 남겼고, follower 복구로 ISR=2가 되자 설정 완화 없이 쓰기가 회복됐습니다. 결과는 `REPRODUCED`이며 `54 logical identities → 53 MySQL unique + 1 expected rejection`, transport duplicate 1, business duplicate 0으로 수렴했습니다.
 
+BIP-FR-004에서는 active traffic 중 MySQL persistence unavailable 상태에서 Worker DB access failure와 Redis PEL unfinished ownership 증가를 확인했습니다. 동일 MySQL container/volume 복구 뒤 application-owned reclaim으로 PEL `132 → 0`, MySQL cohort `618 → 750`으로 수렴했습니다. 동일 Redis `RecordId`의 failure부터 최종 XACK까지 전체 사슬을 직접 연결하지 못한 Evidence gap을 보존하므로 결과는 `PARTIALLY_REPRODUCED`입니다.
+
 BIP-FR-005에서는 active processing 중 Redis Streams handoff failure가 bounded retry 소진과 `TRANSIENT_REDIS` DLT 책임 이전으로 이어지는 흐름을 재현했습니다. Redis 복구 뒤 C1은 한 번의 bounded replay로 Redis Stream과 MySQL까지 처리됐고, permanent-validation C2는 quarantine으로 종결됐으며 C3와 전체 successor identity reconciliation이 완료됐습니다. 결과는 `REPRODUCED / VERIFIED`입니다.
+
+시나리오를 가로지르는 운영 교훈은 공통적입니다.
+
+- 구성 요소의 health 회복은 처리 흐름의 복구 완료(Recovery Complete)와 같지 않습니다. 새 흐름의 진행, lag·PEL·retry backlog 수렴과 identity-level reconciliation을 별도로 확인해야 합니다.
+- Kafka leader 존재만으로 write availability가 보장되지 않으며, ISR과 `min.insync.replicas`, producer `acks`를 함께 판단해야 합니다.
+- 재시도(Retry)와 replay는 transport duplicate를 만들 수 있으므로 logical identity와 terminal business state를 분리해 조정해야 합니다.
+- DLT·DLQ·PEL은 단순 오류 건수가 아니라 아직 끝나지 않은 처리 책임의 위치를 나타냅니다.
+- 장애 주입 전 다른 failure domain이 활성화되면 fail closed로 실행을 중단해야 해당 시나리오의 인과관계를 보존할 수 있습니다.
+
+AI는 승인된 범위 안에서 Evidence 정리, 상태 진단, bounded execution과 deterministic verification을 보조했습니다. 실험 의도·범위·위험 경계에 대한 Human 승인과 실제 운영 환경에 대한 최종 책임은 Human에게 유지됩니다. AI가 명령을 생성하거나 실행했다는 사실이 승인 권한이나 운영 책임을 대체하지 않습니다.
+
+이 결과는 production-scale Kafka 운영 경험을 의미하지 않으며 production availability 또는 capacity guarantee가 아닙니다. 격리된 로컬 환경의 bounded cohort와 명시된 failure boundary에서 얻은 검증 결과만 주장합니다.
 
 검증 범위, 정량 결과, 비주장 범위와 상세 문서는 [Operational Validation](docs/operational-validation/README.md)에서 확인할 수 있습니다.
 

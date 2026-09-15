@@ -635,9 +635,11 @@ Final Workflow Outcome: `REPRODUCED`
 
 ### 14. Evidence Manifest Verification
 
-- 현재 Run의 `MANIFEST.sha256`은 canonical artifact 4개와 현재 evidence file 36개, 총 40개 entry를 포함한다.
-- 최종 `shasum -a 256 -c MANIFEST.sha256` 결과는 40개 entry 모두 `OK`이다.
-- 초기 blocked run과 readiness run의 evidence-local entry도 모두 `OK`이며 이전 directory와 manifest는 수정하지 않았다.
-- 과거 full manifest의 mutable shared artifact mismatch는 위 Evidence Sufficiency 제한에 별도로 기록했다.
+- Material Run의 historical `MANIFEST.sha256`은 shared artifact 4개와 evidence-local file 36개, 총 40개 capture-time entry를 포함한다. Run 종료 시점의 `35-final-git-and-artifact-verification.txt`는 당시 40개 entry가 모두 `OK`였음을 보존한다.
+- Historical manifest와 raw Evidence는 수정하지 않았다. 따라서 이 manifest는 capture-time verification 기록이지, 이후 변경 가능한 shared artifact의 현재 byte를 고정하는 repository-wide integrity gate가 아니다.
+- Shared root `.gitignore` entry의 historical SHA-256은 `d117dda2b80460016080940e6ecbdeba7c1495b49cbe9d90a40885945fb4c163`이고 현재 SHA-256은 `08dbdcf7b2f981098d853c35796d319dcec0b6154adc2cad52fe6ca803999ec7`이므로 현재 checkout에서는 의도적으로 drift한다. Historical hash를 현재 값으로 소급 수정하지 않는다.
+- 이 canonical `REPRODUCTION-RECORD.md` 역시 후속 closure 설명이 누적되는 shared artifact이므로 현재 byte는 capture-time entry와 달라진다. `docker-compose.validation.yml`과 `traffic-driver.sh`의 shared entry는 현재도 historical hash와 일치한다.
+- 현재 무결성 판정은 evidence-local 36개 entry를 별도로 검증한다. 36개 모두 historical manifest hash와 일치하므로 `CURRENT_EVIDENCE_LOCAL_INTEGRITY=PASS`다.
+- 초기 blocked run과 readiness run도 historical directory, manifest와 raw Evidence를 변경하지 않는다. Shared artifact drift와 evidence-local integrity를 구분해 해석한다.
 
 `BIP-FR-001 MATERIAL RUN: REPRODUCED`
