@@ -293,6 +293,8 @@ BIP-FR-002에서는 복제 계수(Replication Factor, RF) 3인 로컬 Kafka에�
 
 BIP-FR-003에서는 같은 로컬 RF=3 토폴로지에서 leader를 유지한 채 ISR을 1로 낮춰 `min.insync.replicas=2`와 `acks=all` 경계의 쓰기 불가를 검증했습니다. Active traffic 중 새 application witness가 HTTP 503과 `NotEnoughReplicasException`을 남겼고, follower 복구로 ISR=2가 되자 설정 완화 없이 쓰기가 회복됐습니다. 결과는 `REPRODUCED`이며 `54 logical identities → 53 MySQL unique + 1 expected rejection`, transport duplicate 1, business duplicate 0으로 수렴했습니다.
 
+BIP-FR-005에서는 active processing 중 Redis Streams handoff failure가 bounded retry 소진과 `TRANSIENT_REDIS` DLT 책임 이전으로 이어지는 흐름을 재현했습니다. Redis 복구 뒤 C1은 한 번의 bounded replay로 Redis Stream과 MySQL까지 처리됐고, permanent-validation C2는 quarantine으로 종결됐으며 C3와 전체 successor identity reconciliation이 완료됐습니다. 결과는 `REPRODUCED / VERIFIED`입니다.
+
 검증 범위, 정량 결과, 비주장 범위와 상세 문서는 [Operational Validation](docs/operational-validation/README.md)에서 확인할 수 있습니다.
 
 [목차로 돌아가기](#목차)

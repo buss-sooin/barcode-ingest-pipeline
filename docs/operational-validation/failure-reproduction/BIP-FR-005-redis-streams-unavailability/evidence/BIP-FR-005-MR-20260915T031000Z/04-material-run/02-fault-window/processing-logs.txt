@@ -1,0 +1,468 @@
+captured_at_utc=2026-09-15T07:13:43Z
+2026-09-15T07:07:09.605451838Z 2026-09-15T07:07:09.605Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/172.18.0.2:6379
+2026-09-15T07:07:09.618381171Z 2026-09-15T07:07:09.618Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: Connection refused: redis/172.18.0.2:6379
+2026-09-15T07:07:19.801191884Z 2026-09-15T07:07:19.800Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-3] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:07:22.866136302Z 2026-09-15T07:07:22.859Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:07:22.866166386Z 
+2026-09-15T07:07:22.866167969Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:07:22.866169427Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:07:22.866170552Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:07:22.866171636Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:07:22.866184052Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:07:22.866185261Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:22.866186261Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:22.866187261Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:22.866188219Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:22.866189177Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:22.866190136Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:22.866191052Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:22.866192052Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:22.866192969Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:22.866193927Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:07:22.866194761Z 
+2026-09-15T07:07:26.103543554Z 2026-09-15T07:07:26.102Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:07:29.196399472Z 2026-09-15T07:07:29.195Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-6] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:07:29.196430389Z 
+2026-09-15T07:07:29.196431972Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:07:29.196432972Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:07:29.196433847Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:07:29.196434764Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:07:29.196435639Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:07:29.196436514Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:29.196437514Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:29.196446764Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:29.196447930Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:29.196448889Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:29.196449847Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:29.196450805Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:29.196451805Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:29.196452764Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:29.196453722Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:07:29.196454514Z 
+2026-09-15T07:07:32.499393709Z 2026-09-15T07:07:32.498Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-7] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:07:35.595162336Z 2026-09-15T07:07:35.594Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-8] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:07:35.595230127Z 
+2026-09-15T07:07:35.595233752Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:07:35.595236127Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:07:35.595238086Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:07:35.595240086Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:07:35.595242086Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:07:35.595244044Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:35.595246211Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:35.595248377Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:35.595250544Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:35.595252669Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:35.595268086Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:35.595270502Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:35.595272669Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:35.595274794Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:35.595276877Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:07:35.595278752Z 
+2026-09-15T07:07:39.202937379Z 2026-09-15T07:07:39.202Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:07:42.314355964Z 2026-09-15T07:07:42.313Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:07:42.314395922Z 
+2026-09-15T07:07:42.314398964Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:07:42.314401506Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:07:42.314403589Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:07:42.314405714Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:07:42.314407756Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:07:42.314409881Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:42.314412214Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:42.314414589Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:42.314416881Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:42.314419131Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:42.314421297Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:42.314423506Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:42.314425839Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:42.314440131Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:42.314442672Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:07:42.314444672Z 
+2026-09-15T07:07:47.003522841Z 2026-09-15T07:07:47.002Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-3] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:07:50.061048801Z 2026-09-15T07:07:50.059Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:07:50.061165509Z 
+2026-09-15T07:07:50.061174468Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:07:50.061179926Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:07:50.061184093Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:07:50.061188301Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:07:50.061192509Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:07:50.061196801Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:50.061201426Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:50.061206134Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:50.061210634Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:50.061215093Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:50.061219551Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:50.061223968Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:50.061228509Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:50.061232926Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:50.061237468Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:07:50.061241509Z 
+2026-09-15T07:07:52.198633302Z 2026-09-15T07:07:52.197Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-4] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:07:55.307711595Z 2026-09-15T07:07:55.306Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-5] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:07:55.307800012Z 
+2026-09-15T07:07:55.307802762Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:07:55.307805595Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:07:55.307807679Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:07:55.307809679Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:07:55.307811637Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:07:55.307813595Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:55.307815804Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:55.307818012Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:55.307820137Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:55.307822262Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:55.307824304Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:55.307826429Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:55.307828554Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:55.307830679Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:07:55.307832762Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:07:55.307834679Z 
+2026-09-15T07:07:59.498850375Z 2026-09-15T07:07:59.498Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:08:02.604123959Z 2026-09-15T07:08:02.603Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-6] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:08:02.604179751Z 
+2026-09-15T07:08:02.604209876Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:08:02.604212668Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:08:02.604214793Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:08:02.604216793Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:08:02.604218876Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:08:02.604221001Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:02.604223168Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:02.604225376Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:02.604227584Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:02.604249543Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:02.604251834Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:02.604253876Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:02.604256001Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:02.604258626Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:02.604260709Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:08:02.604262626Z 
+2026-09-15T07:08:10.799834880Z 2026-09-15T07:08:10.798Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-8] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:08:13.242320256Z 2026-09-15T07:08:13.241Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-002, Partition: 0, Offset: 2
+2026-09-15T07:08:13.243541756Z 2026-09-15T07:08:13.241Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-005-MR-20260915T031000Z-C1-001, Device: SEOUL-CENTER-PC-002, scanTime: 1789456093000
+2026-09-15T07:08:13.243561214Z 2026-09-15T07:08:13.242Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-005-MR-20260915T031000Z-C1-001 → DLV-SEOUL-CENTER-PC-002-260915-01M2HYA41TJ4PQXJ4XRAY43M3Q
+2026-09-15T07:08:13.871280923Z 2026-09-15T07:08:13.869Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-7] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:08:13.871319006Z 
+2026-09-15T07:08:13.871320590Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:08:13.871321715Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:08:13.871322631Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:08:13.871323840Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:08:13.871324756Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:08:13.871325756Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:13.871326756Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:13.871327798Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:13.871328798Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:13.871329798Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:13.871330756Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:13.871331798Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:13.871332798Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:13.871333756Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:13.871334798Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:08:13.871335631Z 
+2026-09-15T07:08:30.301338375Z 2026-09-15T07:08:30.301Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:08:33.386661751Z 2026-09-15T07:08:33.385Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-8] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:08:33.386687793Z 
+2026-09-15T07:08:33.386689293Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:08:33.386690585Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:08:33.386700251Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:08:33.386701418Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:08:33.386702293Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:08:33.386703210Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:33.386704251Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:33.386705293Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:33.386706210Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:33.386707210Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:33.386708126Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:33.386709126Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:33.386710085Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:33.386711043Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:08:33.386712001Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:08:33.386712835Z 
+2026-09-15T07:09:03.397662751Z 2026-09-15T07:09:03.396Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:09:06.477192503Z 2026-09-15T07:09:06.475Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:09:06.477273378Z 
+2026-09-15T07:09:06.477276420Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:09:06.477279503Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:09:06.477281920Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:09:06.477284295Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:09:06.477286670Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:09:06.477289128Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:06.477321961Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:06.477325211Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:06.477327753Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:06.477330253Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:06.477332711Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:06.477335170Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:06.477337753Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:06.477340211Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:06.477342753Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:09:06.477345045Z 
+2026-09-15T07:09:15.342144590Z 2026-09-15T07:09:15.341Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Seeking to offset 2 for partition barcode-events-0
+2026-09-15T07:09:15.342224799Z 2026-09-15T07:09:15.342Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Record in retry and not yet recovered
+2026-09-15T07:09:15.346211174Z 2026-09-15T07:09:15.345Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-002, Partition: 0, Offset: 2
+2026-09-15T07:09:15.346248715Z 2026-09-15T07:09:15.346Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-005-MR-20260915T031000Z-C1-001, Device: SEOUL-CENTER-PC-002, scanTime: 1789456093000
+2026-09-15T07:09:15.346395507Z 2026-09-15T07:09:15.346Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-005-MR-20260915T031000Z-C1-001 → DLV-SEOUL-CENTER-PC-002-260915-01M2HYC0PJQZANZCCZ71WQJJZZ
+2026-09-15T07:09:36.496910336Z 2026-09-15T07:09:36.496Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:09:39.560721879Z 2026-09-15T07:09:39.560Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:09:39.560766588Z 
+2026-09-15T07:09:39.560770213Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:09:39.560813171Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:09:39.560822171Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:09:39.560823629Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:09:39.560824588Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:09:39.560825588Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:39.560826588Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:39.560827629Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:39.560828588Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:39.560829588Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:39.560830546Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:39.560831504Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:39.560832504Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:39.560833421Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:09:39.560834379Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:09:39.560835213Z 
+2026-09-15T07:10:09.594892296Z 2026-09-15T07:10:09.593Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-3] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:10:12.647490131Z 2026-09-15T07:10:12.646Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:10:12.647544672Z 
+2026-09-15T07:10:12.647548714Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:10:12.647551797Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:10:12.647554589Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:10:12.647557381Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:10:12.647560089Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:10:12.647580339Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:12.647582922Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:12.647585214Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:12.647587297Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:12.647589381Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:12.647591422Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:12.647593464Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:12.647595589Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:12.647622589Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:12.647624922Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:10:12.647626881Z 
+2026-09-15T07:10:17.406682633Z 2026-09-15T07:10:17.406Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Seeking to offset 2 for partition barcode-events-0
+2026-09-15T07:10:17.406851883Z 2026-09-15T07:10:17.406Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Record in retry and not yet recovered
+2026-09-15T07:10:17.414671133Z 2026-09-15T07:10:17.414Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-002, Partition: 0, Offset: 2
+2026-09-15T07:10:17.414717591Z 2026-09-15T07:10:17.414Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-005-MR-20260915T031000Z-C1-001, Device: SEOUL-CENTER-PC-002, scanTime: 1789456093000
+2026-09-15T07:10:17.415122716Z 2026-09-15T07:10:17.414Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-005-MR-20260915T031000Z-C1-001 → DLV-SEOUL-CENTER-PC-002-260915-01M2HYDXA6A0WZ08HT8B0ZSJZF
+2026-09-15T07:10:42.694879256Z 2026-09-15T07:10:42.694Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:10:45.797920841Z 2026-09-15T07:10:45.797Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:10:45.797955091Z 
+2026-09-15T07:10:45.797956507Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:10:45.797957591Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:10:45.797958507Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:10:45.797959424Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:10:45.797960341Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:10:45.797961299Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:45.797962299Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:45.797963341Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:45.797964341Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:45.797965299Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:45.797966299Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:45.797970216Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:45.797971216Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:45.797972174Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:10:45.797973174Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:10:45.797974007Z 
+2026-09-15T07:11:15.894988299Z 2026-09-15T07:11:15.893Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-8] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:11:18.952526425Z 2026-09-15T07:11:18.950Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-5] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:11:18.952613925Z 
+2026-09-15T07:11:18.952619300Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:11:18.952624175Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:11:18.952628550Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:11:18.952674300Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:11:18.952677925Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:11:18.952681009Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:18.952684342Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:18.952687800Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:18.952691092Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:18.952694384Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:18.952697592Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:18.952700675Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:18.952703967Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:18.952708134Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:18.952711384Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:11:18.952714300Z 
+2026-09-15T07:11:19.523265134Z 2026-09-15T07:11:19.522Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Seeking to offset 2 for partition barcode-events-0
+2026-09-15T07:11:19.523330384Z 2026-09-15T07:11:19.522Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : Record in retry and not yet recovered
+2026-09-15T07:11:19.529019634Z 2026-09-15T07:11:19.528Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-002, Partition: 0, Offset: 2
+2026-09-15T07:11:19.529055926Z 2026-09-15T07:11:19.528Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-005-MR-20260915T031000Z-C1-001, Device: SEOUL-CENTER-PC-002, scanTime: 1789456093000
+2026-09-15T07:11:19.529116051Z 2026-09-15T07:11:19.529Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-005-MR-20260915T031000Z-C1-001 → DLV-SEOUL-CENTER-PC-002-260915-01M2HYFSZ8CRJWS8FY4ZRGQMWP
+2026-09-15T07:11:48.993581009Z 2026-09-15T07:11:48.993Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-3] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:11:52.103908677Z 2026-09-15T07:11:52.101Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-6] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:11:52.104019927Z 
+2026-09-15T07:11:52.104029260Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:11:52.104033177Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:11:52.104036260Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:11:52.104039427Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:11:52.104042802Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:11:52.104045927Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:52.104049260Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:52.104052719Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:52.104056010Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:52.104059260Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:52.104062469Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:52.104065635Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:52.104068927Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:52.104072177Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:11:52.104075427Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:11:52.104078344Z 
+2026-09-15T07:12:19.622404467Z 2026-09-15T07:12:19.622Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+2026-09-15T07:12:19.622718009Z 	acks = -1
+2026-09-15T07:12:19.622725801Z 	auto.include.jmx.reporter = true
+2026-09-15T07:12:19.622728967Z 	batch.size = 16384
+2026-09-15T07:12:19.622731592Z 	bootstrap.servers = [broker-1:29092, broker-2:29092, broker-3:29092]
+2026-09-15T07:12:19.622734384Z 	buffer.memory = 33554432
+2026-09-15T07:12:19.622743884Z 	client.dns.lookup = use_all_dns_ips
+2026-09-15T07:12:19.622746009Z 	client.id = barcode-processing-service-producer-1
+2026-09-15T07:12:19.622747884Z 	compression.gzip.level = -1
+2026-09-15T07:12:19.622749634Z 	compression.lz4.level = 9
+2026-09-15T07:12:19.622751384Z 	compression.type = none
+2026-09-15T07:12:19.622753217Z 	compression.zstd.level = 3
+2026-09-15T07:12:19.622754926Z 	connections.max.idle.ms = 540000
+2026-09-15T07:12:19.622756759Z 	delivery.timeout.ms = 120000
+2026-09-15T07:12:19.622758509Z 	enable.idempotence = true
+2026-09-15T07:12:19.622760259Z 	enable.metrics.push = true
+2026-09-15T07:12:19.622761967Z 	interceptor.classes = []
+2026-09-15T07:12:19.622763717Z 	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+2026-09-15T07:12:19.622765634Z 	linger.ms = 0
+2026-09-15T07:12:19.622771467Z 	max.block.ms = 60000
+2026-09-15T07:12:19.622773634Z 	max.in.flight.requests.per.connection = 5
+2026-09-15T07:12:19.622777259Z 	max.request.size = 1048576
+2026-09-15T07:12:19.622781259Z 	metadata.max.age.ms = 300000
+2026-09-15T07:12:19.622782967Z 	metadata.max.idle.ms = 300000
+2026-09-15T07:12:19.622785217Z 	metadata.recovery.strategy = none
+2026-09-15T07:12:19.622789217Z 	metric.reporters = []
+2026-09-15T07:12:19.622793051Z 	metrics.num.samples = 2
+2026-09-15T07:12:19.622794801Z 	metrics.recording.level = INFO
+2026-09-15T07:12:19.622796509Z 	metrics.sample.window.ms = 30000
+2026-09-15T07:12:19.622798342Z 	partitioner.adaptive.partitioning.enable = true
+2026-09-15T07:12:19.622800717Z 	partitioner.availability.timeout.ms = 0
+2026-09-15T07:12:19.622804592Z 	partitioner.class = null
+2026-09-15T07:12:19.622808342Z 	partitioner.ignore.keys = false
+2026-09-15T07:12:19.622810509Z 	receive.buffer.bytes = 32768
+2026-09-15T07:12:19.622812634Z 	reconnect.backoff.max.ms = 1000
+2026-09-15T07:12:19.622814801Z 	reconnect.backoff.ms = 50
+2026-09-15T07:12:19.622816676Z 	request.timeout.ms = 30000
+2026-09-15T07:12:19.622818634Z 	retries = 2147483647
+2026-09-15T07:12:19.622820634Z 	retry.backoff.max.ms = 1000
+2026-09-15T07:12:19.622822551Z 	retry.backoff.ms = 100
+2026-09-15T07:12:19.622824301Z 	sasl.client.callback.handler.class = null
+2026-09-15T07:12:19.622826217Z 	sasl.jaas.config = null
+2026-09-15T07:12:19.622828217Z 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+2026-09-15T07:12:19.622830009Z 	sasl.kerberos.min.time.before.relogin = 60000
+2026-09-15T07:12:19.622835092Z 	sasl.kerberos.service.name = null
+2026-09-15T07:12:19.622836884Z 	sasl.kerberos.ticket.renew.jitter = 0.05
+2026-09-15T07:12:19.622838676Z 	sasl.kerberos.ticket.renew.window.factor = 0.8
+2026-09-15T07:12:19.622840467Z 	sasl.login.callback.handler.class = null
+2026-09-15T07:12:19.622842217Z 	sasl.login.class = null
+2026-09-15T07:12:19.622843967Z 	sasl.login.connect.timeout.ms = null
+2026-09-15T07:12:19.622845717Z 	sasl.login.read.timeout.ms = null
+2026-09-15T07:12:19.622847467Z 	sasl.login.refresh.buffer.seconds = 300
+2026-09-15T07:12:19.622849259Z 	sasl.login.refresh.min.period.seconds = 60
+2026-09-15T07:12:19.622851009Z 	sasl.login.refresh.window.factor = 0.8
+2026-09-15T07:12:19.622852801Z 	sasl.login.refresh.window.jitter = 0.05
+2026-09-15T07:12:19.622854592Z 	sasl.login.retry.backoff.max.ms = 10000
+2026-09-15T07:12:19.622857842Z 	sasl.login.retry.backoff.ms = 100
+2026-09-15T07:12:19.622859634Z 	sasl.mechanism = GSSAPI
+2026-09-15T07:12:19.622861342Z 	sasl.oauthbearer.clock.skew.seconds = 30
+2026-09-15T07:12:19.622863092Z 	sasl.oauthbearer.expected.audience = null
+2026-09-15T07:12:19.622864842Z 	sasl.oauthbearer.expected.issuer = null
+2026-09-15T07:12:19.622866634Z 	sasl.oauthbearer.header.urlencode = false
+2026-09-15T07:12:19.622869009Z 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+2026-09-15T07:12:19.622870884Z 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+2026-09-15T07:12:19.622872717Z 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+2026-09-15T07:12:19.622874467Z 	sasl.oauthbearer.jwks.endpoint.url = null
+2026-09-15T07:12:19.622876259Z 	sasl.oauthbearer.scope.claim.name = scope
+2026-09-15T07:12:19.622878009Z 	sasl.oauthbearer.sub.claim.name = sub
+2026-09-15T07:12:19.622879717Z 	sasl.oauthbearer.token.endpoint.url = null
+2026-09-15T07:12:19.622881467Z 	security.protocol = PLAINTEXT
+2026-09-15T07:12:19.622883217Z 	security.providers = null
+2026-09-15T07:12:19.622884967Z 	send.buffer.bytes = 131072
+2026-09-15T07:12:19.622886676Z 	socket.connection.setup.timeout.max.ms = 30000
+2026-09-15T07:12:19.622888509Z 	socket.connection.setup.timeout.ms = 10000
+2026-09-15T07:12:19.622890217Z 	ssl.cipher.suites = null
+2026-09-15T07:12:19.622891926Z 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+2026-09-15T07:12:19.622893676Z 	ssl.endpoint.identification.algorithm = https
+2026-09-15T07:12:19.622895467Z 	ssl.engine.factory.class = null
+2026-09-15T07:12:19.622897176Z 	ssl.key.password = null
+2026-09-15T07:12:19.622898884Z 	ssl.keymanager.algorithm = SunX509
+2026-09-15T07:12:19.622902634Z 	ssl.keystore.certificate.chain = null
+2026-09-15T07:12:19.622904467Z 	ssl.keystore.key = null
+2026-09-15T07:12:19.622906176Z 	ssl.keystore.location = null
+2026-09-15T07:12:19.622907926Z 	ssl.keystore.password = null
+2026-09-15T07:12:19.622909592Z 	ssl.keystore.type = JKS
+2026-09-15T07:12:19.622911301Z 	ssl.protocol = TLSv1.3
+2026-09-15T07:12:19.622913009Z 	ssl.provider = null
+2026-09-15T07:12:19.622914676Z 	ssl.secure.random.implementation = null
+2026-09-15T07:12:19.622916467Z 	ssl.trustmanager.algorithm = PKIX
+2026-09-15T07:12:19.622918217Z 	ssl.truststore.certificates = null
+2026-09-15T07:12:19.622919926Z 	ssl.truststore.location = null
+2026-09-15T07:12:19.622921676Z 	ssl.truststore.password = null
+2026-09-15T07:12:19.622923426Z 	ssl.truststore.type = JKS
+2026-09-15T07:12:19.622925134Z 	transaction.timeout.ms = 60000
+2026-09-15T07:12:19.622926842Z 	transactional.id = null
+2026-09-15T07:12:19.622928551Z 	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+2026-09-15T07:12:19.622930551Z 
+2026-09-15T07:12:19.623108967Z 2026-09-15T07:12:19.622Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-15T07:12:19.636487467Z 2026-09-15T07:12:19.636Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=barcode-processing-service-producer-1] Instantiated an idempotent producer.
+2026-09-15T07:12:19.652261509Z 2026-09-15T07:12:19.651Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2026-09-15T07:12:19.652284676Z 2026-09-15T07:12:19.652Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2026-09-15T07:12:19.652286634Z 2026-09-15T07:12:19.652Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1789456339651
+2026-09-15T07:12:19.658693759Z 2026-09-15T07:12:19.658Z  INFO 1 --- [barcode-processing-service] [vice-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=barcode-processing-service-producer-1] Cluster ID: MkU3OEVBNTcwNTJENDM2Qk
+2026-09-15T07:12:19.659648676Z 2026-09-15T07:12:19.659Z  INFO 1 --- [barcode-processing-service] [vice-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=barcode-processing-service-producer-1] ProducerId set to 3000 with epoch 0
+2026-09-15T07:12:19.824016676Z 2026-09-15T07:12:19.823Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Seeking to offset 3 for partition barcode-events-0
+2026-09-15T07:12:22.189551719Z 2026-09-15T07:12:22.189Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:12:25.251775970Z 2026-09-15T07:12:25.250Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-7] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:12:25.251838803Z 
+2026-09-15T07:12:25.251841637Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:12:25.251844178Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:12:25.251846262Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:12:25.251848387Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:12:25.251850345Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:12:25.251852345Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:25.251854512Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:25.251856678Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:25.251858762Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:25.251860845Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:25.251862928Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:25.251864970Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:25.251867137Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:25.251879512Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:25.251881678Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:12:25.251883553Z 
+2026-09-15T07:12:55.292464303Z 2026-09-15T07:12:55.292Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-8] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:12:58.402516347Z 2026-09-15T07:12:58.401Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-8] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:12:58.402570763Z 
+2026-09-15T07:12:58.402574597Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:12:58.402593513Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:12:58.402595972Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:12:58.402598055Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:12:58.402600388Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:12:58.402602555Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:58.402604805Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:58.402607013Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:58.402609180Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:58.402611388Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:58.402613513Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:58.402615638Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:58.402617847Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:58.402619972Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:12:58.402622138Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:12:58.402624097Z 
+2026-09-15T07:13:28.490090430Z 2026-09-15T07:13:28.489Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:13:31.555376792Z 2026-09-15T07:13:31.552Z  WARN 1 --- [barcode-processing-service] [ioEventLoop-5-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [redis/<unresolved>:6379]: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:13:31.555448167Z 
+2026-09-15T07:13:31.555451625Z io.netty.channel.AbstractChannel$AnnotatedNoRouteToHostException: No route to host: redis/172.18.0.2:6379
+2026-09-15T07:13:31.555454750Z Caused by: java.net.NoRouteToHostException: No route to host
+2026-09-15T07:13:31.555457625Z 	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[na:na]
+2026-09-15T07:13:31.555460584Z 	at java.base/sun.nio.ch.Net.pollConnectNow(Unknown Source) ~[na:na]
+2026-09-15T07:13:31.555463292Z 	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[na:na]
+2026-09-15T07:13:31.555494625Z 	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:336) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:13:31.555497250Z 	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:339) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:13:31.555499542Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:784) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:13:31.555501584Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:13:31.555503709Z 	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:13:31.555505792Z 	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562) ~[netty-transport-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:13:31.555507917Z 	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:13:31.555510042Z 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:13:31.555512084Z 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.128.Final.jar!/:4.1.128.Final]
+2026-09-15T07:13:31.555514167Z 	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+2026-09-15T07:13:31.555516084Z 

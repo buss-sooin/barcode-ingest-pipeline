@@ -1,0 +1,3 @@
+sample=1 at=2026-09-15T07:18:11Z mysql=0 redis_stream=1 dedupe=1 worker_dlq=0 source_lag=0 redis_group_lag=0 redis_pel=0
+sample=2 at=2026-09-15T07:18:15Z mysql=1 redis_stream=1 dedupe=1 worker_dlq=0 source_lag=0 redis_group_lag=0 redis_pel=0
+C3_COMPLETION=PASS

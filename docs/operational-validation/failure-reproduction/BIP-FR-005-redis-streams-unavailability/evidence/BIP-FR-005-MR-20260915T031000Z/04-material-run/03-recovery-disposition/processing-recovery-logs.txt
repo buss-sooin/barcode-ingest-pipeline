@@ -1,0 +1,8 @@
+captured_at_utc=2026-09-15T07:17:36Z
+2026-09-15T07:15:40.985642922Z 2026-09-15T07:15:40.985Z  INFO 1 --- [barcode-processing-service] [xecutorLoop-3-2] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was redis/<unresolved>:6379
+2026-09-15T07:15:41.006071422Z 2026-09-15T07:15:41.005Z  INFO 1 --- [barcode-processing-service] [ioEventLoop-5-5] i.l.core.protocol.ReconnectionHandler    : Reconnected to redis/<unresolved>:6379
+2026-09-15T07:15:59.243741222Z 2026-09-15T07:15:59.243Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-002, Partition: 0, Offset: 4
+2026-09-15T07:15:59.243924389Z 2026-09-15T07:15:59.243Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-005-MR-20260915T031000Z-C1-001, Device: SEOUL-CENTER-PC-002, scanTime: 1789456093000
+2026-09-15T07:15:59.243931222Z 2026-09-15T07:15:59.243Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-005-MR-20260915T031000Z-C1-001 → DLV-SEOUL-CENTER-PC-002-260915-01M2HYRB4BX0QXXKC776D4PPPR
+2026-09-15T07:15:59.248681305Z 2026-09-15T07:15:59.248Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-5] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: BIP-FR-005-MR-20260915T031000Z-C1-001
+2026-09-15T07:15:59.249000347Z 2026-09-15T07:15:59.248Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: BIP-FR-005-MR-20260915T031000Z-C1-001

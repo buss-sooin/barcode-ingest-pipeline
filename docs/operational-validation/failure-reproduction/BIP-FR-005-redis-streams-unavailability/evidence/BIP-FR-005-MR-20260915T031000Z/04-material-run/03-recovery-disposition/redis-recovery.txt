@@ -1,0 +1,9 @@
+recovery_requested_at_utc=2026-09-15T07:15:11Z
+container_before=e87508df0ca6f51e3e25c15b0acd8305ab59deb764e5b32989283b9ae14e0945|exited|0|false
+bip-fr-002-redis
+sample=1 at=2026-09-15T07:15:11Z state=running health=starting ping=LOADING Redis is loading the dataset in memory ping_exit=0
+sample=2 at=2026-09-15T07:15:13Z state=running health=starting ping=PONG ping_exit=0
+sample=3 at=2026-09-15T07:15:15Z state=running health=starting ping=PONG ping_exit=0
+sample=4 at=2026-09-15T07:15:17Z state=running health=healthy ping=PONG ping_exit=0
+REDIS_INFRASTRUCTURE_RECOVERY=PASS
+container_after=e87508df0ca6f51e3e25c15b0acd8305ab59deb764e5b32989283b9ae14e0945|running|0|false

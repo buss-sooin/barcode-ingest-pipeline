@@ -1,0 +1,51 @@
+captured_at_utc=2026-09-15T07:21:04Z
+run_id=BIP-FR-005-MR-20260915T031000Z
+container=/bip-fr-002-broker-1 state=running oom=false restarts=0 health=healthy image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+container=/bip-fr-002-broker-2 state=running oom=false restarts=0 health=healthy image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+container=/bip-fr-002-broker-3 state=running oom=false restarts=0 health=healthy image=sha256:7cd4ffecaaf138cdb88030b3656a37a4e8651cdc8141c70062c869b13e8ff249
+container=/bip-fr-002-mysql state=running oom=false restarts=0 health=healthy image=sha256:5e7e005a680e75d935984d3d9390990d2a709b3ed67e92708e9e6747f1f754c9
+container=/bip-fr-002-redis state=running oom=false restarts=0 health=healthy image=sha256:59c08762bdbcf53fa132aa0bae464a57a1309dc3fff8a034bb3e16d7a0b30ec5
+container=/bip-fr-002-ingest state=running oom=false restarts=0 health=none image=sha256:0bc5151c97bc7cf4ed3c0bf9e801ff4e1231f192447f735f5c6bc37725596c6d
+container=/bip-fr-002-processing state=running oom=false restarts=0 health=none image=sha256:7c88b61745ffd1c52b15ddd5bbfe1fcaf1c2bbd2a3de0e2051ec80dd42e696b8
+container=/bip-fr-002-scanner state=running oom=false restarts=0 health=none image=sha256:ddafb8a95bbddb398f4cdf4cb34469aa1315eef24c9abdfc9b6ae66f76a16561
+container=/bip-fr-002-worker-1 state=running oom=false restarts=0 health=none image=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec
+container=/bip-fr-002-worker-2 state=running oom=false restarts=0 health=none image=sha256:b1183529237795e3b92945e21c097224d4246a2ef0e6ac93cb33d748ee8719ec
+application_port=18081 health={"status":"UP"}
+application_port=18082 health={"status":"UP"}
+application_port=18084 health={"status":"UP"}
+application_port=18085 health={"status":"UP"}
+application_port=18086 health={"status":"UP"}
+Topic: barcode-events	TopicId: 1ojqpZ39RquvwSBQvd5bXw	PartitionCount: 3	ReplicationFactor: 3	Configs: compression.type=snappy,min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: barcode-events	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 1,3,2	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 1,3,2	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 2	Leader: 3	Replicas: 3,1,2	Isr: 1,3,2	Elr: 	LastKnownElr: 
+barcode-events:0:6
+barcode-events:1:3612
+barcode-events:2:0
+Topic: barcode-events-dlt	TopicId: jL9ViC_KSL-4XsQQPjeA0w	PartitionCount: 3	ReplicationFactor: 3	Configs: compression.type=snappy,min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: barcode-events-dlt	Partition: 0	Leader: 3	Replicas: 3,1,2	Isr: 1,3,2	Elr: 	LastKnownElr: 
+	Topic: barcode-events-dlt	Partition: 1	Leader: 1	Replicas: 1,2,3	Isr: 1,3,2	Elr: 	LastKnownElr: 
+	Topic: barcode-events-dlt	Partition: 2	Leader: 2	Replicas: 2,3,1	Isr: 1,3,2	Elr: 	LastKnownElr: 
+barcode-events-dlt:0:4
+barcode-events-dlt:1:0
+barcode-events-dlt:2:0
+Topic: barcode-events-quarantine	TopicId: fndoeqP2RDeBbpj4CO_JAw	PartitionCount: 3	ReplicationFactor: 3	Configs: compression.type=snappy,min.insync.replicas=2,unclean.leader.election.enable=false
+	Topic: barcode-events-quarantine	Partition: 0	Leader: 1	Replicas: 1,2,3	Isr: 1,3,2	Elr: 	LastKnownElr: 
+	Topic: barcode-events-quarantine	Partition: 1	Leader: 2	Replicas: 2,3,1	Isr: 1,3,2	Elr: 	LastKnownElr: 
+	Topic: barcode-events-quarantine	Partition: 2	Leader: 3	Replicas: 3,1,2	Isr: 1,3,2	Elr: 	LastKnownElr: 
+barcode-events-quarantine:0:3
+barcode-events-quarantine:1:0
+barcode-events-quarantine:2:0
+
+GROUP                    TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                                              HOST            CLIENT-ID
+barcode-processing-group barcode-events  0          6               6               0               consumer-barcode-processing-group-1-06262b7a-6fba-4684-802d-3a8d649f34a1 /172.18.0.7     consumer-barcode-processing-group-1
+barcode-processing-group barcode-events  2          -               0               -               consumer-barcode-processing-group-3-9b0d1e25-e6ae-49c5-81ff-a3661add0bf9 /172.18.0.7     consumer-barcode-processing-group-3
+barcode-processing-group barcode-events  1          3612            3612            0               consumer-barcode-processing-group-2-2c04d3fb-4ffd-4ae6-b2af-6b072f3dca58 /172.18.0.7     consumer-barcode-processing-group-2
+
+Consumer group 'barcode-events-dlt-disposition' has no active members.
+
+GROUP                          TOPIC              PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID
+barcode-events-dlt-disposition barcode-events-dlt 0          4               4               0               -               -               -
+redis_ping=PONG
+redis_groups=[{"name":"barcode-persistence-group","consumers":2,"pending":0,"last-delivered-id":"1789456691642-0","entries-read":3604,"lag":0}]
+redis_pending=[0,null,null,null]

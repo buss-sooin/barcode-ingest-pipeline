@@ -1,0 +1,11 @@
+run_id=BIP-FR-005-MR-20260915T031000Z
+contract_changed=NO
+cohort_definitions_changed=NO
+failure_signatures_changed=NO
+retry_replay_semantics_changed=NO
+kafka_or_docker_resource_configuration_changed=NO
+frozen_image_rebuilt=NO
+kafka_offsets_manually_reset=NO
+historical_residue_deleted=NO
+healthy_kafka_broker_restart=NONE
+material_run_restart=NONE

@@ -1,0 +1,3 @@
+sample=1 at=2026-09-15T07:05:52Z mysql_count=0 redis_stream_count=1 dedupe_exists=1 worker_dlq_count=0
+sample=2 at=2026-09-15T07:05:55Z mysql_count=1 redis_stream_count=1 dedupe_exists=1 worker_dlq_count=0
+C0_COMPLETION=PASS

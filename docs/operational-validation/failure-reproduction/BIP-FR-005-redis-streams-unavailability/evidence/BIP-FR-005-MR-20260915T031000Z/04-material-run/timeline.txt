@@ -1,0 +1,12 @@
+2026-09-15T07:04:21Z formal Material Run start recorded ACTIVE
+2026-09-15T07:05:52Z C0 source request sent
+2026-09-15T07:05:58Z C0 normal path persistence PASS
+2026-09-15T07:07:09Z Redis unavailable fault injection executed after pre-fault gate PASS
+2026-09-15T07:08:13Z C1 and C2 sent during verified Redis unavailable window
+2026-09-15T07:15:18Z Redis infrastructure recovery PONG/healthy
+2026-09-15T07:15:59Z one-shot DLT disposition completed
+2026-09-15T07:16:48Z successor C1 replay recovery and C2 quarantine PASS
+2026-09-15T07:18:11Z C3 post-recovery request sent
+2026-09-15T07:18:20Z C3 post-recovery path PASS
+2026-09-15T07:21:18Z final successor identity reconciliation PASS
+2026-09-15T07:24:40Z Material Run phases and Evidence reconciliation completed; Outcome remains NOT_ASSIGNED

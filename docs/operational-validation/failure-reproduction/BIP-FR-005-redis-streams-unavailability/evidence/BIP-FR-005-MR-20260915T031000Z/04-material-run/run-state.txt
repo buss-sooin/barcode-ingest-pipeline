@@ -1,0 +1,11 @@
+run_id=BIP-FR-005-MR-20260915T031000Z
+contract=BIP-FR-005-RC-R1
+frozen_image=sha256:7c88b61745ffd1c52b15ddd5bbfe1fcaf1c2bbd2a3de0e2051ec80dd42e696b8
+formal_start_utc=2026-09-15T07:04:21Z
+execution_state=ACTIVE
+outcome=NOT_ASSIGNED
+verified_reproduction_claim=NONE
+completed_at_utc=2026-09-15T07:24:40Z
+execution_state=COMPLETED
+outcome=NOT_ASSIGNED
+verified_reproduction_claim=NONE

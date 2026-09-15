@@ -1,0 +1,15 @@
+fault_transition_requested_at_utc=2026-09-15T07:06:59Z
+broker=bip-fr-002-broker-1 state=running oom_killed=false exit_code=0 restart_count=0 health=healthy
+broker=bip-fr-002-broker-2 state=running oom_killed=false exit_code=0 restart_count=0 health=healthy
+broker=bip-fr-002-broker-3 state=running oom_killed=false exit_code=0 restart_count=0 health=healthy
+topic=barcode-events partitions=3 replication_factor=3 full_isr=true urp=0 unavailable=0
+topic=barcode-events-dlt partitions=3 replication_factor=3 full_isr=true urp=0 unavailable=0
+topic=barcode-events-quarantine partitions=3 replication_factor=3 full_isr=true urp=0 unavailable=0
+checked_at_utc=2026-09-15T07:07:09Z
+run_id=BIP-FR-005-MR-20260915T031000Z
+PRE_FAULT_GATE=PASS
+run_id=BIP-FR-005-MR-20260915T031000Z
+transition=ENTER_REDIS_FAULT_PERMITTED
+bip-fr-002-redis
+run_id=BIP-FR-005-MR-20260915T031000Z
+redis_fault_action=EXECUTED

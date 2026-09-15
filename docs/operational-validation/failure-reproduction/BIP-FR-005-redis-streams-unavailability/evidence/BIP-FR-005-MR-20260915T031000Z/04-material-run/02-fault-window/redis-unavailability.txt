@@ -1,0 +1,5 @@
+fault_unavailable_observed_at_utc=2026-09-15T07:07:09Z
+redis_state=exited|0|false|0|2026-09-15T07:07:09.520305879Z
+redis_ping_exit_code=1
+redis_ping_output=Error response from daemon: container e87508df0ca6f51e3e25c15b0acd8305ab59deb764e5b32989283b9ae14e0945 is not running
+REDIS_UNAVAILABLE=PASS

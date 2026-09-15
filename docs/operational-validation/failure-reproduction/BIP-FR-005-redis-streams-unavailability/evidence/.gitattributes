@@ -1,0 +1,4 @@
+# Preserve the exact HTTP response-header bytes covered by the Material Run manifest.
+BIP-FR-005-MR-20260915T031000Z/04-material-run/01-c0/http-headers.txt -text
+BIP-FR-005-MR-20260915T031000Z/04-material-run/02-fault-window/c1-http-headers.txt -text
+BIP-FR-005-MR-20260915T031000Z/04-material-run/04-post-recovery/http-headers.txt -text

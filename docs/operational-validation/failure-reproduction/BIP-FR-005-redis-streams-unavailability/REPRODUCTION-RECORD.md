@@ -9,14 +9,14 @@
 | Contract Status | `FROZEN` |
 | Historical Material Runs | `BIP-FR-005-MR-20260909T124024Z`, `BIP-FR-005-MR-20260911T112314Z` |
 | Historical Outcomes | `INCONCLUSIVE`, `INCONCLUSIVE` |
-| Current executable Run | `BIP-FR-005-MR-20260915T031000Z` |
-| Current Run state | `REGISTERED / NOT_EXECUTED / NOT_ASSIGNED` |
-| Current gate | `RUNTIME_PREFLIGHT=PASS` — Material Run 미시작 |
+| Verified Material Run | `BIP-FR-005-MR-20260915T031000Z` |
+| Final Run state | `COMPLETED / REPRODUCED` |
+| Closure state | `CLOSED / VERIFIED / SYNCHRONIZED` |
 | Successor baseline enforcement | `SUCCESSOR-BASELINE-PREPARATION-V1` |
 | Successor registration authority | `successor-registration-controller-v1.sh` |
-| Verified Reproduction Claim | 없음 |
+| Verified Reproduction Claim | `VERIFIED` |
 
-이 문서는 동결된 재현 계약(Reproduction Contract)의 의미를 변경하지 않고, 등록된 두 판정 대상 실행(Material Run)의 이력과 Failure Reproduction Workflow v0.1 검증 결과를 동기화한다. 실행 처분(Execution Disposition)은 Run의 재사용 가능 여부를, Outcome은 계약에 따른 장애 재현 판정을 나타내므로 서로 대체하지 않는다.
+이 문서는 동결된 재현 계약(Reproduction Contract)의 의미를 변경하지 않고, 세 판정 대상 실행(Material Run)의 이력과 Failure Reproduction Workflow v0.1 검증 결과를 동기화한다. 실행 처분(Execution Disposition)은 Run의 재사용 가능 여부를, Outcome은 계약에 따른 장애 재현 판정을 나타내므로 서로 대체하지 않는다.
 
 ```text
 Execution Disposition != Failure Reproduction Outcome
@@ -28,9 +28,9 @@ Execution Disposition != Failure Reproduction Outcome
 |---|---|---|---|---|---|---|
 | `BIP-FR-005-MR-20260909T124024Z` | Historical Run | `ABORTED / SUPERSEDED` | `FAIL` | `SUFFICIENT FOR INVALID EXECUTION / INSUFFICIENT FOR FAILURE SIGNATURE` | `INCONCLUSIVE` | `NOT_REUSABLE` |
 | `BIP-FR-005-MR-20260911T112314Z` | Historical Run #2 | `ABORTED` | `FAIL` | `SUFFICIENT FOR INVALIDATION / INSUFFICIENT FOR COMPLETE FAILURE-SIGNATURE EVALUATION` | `INCONCLUSIVE` | `NOT_REUSABLE` |
-| `BIP-FR-005-MR-20260915T031000Z` | Current successor Run | `REGISTERED / NOT_EXECUTED` | `NOT_EVALUATED` | entry baseline Evidence 확보 | `NOT_ASSIGNED` | `CURRENT` |
+| `BIP-FR-005-MR-20260915T031000Z` | Verified successor Run | `COMPLETED` | `PASS` | `SUFFICIENT` | `REPRODUCED` | `NOT_REUSABLE / CANONICAL RESULT` |
 
-세 Run은 각각 정확히 `BIP-FR-005-RC-R1`을 참조한다. 앞선 두 실행은 유효성 실패로 종료됐다. Successor Run은 `2026-09-15T03:10:00Z`에 candidate로 예약되고 baseline reconciliation 뒤 `03:10:59Z`에 원자적으로 등록됐으며, 아직 실행되지 않았고 Outcome도 할당되지 않았다. 등록 Evidence는 revision `b9ad6e7c1559d0515741b03307219d2c8c7e3c1d`에서 동기화되어 `ELIGIBLE_FOR_PREFLIGHT`를 통과했다.
+세 Run은 각각 정확히 `BIP-FR-005-RC-R1`을 참조한다. 앞선 두 실행은 유효성 실패로 `INCONCLUSIVE` 종료됐다. Successor Run은 `2026-09-15T03:10:00Z`에 candidate로 예약되고 baseline reconciliation 뒤 `03:10:59Z`에 원자적으로 등록됐으며, 등록 Evidence는 revision `b9ad6e7c1559d0515741b03307219d2c8c7e3c1d`에서 동기화되어 `ELIGIBLE_FOR_PREFLIGHT`를 통과했다. 이후 Material Run을 완료했고 독립 검증에서 실험 유효성 `PASS`, Evidence Sufficiency `SUFFICIENT`, Outcome `REPRODUCED`, Verified Reproduction Claim `VERIFIED`로 확정됐다.
 
 ## 3. Historical Run — `BIP-FR-005-MR-20260909T124024Z`
 
@@ -89,7 +89,7 @@ Evidence는 실행이 무효라는 결론에는 충분하지만, Redis Streams u
 - `09:03:22Z` pre-fault collection은 이미 이 상태를 관측했지만, collection과 Redis fault action이 하나의 fail-closed 전이로 묶이지 않아 실패 Predicate를 assertion으로 차단하지 못했다.
 - Redis fault는 `09:03:24Z`에 주입됐고 `C1`, `C2`는 `09:03:42Z`에 발행됐다. 이는 Redis 단독 장애라는 계약 유효성 전제가 이미 깨진 뒤의 실행 제어 편차다.
 - Run은 `09:07:15Z`에 `UNEXPECTED_KAFKA_BROKER_OOM`으로 중단됐다. Redis는 중단 정리 목적으로만 복구했고 DLT disposition, replay, quarantine 처리와 `C3` 전송은 수행하지 않았다.
-- 실행 처분: `ABORTED / NOT_REUSABLE`. 후속 Run이 아직 등록되지 않았으므로 `SUPERSEDED`로 표기하지 않는다.
+- 실행 처분: `ABORTED / NOT_REUSABLE`. 무효화 정본화 시점에는 후속 Run이 등록되지 않았으므로 `SUPERSEDED`로 표기하지 않았고, 이 Historical 상태를 소급 변경하지 않는다.
 
 주요 Evidence:
 
@@ -139,7 +139,7 @@ Invalid Run에서 Redis `QueryTimeoutException`이 `UNKNOWN`으로 분류된 것
 ```text
 CONTRACT_REVISION_REQUIRED=NO
 NEW_RUN_REQUIRED=SATISFIED_BY_BIP-FR-005-MR-20260915T031000Z
-Current executable Run=BIP-FR-005-MR-20260915T031000Z
+Successor Run=BIP-FR-005-MR-20260915T031000Z
 ```
 
 Historical Run #2는 formal start, C0/C1/C2, Redis fault와 DLT 상태를 생성했으므로 다시 사용할 수 없다. Successor Run `BIP-FR-005-MR-20260915T031000Z`이 별도 identity로 등록됐으며 Historical Evidence는 변경하지 않는다.
@@ -173,7 +173,7 @@ REPRODUCTION-RECORD.md + Git commit/push = synchronization
 
 따라서 registration 뒤 repository synchronization이 실패해도 Run은 `REGISTERED`로 남지만 `SYNCHRONIZATION_BLOCKED`로 실행할 수 없다. Controller의 `eligibility`는 canonical registration/index 추적, clean working tree와 local/upstream HEAD 일치를 확인한 뒤에만 후속 preflight 자격을 부여하며 Material Run을 시작하지 않는다.
 
-### 4.9 Current successor Run 준비 상태
+### 4.9 Successor Run 준비 snapshot
 
 `BIP-FR-005-MR-20260915T031000Z`은 registration controller가 실제 UTC reservation second에 candidate namespace를 원자적으로 확보한 뒤 등록했다. 고정 binding은 implementation `83eaa799e2359a353e748e567a5fbfc0df0cf9c3`, preparation `b124748fb72581614caa208287a31a3c4a3da8a1`, baseline isolation version `1`, historical inventory SHA-256 `2afac243749c714367a744b525f2f41e518add6378b549a710d16bf68b8cd068`이다.
 
@@ -183,26 +183,109 @@ REPRODUCTION-RECORD.md + Git commit/push = synchronization
 
 Static successor preflight는 `PASS`했다. 최초 runtime preflight는 `bip-fr-002-broker-2`가 이미 `2026-09-15T03:15:53.574025216Z`에 exit 137/OOM으로 종료된 상태를 발견해 `required_container_not_running:bip-fr-002-broker-2`에서 fail closed로 중단됐다. 후속 관측에서 세 scenario topic의 9개 partition은 모두 under-replicated였고 unavailable partition은 `0`이었다.
 
-용량 안정화 책임에서는 Docker에 보이는 호스트/VM 메모리, 컨테이너별 사용량과 제한, Kafka JVM 설정, broker 종료 상태와 로그를 진단했다. 가장 강하게 뒷받침되는 분류는 `DOCKER_HOST_MEMORY_PRESSURE`이지만 kernel 수준 OOM 인과관계와 JVM heap OOM은 확정되지 않았고 잔여 용량 위험은 `PRESENT`다. 구성 변경 없이 기존 broker-2 컨테이너만 시작했으며, 617초 동안 15개 표본에서 broker OOM 재발과 예상 밖 restart가 모두 `0`, Kafka URP와 unavailable partition이 `0`, full ISR이 `PASS`로 유지되어 `RUNTIME_CAPACITY_STABILITY=PASS`를 판정했다. 등록된 baseline을 재캡처하거나 대체하지 않고 reconciliation을 재실행해 historical residue ownership, watermark, successor identity 부재, source/Redis lag와 PEL을 검증했고 `REGISTERED_BASELINE_INTEGRITY=PASS`를 확인했다. 동일 frozen image에 대한 static/runtime preflight도 모두 통과해 `RUNTIME_PREFLIGHT=PASS`다. Traffic, Redis fault와 Outcome 할당은 수행하지 않았으므로 Run은 계속 `REGISTERED / NOT_EXECUTED / NOT_ASSIGNED`다.
+용량 안정화 책임에서는 Docker에 보이는 호스트/VM 메모리, 컨테이너별 사용량과 제한, Kafka JVM 설정, broker 종료 상태와 로그를 진단했다. 가장 강하게 뒷받침되는 분류는 `DOCKER_HOST_MEMORY_PRESSURE`이지만 kernel 수준 OOM 인과관계와 JVM heap OOM은 확정되지 않았고 잔여 용량 위험은 `PRESENT`다. 구성 변경 없이 기존 broker-2 컨테이너만 시작했으며, 617초 동안 15개 표본에서 broker OOM 재발과 예상 밖 restart가 모두 `0`, Kafka URP와 unavailable partition이 `0`, full ISR이 `PASS`로 유지되어 `RUNTIME_CAPACITY_STABILITY=PASS`를 판정했다. 등록된 baseline을 재캡처하거나 대체하지 않고 reconciliation을 재실행해 historical residue ownership, watermark, successor identity 부재, source/Redis lag와 PEL을 검증했고 `REGISTERED_BASELINE_INTEGRITY=PASS`를 확인했다. 동일 frozen image에 대한 static/runtime preflight도 모두 통과해 `RUNTIME_PREFLIGHT=PASS`다. 이 준비 상태는 Material Run 시작 전의 정본 snapshot이며, 후속 실행과 독립 검증의 최종 상태는 5절에 기록한다.
 
-## 5. Contract와 manifest 무결성
+## 5. Verified successor Run — `BIP-FR-005-MR-20260915T031000Z`
 
-- `REPRODUCTION-CONTRACT.md`의 SHA-256은 `1ed738712229c27320b59dd0ac13748baedfadbd350cdbdb0078692883880865`이며 두 Run manifest에 기록된 값과 일치한다.
+### 5.1 실행과 최종 판정
+
+| 항목 | 결과 |
+|---|---|
+| Formal start | `2026-09-15T07:04:21Z` |
+| Execution completed | `2026-09-15T07:24:40Z` |
+| Frozen Processing image | `sha256:7c88b61745ffd1c52b15ddd5bbfe1fcaf1c2bbd2a3de0e2051ec80dd42e696b8` |
+| Experiment Validity | `PASS` |
+| Evidence Sufficiency | `SUFFICIENT` |
+| Outcome | `REPRODUCED` |
+| Verified Reproduction Claim | `VERIFIED` |
+
+실행 시점 Evidence의 `outcome-boundary.txt`와 `run-state.txt`는 당시 실행 책임이 Outcome을 할당하지 않았다는 사실을 보존한다. 위 최종 판정은 그 raw Evidence를 변경하지 않고 수행한 독립 검증 결과다.
+
+주요 Evidence:
+
+- [Material Run manifest](./evidence/BIP-FR-005-MR-20260915T031000Z/04-material-run/MATERIAL-RUN-MANIFEST.sha256)
+- [Timeline](./evidence/BIP-FR-005-MR-20260915T031000Z/04-material-run/timeline.txt)
+- [Run state](./evidence/BIP-FR-005-MR-20260915T031000Z/04-material-run/run-state.txt)
+- [Entry recheck](./evidence/BIP-FR-005-MR-20260915T031000Z/04-material-run/00-entry/entry-recheck.txt)
+- [Pre-fault transition](./evidence/BIP-FR-005-MR-20260915T031000Z/04-material-run/02-fault-window/fault-transition.txt)
+- [DLT disposition verdict](./evidence/BIP-FR-005-MR-20260915T031000Z/04-material-run/03-recovery-disposition/dlt-disposition-verdict.txt)
+- [Identity accounting](./evidence/BIP-FR-005-MR-20260915T031000Z/04-material-run/05-reconciliation/identity-accounting.txt)
+- [Experiment validity](./evidence/BIP-FR-005-MR-20260915T031000Z/04-material-run/05-reconciliation/experiment-validity.txt)
+- [Evidence sufficiency](./evidence/BIP-FR-005-MR-20260915T031000Z/04-material-run/05-reconciliation/evidence-sufficiency.txt)
+- [Failure-signature observations](./evidence/BIP-FR-005-MR-20260915T031000Z/04-material-run/05-reconciliation/failure-signatures.txt)
+
+### 5.2 Verified Reproduction Claim
+
+동결된 Processing 구현과 안정된 Kafka 토폴로지에서 active processing 중 Redis를 사용할 수 없게 되자 transient C1의 Redis Streams handoff가 실패했다. `QueryTimeoutException`은 source retry를 소진했고 처리 책임은 `TRANSIENT_REDIS` DLT로 이전됐다. Permanent-validation C2는 별도의 `PERMANENT_VALIDATION` DLT/quarantine terminal path를 따랐다.
+
+Redis health 복원만으로 복구 완료(Recovery Complete)를 선언하지 않았다. 한 번의 bounded replay로 C1이 Redis Stream과 MySQL까지 복구되고 post-recovery C3가 정상 처리됐으며, 모든 successor identity는 unaccounted identity 없이 설명 가능한 terminal state로 조정(Reconciliation)됐다.
+
+### 5.3 Failure Signature 판정
+
+| Failure Signature | 최종 판정 | Evidence mapping |
+|---|---|---|
+| `FS-01` | `SATISFIED` | C1 source `barcode-events/0/2`, 4회 delivery, `QueryTimeoutException`, `TRANSIENT_REDIS` DLT |
+| `FS-02` | `SATISFIED` | C2 source `barcode-events/0/3`, `PermanentEventValidationException`, `PERMANENT_VALIDATION` DLT |
+| `FS-03` | `SATISFIED` | C1/C2 DLT category가 각각 `TRANSIENT_REDIS` / `PERMANENT_VALIDATION` |
+| `FS-04` | `SATISFIED` | C1 `REPLAYED`, C2 `QUARANTINED` publication 뒤 DLT offset commit |
+| `FS-05` | `SATISFIED` | C1 replay `barcode-events/0/4` 뒤 Redis Stream, dedupe, MySQL 완료 |
+| `FS-06` | `SATISFIED` | C1 replay count `0 → 1`, 추가 successor DLT 없음 |
+| `FS-07` | `SATISFIED` | snapshot offsets `0..3`만 disposition하고 이후 DLT end offset `4` 유지 |
+| `FS-08` | `SATISFIED` | C2 terminal quarantine, quarantine replay 없음 |
+| `FS-09` | `SATISFIED` | C0-C3를 source, DLT, quarantine, Redis, Worker DLQ, dedupe, MySQL에서 모두 조정 |
+
+### 5.4 운영 트러블슈팅 흐름
+
+| 단계 | Evidence 기반 판단 |
+|---|---|
+| Normal Architecture | Processing이 Kafka source를 소비해 Redis Streams로 handoff하고 Worker가 MySQL에 영속화한다. |
+| Failure Mechanism | Active processing 중 Redis unavailable로 C1 handoff가 `QueryTimeoutException`을 발생시켰다. |
+| Symptoms | C1 재전달과 source retry 소진, `TRANSIENT_REDIS` DLT 책임 이전이 관측됐다. |
+| Initial Triage | Redis 상태뿐 아니라 Kafka broker/ISR/URP, source lag, DLT, Redis group lag/PEL을 함께 확인했다. |
+| Failure-domain Narrowing | Run 동안 Kafka OOM·exit·restart, URP와 unavailable partition이 발생하지 않아 Redis failure domain을 격리했다. |
+| Hypothesis Verification | C1 transient path와 C2 permanent-validation path를 서로 다른 root identity와 DLT category로 확인했다. |
+| Recovery | 기존 Redis를 복구하고 `PONG`과 health를 확인한 뒤 snapshot-bounded DLT disposition을 수행했다. |
+| Recovery Complete | Redis health만이 아니라 C1 bounded replay 완료, C2 terminal quarantine, C3 정상 처리까지 확인했다. |
+| Reconciliation | Successor identity 전부를 account했고 unknown residue와 unaccounted successor identity는 없었다. |
+| Known Limitations | 5.5절의 bounded claim을 적용한다. |
+
+```text
+Redis PONG / healthy
+!= Processing Recovery Complete
+```
+
+### 5.5 Known Limitations
+
+- 검증 범위는 작은 통제 C0-C3 cohort이며 production-scale, high-load 또는 long-duration 검증이 아니다.
+- Replay count는 `0 → 1`만 실행했다. Replay-exhausted와 malformed replay-count path는 Material Run cohort로 실행하지 않았다.
+- Kafka publication과 DLT offset commit은 하나의 transaction으로 묶이지 않는다.
+- Exactly-once replay를 주장하지 않는다.
+- Pre-run broker OOM은 `DOCKER_HOST_MEMORY_PRESSURE`가 가장 강하게 뒷받침되는 분류지만 kernel 수준 인과관계는 확정되지 않았다.
+- 이 formal Run이 증명하는 범위는 Run 동안 OOM이 재발하지 않았다는 사실까지다. Production capacity 안정성을 일반화하지 않는다.
+
+## 6. Contract와 manifest 무결성
+
+- `REPRODUCTION-CONTRACT.md`의 SHA-256은 `1ed738712229c27320b59dd0ac13748baedfadbd350cdbdb0078692883880865`다.
 - `BIP-FR-005-RC-R1`은 `FROZEN` 상태를 유지한다. 이 Record는 계약의 Failure Signature, Verification Criteria, Scope, 승인 실행 경계 또는 의미를 변경하지 않는다.
 - 계약에 남아 있는 pre-execution `Material Run = NOT EXECUTED`와 placeholder 설명은 freeze 시점의 상태다. 실행 이력의 현재 정본은 이 Record이며, frozen 계약을 runtime status log로 사용하지 않는다.
 - 두 번째 Run의 등록 시점 `MANIFEST.sha256`은 그대로 보존한다. Material Run의 44개 파일은 self-excluding 43-entry `02-material-run/MANIFEST.sha256`으로 별도 검증하며 등재 항목 전체가 일치한다.
 - Identity reconciliation은 두 번째 Run의 등록 시점 `MANIFEST.sha256`을 수정하거나 포괄 범위를 소급 확장하지 않는다. 당시 v2 preflight와 reconciliation Evidence는 별도 `RECONCILIATION-MANIFEST.sha256`으로 고정했다. 그 manifest가 포함한 공유 `REPRODUCTION-RECORD.md` 항목은 해당 reconciliation 시점의 canonical snapshot이며, 이번 successor baseline additive update 이후 현재 Record byte 검증값으로 사용하지 않는다. Historical manifest를 다시 쓰지 않았으므로 `preflight-v2.sh`와 Run-local reconciliation Evidence 항목은 계속 일치하지만 현재 Record 항목은 의도적으로 drift한다.
 - 첫 Run의 최상위 `MANIFEST.sha256`은 Run-local environment Evidence와 계약 등은 일치하지만, 현재의 공유 준비 artifact 4개(`docker-compose.release.yml`, `preflight.sh`, `capture-state.sh`, `EXECUTION-PREPARATION.txt`)와는 일치하지 않는다. 이는 첫 Run manifest의 과거 snapshot과 현재 공유 파일 사이의 byte drift이며, 해당 manifest를 현재 전체 디렉터리 검증값으로 사용해서는 안 된다.
 - 첫 Run Attempt 2의 `ATTEMPT-2-MANIFEST.sha256`은 등재된 17개 Run-local Evidence 전부와 일치한다. 따라서 3절의 판정은 무결성이 확인된 Attempt 2 Evidence에 근거한다.
+- Verified successor Run의 `04-material-run`은 raw Evidence 62개와 self-excluding `MATERIAL-RUN-MANIFEST.sha256` 1개, 총 63개 파일로 구성되며 manifest payload 전체가 일치한다.
 
-## 6. Repository 추적 상태
+## 7. Repository 추적 상태
 
 - FR-005 implementation, test, release-preparation, canonical documentation과 Evidence corpus는 전용 branch `validation/bip-fr-005-redis-streams-unavailability`에서 추적한다.
 - Canonical implementation commit은 `e540d4238480cddd08ceb4578a93e935ed731b8b`, canonicalization anchor는 `7eba27e22a36a5e50109351f7dbd518d3c78b71b`다.
 - `REPRODUCTION-CONTRACT.md`와 이 `REPRODUCTION-RECORD.md`는 `.gitignore`를 변경하지 않고 path-specific explicit tracking으로 보존한다.
-- 두 번째 Run의 등록·release identity·기존 manifest는 historical Evidence로 변경하지 않는다. classifier와 실행 제어 교정은 successor Run에서 새 implementation/release identity로 등록해야 한다.
+- 두 번째 Run의 등록·release identity·기존 manifest는 Historical Evidence로 변경하지 않았다. Successor Run은 교정된 implementation과 별도 frozen release identity를 사용했다.
 - Successor baseline V1은 Historical Run #2의 DLT Evidence 파일 SHA-256 `33ea7d1c08ee16767fdec5a9b183e650232551d6d71b370a5f03286db0ca189c`를 ownership anchor로 사용한다. 기존 Evidence byte를 수정하지 않고 새 inventory에서 참조한다.
 
-## 7. 다음 실행 관문
+## 8. Closure
 
-현재 successor Run은 `REGISTERED / NOT_EXECUTED / NOT_ASSIGNED`이며 registration eligibility, `RUNTIME_CAPACITY_STABILITY`, `REGISTERED_BASELINE_INTEGRITY`, static/runtime preflight가 모두 `PASS`다. 다음 관문은 successor BIP-FR-005 Material Run 실행 결정이다. 잔여 용량 위험은 계속 존재하며, 이 Record 자체는 Material Run start, fault injection 또는 Outcome을 승인하지 않는다.
+`BIP-FR-005-MR-20260915T031000Z`은 `COMPLETED`, Experiment Validity `PASS`, Evidence Sufficiency `SUFFICIENT`, Outcome `REPRODUCED`, Verified Reproduction Claim `VERIFIED`로 종료됐다. 두 Historical Run의 `INCONCLUSIVE` 판정은 변경하지 않는다.
+
+```text
+BIP-FR-005=CLOSED / REPRODUCED / VERIFIED / SYNCHRONIZED
+```

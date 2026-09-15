@@ -1,0 +1,5 @@
+captured_at_utc=2026-09-15T07:04:20Z
+run_id=BIP-FR-005-MR-20260915T031000Z
+barcode-events:0:2
+barcode-events:1:3611
+barcode-events:2:0

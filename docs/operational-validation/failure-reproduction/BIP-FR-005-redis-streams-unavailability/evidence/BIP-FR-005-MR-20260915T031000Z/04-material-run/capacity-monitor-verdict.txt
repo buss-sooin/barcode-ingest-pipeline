@@ -1,0 +1,8 @@
+run_id=BIP-FR-005-MR-20260915T031000Z
+first_sample_utc=2026-09-15T07:04:50Z
+last_sample_utc=2026-09-15T07:21:19Z
+sample_count=70
+failed_sample_count=0
+broker_oom_or_exit=0
+kafka_urp_or_isr_degradation=0
+EXECUTION_CAPACITY_GUARD=PASS

@@ -1,0 +1,15 @@
+run_id=BIP-FR-005-MR-20260915T031000Z
+source_successor_record_occurrences=5
+dlt_successor_record_occurrences=2
+quarantine_successor_record_occurrences=1
+historical_quarantine_C1_occurrences=1
+historical_quarantine_C2_occurrences=1
+source_consumer_lag=0
+dlt_disposition_lag=0
+redis_group_lag=0
+redis_pel=0
+unknown_residue=NONE
+unaccounted_successor_identity=0
+watermark_accounting=VALID
+GLOBAL_COUNTS=DIAGNOSTIC_ONLY
+FINAL_RECONCILIATION=PASS

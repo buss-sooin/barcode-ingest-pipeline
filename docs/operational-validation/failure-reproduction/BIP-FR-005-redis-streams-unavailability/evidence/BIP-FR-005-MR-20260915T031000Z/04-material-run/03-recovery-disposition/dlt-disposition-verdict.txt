@@ -1,0 +1,4 @@
+disposition_started_at_utc=2026-09-15T07:15:55Z
+disposition_finished_at_utc=2026-09-15T07:15:59Z
+disposition_exit_code=0
+DLT_DISPOSITION=PASS

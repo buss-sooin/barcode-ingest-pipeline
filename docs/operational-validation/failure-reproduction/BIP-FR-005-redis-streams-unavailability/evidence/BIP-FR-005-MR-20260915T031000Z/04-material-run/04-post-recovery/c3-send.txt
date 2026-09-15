@@ -1,0 +1,6 @@
+sent_at_utc=2026-09-15T07:18:11Z
+scan_time_epoch_ms=1789456691000
+key=SEOUL-CENTER-PC-003
+payload={"barcode":"BIP-FR-005-MR-20260915T031000Z-C3-001","scanTime":1789456691000,"deviceId":"SEOUL-CENTER-PC-003"}
+http_code=200
+http_body=Ingested barcode BIP-FR-005-MR-20260915T031000Z-C3-001

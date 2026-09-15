@@ -1,0 +1,66 @@
+entry_recheck_started_at_utc=2026-09-15T07:01:28Z
+run_id=BIP-FR-005-MR-20260915T031000Z
+state=REGISTERED
+synchronization=PASS
+execution_eligibility=ELIGIBLE_FOR_PREFLIGHT
+CONTROLLER_RESULT=PASS
+run_id=BIP-FR-005-MR-20260915T031000Z
+contract_revision=BIP-FR-005-RC-R1
+historical_residue_records=2
+diagnostic_dlt_total_end_offset=2
+diagnostic_quarantine_total_end_offset=0
+GLOBAL_COUNTS=DIAGNOSTIC_ONLY
+PARTITION_WATERMARKS=PASS
+HISTORICAL_RESIDUE_OWNERSHIP=PASS
+SUCCESSOR_ROOT_IDENTITY_ABSENCE=PASS
+SOURCE_CONSUMER_LAG=PASS
+REDIS_GROUP_LAG=PASS
+REDIS_PEL=PASS
+FROZEN_R1_ROOT_IDENTITY_RECONCILIATION=PASS
+SUCCESSOR_BASELINE_RECONCILIATION=PASS
+run_id=BIP-FR-005-MR-20260915T031000Z
+preparation_revision=b124748fb72581614caa208287a31a3c4a3da8a1
+current_head=0df6374a72e1dd5f4bb5f487ae39cb10921b527d
+CURRENT_CHECKOUT=PASS
+FROZEN_R1_IDENTITY=PASS
+STATIC_SUCCESSOR_PREFLIGHT_V3=PASS
+container=bip-fr-002-broker-1 state=running oom=false restarts=0
+container=bip-fr-002-broker-2 state=running oom=false restarts=0
+container=bip-fr-002-broker-3 state=running oom=false restarts=0
+container=bip-fr-002-mysql state=running oom=false restarts=0
+container=bip-fr-002-redis state=running oom=false restarts=0
+container=bip-fr-002-ingest state=running oom=false restarts=0
+container=bip-fr-002-processing state=running oom=false restarts=0
+container=bip-fr-002-scanner state=running oom=false restarts=0
+container=bip-fr-002-worker-1 state=running oom=false restarts=0
+container=bip-fr-002-worker-2 state=running oom=false restarts=0
+run_id=BIP-FR-005-MR-20260915T031000Z
+output_dir=/tmp/bip-fr-005-run-106.iXaATT/runtime-baseline
+SUCCESSOR_BASELINE_CAPTURE=PASS
+run_id=BIP-FR-005-MR-20260915T031000Z
+contract_revision=BIP-FR-005-RC-R1
+historical_residue_records=2
+diagnostic_dlt_total_end_offset=2
+diagnostic_quarantine_total_end_offset=0
+GLOBAL_COUNTS=DIAGNOSTIC_ONLY
+PARTITION_WATERMARKS=PASS
+HISTORICAL_RESIDUE_OWNERSHIP=PASS
+SUCCESSOR_ROOT_IDENTITY_ABSENCE=PASS
+SOURCE_CONSUMER_LAG=PASS
+REDIS_GROUP_LAG=PASS
+REDIS_PEL=PASS
+FROZEN_R1_ROOT_IDENTITY_RECONCILIATION=PASS
+SUCCESSOR_BASELINE_RECONCILIATION=PASS
+GLOBAL_ZERO_PREDICATE=NOT_USED
+RUNTIME_SUCCESSOR_PREFLIGHT_V3=PASS
+broker=bip-fr-002-broker-1 state=running oom_killed=false exit_code=0 restart_count=0 health=healthy
+broker=bip-fr-002-broker-2 state=running oom_killed=false exit_code=0 restart_count=0 health=healthy
+broker=bip-fr-002-broker-3 state=running oom_killed=false exit_code=0 restart_count=0 health=healthy
+topic=barcode-events partitions=3 replication_factor=3 full_isr=true urp=0 unavailable=0
+topic=barcode-events-dlt partitions=3 replication_factor=3 full_isr=true urp=0 unavailable=0
+topic=barcode-events-quarantine partitions=3 replication_factor=3 full_isr=true urp=0 unavailable=0
+checked_at_utc=2026-09-15T07:02:00Z
+run_id=BIP-FR-005-MR-20260915T031000Z
+PRE_FAULT_GATE=PASS
+entry_recheck_completed_at_utc=2026-09-15T07:02:00Z
+MATERIAL_RUN_ENTRY_RECHECK=PASS

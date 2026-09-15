@@ -1,0 +1,6 @@
+sent_at_utc=2026-09-15T07:08:13Z
+redis_state_at_send=exited
+scan_time_epoch_ms=1789456093000
+key=bip-fr-005-c2-invalid
+payload={"barcode":"BIP-FR-005-MR-20260915T031000Z-C2-001","scanTime":1789456093000,"deviceId":""}
+producer_exit_code=0

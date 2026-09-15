@@ -1,0 +1,20 @@
+run_id=BIP-FR-005-MR-20260915T031000Z
+FS-01=OBSERVED
+FS-01_evidence=C1 source p0/2; 4 delivery attempts; QueryTimeoutException; DLT p0/2 TRANSIENT_REDIS
+FS-02=OBSERVED
+FS-02_evidence=C2 source p0/3; PermanentEventValidationException; DLT p0/3 PERMANENT_VALIDATION without transient retry cycle
+FS-03=OBSERVED
+FS-03_evidence=C1 TRANSIENT_REDIS and C2 PERMANENT_VALIDATION headers
+FS-04=OBSERVED
+FS-04_evidence=C1 REPLAYED and C2 QUARANTINED publication followed by DLT offset commit
+FS-05=OBSERVED
+FS-05_evidence=C1 replay source p0/4 followed by Redis Stream, dedupe and MySQL completion
+FS-06=OBSERVED
+FS-06_evidence=C1 x-bip-dlt-replay-count=1; exactly one replay; no second successor DLT
+FS-07=OBSERVED
+FS-07_evidence=startup backlogEndOffsets p0=4,p1=0,p2=0; processed offsets 0..3 only; post-disposition DLT end remains 4
+FS-08=OBSERVED
+FS-08_evidence=C2 terminal quarantine with PERMANENT_VALIDATION; no quarantine replay
+FS-09=OBSERVED
+FS-09_evidence=identity-accounting explains C0-C3 across source, DLT, quarantine, Redis, Worker DLQ, dedupe and MySQL
+FAILURE_SIGNATURE_EVALUATION=COMPLETE_PRELIMINARY

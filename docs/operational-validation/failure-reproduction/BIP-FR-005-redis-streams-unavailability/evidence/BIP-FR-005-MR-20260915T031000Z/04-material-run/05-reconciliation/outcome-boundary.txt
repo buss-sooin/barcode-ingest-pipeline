@@ -1,0 +1,5 @@
+run_id=BIP-FR-005-MR-20260915T031000Z
+registered_deterministic_complete_outcome_verifier=NOT_FOUND
+outcome=NOT_ASSIGNED
+verified_reproduction_claim=NONE
+next_required_action=BIP-FR-005_MATERIAL_RUN_VERIFICATION

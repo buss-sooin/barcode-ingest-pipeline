@@ -1,0 +1,2 @@
+sample=1 at=2026-09-15T07:16:45Z c1_mysql=1 c1_redis=1 c1_dedupe=1 c1_worker_dlq=0 c2_mysql=0 c2_redis=0 source_lag=0 redis_group_lag=0 redis_pel=0 quarantine_total=3
+REPLAY_RECOVERY_AND_QUARANTINE=PASS

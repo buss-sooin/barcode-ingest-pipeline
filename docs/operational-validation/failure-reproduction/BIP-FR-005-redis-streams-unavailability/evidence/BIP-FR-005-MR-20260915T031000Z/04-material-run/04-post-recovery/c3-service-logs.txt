@@ -1,0 +1,5 @@
+captured_at_utc=2026-09-15T07:19:57Z
+2026-09-15T07:18:11.640104880Z 2026-09-15T07:18:11.639Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-005-MR-20260915T031000Z-C3-001, Device: SEOUL-CENTER-PC-003, scanTime: 1789456691000
+2026-09-15T07:18:11.640460755Z 2026-09-15T07:18:11.640Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-005-MR-20260915T031000Z-C3-001 → DLV-SEOUL-CENTER-PC-003-260915-01M2HYWCDRE21HQ9PQJ4NEAGAH
+2026-09-15T07:18:11.645448714Z 2026-09-15T07:18:11.644Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-5] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: BIP-FR-005-MR-20260915T031000Z-C3-001
+2026-09-15T07:18:11.645479589Z 2026-09-15T07:18:11.645Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: BIP-FR-005-MR-20260915T031000Z-C3-001

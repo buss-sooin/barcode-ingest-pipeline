@@ -1,0 +1,4 @@
+cohort=C0 identity=BIP-FR-005-MR-20260915T031000Z-C0-001 source=1 dlt=0 quarantine=0 redis_stream=1 worker_dlq=0 mysql=1 dedupe=1
+cohort=C1 identity=BIP-FR-005-MR-20260915T031000Z-C1-001 source=2 dlt=1 quarantine=0 redis_stream=1 worker_dlq=0 mysql=1 dedupe=1
+cohort=C2 identity=BIP-FR-005-MR-20260915T031000Z-C2-001 source=1 dlt=1 quarantine=1 redis_stream=0 worker_dlq=0 mysql=0 dedupe=0
+cohort=C3 identity=BIP-FR-005-MR-20260915T031000Z-C3-001 source=1 dlt=0 quarantine=0 redis_stream=1 worker_dlq=0 mysql=1 dedupe=1
