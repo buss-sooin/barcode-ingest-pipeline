@@ -1,0 +1,3 @@
+bf7d50556e60ac2ecd1999279cbd5c095b644f4730374568eaa8e18ff715a7af  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/SUCCESSOR-REGISTRATION-CONTROLLER-V1.txt
+5a9f50c06d130450b6acf8dc8fb2427ddb5817a170c0b79eef7fdf861b5051fc  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/successor-registration-controller-v1.sh
+0f535206153b4f065838e6eac8de6a0d5576e3742f1e451cb1e9561786c63bf7  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/tests/successor-registration-controller-v1-test.sh

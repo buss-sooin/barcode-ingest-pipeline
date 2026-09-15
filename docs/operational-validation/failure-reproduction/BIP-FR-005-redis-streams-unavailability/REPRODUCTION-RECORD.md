@@ -12,6 +12,7 @@
 | Current executable Run | 없음 |
 | Next Material Run | 새 등록 필요 |
 | Successor baseline enforcement | `SUCCESSOR-BASELINE-PREPARATION-V1` |
+| Successor registration authority | `successor-registration-controller-v1.sh` |
 | Verified Reproduction Claim | 없음 |
 
 이 문서는 동결된 재현 계약(Reproduction Contract)의 의미를 변경하지 않고, 등록된 두 판정 대상 실행(Material Run)의 이력과 Failure Reproduction Workflow v0.1 검증 결과를 동기화한다. 실행 처분(Execution Disposition)은 Run의 재사용 가능 여부를, Outcome은 계약에 따른 장애 재현 판정을 나타내므로 서로 대체하지 않는다.
@@ -157,6 +158,19 @@ Historical DLT/quarantine 전체 건수를 `0`으로 요구하면 보존해야 �
 
 현재 알려진 inventory는 Historical Run #2의 `barcode-events-dlt/0/0` C1과 `/0/1` C2 두 record만 허용한다. Kafka retention이나 log-start 변화, 새 residue, JSON `.barcode`로 식별할 수 없는 payload 또는 topic당 10,000건을 넘는 baseline은 자동 승인하지 않고 새 Evidence와 versioned inventory reconciliation을 요구한다.
 
+### 4.8 Successor Run allocation과 registration 권위
+
+`successor-registration-controller-v1.sh`는 새 BIP-FR-005 Run ID의 유일한 allocator/registrar다. Run ID의 UTC 구성요소는 atomic candidate namespace reservation에 성공한 시점의 실제 UTC wall-clock second이며 baseline capture, image build, registration completion 또는 Git synchronization 시각이 아니다. 동일 초 collision은 덮어쓰지 않고 실제 clock이 다음 초로 전진할 때까지만 bounded retry하며, 미래 시각을 합성하지 않는다.
+
+Atomic namespace reservation과 `candidate-reservation.txt` publication은 `CANDIDATE_RESERVED`만 성립시킨다. 정확히 하나인 active candidate의 고정 identity binding과 baseline reconciliation이 모두 일치한 뒤, 검증된 `run-registration.txt`를 no-replace atomic publication한 사건만 `REGISTERED` 권위를 가진다. 동일 registration은 내용 검증 후 idempotent하게 재인식하고, binding·중복 artifact·index conflict 또는 복수 active reservation은 Evidence를 삭제하지 않고 fail closed 처리한다.
+
+```text
+atomic run-registration.txt publication = REGISTERED
+REPRODUCTION-RECORD.md + Git commit/push = synchronization
+```
+
+따라서 registration 뒤 repository synchronization이 실패해도 Run은 `REGISTERED`로 남지만 `SYNCHRONIZATION_BLOCKED`로 실행할 수 없다. Controller의 `eligibility`는 canonical registration/index 추적, clean working tree와 local/upstream HEAD 일치를 확인한 뒤에만 후속 preflight 자격을 부여하며 Material Run을 시작하지 않는다.
+
 ## 5. Contract와 manifest 무결성
 
 - `REPRODUCTION-CONTRACT.md`의 SHA-256은 `1ed738712229c27320b59dd0ac13748baedfadbd350cdbdb0078692883880865`이며 두 Run manifest에 기록된 값과 일치한다.
@@ -177,4 +191,4 @@ Historical DLT/quarantine 전체 건수를 `0`으로 요구하면 보존해야 �
 
 ## 7. 다음 실행 관문
 
-현재 실행 가능한 Run은 없다. Successor 등록의 선행조건은 안정적인 Kafka/Redis/MySQL/application topology에서 새 고유 Run ID와 cohort를 만들고, `successor-baseline-capture-v1.sh`가 생성한 partition watermarks·exact residue inventory·identity-state·lag/PEL snapshot을 Run-local `01-entry-baseline`에 고정하는 것이다. 등록은 `BIP-FR-005-RC-R1`, corrected application revision `83eaa799e2359a353e748e567a5fbfc0df0cf9c3`, clean preparation revision, baseline isolation version `1`과 `known-historical-residue-v1.tsv` 해시를 정확히 하나씩 연결해야 한다. 이후 새 frozen release identity를 같은 Run에 연결하고 `successor-preflight-v3.sh static|runtime`을 통과해야 한다. 이 Record는 successor Run을 등록하거나 실행 Surface를 선결정하지 않는다.
+현재 실행 가능한 Run은 없다. 다음 책임은 `successor-registration-controller-v1.sh allocate`에서 재개한다. 안정적인 Kafka/Redis/MySQL/application topology에서 Controller가 새 candidate ID를 atomic reserve한 뒤, 고유 cohort와 `successor-baseline-capture-v1.sh`의 partition watermarks·exact residue inventory·identity-state·lag/PEL snapshot을 Run-local `01-entry-baseline`에 고정해야 한다. Reconciliation PASS 뒤 같은 Controller가 registration을 finalization하고, 새 frozen release identity를 연결한 다음 canonical synchronization과 `successor-preflight-v3.sh static|runtime`을 통과해야 한다. 이 Record는 successor Run을 미리 등록하거나 실행 Surface를 선결정하지 않는다.

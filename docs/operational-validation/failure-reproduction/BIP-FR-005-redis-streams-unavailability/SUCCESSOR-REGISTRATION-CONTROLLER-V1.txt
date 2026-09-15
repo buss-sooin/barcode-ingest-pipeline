@@ -1,0 +1,74 @@
+BIP-FR-005 SUCCESSOR REGISTRATION CONTROLLER V1
+
+AUTHORITY
+  successor-registration-controller-v1.sh is the sole allocator and registrar
+  for every new BIP-FR-005 Material Run. FR-004 controllers and phase graphs are
+  not registration authorities for this scenario.
+
+RUN ID CLOCK SEMANTICS
+  BIP-FR-005-MR-YYYYMMDDThhmmssZ uses the observed UTC wall-clock second at the
+  successful atomic candidate namespace reservation. It is not a baseline,
+  build, registration-completion or Git synchronization timestamp.
+
+FIXED BINDINGS
+  contract_revision=BIP-FR-005-RC-R1
+  contract_sha256=1ed738712229c27320b59dd0ac13748baedfadbd350cdbdb0078692883880865
+  implementation_revision=83eaa799e2359a353e748e567a5fbfc0df0cf9c3
+  preparation_revision=b124748fb72581614caa208287a31a3c4a3da8a1
+  baseline_isolation_version=1
+  historical_residue_inventory_sha256=2afac243749c714367a744b525f2f41e518add6378b549a710d16bf68b8cd068
+
+STATE MACHINE
+  allocate
+    Atomically creates the Run evidence namespace and publishes
+    00-environment/candidate-reservation.txt. Success means CANDIDATE_RESERVED,
+    never REGISTERED. A same-second namespace collision is not overwritten or
+    reused. The controller waits boundedly for a newly observed UTC second and
+    does not synthesize a future timestamp. Backward/non-advancing clocks fail.
+
+  resume
+    Succeeds only when exactly one active, unregistered reservation exists and
+    every fixed binding matches. Multiple, malformed or conflicting candidates
+    fail closed and are not deleted.
+
+  register <run-id>
+    Requires the candidate cohort and the version-1 entry-baseline files, invokes
+    successor-baseline-reconciliation-v1.sh, and atomically publishes the
+    validated 00-environment/run-registration.txt. That publication is the sole
+    authoritative REGISTERED transition. The allocation and registration UTC
+    timestamps remain separate.
+
+  eligibility <run-id>
+    Registration is not execution eligibility. This check requires the canonical
+    registration and controller index to be tracked, the repository to be clean,
+    and local HEAD to equal its upstream. Failure returns state=REGISTERED,
+    execution_eligibility=BLOCKED, reason=SYNCHRONIZATION_BLOCKED. Successful Git
+    synchronization only permits later preflight; it does not start the Run.
+
+DUPLICATE AND CONFLICT RULES
+  An identical canonical registration is idempotently recognized as existing.
+  Different bindings, multiple registration artifacts for one ID, or conflicting
+  index state fail with DUPLICATE_REGISTRATION_CONFLICT. No evidence is repaired,
+  selected or deleted automatically.
+
+ATOMICITY BOUNDARY
+  Candidate uniqueness is established by exclusive directory creation under the
+  FR-005 evidence namespace. Metadata and registration files are written to a
+  same-directory temporary file, schema-validated, and published with an atomic
+  no-replace hard link. Local controller locking serializes cooperative writers;
+  exclusive filesystem publication remains the final collision guard.
+
+SYNCHRONIZATION BOUNDARY
+  run-registration.txt publication = REGISTERED.
+  REPRODUCTION-RECORD.md and Git commit/push = canonical synchronization.
+  A synchronization failure never rolls registration back; it blocks execution.
+
+COMMANDS
+  successor-registration-controller-v1.sh allocate
+  successor-registration-controller-v1.sh resume
+  successor-registration-controller-v1.sh register <run-id>
+  successor-registration-controller-v1.sh eligibility <run-id>
+
+PROHIBITED
+  This controller does not start a Material Run, generate traffic, inject or
+  recover a fault, build/deploy an image, mutate runtime data, or revise R1.
