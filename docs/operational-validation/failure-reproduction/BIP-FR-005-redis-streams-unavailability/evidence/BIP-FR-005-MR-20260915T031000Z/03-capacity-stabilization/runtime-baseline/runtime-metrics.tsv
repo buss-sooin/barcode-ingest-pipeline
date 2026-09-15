@@ -1,0 +1,4 @@
+metric	value
+source_consumer_lag	0
+redis_group_lag	0
+redis_pel_pending	0

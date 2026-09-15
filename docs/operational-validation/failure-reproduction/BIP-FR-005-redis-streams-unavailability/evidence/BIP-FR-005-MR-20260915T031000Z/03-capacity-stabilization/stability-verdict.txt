@@ -1,0 +1,16 @@
+run_id=BIP-FR-005-MR-20260915T031000Z
+window_start_utc=2026-09-15T05:33:54Z
+window_end_utc=2026-09-15T05:44:11Z
+duration_seconds=617
+samples=15
+broker_oom_recurrence=0
+unexpected_restarts=0
+kafka_under_replicated_partitions=0
+kafka_unavailable_partitions=0
+full_required_isr=PASS
+redis_health=PASS
+mysql_health=PASS
+application_actuators=UP
+minimum_observed_vm_mem_available_kb=495132
+minimum_observed_vm_swap_free_kb=128548
+RUNTIME_CAPACITY_STABILITY=PASS

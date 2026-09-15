@@ -1,0 +1,16 @@
+run_id=BIP-FR-005-MR-20260915T031000Z
+recovery_started_at_utc=2026-09-15T05:32:47Z
+recovery_action=docker_start_existing_bip-fr-002-broker-2
+container_id_before=e45e53fee983aef932abbb3c0a416c334395306703f025d4c88375a781257cf0
+container_id_after=e45e53fee983aef932abbb3c0a416c334395306703f025d4c88375a781257cf0
+container_recreated=NO
+healthy_observed_at_utc=2026-09-15T05:32:57Z
+state=running
+health=healthy
+oom_killed=false
+restart_count=0
+kafka_under_replicated_partitions=0
+kafka_unavailable_partitions=0
+full_required_isr=PASS
+healthy_broker_restart=NONE
+BROKER_RECOVERY=PASS
