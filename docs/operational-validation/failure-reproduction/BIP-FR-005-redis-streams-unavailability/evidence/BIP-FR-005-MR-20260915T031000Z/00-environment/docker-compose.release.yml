@@ -1,0 +1,4 @@
+services:
+  processing:
+    image: barcode-processing-service:bip-fr-005-mr-20260915t031000z
+    pull_policy: never

@@ -1,0 +1,3 @@
+3ad83a75be9fb798814884a9057dcfa5bf40e5a18a66c6560be2bf4bb5b82750  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260915T031000Z/00-environment/docker-compose.release.yml
+3d93980b9d6fa96897e461a40107840d4e629df74a992b9aef545049321cd7f1  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260915T031000Z/00-environment/release-identity.txt
+2d40385c31419dd3304d11989b5234c5b103e3a5a177763521f4d13087b79dd0  docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/evidence/BIP-FR-005-MR-20260915T031000Z/00-environment/test-verification.txt

@@ -1,0 +1,14 @@
+implementation_revision=83eaa799e2359a353e748e567a5fbfc0df0cf9c3
+application_content_match=PASS
+command=cd barcode-processing-service && ./gradlew clean test bootJar --no-daemon
+completed_at_utc=2026-09-15T03:15:13Z
+result=PASS
+build_result=BUILD_SUCCESSFUL
+test_suites=9
+tests=24
+failures=0
+errors=0
+skipped=0
+boot_jar=barcode-processing-service/build/libs/barcode-processing-service-0.0.1-SNAPSHOT.jar
+boot_jar_sha256=c04cf274486a79eeaa2f63382afd624bc7846bc984fc6774f73f1854909741dc
+material_run_executed=NO
