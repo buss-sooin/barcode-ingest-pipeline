@@ -9,8 +9,9 @@
 | Contract Status | `FROZEN` |
 | Historical Material Runs | `BIP-FR-005-MR-20260909T124024Z`, `BIP-FR-005-MR-20260911T112314Z` |
 | Historical Outcomes | `INCONCLUSIVE`, `INCONCLUSIVE` |
-| Current executable Run | 없음 |
-| Next Material Run | 새 등록 필요 |
+| Current executable Run | `BIP-FR-005-MR-20260915T031000Z` |
+| Current Run state | `REGISTERED / NOT_EXECUTED / NOT_ASSIGNED` |
+| Current gate | `SYNCHRONIZATION_BLOCKED` — registration Evidence synchronization 필요 |
 | Successor baseline enforcement | `SUCCESSOR-BASELINE-PREPARATION-V1` |
 | Successor registration authority | `successor-registration-controller-v1.sh` |
 | Verified Reproduction Claim | 없음 |
@@ -27,8 +28,9 @@ Execution Disposition != Failure Reproduction Outcome
 |---|---|---|---|---|---|---|
 | `BIP-FR-005-MR-20260909T124024Z` | Historical Run | `ABORTED / SUPERSEDED` | `FAIL` | `SUFFICIENT FOR INVALID EXECUTION / INSUFFICIENT FOR FAILURE SIGNATURE` | `INCONCLUSIVE` | `NOT_REUSABLE` |
 | `BIP-FR-005-MR-20260911T112314Z` | Historical Run #2 | `ABORTED` | `FAIL` | `SUFFICIENT FOR INVALIDATION / INSUFFICIENT FOR COMPLETE FAILURE-SIGNATURE EVALUATION` | `INCONCLUSIVE` | `NOT_REUSABLE` |
+| `BIP-FR-005-MR-20260915T031000Z` | Current successor Run | `REGISTERED / NOT_EXECUTED` | `NOT_EVALUATED` | entry baseline Evidence 확보 | `NOT_ASSIGNED` | `CURRENT` |
 
-두 Run은 각각 정확히 `BIP-FR-005-RC-R1`을 참조한다. 두 실행 모두 유효성 실패로 종료됐으며 현재 실행 가능한 Run은 없다. 다음 실행은 새 Material Run 등록이 필요하다.
+세 Run은 각각 정확히 `BIP-FR-005-RC-R1`을 참조한다. 앞선 두 실행은 유효성 실패로 종료됐다. Successor Run은 `2026-09-15T03:10:00Z`에 candidate로 예약되고 baseline reconciliation 뒤 `03:10:59Z`에 원자적으로 등록됐으며, 아직 실행되지 않았고 Outcome도 할당되지 않았다. 등록 Evidence가 Git과 동기화되기 전까지 실행 자격은 `SYNCHRONIZATION_BLOCKED`다.
 
 ## 3. Historical Run — `BIP-FR-005-MR-20260909T124024Z`
 
@@ -136,11 +138,11 @@ Invalid Run에서 Redis `QueryTimeoutException`이 `UNKNOWN`으로 분류된 것
 
 ```text
 CONTRACT_REVISION_REQUIRED=NO
-NEW_RUN_REQUIRED=YES
-Current executable Run=NONE
+NEW_RUN_REQUIRED=SATISFIED_BY_BIP-FR-005-MR-20260915T031000Z
+Current executable Run=BIP-FR-005-MR-20260915T031000Z
 ```
 
-현재 Run은 formal start, C0/C1/C2, Redis fault와 DLT 상태를 생성했으므로 다시 사용할 수 없다. successor Run의 registration, release identity와 runtime preparation은 이 교정의 repository synchronization 이후 별도 책임에서 수행한다.
+Historical Run #2는 formal start, C0/C1/C2, Redis fault와 DLT 상태를 생성했으므로 다시 사용할 수 없다. Successor Run `BIP-FR-005-MR-20260915T031000Z`이 별도 identity로 등록됐으며 Historical Evidence는 변경하지 않는다.
 
 ### 4.7 Successor baseline 격리 교정
 
@@ -171,6 +173,12 @@ REPRODUCTION-RECORD.md + Git commit/push = synchronization
 
 따라서 registration 뒤 repository synchronization이 실패해도 Run은 `REGISTERED`로 남지만 `SYNCHRONIZATION_BLOCKED`로 실행할 수 없다. Controller의 `eligibility`는 canonical registration/index 추적, clean working tree와 local/upstream HEAD 일치를 확인한 뒤에만 후속 preflight 자격을 부여하며 Material Run을 시작하지 않는다.
 
+### 4.9 Current successor Run 준비 상태
+
+`BIP-FR-005-MR-20260915T031000Z`은 registration controller가 실제 UTC reservation second에 candidate namespace를 원자적으로 확보한 뒤 등록했다. 고정 binding은 implementation `83eaa799e2359a353e748e567a5fbfc0df0cf9c3`, preparation `b124748fb72581614caa208287a31a3c4a3da8a1`, baseline isolation version `1`, historical inventory SHA-256 `2afac243749c714367a744b525f2f41e518add6378b549a710d16bf68b8cd068`이다.
+
+6회 bounded stability 관측에서 필수 container의 running 상태, OOM=false, restart count=0, Kafka full ISR/URP=0/unavailable=0, Redis PONG, MySQL과 application health가 유지됐다. 고유 C0-C3 identity는 MySQL, Redis Stream, Worker DLQ와 dedupe state에 없었고 source consumer lag, Redis group lag, PEL은 모두 `0`이었다. DLT의 기존 2개 record는 canonical historical inventory와 정확히 일치했으며 quarantine record는 없었다. 따라서 `SUCCESSOR_BASELINE_RECONCILIATION=PASS`, `NORMAL_COHORT_DATA_CONTRACT=PASS`다. 이 결과는 registration 및 entry preparation Evidence이며 Material Run start나 Outcome을 의미하지 않는다.
+
 ## 5. Contract와 manifest 무결성
 
 - `REPRODUCTION-CONTRACT.md`의 SHA-256은 `1ed738712229c27320b59dd0ac13748baedfadbd350cdbdb0078692883880865`이며 두 Run manifest에 기록된 값과 일치한다.
@@ -191,4 +199,4 @@ REPRODUCTION-RECORD.md + Git commit/push = synchronization
 
 ## 7. 다음 실행 관문
 
-현재 실행 가능한 Run은 없다. 다음 책임은 `successor-registration-controller-v1.sh allocate`에서 재개한다. 안정적인 Kafka/Redis/MySQL/application topology에서 Controller가 새 candidate ID를 atomic reserve한 뒤, 고유 cohort와 `successor-baseline-capture-v1.sh`의 partition watermarks·exact residue inventory·identity-state·lag/PEL snapshot을 Run-local `01-entry-baseline`에 고정해야 한다. Reconciliation PASS 뒤 같은 Controller가 registration을 finalization하고, 새 frozen release identity를 연결한 다음 canonical synchronization과 `successor-preflight-v3.sh static|runtime`을 통과해야 한다. 이 Record는 successor Run을 미리 등록하거나 실행 Surface를 선결정하지 않는다.
+현재 successor Run은 `REGISTERED / NOT_EXECUTED / NOT_ASSIGNED`다. 다음 관문은 registration Evidence와 controller index의 Git synchronization 및 `eligibility` PASS다. 이후 implementation `83eaa799...`를 포함한 새 frozen Processing release를 이 Run에 결합하고, image-only 배포와 `successor-preflight-v3.sh static|runtime`을 통과해야 한다. 이 Record는 Material Run start, fault injection 또는 Outcome을 승인하지 않는다.

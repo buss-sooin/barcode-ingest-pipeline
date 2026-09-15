@@ -1,0 +1,15 @@
+run_id=BIP-FR-005-MR-20260915T031000Z
+contract_revision=BIP-FR-005-RC-R1
+contract_status=FROZEN
+state=REGISTERED
+execution_state=NOT_EXECUTED
+outcome=NOT_ASSIGNED
+verified_reproduction_claim=NONE
+allocated_at_utc=2026-09-15T03:10:00Z
+registered_at_utc=2026-09-15T03:10:59Z
+implementation_revision=83eaa799e2359a353e748e567a5fbfc0df0cf9c3
+preparation_revision=b124748fb72581614caa208287a31a3c4a3da8a1
+baseline_isolation_version=1
+historical_residue_inventory_sha256=2afac243749c714367a744b525f2f41e518add6378b549a710d16bf68b8cd068
+contract_sha256=1ed738712229c27320b59dd0ac13748baedfadbd350cdbdb0078692883880865
+controller_version=1

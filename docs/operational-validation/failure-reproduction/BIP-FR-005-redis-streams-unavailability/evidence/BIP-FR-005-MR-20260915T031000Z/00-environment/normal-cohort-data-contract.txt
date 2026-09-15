@@ -1,0 +1,14 @@
+run_id=BIP-FR-005-MR-20260915T031000Z
+cohort_count=4
+cohort_identity_scope=UNIQUE_SUCCESSOR_RUN
+mapping_SEOUL-CENTER-PC-001=1
+mapping_SEOUL-CENTER-PC-002=1
+mapping_SEOUL-CENTER-PC-003=1
+successor_mysql_identity_count=0
+successor_redis_stream_identity_count=0
+successor_worker_dlq_identity_count=0
+successor_dedupe_identity_count=0
+historical_global_counts=DIAGNOSTIC_ONLY
+reference_data_mutation=NONE
+traffic_sent=NO
+NORMAL_COHORT_DATA_CONTRACT=PASS
