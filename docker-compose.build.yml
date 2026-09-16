@@ -1,0 +1,27 @@
+services:
+  ingest:
+    build:
+      context: ./barcode-ingest-service
+      args:
+        BIP_IMAGE_REVISION: dev
+
+  processing:
+    build:
+      context: ./barcode-processing-service
+      args:
+        BIP_IMAGE_REVISION: dev
+
+  scanner:
+    build:
+      context: ./barcode-scanner-service
+      args:
+        BIP_IMAGE_REVISION: dev
+
+  worker-1: &persistence-worker-build
+    build:
+      context: ./barcode-persistence-worker
+      args:
+        BIP_IMAGE_REVISION: dev
+
+  worker-2:
+    <<: *persistence-worker-build

@@ -6,7 +6,7 @@ version: '3.8'
 
 services:
   ingest:
-    build: ./barcode-ingest-service
+    image: ${BIP_INGEST_IMAGE:?BIP_INGEST_IMAGE is required}
     container_name: ingest
     networks: [monitoring-net]
     depends_on:
@@ -17,7 +17,7 @@ services:
       - "8081:8081"
 
   processing:
-    build: ./barcode-processing-service
+    image: ${BIP_PROCESSING_IMAGE:?BIP_PROCESSING_IMAGE is required}
     container_name: processing
     networks: [monitoring-net]
     depends_on:
@@ -30,7 +30,7 @@ services:
       - "8082:8082"
 
   scanner:
-    build: ./barcode-scanner-service
+    image: ${BIP_SCANNER_IMAGE:?BIP_SCANNER_IMAGE is required}
     container_name: scanner
     networks: [monitoring-net]
     depends_on:
@@ -41,7 +41,7 @@ services:
       - "8084:8084"
 
   worker-1:
-    build: ./barcode-persistence-worker
+    image: ${BIP_PERSISTENCE_WORKER_IMAGE:?BIP_PERSISTENCE_WORKER_IMAGE is required}
     container_name: worker-1
     networks: [monitoring-net]
     depends_on:
@@ -58,7 +58,7 @@ services:
       - "8085:8085"
 
   worker-2:
-    build: ./barcode-persistence-worker
+    image: ${BIP_PERSISTENCE_WORKER_IMAGE:?BIP_PERSISTENCE_WORKER_IMAGE is required}
     container_name: worker-2
     networks: [monitoring-net]
     depends_on:
