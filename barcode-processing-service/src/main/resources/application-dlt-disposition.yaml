@@ -1,0 +1,18 @@
+spring:
+  main:
+    web-application-type: none
+  kafka:
+    consumer:
+      enable-auto-commit: false
+      max-poll-records: 1
+
+bip:
+  dlt:
+    topic: ${DLT_TOPIC:barcode-events-dlt}
+    quarantine-topic: ${QUARANTINE_TOPIC:barcode-events-quarantine}
+    group-id: ${DLT_DISPOSITION_GROUP:barcode-events-dlt-disposition}
+    replay-topic: ${REPLAY_TOPIC:barcode-events}
+    max-replay-attempts: ${MAX_DLT_REPLAY_ATTEMPTS:1}
+    assignment-timeout: 30s
+    poll-timeout: 1s
+    publication-timeout: 30s
