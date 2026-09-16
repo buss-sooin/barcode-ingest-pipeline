@@ -11,6 +11,12 @@ config.save
 build/
 .vscode/
 .DS_Store
+.codex/
+.agents/
+AGENTS.md
+MEMORY.md
+SESSION-STATE.md
+CURRENT-CONTEXT.md
 
 # --------------------
 # 부하 테스트 스크립트·측정 결과 (비공개)
@@ -34,6 +40,16 @@ docs/images/src/render.js
 !README.md
 .claudeignore
 .worktreeinclude
+
+# --------------------
+# 내부 운영 검증 및 AI 작업 산출물
+# --------------------
+docs/operational-validation/
+
+# --------------------
+# 로컬 release manifest (빌드 산출물)
+# --------------------
+deploy/releases/*.env
 
 # --------------------
 # worktree 작업 폴더(저장소 통째 복사본) 전체를 메인 git 상태에서 제외
