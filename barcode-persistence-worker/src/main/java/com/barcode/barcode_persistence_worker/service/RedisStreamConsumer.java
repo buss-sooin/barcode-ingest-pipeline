@@ -21,11 +21,14 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.QueryTimeoutException;
 import org.springframework.dao.RecoverableDataAccessException;
 import org.springframework.dao.TransientDataAccessResourceException;
+import org.springframework.data.domain.Range;
 import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.data.redis.RedisSystemException;
 import org.springframework.data.redis.connection.RedisStreamCommands.XAddOptions;
 import org.springframework.data.redis.connection.stream.Consumer;
 import org.springframework.data.redis.connection.stream.MapRecord;
+import org.springframework.data.redis.connection.stream.PendingMessage;
+import org.springframework.data.redis.connection.stream.PendingMessages;
 import org.springframework.data.redis.connection.stream.PendingMessagesSummary;
 import org.springframework.data.redis.connection.stream.ReadOffset;
 import org.springframework.data.redis.connection.stream.RecordId;
@@ -55,6 +58,8 @@ public class RedisStreamConsumer {
 
     private static final int MAX_SAVE_ATTEMPTS = 3;
     private static final int MYSQL_LOCK_WAIT_TIMEOUT_ERROR_CODE = 1205;
+    private static final int PENDING_PAGE_SIZE = 100;
+    private static final Duration PENDING_MIN_IDLE = Duration.ofMinutes(5);
 
     private final RedisTemplate<String, String> redisTemplate;
     private final BarcodeRepository barcodeRepository;
@@ -144,31 +149,62 @@ public class RedisStreamConsumer {
         try {
             PendingMessagesSummary summary = redisTemplate.opsForStream()
                 .pending(streamKey, consumerGroup);
-            
-            if (summary.getTotalPendingMessages() > 0) {
-                log.warn("Found {} pending messages, reprocessing...",
-                    summary.getTotalPendingMessages());
 
-                List<MapRecord<String, Object, Object>> claimedRecords =
-                    redisTemplate.opsForStream()
-                        .claim(
-                            streamKey,
-                            consumerGroup,
-                            consumerName,
-                            Duration.ofMinutes(5)
-                        );
-
-                if (claimedRecords == null || claimedRecords.isEmpty()) {
-                    return;
-                }
-
-                log.info("Claimed {} pending messages for reprocessing", claimedRecords.size());
-                processAndSaveRecords(claimedRecords);
+            long totalPending = summary.getTotalPendingMessages();
+            if (totalPending == 0) {
+                return;
             }
+
+            log.warn("Found {} pending messages, inspecting reclaim candidates...", totalPending);
+            reclaimPendingPages(totalPending);
         } catch (RedisConnectionFailureException e) {
             log.warn("Redis 연결 실패, 다음 주기에 재시도", e);
         } catch (DataAccessException e) {
             log.error("pending 재처리 실패, 레코드는 pending에 남아 다음 주기에 다시 시도됨", e);
+        }
+    }
+
+    private void reclaimPendingPages(long initialPendingCount) {
+        long maximumPages = ((initialPendingCount - 1) / PENDING_PAGE_SIZE) + 1;
+        Range<String> pageRange = Range.unbounded();
+
+        for (long pageNumber = 0; pageNumber < maximumPages; pageNumber++) {
+            PendingMessages pendingPage = redisTemplate.opsForStream()
+                .pending(streamKey, consumerGroup, pageRange, PENDING_PAGE_SIZE);
+
+            if (pendingPage == null || pendingPage.isEmpty()) {
+                return;
+            }
+
+            List<RecordId> reclaimableIds = new ArrayList<>();
+            for (PendingMessage pendingMessage : pendingPage) {
+                if (pendingMessage.getElapsedTimeSinceLastDelivery().compareTo(PENDING_MIN_IDLE) >= 0) {
+                    reclaimableIds.add(pendingMessage.getId());
+                }
+            }
+
+            if (!reclaimableIds.isEmpty()) {
+                List<MapRecord<String, Object, Object>> claimedRecords = redisTemplate.opsForStream()
+                    .claim(
+                        streamKey,
+                        consumerGroup,
+                        consumerName,
+                        PENDING_MIN_IDLE,
+                        reclaimableIds.toArray(new RecordId[0])
+                    );
+
+                if (claimedRecords != null && !claimedRecords.isEmpty()) {
+                    log.info("Claimed {} pending messages for reprocessing", claimedRecords.size());
+                    processAndSaveRecords(claimedRecords);
+                }
+            }
+
+            if (pendingPage.size() < PENDING_PAGE_SIZE) {
+                return;
+            }
+
+            String lastSeenId = pendingPage.get(pendingPage.size() - 1).getIdAsString();
+            pageRange = Range.rightUnbounded(Range.Bound.exclusive(lastSeenId));
         }
     }
 
