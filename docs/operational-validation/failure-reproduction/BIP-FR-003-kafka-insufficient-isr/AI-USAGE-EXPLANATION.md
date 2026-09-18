@@ -1,6 +1,6 @@
 # BIP-FR-003 AI 활용 설명
 
-> 상태: `DRAFT — HUMAN REVIEW REQUIRED`  
+> 상태: `FINAL — HUMAN CONFIRMED`
 > 대상: BIP-FR-003에서 AI와 인간 개발자가 어떤 책임과 권한을 맡았는지 확인하려는 개발자  
 > 근거 범위: Repository 정본, Material Run Evidence, Git 이력에서 재구성할 수 있는 외부화된 작업만 설명한다.
 
