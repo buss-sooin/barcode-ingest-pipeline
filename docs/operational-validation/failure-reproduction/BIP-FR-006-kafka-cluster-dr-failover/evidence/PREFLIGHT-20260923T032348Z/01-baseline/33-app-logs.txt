@@ -1,0 +1,664 @@
+captured_at_utc=2026-09-23T03:48:10Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/docker-compose.validation.yml --profile failover logs --no-color --since 30m --tail 5000 ingest-a ingest-b processing-a processing-b worker 
+
+bip-fr-006-ingest-a  | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx192m
+bip-fr-006-ingest-a  | 
+bip-fr-006-ingest-a  |   .   ____          _            __ _ _
+bip-fr-006-ingest-a  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+bip-fr-006-ingest-a  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+bip-fr-006-ingest-a  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+bip-fr-006-ingest-a  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+bip-fr-006-ingest-a  |  =========|_|==============|___/=/_/_/_/
+bip-fr-006-ingest-a  | 
+bip-fr-006-ingest-a  |  :: Spring Boot ::                (v3.5.7)
+bip-fr-006-ingest-a  | 
+bip-fr-006-ingest-a  | 2026-09-23T03:25:40.697Z  INFO 1 --- [barcode-ingest-service] [           main] c.b.b.BarcodeIngestServiceApplication    : Starting BarcodeIngestServiceApplication v0.0.1-SNAPSHOT using Java 21.0.12 with PID 1 (/app/app.jar started by root in /app)
+bip-fr-006-ingest-a  | 2026-09-23T03:25:40.699Z  INFO 1 --- [barcode-ingest-service] [           main] c.b.b.BarcodeIngestServiceApplication    : No active profile set, falling back to 1 default profile: "default"
+bip-fr-006-ingest-a  | 2026-09-23T03:25:42.352Z  INFO 1 --- [barcode-ingest-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+bip-fr-006-ingest-a  | 2026-09-23T03:25:42.362Z  INFO 1 --- [barcode-ingest-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+bip-fr-006-ingest-a  | 2026-09-23T03:25:42.363Z  INFO 1 --- [barcode-ingest-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+bip-fr-006-ingest-a  | 2026-09-23T03:25:42.390Z  INFO 1 --- [barcode-ingest-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+bip-fr-006-ingest-a  | 2026-09-23T03:25:42.393Z  INFO 1 --- [barcode-ingest-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1644 ms
+bip-fr-006-ingest-a  | 2026-09-23T03:25:43.492Z  INFO 1 --- [barcode-ingest-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+bip-fr-006-ingest-a  | 2026-09-23T03:25:43.645Z  INFO 1 --- [barcode-ingest-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+bip-fr-006-ingest-a  | 2026-09-23T03:25:43.667Z  INFO 1 --- [barcode-ingest-service] [           main] c.b.b.BarcodeIngestServiceApplication    : Started BarcodeIngestServiceApplication in 3.57 seconds (process running for 4.028)
+bip-fr-006-ingest-a  | 2026-09-23T03:45:28.066Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+bip-fr-006-ingest-a  | 2026-09-23T03:45:28.067Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+bip-fr-006-ingest-a  | 2026-09-23T03:45:28.071Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+bip-fr-006-worker    | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m
+bip-fr-006-worker    | 
+bip-fr-006-worker    |   .   ____          _            __ _ _
+bip-fr-006-worker    |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+bip-fr-006-worker    | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+bip-fr-006-worker    |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+bip-fr-006-worker    |   '  |____| .__|_| |_|_| |_\__, | / / / /
+bip-fr-006-worker    |  =========|_|==============|___/=/_/_/_/
+bip-fr-006-worker    | 
+bip-fr-006-worker    |  :: Spring Boot ::                (v3.5.7)
+bip-fr-006-worker    | 
+bip-fr-006-worker    | 2026-09-23T03:46:28.227Z  INFO 1 --- [barcode-persistence-worker] [           main] .b.b.BarcodePersistenceWorkerApplication : Starting BarcodePersistenceWorkerApplication v0.0.1-SNAPSHOT using Java 21.0.12 with PID 1 (/app/app.jar started by root in /app)
+bip-fr-006-worker    | 2026-09-23T03:46:28.228Z DEBUG 1 --- [barcode-persistence-worker] [           main] .b.b.BarcodePersistenceWorkerApplication : Running with Spring Boot v3.5.7, Spring v6.2.12
+bip-fr-006-worker    | 2026-09-23T03:46:28.229Z  INFO 1 --- [barcode-persistence-worker] [           main] .b.b.BarcodePersistenceWorkerApplication : No active profile set, falling back to 1 default profile: "default"
+bip-fr-006-worker    | 2026-09-23T03:46:28.978Z  INFO 1 --- [barcode-persistence-worker] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+bip-fr-006-worker    | 2026-09-23T03:46:28.979Z  INFO 1 --- [barcode-persistence-worker] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+bip-fr-006-worker    | 2026-09-23T03:46:29.103Z  INFO 1 --- [barcode-persistence-worker] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108 ms. Found 2 JPA repository interfaces.
+bip-fr-006-worker    | 2026-09-23T03:46:29.119Z  INFO 1 --- [barcode-persistence-worker] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+bip-fr-006-worker    | 2026-09-23T03:46:29.120Z  INFO 1 --- [barcode-persistence-worker] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+bip-fr-006-worker    | 2026-09-23T03:46:29.130Z  INFO 1 --- [barcode-persistence-worker] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.barcode.barcode_persistence_worker.repository.BarcodeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+bip-fr-006-worker    | 2026-09-23T03:46:29.131Z  INFO 1 --- [barcode-persistence-worker] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.barcode.barcode_persistence_worker.repository.DeviceCenterMappingRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+bip-fr-006-worker    | 2026-09-23T03:46:29.131Z  INFO 1 --- [barcode-persistence-worker] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+bip-fr-006-worker    | 2026-09-23T03:46:29.642Z  INFO 1 --- [barcode-persistence-worker] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+bip-fr-006-worker    | 2026-09-23T03:46:29.685Z  INFO 1 --- [barcode-persistence-worker] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+bip-fr-006-worker    | 2026-09-23T03:46:29.686Z  INFO 1 --- [barcode-persistence-worker] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+bip-fr-006-worker    | 2026-09-23T03:46:29.705Z  INFO 1 --- [barcode-persistence-worker] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+bip-fr-006-worker    | 2026-09-23T03:46:29.706Z  INFO 1 --- [barcode-persistence-worker] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1435 ms
+bip-fr-006-worker    | 2026-09-23T03:46:29.955Z  INFO 1 --- [barcode-persistence-worker] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+bip-fr-006-worker    | 2026-09-23T03:46:30.002Z  INFO 1 --- [barcode-persistence-worker] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+bip-fr-006-worker    | 2026-09-23T03:46:30.029Z  INFO 1 --- [barcode-persistence-worker] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+bip-fr-006-worker    | 2026-09-23T03:46:30.254Z  INFO 1 --- [barcode-persistence-worker] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+bip-fr-006-worker    | 2026-09-23T03:46:30.281Z  INFO 1 --- [barcode-persistence-worker] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+bip-fr-006-worker    | 2026-09-23T03:46:30.702Z  INFO 1 --- [barcode-persistence-worker] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6fe243a
+bip-fr-006-worker    | 2026-09-23T03:46:30.788Z  INFO 1 --- [barcode-persistence-worker] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+bip-fr-006-worker    | 2026-09-23T03:46:30.813Z  WARN 1 --- [barcode-persistence-worker] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+bip-fr-006-worker    | 2026-09-23T03:46:30.813Z  WARN 1 --- [barcode-persistence-worker] [           main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+bip-fr-006-worker    | 2026-09-23T03:46:30.824Z  INFO 1 --- [barcode-persistence-worker] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+bip-fr-006-worker    | 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+bip-fr-006-worker    | 	Database driver: undefined/unknown
+bip-fr-006-worker    | 	Database version: 8.0
+bip-fr-006-worker    | 	Autocommit mode: undefined/unknown
+bip-fr-006-worker    | 	Isolation level: undefined/unknown
+bip-fr-006-worker    | 	Minimum pool size: undefined/unknown
+bip-fr-006-worker    | 	Maximum pool size: undefined/unknown
+bip-fr-006-worker    | 2026-09-23T03:46:31.366Z  INFO 1 --- [barcode-persistence-worker] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+bip-fr-006-worker    | 2026-09-23T03:46:31.431Z  INFO 1 --- [barcode-persistence-worker] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+bip-fr-006-worker    | 2026-09-23T03:46:31.669Z  INFO 1 --- [barcode-persistence-worker] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+bip-fr-006-worker    | 2026-09-23T03:46:32.495Z  INFO 1 --- [barcode-persistence-worker] [           main] c.b.b.service.RedisStreamConsumer        : Consumer group already exists: barcode-persistence-group
+bip-fr-006-worker    | 2026-09-23T03:46:32.526Z  WARN 1 --- [barcode-persistence-worker] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+bip-fr-006-worker    | 2026-09-23T03:46:32.926Z  INFO 1 --- [barcode-persistence-worker] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+bip-fr-006-worker    | 2026-09-23T03:46:33.002Z  INFO 1 --- [barcode-persistence-worker] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8085 (http) with context path '/'
+bip-fr-006-worker    | 2026-09-23T03:46:33.024Z  INFO 1 --- [barcode-persistence-worker] [           main] .b.b.BarcodePersistenceWorkerApplication : Started BarcodePersistenceWorkerApplication in 5.223 seconds (process running for 6.155)
+bip-fr-006-worker    | 2026-09-23T03:48:10.443Z  INFO 1 --- [barcode-persistence-worker] [nio-8085-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+bip-fr-006-worker    | 2026-09-23T03:48:10.444Z  INFO 1 --- [barcode-persistence-worker] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+bip-fr-006-worker    | 2026-09-23T03:48:10.447Z  INFO 1 --- [barcode-persistence-worker] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+bip-fr-006-processing-a  | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx224m
+bip-fr-006-processing-a  | 
+bip-fr-006-processing-a  |   .   ____          _            __ _ _
+bip-fr-006-processing-a  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+bip-fr-006-processing-a  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+bip-fr-006-processing-a  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+bip-fr-006-processing-a  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+bip-fr-006-processing-a  |  =========|_|==============|___/=/_/_/_/
+bip-fr-006-processing-a  | 
+bip-fr-006-processing-a  |  :: Spring Boot ::                (v3.5.7)
+bip-fr-006-processing-a  | 
+bip-fr-006-processing-a  | 2026-09-23T03:25:40.974Z  INFO 1 --- [barcode-processing-service] [           main] .b.b.BarcodeProcessingServiceApplication : Starting BarcodeProcessingServiceApplication v0.0.1-SNAPSHOT using Java 21.0.12 with PID 1 (/app/app.jar started by root in /app)
+bip-fr-006-processing-a  | 2026-09-23T03:25:40.977Z DEBUG 1 --- [barcode-processing-service] [           main] .b.b.BarcodeProcessingServiceApplication : Running with Spring Boot v3.5.7, Spring v6.2.12
+bip-fr-006-processing-a  | 2026-09-23T03:25:40.978Z  INFO 1 --- [barcode-processing-service] [           main] .b.b.BarcodeProcessingServiceApplication : No active profile set, falling back to 1 default profile: "default"
+bip-fr-006-processing-a  | 2026-09-23T03:25:42.189Z  INFO 1 --- [barcode-processing-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+bip-fr-006-processing-a  | 2026-09-23T03:25:42.195Z  INFO 1 --- [barcode-processing-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+bip-fr-006-processing-a  | 2026-09-23T03:25:42.247Z  INFO 1 --- [barcode-processing-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.012Z  INFO 1 --- [barcode-processing-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.519Z  INFO 1 --- [barcode-processing-service] [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8082 (http)
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.570Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+bip-fr-006-processing-a  | 	allow.auto.create.topics = true
+bip-fr-006-processing-a  | 	auto.commit.interval.ms = 5000
+bip-fr-006-processing-a  | 	auto.include.jmx.reporter = true
+bip-fr-006-processing-a  | 	auto.offset.reset = earliest
+bip-fr-006-processing-a  | 	bootstrap.servers = [broker-a-1:29092, broker-a-2:29092, broker-a-3:29092]
+bip-fr-006-processing-a  | 	check.crcs = true
+bip-fr-006-processing-a  | 	client.dns.lookup = use_all_dns_ips
+bip-fr-006-processing-a  | 	client.id = consumer-barcode-processing-group-1
+bip-fr-006-processing-a  | 	client.rack = 
+bip-fr-006-processing-a  | 	connections.max.idle.ms = 540000
+bip-fr-006-processing-a  | 	default.api.timeout.ms = 60000
+bip-fr-006-processing-a  | 	enable.auto.commit = false
+bip-fr-006-processing-a  | 	enable.metrics.push = true
+bip-fr-006-processing-a  | 	exclude.internal.topics = true
+bip-fr-006-processing-a  | 	fetch.max.bytes = 52428800
+bip-fr-006-processing-a  | 	fetch.max.wait.ms = 500
+bip-fr-006-processing-a  | 	fetch.min.bytes = 1
+bip-fr-006-processing-a  | 	group.id = barcode-processing-group
+bip-fr-006-processing-a  | 	group.instance.id = null
+bip-fr-006-processing-a  | 	group.protocol = classic
+bip-fr-006-processing-a  | 	group.remote.assignor = null
+bip-fr-006-processing-a  | 	heartbeat.interval.ms = 3000
+bip-fr-006-processing-a  | 	interceptor.classes = []
+bip-fr-006-processing-a  | 	internal.leave.group.on.close = true
+bip-fr-006-processing-a  | 	internal.throw.on.fetch.stable.offset.unsupported = false
+bip-fr-006-processing-a  | 	isolation.level = read_uncommitted
+bip-fr-006-processing-a  | 	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+bip-fr-006-processing-a  | 	max.partition.fetch.bytes = 1048576
+bip-fr-006-processing-a  | 	max.poll.interval.ms = 300000
+bip-fr-006-processing-a  | 	max.poll.records = 500
+bip-fr-006-processing-a  | 	metadata.max.age.ms = 300000
+bip-fr-006-processing-a  | 	metadata.recovery.strategy = none
+bip-fr-006-processing-a  | 	metric.reporters = []
+bip-fr-006-processing-a  | 	metrics.num.samples = 2
+bip-fr-006-processing-a  | 	metrics.recording.level = INFO
+bip-fr-006-processing-a  | 	metrics.sample.window.ms = 30000
+bip-fr-006-processing-a  | 	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+bip-fr-006-processing-a  | 	receive.buffer.bytes = 65536
+bip-fr-006-processing-a  | 	reconnect.backoff.max.ms = 1000
+bip-fr-006-processing-a  | 	reconnect.backoff.ms = 50
+bip-fr-006-processing-a  | 	request.timeout.ms = 30000
+bip-fr-006-processing-a  | 	retry.backoff.max.ms = 1000
+bip-fr-006-processing-a  | 	retry.backoff.ms = 100
+bip-fr-006-processing-a  | 	sasl.client.callback.handler.class = null
+bip-fr-006-processing-a  | 	sasl.jaas.config = null
+bip-fr-006-processing-a  | 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+bip-fr-006-processing-a  | 	sasl.kerberos.min.time.before.relogin = 60000
+bip-fr-006-processing-a  | 	sasl.kerberos.service.name = null
+bip-fr-006-processing-a  | 	sasl.kerberos.ticket.renew.jitter = 0.05
+bip-fr-006-processing-a  | 	sasl.kerberos.ticket.renew.window.factor = 0.8
+bip-fr-006-processing-a  | 	sasl.login.callback.handler.class = null
+bip-fr-006-processing-a  | 	sasl.login.class = null
+bip-fr-006-processing-a  | 	sasl.login.connect.timeout.ms = null
+bip-fr-006-processing-a  | 	sasl.login.read.timeout.ms = null
+bip-fr-006-processing-a  | 	sasl.login.refresh.buffer.seconds = 300
+bip-fr-006-processing-a  | 	sasl.login.refresh.min.period.seconds = 60
+bip-fr-006-processing-a  | 	sasl.login.refresh.window.factor = 0.8
+bip-fr-006-processing-a  | 	sasl.login.refresh.window.jitter = 0.05
+bip-fr-006-processing-a  | 	sasl.login.retry.backoff.max.ms = 10000
+bip-fr-006-processing-a  | 	sasl.login.retry.backoff.ms = 100
+bip-fr-006-processing-a  | 	sasl.mechanism = GSSAPI
+bip-fr-006-processing-a  | 	sasl.oauthbearer.clock.skew.seconds = 30
+bip-fr-006-processing-a  | 	sasl.oauthbearer.expected.audience = null
+bip-fr-006-processing-a  | 	sasl.oauthbearer.expected.issuer = null
+bip-fr-006-processing-a  | 	sasl.oauthbearer.header.urlencode = false
+bip-fr-006-processing-a  | 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+bip-fr-006-processing-a  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+bip-fr-006-processing-a  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+bip-fr-006-processing-a  | 	sasl.oauthbearer.jwks.endpoint.url = null
+bip-fr-006-processing-a  | 	sasl.oauthbearer.scope.claim.name = scope
+bip-fr-006-processing-a  | 	sasl.oauthbearer.sub.claim.name = sub
+bip-fr-006-processing-a  | 	sasl.oauthbearer.token.endpoint.url = null
+bip-fr-006-processing-a  | 	security.protocol = PLAINTEXT
+bip-fr-006-processing-a  | 	security.providers = null
+bip-fr-006-processing-a  | 	send.buffer.bytes = 131072
+bip-fr-006-processing-a  | 	session.timeout.ms = 45000
+bip-fr-006-processing-a  | 	socket.connection.setup.timeout.max.ms = 30000
+bip-fr-006-processing-a  | 	socket.connection.setup.timeout.ms = 10000
+bip-fr-006-processing-a  | 	ssl.cipher.suites = null
+bip-fr-006-processing-a  | 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+bip-fr-006-processing-a  | 	ssl.endpoint.identification.algorithm = https
+bip-fr-006-processing-a  | 	ssl.engine.factory.class = null
+bip-fr-006-processing-a  | 	ssl.key.password = null
+bip-fr-006-processing-a  | 	ssl.keymanager.algorithm = SunX509
+bip-fr-006-processing-a  | 	ssl.keystore.certificate.chain = null
+bip-fr-006-processing-a  | 	ssl.keystore.key = null
+bip-fr-006-processing-a  | 	ssl.keystore.location = null
+bip-fr-006-processing-a  | 	ssl.keystore.password = null
+bip-fr-006-processing-a  | 	ssl.keystore.type = JKS
+bip-fr-006-processing-a  | 	ssl.protocol = TLSv1.3
+bip-fr-006-processing-a  | 	ssl.provider = null
+bip-fr-006-processing-a  | 	ssl.secure.random.implementation = null
+bip-fr-006-processing-a  | 	ssl.trustmanager.algorithm = PKIX
+bip-fr-006-processing-a  | 	ssl.truststore.certificates = null
+bip-fr-006-processing-a  | 	ssl.truststore.location = null
+bip-fr-006-processing-a  | 	ssl.truststore.password = null
+bip-fr-006-processing-a  | 	ssl.truststore.type = JKS
+bip-fr-006-processing-a  | 	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+bip-fr-006-processing-a  | 
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.611Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.891Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.894Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.894Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1790133944890
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.919Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Subscribed to topic(s): barcode-events
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.936Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+bip-fr-006-processing-a  | 	allow.auto.create.topics = true
+bip-fr-006-processing-a  | 	auto.commit.interval.ms = 5000
+bip-fr-006-processing-a  | 	auto.include.jmx.reporter = true
+bip-fr-006-processing-a  | 	auto.offset.reset = earliest
+bip-fr-006-processing-a  | 	bootstrap.servers = [broker-a-1:29092, broker-a-2:29092, broker-a-3:29092]
+bip-fr-006-processing-a  | 	check.crcs = true
+bip-fr-006-processing-a  | 	client.dns.lookup = use_all_dns_ips
+bip-fr-006-processing-a  | 	client.id = consumer-barcode-processing-group-2
+bip-fr-006-processing-a  | 	client.rack = 
+bip-fr-006-processing-a  | 	connections.max.idle.ms = 540000
+bip-fr-006-processing-a  | 	default.api.timeout.ms = 60000
+bip-fr-006-processing-a  | 	enable.auto.commit = false
+bip-fr-006-processing-a  | 	enable.metrics.push = true
+bip-fr-006-processing-a  | 	exclude.internal.topics = true
+bip-fr-006-processing-a  | 	fetch.max.bytes = 52428800
+bip-fr-006-processing-a  | 	fetch.max.wait.ms = 500
+bip-fr-006-processing-a  | 	fetch.min.bytes = 1
+bip-fr-006-processing-a  | 	group.id = barcode-processing-group
+bip-fr-006-processing-a  | 	group.instance.id = null
+bip-fr-006-processing-a  | 	group.protocol = classic
+bip-fr-006-processing-a  | 	group.remote.assignor = null
+bip-fr-006-processing-a  | 	heartbeat.interval.ms = 3000
+bip-fr-006-processing-a  | 	interceptor.classes = []
+bip-fr-006-processing-a  | 	internal.leave.group.on.close = true
+bip-fr-006-processing-a  | 	internal.throw.on.fetch.stable.offset.unsupported = false
+bip-fr-006-processing-a  | 	isolation.level = read_uncommitted
+bip-fr-006-processing-a  | 	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+bip-fr-006-processing-a  | 	max.partition.fetch.bytes = 1048576
+bip-fr-006-processing-a  | 	max.poll.interval.ms = 300000
+bip-fr-006-processing-a  | 	max.poll.records = 500
+bip-fr-006-processing-a  | 	metadata.max.age.ms = 300000
+bip-fr-006-processing-a  | 	metadata.recovery.strategy = none
+bip-fr-006-processing-a  | 	metric.reporters = []
+bip-fr-006-processing-a  | 	metrics.num.samples = 2
+bip-fr-006-processing-a  | 	metrics.recording.level = INFO
+bip-fr-006-processing-a  | 	metrics.sample.window.ms = 30000
+bip-fr-006-processing-a  | 	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+bip-fr-006-processing-a  | 	receive.buffer.bytes = 65536
+bip-fr-006-processing-a  | 	reconnect.backoff.max.ms = 1000
+bip-fr-006-processing-a  | 	reconnect.backoff.ms = 50
+bip-fr-006-processing-a  | 	request.timeout.ms = 30000
+bip-fr-006-processing-a  | 	retry.backoff.max.ms = 1000
+bip-fr-006-processing-a  | 	retry.backoff.ms = 100
+bip-fr-006-processing-a  | 	sasl.client.callback.handler.class = null
+bip-fr-006-processing-a  | 	sasl.jaas.config = null
+bip-fr-006-processing-a  | 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+bip-fr-006-processing-a  | 	sasl.kerberos.min.time.before.relogin = 60000
+bip-fr-006-processing-a  | 	sasl.kerberos.service.name = null
+bip-fr-006-processing-a  | 	sasl.kerberos.ticket.renew.jitter = 0.05
+bip-fr-006-processing-a  | 	sasl.kerberos.ticket.renew.window.factor = 0.8
+bip-fr-006-processing-a  | 	sasl.login.callback.handler.class = null
+bip-fr-006-processing-a  | 	sasl.login.class = null
+bip-fr-006-processing-a  | 	sasl.login.connect.timeout.ms = null
+bip-fr-006-processing-a  | 	sasl.login.read.timeout.ms = null
+bip-fr-006-processing-a  | 	sasl.login.refresh.buffer.seconds = 300
+bip-fr-006-processing-a  | 	sasl.login.refresh.min.period.seconds = 60
+bip-fr-006-processing-a  | 	sasl.login.refresh.window.factor = 0.8
+bip-fr-006-processing-a  | 	sasl.login.refresh.window.jitter = 0.05
+bip-fr-006-processing-a  | 	sasl.login.retry.backoff.max.ms = 10000
+bip-fr-006-processing-a  | 	sasl.login.retry.backoff.ms = 100
+bip-fr-006-processing-a  | 	sasl.mechanism = GSSAPI
+bip-fr-006-processing-a  | 	sasl.oauthbearer.clock.skew.seconds = 30
+bip-fr-006-processing-a  | 	sasl.oauthbearer.expected.audience = null
+bip-fr-006-processing-a  | 	sasl.oauthbearer.expected.issuer = null
+bip-fr-006-processing-a  | 	sasl.oauthbearer.header.urlencode = false
+bip-fr-006-processing-a  | 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+bip-fr-006-processing-a  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+bip-fr-006-processing-a  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+bip-fr-006-processing-a  | 	sasl.oauthbearer.jwks.endpoint.url = null
+bip-fr-006-processing-a  | 	sasl.oauthbearer.scope.claim.name = scope
+bip-fr-006-processing-a  | 	sasl.oauthbearer.sub.claim.name = sub
+bip-fr-006-processing-a  | 	sasl.oauthbearer.token.endpoint.url = null
+bip-fr-006-processing-a  | 	security.protocol = PLAINTEXT
+bip-fr-006-processing-a  | 	security.providers = null
+bip-fr-006-processing-a  | 	send.buffer.bytes = 131072
+bip-fr-006-processing-a  | 	session.timeout.ms = 45000
+bip-fr-006-processing-a  | 	socket.connection.setup.timeout.max.ms = 30000
+bip-fr-006-processing-a  | 	socket.connection.setup.timeout.ms = 10000
+bip-fr-006-processing-a  | 	ssl.cipher.suites = null
+bip-fr-006-processing-a  | 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+bip-fr-006-processing-a  | 	ssl.endpoint.identification.algorithm = https
+bip-fr-006-processing-a  | 	ssl.engine.factory.class = null
+bip-fr-006-processing-a  | 	ssl.key.password = null
+bip-fr-006-processing-a  | 	ssl.keymanager.algorithm = SunX509
+bip-fr-006-processing-a  | 	ssl.keystore.certificate.chain = null
+bip-fr-006-processing-a  | 	ssl.keystore.key = null
+bip-fr-006-processing-a  | 	ssl.keystore.location = null
+bip-fr-006-processing-a  | 	ssl.keystore.password = null
+bip-fr-006-processing-a  | 	ssl.keystore.type = JKS
+bip-fr-006-processing-a  | 	ssl.protocol = TLSv1.3
+bip-fr-006-processing-a  | 	ssl.provider = null
+bip-fr-006-processing-a  | 	ssl.secure.random.implementation = null
+bip-fr-006-processing-a  | 	ssl.trustmanager.algorithm = PKIX
+bip-fr-006-processing-a  | 	ssl.truststore.certificates = null
+bip-fr-006-processing-a  | 	ssl.truststore.location = null
+bip-fr-006-processing-a  | 	ssl.truststore.password = null
+bip-fr-006-processing-a  | 	ssl.truststore.type = JKS
+bip-fr-006-processing-a  | 	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+bip-fr-006-processing-a  | 
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.936Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.954Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.954Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.954Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1790133944954
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.967Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Subscribed to topic(s): barcode-events
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.973Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+bip-fr-006-processing-a  | 	allow.auto.create.topics = true
+bip-fr-006-processing-a  | 	auto.commit.interval.ms = 5000
+bip-fr-006-processing-a  | 	auto.include.jmx.reporter = true
+bip-fr-006-processing-a  | 	auto.offset.reset = earliest
+bip-fr-006-processing-a  | 	bootstrap.servers = [broker-a-1:29092, broker-a-2:29092, broker-a-3:29092]
+bip-fr-006-processing-a  | 	check.crcs = true
+bip-fr-006-processing-a  | 	client.dns.lookup = use_all_dns_ips
+bip-fr-006-processing-a  | 	client.id = consumer-barcode-processing-group-3
+bip-fr-006-processing-a  | 	client.rack = 
+bip-fr-006-processing-a  | 	connections.max.idle.ms = 540000
+bip-fr-006-processing-a  | 	default.api.timeout.ms = 60000
+bip-fr-006-processing-a  | 	enable.auto.commit = false
+bip-fr-006-processing-a  | 	enable.metrics.push = true
+bip-fr-006-processing-a  | 	exclude.internal.topics = true
+bip-fr-006-processing-a  | 	fetch.max.bytes = 52428800
+bip-fr-006-processing-a  | 	fetch.max.wait.ms = 500
+bip-fr-006-processing-a  | 	fetch.min.bytes = 1
+bip-fr-006-processing-a  | 	group.id = barcode-processing-group
+bip-fr-006-processing-a  | 	group.instance.id = null
+bip-fr-006-processing-a  | 	group.protocol = classic
+bip-fr-006-processing-a  | 	group.remote.assignor = null
+bip-fr-006-processing-a  | 	heartbeat.interval.ms = 3000
+bip-fr-006-processing-a  | 	interceptor.classes = []
+bip-fr-006-processing-a  | 	internal.leave.group.on.close = true
+bip-fr-006-processing-a  | 	internal.throw.on.fetch.stable.offset.unsupported = false
+bip-fr-006-processing-a  | 	isolation.level = read_uncommitted
+bip-fr-006-processing-a  | 	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+bip-fr-006-processing-a  | 	max.partition.fetch.bytes = 1048576
+bip-fr-006-processing-a  | 	max.poll.interval.ms = 300000
+bip-fr-006-processing-a  | 	max.poll.records = 500
+bip-fr-006-processing-a  | 	metadata.max.age.ms = 300000
+bip-fr-006-processing-a  | 	metadata.recovery.strategy = none
+bip-fr-006-processing-a  | 	metric.reporters = []
+bip-fr-006-processing-a  | 	metrics.num.samples = 2
+bip-fr-006-processing-a  | 	metrics.recording.level = INFO
+bip-fr-006-processing-a  | 	metrics.sample.window.ms = 30000
+bip-fr-006-processing-a  | 	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+bip-fr-006-processing-a  | 	receive.buffer.bytes = 65536
+bip-fr-006-processing-a  | 	reconnect.backoff.max.ms = 1000
+bip-fr-006-processing-a  | 	reconnect.backoff.ms = 50
+bip-fr-006-processing-a  | 	request.timeout.ms = 30000
+bip-fr-006-processing-a  | 	retry.backoff.max.ms = 1000
+bip-fr-006-processing-a  | 	retry.backoff.ms = 100
+bip-fr-006-processing-a  | 	sasl.client.callback.handler.class = null
+bip-fr-006-processing-a  | 	sasl.jaas.config = null
+bip-fr-006-processing-a  | 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+bip-fr-006-processing-a  | 	sasl.kerberos.min.time.before.relogin = 60000
+bip-fr-006-processing-a  | 	sasl.kerberos.service.name = null
+bip-fr-006-processing-a  | 	sasl.kerberos.ticket.renew.jitter = 0.05
+bip-fr-006-processing-a  | 	sasl.kerberos.ticket.renew.window.factor = 0.8
+bip-fr-006-processing-a  | 	sasl.login.callback.handler.class = null
+bip-fr-006-processing-a  | 	sasl.login.class = null
+bip-fr-006-processing-a  | 	sasl.login.connect.timeout.ms = null
+bip-fr-006-processing-a  | 	sasl.login.read.timeout.ms = null
+bip-fr-006-processing-a  | 	sasl.login.refresh.buffer.seconds = 300
+bip-fr-006-processing-a  | 	sasl.login.refresh.min.period.seconds = 60
+bip-fr-006-processing-a  | 	sasl.login.refresh.window.factor = 0.8
+bip-fr-006-processing-a  | 	sasl.login.refresh.window.jitter = 0.05
+bip-fr-006-processing-a  | 	sasl.login.retry.backoff.max.ms = 10000
+bip-fr-006-processing-a  | 	sasl.login.retry.backoff.ms = 100
+bip-fr-006-processing-a  | 	sasl.mechanism = GSSAPI
+bip-fr-006-processing-a  | 	sasl.oauthbearer.clock.skew.seconds = 30
+bip-fr-006-processing-a  | 	sasl.oauthbearer.expected.audience = null
+bip-fr-006-processing-a  | 	sasl.oauthbearer.expected.issuer = null
+bip-fr-006-processing-a  | 	sasl.oauthbearer.header.urlencode = false
+bip-fr-006-processing-a  | 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+bip-fr-006-processing-a  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+bip-fr-006-processing-a  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+bip-fr-006-processing-a  | 	sasl.oauthbearer.jwks.endpoint.url = null
+bip-fr-006-processing-a  | 	sasl.oauthbearer.scope.claim.name = scope
+bip-fr-006-processing-a  | 	sasl.oauthbearer.sub.claim.name = sub
+bip-fr-006-processing-a  | 	sasl.oauthbearer.token.endpoint.url = null
+bip-fr-006-processing-a  | 	security.protocol = PLAINTEXT
+bip-fr-006-processing-a  | 	security.providers = null
+bip-fr-006-processing-a  | 	send.buffer.bytes = 131072
+bip-fr-006-processing-a  | 	session.timeout.ms = 45000
+bip-fr-006-processing-a  | 	socket.connection.setup.timeout.max.ms = 30000
+bip-fr-006-processing-a  | 	socket.connection.setup.timeout.ms = 10000
+bip-fr-006-processing-a  | 	ssl.cipher.suites = null
+bip-fr-006-processing-a  | 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+bip-fr-006-processing-a  | 	ssl.endpoint.identification.algorithm = https
+bip-fr-006-processing-a  | 	ssl.engine.factory.class = null
+bip-fr-006-processing-a  | 	ssl.key.password = null
+bip-fr-006-processing-a  | 	ssl.keymanager.algorithm = SunX509
+bip-fr-006-processing-a  | 	ssl.keystore.certificate.chain = null
+bip-fr-006-processing-a  | 	ssl.keystore.key = null
+bip-fr-006-processing-a  | 	ssl.keystore.location = null
+bip-fr-006-processing-a  | 	ssl.keystore.password = null
+bip-fr-006-processing-a  | 	ssl.keystore.type = JKS
+bip-fr-006-processing-a  | 	ssl.protocol = TLSv1.3
+bip-fr-006-processing-a  | 	ssl.provider = null
+bip-fr-006-processing-a  | 	ssl.secure.random.implementation = null
+bip-fr-006-processing-a  | 	ssl.trustmanager.algorithm = PKIX
+bip-fr-006-processing-a  | 	ssl.truststore.certificates = null
+bip-fr-006-processing-a  | 	ssl.truststore.location = null
+bip-fr-006-processing-a  | 	ssl.truststore.password = null
+bip-fr-006-processing-a  | 	ssl.truststore.type = JKS
+bip-fr-006-processing-a  | 	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+bip-fr-006-processing-a  | 
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.974Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.980Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.980Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.980Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1790133944980
+bip-fr-006-processing-a  | 2026-09-23T03:25:44.986Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Subscribed to topic(s): barcode-events
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.026Z  INFO 1 --- [barcode-processing-service] [           main] .b.b.BarcodeProcessingServiceApplication : Started BarcodeProcessingServiceApplication in 4.732 seconds (process running for 5.298)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.537Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Cluster ID: MkU3OEVBNTcwNTJENDM2Qk
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.534Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Cluster ID: MkU3OEVBNTcwNTJENDM2Qk
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.546Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Cluster ID: MkU3OEVBNTcwNTJENDM2Qk
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.699Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.709Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.713Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.714Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.727Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.733Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.783Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.785Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.786Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.786Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.788Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.786Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.790Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.791Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.792Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.791Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.795Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.795Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.801Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.804Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.804Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.807Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.807Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.807Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.807Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.809Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.811Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.927Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.928Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.928Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.930Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.930Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.930Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.933Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.936Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.934Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.951Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.952Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.954Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.955Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.955Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.957Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.957Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.957Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.967Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.970Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.972Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.972Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.978Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.979Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.980Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.980Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.983Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.983Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.994Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.996Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:45.996Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.073Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.074Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.076Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.083Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.084Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.087Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.104Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.104Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.104Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.104Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.104Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.106Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.107Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.107Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.110Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.115Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.116Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.126Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.126Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.126Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.126Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.129Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.137Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.163Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.164Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.164Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.165Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.186Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.187Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.187Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.211Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.212Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.213Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.218Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.218Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.219Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.220Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.225Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.226Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.226Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.233Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.241Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.242Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.332Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.339Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.339Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.339Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.340Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.341Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.355Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.356Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.356Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.356Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.359Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.359Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.359Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.359Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.364Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.366Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.367Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.368Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.369Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.369Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.369Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.377Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.377Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.377Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.379Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.380Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.380Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.470Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.474Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.475Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.481Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.481Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.482Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.482Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.483Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.488Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.490Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.494Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.496Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.496Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.496Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.497Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.497Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.497Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.499Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.500Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.500Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.509Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.513Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.514Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.538Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.538Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.539Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.539Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.554Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.555Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.555Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.587Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.589Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.590Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.601Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.602Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.602Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.602Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.608Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.609Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.609Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.609Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.609Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.611Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.638Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.638Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.638Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.639Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.646Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.648Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.648Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.670Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.671Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.673Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.686Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.686Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.686Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.686Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.695Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.696Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.696Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.697Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.697Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.697Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.704Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: error response NOT_COORDINATOR. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.704Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.704Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] JoinGroup failed: This is not the correct coordinator. Marking coordinator unknown. Sent generation was Generation{generationId=-1, memberId='', protocol='null'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.704Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Client requested disconnect from node 2147483646
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.715Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.716Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Group coordinator broker-a-1:29092 (id: 2147483646 rack: null) is unavailable or invalid due to cause: coordinator unavailable. isDisconnected: false. Rediscovery will be attempted.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.716Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Requesting disconnect from last known coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.770Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.771Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.772Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.788Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.789Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] JoinGroup failed: Coordinator broker-a-1:29092 (id: 2147483646 rack: null) is loading the group.
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.789Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.790Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'The coordinator is loading and hence can't process requests.' (CoordinatorLoadInProgressException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.790Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.804Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Request joining group due to: need to re-join with the given member-id: consumer-barcode-processing-group-2-f22017ce-b5c7-414d-8ee3-54ecd3963055
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.804Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.819Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-a-1:29092 (id: 2147483646 rack: null)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.822Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'This is not the correct coordinator.' (NotCoordinatorException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.824Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.891Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.955Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Request joining group due to: need to re-join with the given member-id: consumer-barcode-processing-group-3-ef1ec014-9aba-45ee-8208-a4e78e500ee4
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.956Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.989Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Request joining group due to: need to re-join with the given member-id: consumer-barcode-processing-group-1-53e222e8-4e25-4182-a381-085be98854d1
+bip-fr-006-processing-a  | 2026-09-23T03:25:46.990Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.009Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-barcode-processing-group-2-f22017ce-b5c7-414d-8ee3-54ecd3963055', protocol='range'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.018Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Finished assignment for group at generation 1: {consumer-barcode-processing-group-2-f22017ce-b5c7-414d-8ee3-54ecd3963055=Assignment(partitions=[barcode-events-0, barcode-events-1, barcode-events-2])}
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.026Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] SyncGroup failed: The group began another rebalance. Need to re-join the group. Sent generation was Generation{generationId=1, memberId='consumer-barcode-processing-group-2-f22017ce-b5c7-414d-8ee3-54ecd3963055', protocol='range'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.027Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'The group is rebalancing, so a rejoin is needed.' (RebalanceInProgressException)
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.028Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] (Re-)joining group
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.033Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Successfully joined group with generation Generation{generationId=2, memberId='consumer-barcode-processing-group-3-ef1ec014-9aba-45ee-8208-a4e78e500ee4', protocol='range'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.034Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Successfully joined group with generation Generation{generationId=2, memberId='consumer-barcode-processing-group-1-53e222e8-4e25-4182-a381-085be98854d1', protocol='range'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.035Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Successfully joined group with generation Generation{generationId=2, memberId='consumer-barcode-processing-group-2-f22017ce-b5c7-414d-8ee3-54ecd3963055', protocol='range'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.035Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Finished assignment for group at generation 2: {consumer-barcode-processing-group-2-f22017ce-b5c7-414d-8ee3-54ecd3963055=Assignment(partitions=[barcode-events-1]), consumer-barcode-processing-group-3-ef1ec014-9aba-45ee-8208-a4e78e500ee4=Assignment(partitions=[barcode-events-2]), consumer-barcode-processing-group-1-53e222e8-4e25-4182-a381-085be98854d1=Assignment(partitions=[barcode-events-0])}
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.063Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Successfully synced group in generation Generation{generationId=2, memberId='consumer-barcode-processing-group-2-f22017ce-b5c7-414d-8ee3-54ecd3963055', protocol='range'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.065Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Notifying assignor about the new Assignment(partitions=[barcode-events-1])
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.068Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Adding newly assigned partitions: barcode-events-1
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.071Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Successfully synced group in generation Generation{generationId=2, memberId='consumer-barcode-processing-group-3-ef1ec014-9aba-45ee-8208-a4e78e500ee4', protocol='range'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.075Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Notifying assignor about the new Assignment(partitions=[barcode-events-2])
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.074Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Successfully synced group in generation Generation{generationId=2, memberId='consumer-barcode-processing-group-1-53e222e8-4e25-4182-a381-085be98854d1', protocol='range'}
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.076Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Adding newly assigned partitions: barcode-events-2
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.078Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Notifying assignor about the new Assignment(partitions=[barcode-events-0])
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.078Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Adding newly assigned partitions: barcode-events-0
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.088Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Found no committed offset for partition barcode-events-1
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.088Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Found no committed offset for partition barcode-events-0
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.088Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Found no committed offset for partition barcode-events-2
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.117Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Resetting offset for partition barcode-events-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[broker-a-1:29092 (id: 1 rack: null)], epoch=0}}.
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.117Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Resetting offset for partition barcode-events-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[broker-a-2:29092 (id: 2 rack: null)], epoch=0}}.
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.123Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: partitions assigned: [barcode-events-0]
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.124Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: partitions assigned: [barcode-events-2]
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.135Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Resetting offset for partition barcode-events-1 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[broker-a-3:29092 (id: 3 rack: null)], epoch=0}}.
+bip-fr-006-processing-a  | 2026-09-23T03:25:47.136Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: partitions assigned: [barcode-events-1]
+
+exit_code=0

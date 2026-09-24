@@ -1,0 +1,20 @@
+captured_at_utc=2026-09-23T04:19:59Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/docker-compose.validation.yml --profile failover ps --all 
+
+NAME                      IMAGE                                COMMAND                  SERVICE        CREATED              STATUS                        PORTS
+bip-fr-006-broker-a-1     confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   broker-a-1     3 minutes ago        Up 3 minutes (healthy)        0.0.0.0:29092->9092/tcp, [::]:29092->9092/tcp
+bip-fr-006-broker-a-2     confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   broker-a-2     3 minutes ago        Up 2 minutes (healthy)        0.0.0.0:29093->9092/tcp, [::]:29093->9092/tcp
+bip-fr-006-broker-a-3     confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   broker-a-3     2 minutes ago        Up 2 minutes (healthy)        0.0.0.0:29094->9092/tcp, [::]:29094->9092/tcp
+bip-fr-006-broker-b       confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   broker-b       33 minutes ago       Up 33 minutes (healthy)       0.0.0.0:39092->9092/tcp, [::]:39092->9092/tcp
+bip-fr-006-controller-a   confluentinc/cp-kafka:8.1.0-1-ubi9   "/etc/confluent/dock…"   controller-a   54 minutes ago       Up 54 minutes                 9092/tcp
+bip-fr-006-ingest-a       bip-fr-006-ingest:local              "java -jar app.jar"      ingest-a       54 minutes ago       Up 54 minutes                 0.0.0.0:28081->8081/tcp, [::]:28081->8081/tcp
+bip-fr-006-mm2            confluentinc/cp-kafka:8.1.0-1-ubi9   "connect-mirror-make…"   mm2            33 minutes ago       Up 33 minutes                 0.0.0.0:18083->8083/tcp, [::]:18083->8083/tcp
+bip-fr-006-mysql          mysql:8                              "docker-entrypoint.s…"   mysql          About a minute ago   Up About a minute (healthy)   0.0.0.0:23306->3306/tcp, [::]:23306->3306/tcp
+bip-fr-006-processing-a   bip-fr-006-processing:local          "java -jar app.jar"      processing-a   54 minutes ago       Up 7 minutes                  0.0.0.0:28082->8082/tcp, [::]:28082->8082/tcp
+bip-fr-006-processing-b   bip-fr-006-processing:local          "java -jar app.jar"      processing-b   11 minutes ago       Exited (143) 7 minutes ago    
+bip-fr-006-redis          redis:alpine                         "docker-entrypoint.s…"   redis          54 minutes ago       Up 54 minutes (healthy)       0.0.0.0:26379->6379/tcp, [::]:26379->6379/tcp
+bip-fr-006-topic-init-a   confluentinc/cp-kafka:8.1.0-1-ubi9   "/bin/sh /opt/fr006/…"   topic-init-a   54 minutes ago       Exited (0) 7 minutes ago      
+bip-fr-006-topic-init-b   confluentinc/cp-kafka:8.1.0-1-ubi9   "/bin/sh /opt/fr006/…"   topic-init-b   54 minutes ago       Exited (0) 11 minutes ago     
+bip-fr-006-worker         bip-fr-006-worker:local              "java -jar app.jar"      worker         33 minutes ago       Up 33 minutes                 0.0.0.0:28085->8085/tcp, [::]:28085->8085/tcp
+
+exit_code=0

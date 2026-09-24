@@ -1,0 +1,235 @@
+captured_at_utc=2026-09-23T04:07:00Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/docker-compose.validation.yml --profile failover logs --no-color --since 30m --tail 5000 ingest-a ingest-b processing-a processing-b worker 
+
+bip-fr-006-ingest-a  | 2026-09-23T03:45:28.066Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+bip-fr-006-ingest-a  | 2026-09-23T03:45:28.067Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+bip-fr-006-ingest-a  | 2026-09-23T03:45:28.071Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+bip-fr-006-ingest-a  | 2026-09-23T04:05:13.215Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-5] c.b.b.c.BarcodeIngestController          : Received barcode request: BIP-FR-006-PF-20260923T032348Z-baseline-001
+bip-fr-006-ingest-a  | 2026-09-23T04:05:13.259Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-5] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+bip-fr-006-ingest-a  | 	acks = -1
+bip-fr-006-ingest-a  | 	auto.include.jmx.reporter = true
+bip-fr-006-ingest-a  | 	batch.size = 16384
+bip-fr-006-ingest-a  | 	bootstrap.servers = [broker-a-1:29092, broker-a-2:29092, broker-a-3:29092]
+bip-fr-006-ingest-a  | 	buffer.memory = 33554432
+bip-fr-006-ingest-a  | 	client.dns.lookup = use_all_dns_ips
+bip-fr-006-ingest-a  | 	client.id = barcode-ingest-service-producer-1
+bip-fr-006-ingest-a  | 	compression.gzip.level = -1
+bip-fr-006-ingest-a  | 	compression.lz4.level = 9
+bip-fr-006-ingest-a  | 	compression.type = snappy
+bip-fr-006-ingest-a  | 	compression.zstd.level = 3
+bip-fr-006-ingest-a  | 	connections.max.idle.ms = 540000
+bip-fr-006-ingest-a  | 	delivery.timeout.ms = 120000
+bip-fr-006-ingest-a  | 	enable.idempotence = true
+bip-fr-006-ingest-a  | 	enable.metrics.push = true
+bip-fr-006-ingest-a  | 	interceptor.classes = []
+bip-fr-006-ingest-a  | 	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+bip-fr-006-ingest-a  | 	linger.ms = 10
+bip-fr-006-ingest-a  | 	max.block.ms = 5000
+bip-fr-006-ingest-a  | 	max.in.flight.requests.per.connection = 5
+bip-fr-006-ingest-a  | 	max.request.size = 1048576
+bip-fr-006-ingest-a  | 	metadata.max.age.ms = 300000
+bip-fr-006-ingest-a  | 	metadata.max.idle.ms = 300000
+bip-fr-006-ingest-a  | 	metadata.recovery.strategy = none
+bip-fr-006-ingest-a  | 	metric.reporters = []
+bip-fr-006-ingest-a  | 	metrics.num.samples = 2
+bip-fr-006-ingest-a  | 	metrics.recording.level = INFO
+bip-fr-006-ingest-a  | 	metrics.sample.window.ms = 30000
+bip-fr-006-ingest-a  | 	partitioner.adaptive.partitioning.enable = true
+bip-fr-006-ingest-a  | 	partitioner.availability.timeout.ms = 0
+bip-fr-006-ingest-a  | 	partitioner.class = null
+bip-fr-006-ingest-a  | 	partitioner.ignore.keys = false
+bip-fr-006-ingest-a  | 	receive.buffer.bytes = 32768
+bip-fr-006-ingest-a  | 	reconnect.backoff.max.ms = 1000
+bip-fr-006-ingest-a  | 	reconnect.backoff.ms = 50
+bip-fr-006-ingest-a  | 	request.timeout.ms = 30000
+bip-fr-006-ingest-a  | 	retries = 3
+bip-fr-006-ingest-a  | 	retry.backoff.max.ms = 1000
+bip-fr-006-ingest-a  | 	retry.backoff.ms = 100
+bip-fr-006-ingest-a  | 	sasl.client.callback.handler.class = null
+bip-fr-006-ingest-a  | 	sasl.jaas.config = null
+bip-fr-006-ingest-a  | 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+bip-fr-006-ingest-a  | 	sasl.kerberos.min.time.before.relogin = 60000
+bip-fr-006-ingest-a  | 	sasl.kerberos.service.name = null
+bip-fr-006-ingest-a  | 	sasl.kerberos.ticket.renew.jitter = 0.05
+bip-fr-006-ingest-a  | 	sasl.kerberos.ticket.renew.window.factor = 0.8
+bip-fr-006-ingest-a  | 	sasl.login.callback.handler.class = null
+bip-fr-006-ingest-a  | 	sasl.login.class = null
+bip-fr-006-ingest-a  | 	sasl.login.connect.timeout.ms = null
+bip-fr-006-ingest-a  | 	sasl.login.read.timeout.ms = null
+bip-fr-006-ingest-a  | 	sasl.login.refresh.buffer.seconds = 300
+bip-fr-006-ingest-a  | 	sasl.login.refresh.min.period.seconds = 60
+bip-fr-006-ingest-a  | 	sasl.login.refresh.window.factor = 0.8
+bip-fr-006-ingest-a  | 	sasl.login.refresh.window.jitter = 0.05
+bip-fr-006-ingest-a  | 	sasl.login.retry.backoff.max.ms = 10000
+bip-fr-006-ingest-a  | 	sasl.login.retry.backoff.ms = 100
+bip-fr-006-ingest-a  | 	sasl.mechanism = GSSAPI
+bip-fr-006-ingest-a  | 	sasl.oauthbearer.clock.skew.seconds = 30
+bip-fr-006-ingest-a  | 	sasl.oauthbearer.expected.audience = null
+bip-fr-006-ingest-a  | 	sasl.oauthbearer.expected.issuer = null
+bip-fr-006-ingest-a  | 	sasl.oauthbearer.header.urlencode = false
+bip-fr-006-ingest-a  | 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+bip-fr-006-ingest-a  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+bip-fr-006-ingest-a  | 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+bip-fr-006-ingest-a  | 	sasl.oauthbearer.jwks.endpoint.url = null
+bip-fr-006-ingest-a  | 	sasl.oauthbearer.scope.claim.name = scope
+bip-fr-006-ingest-a  | 	sasl.oauthbearer.sub.claim.name = sub
+bip-fr-006-ingest-a  | 	sasl.oauthbearer.token.endpoint.url = null
+bip-fr-006-ingest-a  | 	security.protocol = PLAINTEXT
+bip-fr-006-ingest-a  | 	security.providers = null
+bip-fr-006-ingest-a  | 	send.buffer.bytes = 131072
+bip-fr-006-ingest-a  | 	socket.connection.setup.timeout.max.ms = 30000
+bip-fr-006-ingest-a  | 	socket.connection.setup.timeout.ms = 10000
+bip-fr-006-ingest-a  | 	ssl.cipher.suites = null
+bip-fr-006-ingest-a  | 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+bip-fr-006-ingest-a  | 	ssl.endpoint.identification.algorithm = https
+bip-fr-006-ingest-a  | 	ssl.engine.factory.class = null
+bip-fr-006-ingest-a  | 	ssl.key.password = null
+bip-fr-006-ingest-a  | 	ssl.keymanager.algorithm = SunX509
+bip-fr-006-ingest-a  | 	ssl.keystore.certificate.chain = null
+bip-fr-006-ingest-a  | 	ssl.keystore.key = null
+bip-fr-006-ingest-a  | 	ssl.keystore.location = null
+bip-fr-006-ingest-a  | 	ssl.keystore.password = null
+bip-fr-006-ingest-a  | 	ssl.keystore.type = JKS
+bip-fr-006-ingest-a  | 	ssl.protocol = TLSv1.3
+bip-fr-006-ingest-a  | 	ssl.provider = null
+bip-fr-006-ingest-a  | 	ssl.secure.random.implementation = null
+bip-fr-006-worker    | Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx256m
+bip-fr-006-worker    | 
+bip-fr-006-worker    |   .   ____          _            __ _ _
+bip-fr-006-worker    |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+bip-fr-006-worker    | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+bip-fr-006-worker    |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+bip-fr-006-worker    |   '  |____| .__|_| |_|_| |_\__, | / / / /
+bip-fr-006-worker    |  =========|_|==============|___/=/_/_/_/
+bip-fr-006-worker    | 
+bip-fr-006-worker    |  :: Spring Boot ::                (v3.5.7)
+bip-fr-006-worker    | 
+bip-fr-006-worker    | 2026-09-23T03:46:28.227Z  INFO 1 --- [barcode-persistence-worker] [           main] .b.b.BarcodePersistenceWorkerApplication : Starting BarcodePersistenceWorkerApplication v0.0.1-SNAPSHOT using Java 21.0.12 with PID 1 (/app/app.jar started by root in /app)
+bip-fr-006-worker    | 2026-09-23T03:46:28.228Z DEBUG 1 --- [barcode-persistence-worker] [           main] .b.b.BarcodePersistenceWorkerApplication : Running with Spring Boot v3.5.7, Spring v6.2.12
+bip-fr-006-worker    | 2026-09-23T03:46:28.229Z  INFO 1 --- [barcode-persistence-worker] [           main] .b.b.BarcodePersistenceWorkerApplication : No active profile set, falling back to 1 default profile: "default"
+bip-fr-006-worker    | 2026-09-23T03:46:28.978Z  INFO 1 --- [barcode-persistence-worker] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+bip-fr-006-worker    | 2026-09-23T03:46:28.979Z  INFO 1 --- [barcode-persistence-worker] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+bip-fr-006-worker    | 2026-09-23T03:46:29.103Z  INFO 1 --- [barcode-persistence-worker] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108 ms. Found 2 JPA repository interfaces.
+bip-fr-006-worker    | 2026-09-23T03:46:29.119Z  INFO 1 --- [barcode-persistence-worker] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+bip-fr-006-worker    | 2026-09-23T03:46:29.120Z  INFO 1 --- [barcode-persistence-worker] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+bip-fr-006-worker    | 2026-09-23T03:46:29.130Z  INFO 1 --- [barcode-persistence-worker] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.barcode.barcode_persistence_worker.repository.BarcodeRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+bip-fr-006-worker    | 2026-09-23T03:46:29.131Z  INFO 1 --- [barcode-persistence-worker] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.barcode.barcode_persistence_worker.repository.DeviceCenterMappingRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+bip-fr-006-worker    | 2026-09-23T03:46:29.131Z  INFO 1 --- [barcode-persistence-worker] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+bip-fr-006-worker    | 2026-09-23T03:46:29.642Z  INFO 1 --- [barcode-persistence-worker] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8085 (http)
+bip-fr-006-worker    | 2026-09-23T03:46:29.685Z  INFO 1 --- [barcode-persistence-worker] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+bip-fr-006-worker    | 2026-09-23T03:46:29.686Z  INFO 1 --- [barcode-persistence-worker] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.48]
+bip-fr-006-worker    | 2026-09-23T03:46:29.705Z  INFO 1 --- [barcode-persistence-worker] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+bip-fr-006-worker    | 2026-09-23T03:46:29.706Z  INFO 1 --- [barcode-persistence-worker] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1435 ms
+bip-fr-006-worker    | 2026-09-23T03:46:29.955Z  INFO 1 --- [barcode-persistence-worker] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+bip-fr-006-worker    | 2026-09-23T03:46:30.002Z  INFO 1 --- [barcode-persistence-worker] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.33.Final
+bip-fr-006-worker    | 2026-09-23T03:46:30.029Z  INFO 1 --- [barcode-persistence-worker] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+bip-fr-006-worker    | 2026-09-23T03:46:30.254Z  INFO 1 --- [barcode-persistence-worker] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+bip-fr-006-worker    | 2026-09-23T03:46:30.281Z  INFO 1 --- [barcode-persistence-worker] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+bip-fr-006-worker    | 2026-09-23T03:46:30.702Z  INFO 1 --- [barcode-persistence-worker] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6fe243a
+bip-fr-006-worker    | 2026-09-23T03:46:30.788Z  INFO 1 --- [barcode-persistence-worker] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+bip-fr-006-worker    | 2026-09-23T03:46:30.813Z  WARN 1 --- [barcode-persistence-worker] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+bip-fr-006-worker    | 2026-09-23T03:46:30.813Z  WARN 1 --- [barcode-persistence-worker] [           main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+bip-fr-006-ingest-a  | 	ssl.trustmanager.algorithm = PKIX
+bip-fr-006-ingest-a      | 	ssl.truststore.certificates = null
+bip-fr-006-ingest-a      | 	ssl.truststore.location = null
+bip-fr-006-processing-a  | 2026-09-23T04:05:13.936Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 0
+bip-fr-006-processing-a  | 2026-09-23T04:05:13.938Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-006-PF-20260923T032348Z-baseline-001, Device: SEOUL-CENTER-PC-001, scanTime: 1790136313001
+bip-fr-006-processing-a  | 2026-09-23T04:05:13.941Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-006-PF-20260923T032348Z-baseline-001 → DLV-SEOUL-CENTER-PC-001-260923-01M3670T2NRH1RPATAETZ053XH
+bip-fr-006-ingest-a      | 	ssl.truststore.password = null
+bip-fr-006-ingest-a      | 	ssl.truststore.type = JKS
+bip-fr-006-ingest-a      | 	transaction.timeout.ms = 60000
+bip-fr-006-ingest-a      | 	transactional.id = null
+bip-fr-006-ingest-a      | 	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+bip-fr-006-ingest-a      | 
+bip-fr-006-ingest-a      | 2026-09-23T04:05:13.291Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-5] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+bip-fr-006-worker    | 2026-09-23T03:46:30.824Z  INFO 1 --- [barcode-persistence-worker] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+bip-fr-006-worker        | 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+bip-fr-006-worker        | 	Database driver: undefined/unknown
+bip-fr-006-worker        | 	Database version: 8.0
+bip-fr-006-worker        | 	Autocommit mode: undefined/unknown
+bip-fr-006-worker        | 	Isolation level: undefined/unknown
+bip-fr-006-worker        | 	Minimum pool size: undefined/unknown
+bip-fr-006-ingest-a      | 2026-09-23T04:05:13.306Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-5] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=barcode-ingest-service-producer-1] Instantiated an idempotent producer.
+bip-fr-006-ingest-a      | 2026-09-23T04:05:13.347Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-5] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+bip-fr-006-ingest-a      | 2026-09-23T04:05:13.347Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-5] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+bip-fr-006-ingest-a      | 2026-09-23T04:05:13.347Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-5] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1790136313345
+bip-fr-006-ingest-a      | 2026-09-23T04:05:13.538Z  INFO 1 --- [barcode-ingest-service] [vice-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=barcode-ingest-service-producer-1] Cluster ID: MkU3OEVBNTcwNTJENDM2Qk
+bip-fr-006-ingest-a      | 2026-09-23T04:05:13.775Z  INFO 1 --- [barcode-ingest-service] [vice-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=barcode-ingest-service-producer-1] ProducerId set to 1000 with epoch 0
+bip-fr-006-ingest-a      | 2026-09-23T04:05:13.840Z  INFO 1 --- [barcode-ingest-service] [vice-producer-1] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: BIP-FR-006-PF-20260923T032348Z-baseline-001, Partition: 1, Offset: 0
+bip-fr-006-processing-a  | 2026-09-23T04:05:13.972Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: BIP-FR-006-PF-20260923T032348Z-baseline-001
+bip-fr-006-processing-a  | 2026-09-23T04:05:13.973Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: BIP-FR-006-PF-20260923T032348Z-baseline-001
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.009Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 1
+bip-fr-006-worker        | 	Maximum pool size: undefined/unknown
+bip-fr-006-worker        | 2026-09-23T03:46:31.366Z  INFO 1 --- [barcode-persistence-worker] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+bip-fr-006-worker        | 2026-09-23T03:46:31.431Z  INFO 1 --- [barcode-persistence-worker] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+bip-fr-006-worker        | 2026-09-23T03:46:31.669Z  INFO 1 --- [barcode-persistence-worker] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+bip-fr-006-worker        | 2026-09-23T03:46:32.495Z  INFO 1 --- [barcode-persistence-worker] [           main] c.b.b.service.RedisStreamConsumer        : Consumer group already exists: barcode-persistence-group
+bip-fr-006-worker        | 2026-09-23T03:46:32.526Z  WARN 1 --- [barcode-persistence-worker] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+bip-fr-006-worker        | 2026-09-23T03:46:32.926Z  INFO 1 --- [barcode-persistence-worker] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+bip-fr-006-worker        | 2026-09-23T03:46:33.002Z  INFO 1 --- [barcode-persistence-worker] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8085 (http) with context path '/'
+bip-fr-006-worker        | 2026-09-23T03:46:33.024Z  INFO 1 --- [barcode-persistence-worker] [           main] .b.b.BarcodePersistenceWorkerApplication : Started BarcodePersistenceWorkerApplication in 5.223 seconds (process running for 6.155)
+bip-fr-006-worker        | 2026-09-23T03:48:10.443Z  INFO 1 --- [barcode-persistence-worker] [nio-8085-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+bip-fr-006-worker        | 2026-09-23T03:48:10.444Z  INFO 1 --- [barcode-persistence-worker] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+bip-fr-006-worker        | 2026-09-23T03:48:10.447Z  INFO 1 --- [barcode-persistence-worker] [nio-8085-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+bip-fr-006-worker        | 2026-09-23T04:05:14.806Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Read 6 messages from Redis Stream
+bip-fr-006-worker        | 2026-09-23T04:05:15.046Z DEBUG 1 --- [barcode-persistence-worker] [   scheduling-1] org.hibernate.SQL                        : 
+bip-fr-006-worker        |     select
+bip-fr-006-worker        |         dcme1_0.id,
+bip-fr-006-worker        |         dcme1_0.center_id,
+bip-fr-006-ingest-a      | 2026-09-23T04:05:13.898Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-7] c.b.b.c.BarcodeIngestController          : Received barcode request: BIP-FR-006-PF-20260923T032348Z-baseline-002
+bip-fr-006-ingest-a      | 2026-09-23T04:05:13.928Z  INFO 1 --- [barcode-ingest-service] [vice-producer-1] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: BIP-FR-006-PF-20260923T032348Z-baseline-002, Partition: 1, Offset: 1
+bip-fr-006-ingest-a      | 2026-09-23T04:05:13.974Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-9] c.b.b.c.BarcodeIngestController          : Received barcode request: BIP-FR-006-PF-20260923T032348Z-baseline-003
+bip-fr-006-ingest-a      | 2026-09-23T04:05:13.992Z  INFO 1 --- [barcode-ingest-service] [vice-producer-1] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: BIP-FR-006-PF-20260923T032348Z-baseline-003, Partition: 1, Offset: 2
+bip-fr-006-ingest-a      | 2026-09-23T04:05:14.034Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-1] c.b.b.c.BarcodeIngestController          : Received barcode request: BIP-FR-006-PF-20260923T032348Z-baseline-004
+bip-fr-006-ingest-a      | 2026-09-23T04:05:14.048Z  INFO 1 --- [barcode-ingest-service] [vice-producer-1] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: BIP-FR-006-PF-20260923T032348Z-baseline-004, Partition: 1, Offset: 3
+bip-fr-006-ingest-a      | 2026-09-23T04:05:14.079Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-3] c.b.b.c.BarcodeIngestController          : Received barcode request: BIP-FR-006-PF-20260923T032348Z-baseline-005
+bip-fr-006-ingest-a      | 2026-09-23T04:05:14.093Z  INFO 1 --- [barcode-ingest-service] [vice-producer-1] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: BIP-FR-006-PF-20260923T032348Z-baseline-005, Partition: 1, Offset: 4
+bip-fr-006-ingest-a      | 2026-09-23T04:05:14.124Z  INFO 1 --- [barcode-ingest-service] [nio-8081-exec-5] c.b.b.c.BarcodeIngestController          : Received barcode request: BIP-FR-006-PF-20260923T032348Z-baseline-006
+bip-fr-006-ingest-a      | 2026-09-23T04:05:14.139Z  INFO 1 --- [barcode-ingest-service] [vice-producer-1] c.b.b.service.BarcodeProducer            : Sent barcode event - Key: SEOUL-CENTER-PC-001, Barcode: BIP-FR-006-PF-20260923T032348Z-baseline-006, Partition: 1, Offset: 5
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.010Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-006-PF-20260923T032348Z-baseline-002, Device: SEOUL-CENTER-PC-001, scanTime: 1790136313002
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.010Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-006-PF-20260923T032348Z-baseline-002 → DLV-SEOUL-CENTER-PC-001-260923-01M3670T4TZXS839PS74D9VSDQ
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.012Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: BIP-FR-006-PF-20260923T032348Z-baseline-002
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.012Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: BIP-FR-006-PF-20260923T032348Z-baseline-002
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.030Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 2
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.030Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-006-PF-20260923T032348Z-baseline-003, Device: SEOUL-CENTER-PC-001, scanTime: 1790136313003
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.030Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-006-PF-20260923T032348Z-baseline-003 → DLV-SEOUL-CENTER-PC-001-260923-01M3670T5EM6WB4ZBTEQSYPC6R
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.033Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: BIP-FR-006-PF-20260923T032348Z-baseline-003
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.034Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: BIP-FR-006-PF-20260923T032348Z-baseline-003
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.048Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 3
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.049Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-006-PF-20260923T032348Z-baseline-004, Device: SEOUL-CENTER-PC-001, scanTime: 1790136314004
+bip-fr-006-worker        |         dcme1_0.center_name,
+bip-fr-006-worker        |         dcme1_0.device_id,
+bip-fr-006-worker        |         dcme1_0.saved_time,
+bip-fr-006-worker        |         dcme1_0.updated_time 
+bip-fr-006-worker        |     from
+bip-fr-006-worker        |         device_center_mapping dcme1_0 
+bip-fr-006-worker        |     where
+bip-fr-006-worker        |         dcme1_0.device_id in (?)
+bip-fr-006-worker        | Hibernate: 
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.049Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-006-PF-20260923T032348Z-baseline-004 → DLV-SEOUL-CENTER-PC-001-260923-01M3670T613Z3QY246ZFK61BD3
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.051Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: BIP-FR-006-PF-20260923T032348Z-baseline-004
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.051Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: BIP-FR-006-PF-20260923T032348Z-baseline-004
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.094Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 4
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.094Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-006-PF-20260923T032348Z-baseline-005, Device: SEOUL-CENTER-PC-001, scanTime: 1790136314005
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.094Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-006-PF-20260923T032348Z-baseline-005 → DLV-SEOUL-CENTER-PC-001-260923-01M3670T7EMH9KJYTC85F4G0DZ
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.095Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: BIP-FR-006-PF-20260923T032348Z-baseline-005
+bip-fr-006-worker        |     select
+bip-fr-006-worker        |         dcme1_0.id,
+bip-fr-006-worker        |         dcme1_0.center_id,
+bip-fr-006-worker        |         dcme1_0.center_name,
+bip-fr-006-worker        |         dcme1_0.device_id,
+bip-fr-006-worker        |         dcme1_0.saved_time,
+bip-fr-006-worker        |         dcme1_0.updated_time 
+bip-fr-006-worker        |     from
+bip-fr-006-worker        |         device_center_mapping dcme1_0 
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.096Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: BIP-FR-006-PF-20260923T032348Z-baseline-005
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.139Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 5
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.139Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-006-PF-20260923T032348Z-baseline-006, Device: SEOUL-CENTER-PC-001, scanTime: 1790136314006
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.139Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-006-PF-20260923T032348Z-baseline-006 → DLV-SEOUL-CENTER-PC-001-260923-01M3670T8V2N9N6JQKAZ3WNP1A
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.141Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: BIP-FR-006-PF-20260923T032348Z-baseline-006
+bip-fr-006-processing-a  | 2026-09-23T04:05:14.141Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: BIP-FR-006-PF-20260923T032348Z-baseline-006
+bip-fr-006-worker        |     where
+bip-fr-006-worker        |         dcme1_0.device_id in (?)
+bip-fr-006-worker        | 2026-09-23T04:05:15.097Z  INFO 1 --- [barcode-persistence-worker] [   scheduling-1] c.b.b.service.RedisStreamConsumer        : Acknowledged 6 messages
+
+exit_code=0

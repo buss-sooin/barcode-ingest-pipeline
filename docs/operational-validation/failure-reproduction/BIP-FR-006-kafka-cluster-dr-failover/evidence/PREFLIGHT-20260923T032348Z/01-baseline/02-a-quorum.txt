@@ -1,0 +1,13 @@
+captured_at_utc=2026-09-23T03:47:41Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/docker-compose.validation.yml exec -T controller-a kafka-metadata-quorum --bootstrap-controller controller-a:29093 describe --status 
+
+ClusterId:              MkU3OEVBNTcwNTJENDM2Qk
+LeaderId:               100
+LeaderEpoch:            1
+HighWatermark:          2731
+MaxFollowerLag:         0
+MaxFollowerLagTimeMs:   0
+CurrentVoters:          [{"id": 100, "endpoints": ["CONTROLLER://controller-a:29093"]}]
+CurrentObservers:       [{"id": 2, "directoryId": "TUFOWQtETYhTFa9Z67XRag"}, {"id": 3, "directoryId": "WS4o6iyQrfF6ffcpBXIs-w"}, {"id": 1, "directoryId": "LWGxU-DOC6_Gmy1tNpKnDA"}]
+
+exit_code=0

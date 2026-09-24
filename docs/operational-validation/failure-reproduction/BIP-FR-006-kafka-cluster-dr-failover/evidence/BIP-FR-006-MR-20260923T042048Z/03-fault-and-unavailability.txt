@@ -1,0 +1,19 @@
+fault_command_started_at_utc=2026-09-23T04:27:00Z
+command=docker compose stop -t 0 controller-a broker-a-1 broker-a-2 broker-a-3
+ Container bip-fr-006-broker-a-1 Stopping 
+ Container bip-fr-006-broker-a-2 Stopping 
+ Container bip-fr-006-broker-a-3 Stopping 
+ Container bip-fr-006-broker-a-3 Stopped 
+ Container bip-fr-006-broker-a-1 Stopped 
+ Container bip-fr-006-broker-a-2 Stopped 
+ Container bip-fr-006-controller-a Stopping 
+ Container bip-fr-006-controller-a Stopped 
+t_A_unavailable=2026-09-23T04:27:01Z
+/bip-fr-006-controller-a status=exited running=false oom=false exit=137
+/bip-fr-006-broker-a-1 status=exited running=false oom=false exit=137
+/bip-fr-006-broker-a-2 status=exited running=false oom=false exit=137
+/bip-fr-006-broker-a-3 status=exited running=false oom=false exit=137
+/bip-fr-006-broker-b status=running running=true health=healthy oom=false
+/bip-fr-006-redis status=running running=true health=healthy oom=false
+/bip-fr-006-mysql status=running running=true health=healthy oom=false
+/bip-fr-006-mm2 status=running running=true health=n/a oom=false

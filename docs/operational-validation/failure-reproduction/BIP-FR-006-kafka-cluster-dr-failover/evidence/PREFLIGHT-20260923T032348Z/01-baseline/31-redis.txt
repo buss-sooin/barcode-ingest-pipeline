@@ -1,0 +1,24 @@
+captured_at_utc=2026-09-23T03:48:10Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/docker-compose.validation.yml exec -T redis sh -lc redis-cli\ PING\;\ redis-cli\ XLEN\ barcode:stream\;\ redis-cli\ XINFO\ GROUPS\ barcode:stream\ 2\>\&1\ \|\|\ true\;\ redis-cli\ XPENDING\ barcode:stream\ barcode-persistence-group\ 2\>\&1\ \|\|\ true\;\ redis-cli\ XLEN\ barcode:stream:dlq\;\ redis-cli\ --scan\ --pattern\ \"barcode:processed:BIP-FR-006-\*\" 
+
+PONG
+0
+name
+barcode-persistence-group
+consumers
+1
+pending
+0
+last-delivered-id
+0-0
+entries-read
+
+lag
+0
+0
+
+
+
+0
+
+exit_code=0

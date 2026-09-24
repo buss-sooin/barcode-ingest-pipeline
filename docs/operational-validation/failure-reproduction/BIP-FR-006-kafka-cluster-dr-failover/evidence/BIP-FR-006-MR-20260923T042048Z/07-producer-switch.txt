@@ -1,0 +1,20 @@
+a_app_stop_started_at_utc=2026-09-23T04:28:13Z
+command=stop ingest-a processing-a
+ Container bip-fr-006-processing-a Stopping 
+ Container bip-fr-006-ingest-a Stopping 
+ Container bip-fr-006-ingest-a Stopped 
+ Container bip-fr-006-processing-a Stopped 
+b_ingest_start_command_at_utc=2026-09-23T04:28:14Z
+command=up -d ingest-b
+ Container bip-fr-006-broker-b Running 
+ Container bip-fr-006-ingest-b Creating 
+ Container bip-fr-006-ingest-b Created 
+ Container bip-fr-006-broker-b Waiting 
+ Container bip-fr-006-broker-b Healthy 
+ Container bip-fr-006-topic-init-b Starting 
+ Container bip-fr-006-topic-init-b Started 
+ Container bip-fr-006-topic-init-b Waiting 
+ Container bip-fr-006-topic-init-b Exited 
+ Container bip-fr-006-ingest-b Starting 
+ Container bip-fr-006-ingest-b Started 
+b_ingest_ready_at_utc=2026-09-23T04:28:22Z

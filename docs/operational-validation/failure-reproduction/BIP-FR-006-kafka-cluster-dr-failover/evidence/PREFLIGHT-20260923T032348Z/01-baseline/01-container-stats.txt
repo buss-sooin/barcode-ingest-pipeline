@@ -1,0 +1,17 @@
+captured_at_utc=2026-09-23T03:47:39Z
+command=docker stats --no-stream 
+
+CONTAINER ID   NAME                      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O         PIDS
+ea06bb67b079   bip-fr-006-mm2            5.13%     489.9MiB / 640MiB   76.55%    652kB / 445kB     65.6MB / 520kB    87
+59be9fdbc39a   bip-fr-006-broker-b       6.88%     424.4MiB / 704MiB   60.28%    137kB / 251kB     3.98MB / 2.06MB   118
+c5107f3e31dc   bip-fr-006-worker         2.44%     370.1MiB / 448MiB   82.62%    51.3kB / 36.1kB   9.5MB / 94.2kB    41
+c379ba30ee2c   bip-fr-006-processing-a   0.89%     277.4MiB / 352MiB   78.80%    1.35MB / 1.5MB    795kB / 684kB     32
+93f2705534bf   bip-fr-006-ingest-a       0.23%     208.8MiB / 320MiB   65.24%    4.08kB / 673B     2.24MB / 598kB    29
+bd78044bad07   bip-fr-006-broker-a-2     4.97%     482.2MiB / 576MiB   83.72%    6.32MB / 7.13MB   2.69MB / 17.5MB   100
+744de5653785   bip-fr-006-broker-a-3     4.27%     386.1MiB / 576MiB   67.03%    5.75MB / 5.61MB   59MB / 77.7MB     100
+93421e2e2435   bip-fr-006-broker-a-1     5.32%     485.9MiB / 576MiB   84.35%    7.18MB / 6.7MB    8.52MB / 23.1MB   100
+07ae951c0b84   bip-fr-006-mysql          0.74%     478.7MiB / 512MiB   93.49%    67.2kB / 77.1kB   105MB / 301MB     40
+8f767f0daee3   bip-fr-006-redis          0.39%     25.01MiB / 128MiB   19.54%    189kB / 255kB     14.7MB / 16.4kB   6
+249d1df134b2   bip-fr-006-controller-a   2.19%     216.5MiB / 384MiB   56.38%    2.86MB / 3.87MB   9.47MB / 13MB     57
+
+exit_code=0

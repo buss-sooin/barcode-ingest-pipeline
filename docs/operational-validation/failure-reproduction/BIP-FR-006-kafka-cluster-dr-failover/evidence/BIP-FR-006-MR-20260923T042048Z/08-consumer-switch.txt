@@ -1,0 +1,16 @@
+b_processing_start_command_at_utc=2026-09-23T04:29:54Z
+intended_start=barcode-events partition 1 offset 37
+command=up -d processing-b
+ Container bip-fr-006-broker-b Running 
+ Container bip-fr-006-redis Running 
+ Container bip-fr-006-broker-b Waiting 
+ Container bip-fr-006-broker-b Healthy 
+ Container bip-fr-006-topic-init-b Starting 
+ Container bip-fr-006-topic-init-b Started 
+ Container bip-fr-006-topic-init-b Waiting 
+ Container bip-fr-006-redis Waiting 
+ Container bip-fr-006-redis Healthy 
+ Container bip-fr-006-topic-init-b Exited 
+ Container bip-fr-006-processing-b Starting 
+ Container bip-fr-006-processing-b Started 
+b_processing_ready_at_utc=2026-09-23T04:30:02Z

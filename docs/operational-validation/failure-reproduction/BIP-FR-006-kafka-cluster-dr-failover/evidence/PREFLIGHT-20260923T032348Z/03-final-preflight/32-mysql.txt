@@ -1,0 +1,7 @@
+captured_at_utc=2026-09-23T04:14:41Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/docker-compose.validation.yml exec -T mysql sh -lc mysql\ -N\ -B\ -u\ root\ -p\"\$MYSQL_ROOT_PASSWORD\"\ \"\$MYSQL_DATABASE\"\ -e\ \"SELECT\ original_barcode\,\ internal_barcode_id\,\ scan_time\,\ processed_time\,\ saved_time\ FROM\ barcodes\ WHERE\ original_barcode\ LIKE\ BIP-FR-006-%\ ORDER\ BY\ original_barcode\;\" 
+
+mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 1064 (42000) at line 1: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-FR-006-% ORDER BY original_barcode' at line 1
+
+exit_code=1

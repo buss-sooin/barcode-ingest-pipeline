@@ -1,0 +1,6 @@
+captured_at_utc=2026-09-23T04:32:05Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/docker-compose.validation.yml exec -T controller-a kafka-metadata-quorum --bootstrap-controller controller-a:29093 describe --status 
+
+service "controller-a" is not running
+
+exit_code=1

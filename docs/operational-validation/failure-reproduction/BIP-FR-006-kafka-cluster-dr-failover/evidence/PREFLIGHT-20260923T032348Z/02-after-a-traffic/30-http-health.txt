@@ -1,0 +1,12 @@
+captured_at_utc=2026-09-23T04:07:00Z
+command=sh -c for\ u\ in\ http://127.0.0.1:28081/actuator/health\ http://127.0.0.1:28082/actuator/health\ http://127.0.0.1:28091/actuator/health\ http://127.0.0.1:28092/actuator/health\ http://127.0.0.1:28085/actuator/health\;\ do\ printf\ \"%s\ \"\ \"\$u\"\;\ curl\ -sS\ --max-time\ 3\ -w\ \"\ http=%\{http_code\}\ time=%\{time_total\}\\n\"\ \"\$u\"\ \|\|\ true\;\ done 
+
+http://127.0.0.1:28081/actuator/health {"status":"UP"} http=200 time=0.012631
+http://127.0.0.1:28082/actuator/health {"status":"UP"} http=200 time=0.013440
+http://127.0.0.1:28091/actuator/health curl: (7) Failed to connect to 127.0.0.1 port 28091 after 0 ms: Couldn't connect to server
+ http=000 time=0.000214
+http://127.0.0.1:28092/actuator/health curl: (7) Failed to connect to 127.0.0.1 port 28092 after 0 ms: Couldn't connect to server
+ http=000 time=0.000211
+http://127.0.0.1:28085/actuator/health {"status":"UP"} http=200 time=0.012370
+
+exit_code=0

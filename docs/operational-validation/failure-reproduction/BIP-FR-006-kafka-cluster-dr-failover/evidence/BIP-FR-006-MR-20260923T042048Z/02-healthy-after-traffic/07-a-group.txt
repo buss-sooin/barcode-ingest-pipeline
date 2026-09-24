@@ -1,0 +1,10 @@
+captured_at_utc=2026-09-23T04:25:19Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/docker-compose.validation.yml exec -T broker-a-1 kafka-consumer-groups --bootstrap-server broker-a-1:29092\,broker-a-2:29092\,broker-a-3:29092 --describe --group barcode-processing-group 
+
+
+GROUP                    TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                                              HOST            CLIENT-ID
+barcode-processing-group barcode-events  1          17              17              0               consumer-barcode-processing-group-2-def59891-b9cd-4ee3-95da-4f0fa0034ddd /172.19.0.8     consumer-barcode-processing-group-2
+barcode-processing-group barcode-events  0          -               0               -               consumer-barcode-processing-group-1-bea5df9f-47ce-4a2d-8d10-eedb6903af24 /172.19.0.8     consumer-barcode-processing-group-1
+barcode-processing-group barcode-events  2          -               0               -               consumer-barcode-processing-group-3-6cb6465e-e769-4870-bf65-f6581d22fff1 /172.19.0.8     consumer-barcode-processing-group-3
+
+exit_code=0

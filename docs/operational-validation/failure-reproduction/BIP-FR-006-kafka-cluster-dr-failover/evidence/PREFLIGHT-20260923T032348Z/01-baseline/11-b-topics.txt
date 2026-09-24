@@ -1,0 +1,106 @@
+captured_at_utc=2026-09-23T03:47:50Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/docker-compose.validation.yml exec -T broker-b kafka-topics --bootstrap-server broker-b:39092 --describe 
+
+Topic: A.heartbeats	TopicId: LUlhOze-SaCi2oSIwhAxGw	PartitionCount: 1	ReplicationFactor: 1	Configs: min.insync.replicas=1,cleanup.policy=compact
+	Topic: A.heartbeats	Partition: 0	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+Topic: heartbeats	TopicId: 8Bl7L2GPQXOXDtnlvPNe0w	PartitionCount: 1	ReplicationFactor: 1	Configs: min.insync.replicas=1,cleanup.policy=compact
+	Topic: heartbeats	Partition: 0	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+Topic: mm2-configs.A.internal	TopicId: akrY3ERpSDytz52FCI26ZA	PartitionCount: 1	ReplicationFactor: 1	Configs: min.insync.replicas=1,cleanup.policy=compact
+	Topic: mm2-configs.A.internal	Partition: 0	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+Topic: barcode-events	TopicId: GL-3mxnhQIyDGNgqUo_rUg	PartitionCount: 3	ReplicationFactor: 1	Configs: min.insync.replicas=1
+	Topic: barcode-events	Partition: 0	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 1	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: barcode-events	Partition: 2	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+Topic: mm2-offset-syncs.A.internal	TopicId: ynWHkaDSSom_QjzZIMCHgw	PartitionCount: 1	ReplicationFactor: 1	Configs: min.insync.replicas=1,cleanup.policy=compact
+	Topic: mm2-offset-syncs.A.internal	Partition: 0	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+Topic: A.checkpoints.internal	TopicId: D7MpnoBXQZW_IoQ8g0W-bg	PartitionCount: 1	ReplicationFactor: 1	Configs: min.insync.replicas=1,cleanup.policy=compact
+	Topic: A.checkpoints.internal	Partition: 0	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+Topic: mm2-offsets.A.internal	TopicId: FNh5zqcsTPCEZ43_Ro6BGQ	PartitionCount: 25	ReplicationFactor: 1	Configs: min.insync.replicas=1,cleanup.policy=compact
+	Topic: mm2-offsets.A.internal	Partition: 0	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 1	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 2	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 3	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 4	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 5	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 6	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 7	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 8	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 9	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 10	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 11	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 12	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 13	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 14	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 15	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 16	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 17	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 18	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 19	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 20	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 21	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 22	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 23	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-offsets.A.internal	Partition: 24	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+Topic: barcode-events-dlt	TopicId: Diqa2u2lQkib7ZCan_nhFw	PartitionCount: 3	ReplicationFactor: 1	Configs: min.insync.replicas=1
+	Topic: barcode-events-dlt	Partition: 0	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: barcode-events-dlt	Partition: 1	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: barcode-events-dlt	Partition: 2	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+Topic: mm2-status.A.internal	TopicId: SbkFq5FxTb61b4OqmlSX7Q	PartitionCount: 5	ReplicationFactor: 1	Configs: min.insync.replicas=1,cleanup.policy=compact
+	Topic: mm2-status.A.internal	Partition: 0	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-status.A.internal	Partition: 1	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-status.A.internal	Partition: 2	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-status.A.internal	Partition: 3	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: mm2-status.A.internal	Partition: 4	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+Topic: __consumer_offsets	TopicId: i11I5JQ3Smuz6B4HmtBRgA	PartitionCount: 50	ReplicationFactor: 1	Configs: compression.type=producer,min.insync.replicas=1,cleanup.policy=compact,segment.bytes=104857600
+	Topic: __consumer_offsets	Partition: 0	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 1	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 2	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 3	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 4	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 5	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 6	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 7	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 8	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 9	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 10	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 11	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 12	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 13	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 14	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 15	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 16	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 17	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 18	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 19	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 20	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 21	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 22	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 23	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 24	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 25	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 26	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 27	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 28	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 29	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 30	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 31	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 32	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 33	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 34	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 35	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 36	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 37	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 38	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 39	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 40	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 41	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 42	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 43	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 44	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 45	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 46	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 47	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 48	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+	Topic: __consumer_offsets	Partition: 49	Leader: 201	Replicas: 201	Isr: 201	Elr: 	LastKnownElr: 
+
+exit_code=0

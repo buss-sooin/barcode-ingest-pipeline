@@ -1,0 +1,54 @@
+captured_at_utc=2026-09-23T03:24:11Z
+Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s5   228Gi   151Gi    54Gi    74%    1.1M  567M    0%   /System/Volumes/Data
+docker_memory_bytes=6212071424 docker_cpus=8 containers_running=10
+bip-fr-002-processing	427.6MiB / 5.785GiB	0.89%
+bip-fr-002-worker-2	505.3MiB / 5.785GiB	0.44%
+bip-fr-002-worker-1	496.8MiB / 5.785GiB	0.54%
+bip-fr-002-scanner	174.1MiB / 5.785GiB	0.22%
+bip-fr-002-ingest	230.5MiB / 5.785GiB	0.19%
+bip-fr-002-broker-2	1.202GiB / 5.785GiB	1.86%
+bip-fr-002-broker-1	1.194GiB / 5.785GiB	2.06%
+bip-fr-002-controller	470.4MiB / 5.785GiB	1.58%
+bip-fr-002-mysql	112.4MiB / 5.785GiB	0.91%
+bip-fr-002-redis	8.652MiB / 5.785GiB	0.50%
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          26        7         3.33GB    792.2MB (23%)
+Containers      12        10        8.568MB   1.641MB (19%)
+Local Volumes   12        12        4.065GB   0B (0%)
+Build Cache     76        0         3.115GB   2.654GB
+Mach Virtual Memory Statistics: (page size of 16384 bytes)
+Pages free:                                     5085.
+Pages active:                                 270381.
+Pages inactive:                               268230.
+Pages speculative:                              3409.
+Pages throttled:                                   0.
+Pages wired down:                             125821.
+Pages purgeable:                                2649.
+"Translation faults":                     2986142526.
+Pages copy-on-write:                       158872776.
+Pages zero filled:                        1636133559.
+Pages reactivated:                         675269211.
+Pages purged:                               35449350.
+File-backed pages:                            199441.
+Anonymous pages:                              342579.
+Pages stored in compressor:                   999430.
+Pages occupied by compressor:                 339814.
+Decompressions:                            704787771.
+Compressions:                              753238283.
+Pageins:                                    53853848.
+Pageouts:                                    1198016.
+Swapins:                                     1459694.
+Swapouts:                                    2048727.
+/bip-fr-002-processing status=running oom_killed=false exit_code=0
+/bip-fr-002-worker-2 status=running oom_killed=false exit_code=0
+/bip-fr-002-worker-1 status=running oom_killed=false exit_code=0
+/bip-fr-002-scanner status=running oom_killed=false exit_code=0
+/bip-fr-002-ingest status=running oom_killed=false exit_code=0
+/bip-fr-002-topic-init status=exited oom_killed=false exit_code=0
+/bip-fr-002-broker-3 status=exited oom_killed=true exit_code=137
+/bip-fr-002-broker-2 status=running oom_killed=false exit_code=0
+/bip-fr-002-broker-1 status=running oom_killed=false exit_code=0
+/bip-fr-002-controller status=running oom_killed=false exit_code=0
+/bip-fr-002-mysql status=running oom_killed=false exit_code=0
+/bip-fr-002-redis status=running oom_killed=false exit_code=0

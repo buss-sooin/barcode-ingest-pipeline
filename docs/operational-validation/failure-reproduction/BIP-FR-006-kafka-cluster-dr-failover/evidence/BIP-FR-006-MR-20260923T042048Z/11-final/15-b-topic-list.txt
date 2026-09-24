@@ -1,0 +1,15 @@
+captured_at_utc=2026-09-23T04:32:11Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/docker-compose.validation.yml exec -T broker-b kafka-topics --bootstrap-server broker-b:39092 --list 
+
+A.checkpoints.internal
+A.heartbeats
+__consumer_offsets
+barcode-events
+barcode-events-dlt
+heartbeats
+mm2-configs.A.internal
+mm2-offset-syncs.A.internal
+mm2-offsets.A.internal
+mm2-status.A.internal
+
+exit_code=0

@@ -1,0 +1,8 @@
+captured_at_utc=2026-09-23T04:14:23Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/docker-compose.validation.yml exec -T broker-b kafka-get-offsets --bootstrap-server broker-b:39092 --topic barcode-events 
+
+barcode-events:0:0
+barcode-events:1:7
+barcode-events:2:0
+
+exit_code=0

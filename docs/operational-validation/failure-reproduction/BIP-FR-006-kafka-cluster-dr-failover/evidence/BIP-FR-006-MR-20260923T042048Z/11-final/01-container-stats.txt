@@ -1,0 +1,13 @@
+captured_at_utc=2026-09-23T04:32:03Z
+command=docker stats --no-stream 
+
+CONTAINER ID   NAME                      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O           BLOCK I/O         PIDS
+a8f49ae99679   bip-fr-006-ingest-b       0.19%     231.5MiB / 320MiB   72.35%    13.4kB / 11.6kB   1.79MB / 336kB    31
+6ac71e3056b5   bip-fr-006-mysql          0.93%     434.8MiB / 640MiB   67.93%    54.3kB / 51.2kB   31.8MB / 20.2MB   40
+c306b966a746   bip-fr-006-processing-b   1.74%     269.7MiB / 352MiB   76.62%    148kB / 162kB     0B / 332kB        32
+ea06bb67b079   bip-fr-006-mm2            11.78%    323.3MiB / 640MiB   50.52%    43.7MB / 26.9MB   66.2MB / 91MB     86
+59be9fdbc39a   bip-fr-006-broker-b       3.73%     509.6MiB / 704MiB   72.38%    5.62MB / 6.97MB   19.7MB / 76.9MB   118
+c5107f3e31dc   bip-fr-006-worker         0.23%     398.3MiB / 448MiB   88.90%    701kB / 531kB     9.58MB / 1.35MB   42
+8f767f0daee3   bip-fr-006-redis          0.55%     25.57MiB / 128MiB   19.98%    619kB / 824kB     14.8MB / 172kB    6
+
+exit_code=0

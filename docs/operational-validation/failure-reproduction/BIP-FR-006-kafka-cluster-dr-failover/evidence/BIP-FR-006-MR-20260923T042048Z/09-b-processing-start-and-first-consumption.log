@@ -1,0 +1,806 @@
+captured_at_utc=2026-09-23T04:30:30Z
+Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx224m
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.7)
+
+2026-09-23T04:08:36.687Z  INFO 1 --- [barcode-processing-service] [           main] .b.b.BarcodeProcessingServiceApplication : Starting BarcodeProcessingServiceApplication v0.0.1-SNAPSHOT using Java 21.0.12 with PID 1 (/app/app.jar started by root in /app)
+2026-09-23T04:08:36.688Z DEBUG 1 --- [barcode-processing-service] [           main] .b.b.BarcodeProcessingServiceApplication : Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-09-23T04:08:36.689Z  INFO 1 --- [barcode-processing-service] [           main] .b.b.BarcodeProcessingServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2026-09-23T04:08:37.114Z  INFO 1 --- [barcode-processing-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-09-23T04:08:37.116Z  INFO 1 --- [barcode-processing-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-09-23T04:08:37.132Z  INFO 1 --- [barcode-processing-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2026-09-23T04:08:37.750Z  INFO 1 --- [barcode-processing-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2026-09-23T04:08:37.960Z  INFO 1 --- [barcode-processing-service] [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8082 (http)
+2026-09-23T04:08:37.979Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [broker-b:39092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-barcode-processing-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = barcode-processing-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-09-23T04:08:38.000Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-23T04:08:38.111Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2026-09-23T04:08:38.112Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2026-09-23T04:08:38.112Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1790136518110
+2026-09-23T04:08:38.118Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Subscribed to topic(s): barcode-events
+2026-09-23T04:08:38.123Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [broker-b:39092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-barcode-processing-group-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = barcode-processing-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-09-23T04:08:38.123Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-23T04:08:38.127Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2026-09-23T04:08:38.127Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2026-09-23T04:08:38.128Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1790136518127
+2026-09-23T04:08:38.131Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Subscribed to topic(s): barcode-events
+2026-09-23T04:08:38.133Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [broker-b:39092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-barcode-processing-group-3
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = barcode-processing-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-09-23T04:08:38.133Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-23T04:08:38.137Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2026-09-23T04:08:38.137Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2026-09-23T04:08:38.137Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1790136518137
+2026-09-23T04:08:38.140Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Subscribed to topic(s): barcode-events
+2026-09-23T04:08:38.150Z  INFO 1 --- [barcode-processing-service] [           main] .b.b.BarcodeProcessingServiceApplication : Started BarcodeProcessingServiceApplication in 1.704 seconds (process running for 2.025)
+2026-09-23T04:08:38.303Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Cluster ID: NqnEdODVKkiLTfJvqd1uqQ
+2026-09-23T04:08:38.303Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Cluster ID: NqnEdODVKkiLTfJvqd1uqQ
+2026-09-23T04:08:38.303Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Cluster ID: NqnEdODVKkiLTfJvqd1uqQ
+2026-09-23T04:08:38.303Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-b:39092 (id: 2147483446 rack: null)
+2026-09-23T04:08:38.304Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-b:39092 (id: 2147483446 rack: null)
+2026-09-23T04:08:38.304Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-b:39092 (id: 2147483446 rack: null)
+2026-09-23T04:08:38.305Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] (Re-)joining group
+2026-09-23T04:08:38.305Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] (Re-)joining group
+2026-09-23T04:08:38.305Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] (Re-)joining group
+2026-09-23T04:08:38.313Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Request joining group due to: need to re-join with the given member-id: consumer-barcode-processing-group-2-b7c0c34f-3dfa-4af0-847a-8655acc68f7b
+2026-09-23T04:08:38.313Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Request joining group due to: need to re-join with the given member-id: consumer-barcode-processing-group-3-df2151c0-165c-45f8-85cb-a216d1897088
+2026-09-23T04:08:38.313Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Request joining group due to: need to re-join with the given member-id: consumer-barcode-processing-group-1-0fd70a57-5e51-4343-b76c-32f33957d14b
+2026-09-23T04:08:38.313Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] (Re-)joining group
+2026-09-23T04:08:38.313Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] (Re-)joining group
+2026-09-23T04:08:38.314Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] (Re-)joining group
+2026-09-23T04:08:38.315Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-barcode-processing-group-1-0fd70a57-5e51-4343-b76c-32f33957d14b', protocol='range'}
+2026-09-23T04:08:38.315Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-barcode-processing-group-2-b7c0c34f-3dfa-4af0-847a-8655acc68f7b', protocol='range'}
+2026-09-23T04:08:38.315Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-barcode-processing-group-3-df2151c0-165c-45f8-85cb-a216d1897088', protocol='range'}
+2026-09-23T04:08:38.319Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Finished assignment for group at generation 1: {consumer-barcode-processing-group-3-df2151c0-165c-45f8-85cb-a216d1897088=Assignment(partitions=[barcode-events-2]), consumer-barcode-processing-group-1-0fd70a57-5e51-4343-b76c-32f33957d14b=Assignment(partitions=[barcode-events-0]), consumer-barcode-processing-group-2-b7c0c34f-3dfa-4af0-847a-8655acc68f7b=Assignment(partitions=[barcode-events-1])}
+2026-09-23T04:08:38.327Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-barcode-processing-group-2-b7c0c34f-3dfa-4af0-847a-8655acc68f7b', protocol='range'}
+2026-09-23T04:08:38.327Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-barcode-processing-group-1-0fd70a57-5e51-4343-b76c-32f33957d14b', protocol='range'}
+2026-09-23T04:08:38.327Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-barcode-processing-group-3-df2151c0-165c-45f8-85cb-a216d1897088', protocol='range'}
+2026-09-23T04:08:38.327Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Notifying assignor about the new Assignment(partitions=[barcode-events-1])
+2026-09-23T04:08:38.327Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Notifying assignor about the new Assignment(partitions=[barcode-events-0])
+2026-09-23T04:08:38.327Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Notifying assignor about the new Assignment(partitions=[barcode-events-2])
+2026-09-23T04:08:38.328Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Adding newly assigned partitions: barcode-events-0
+2026-09-23T04:08:38.328Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Adding newly assigned partitions: barcode-events-2
+2026-09-23T04:08:38.328Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Adding newly assigned partitions: barcode-events-1
+2026-09-23T04:08:38.332Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Found no committed offset for partition barcode-events-2
+2026-09-23T04:08:38.332Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Found no committed offset for partition barcode-events-0
+2026-09-23T04:08:38.332Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition barcode-events-1 to the committed offset FetchPosition{offset=6, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[broker-b:39092 (id: 201 rack: null)], epoch=2}}
+2026-09-23T04:08:38.333Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: partitions assigned: [barcode-events-1]
+2026-09-23T04:08:38.338Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Resetting offset for partition barcode-events-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[broker-b:39092 (id: 201 rack: null)], epoch=2}}.
+2026-09-23T04:08:38.338Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: partitions assigned: [barcode-events-0]
+2026-09-23T04:08:38.338Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Resetting offset for partition barcode-events-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[broker-b:39092 (id: 201 rack: null)], epoch=2}}.
+2026-09-23T04:08:38.339Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: partitions assigned: [barcode-events-2]
+2026-09-23T04:12:04.076Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 6
+2026-09-23T04:12:04.077Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-006-PF-20260923T032348Z-offset-continuation-007, Device: SEOUL-CENTER-PC-001, scanTime: 1790136724007
+2026-09-23T04:12:04.077Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-006-PF-20260923T032348Z-offset-continuation-007 → DLV-SEOUL-CENTER-PC-001-260923-01M367DAKDARXKC65PQMDP0ZZ9
+2026-09-23T04:12:04.093Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: BIP-FR-006-PF-20260923T032348Z-offset-continuation-007
+2026-09-23T04:12:04.094Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: BIP-FR-006-PF-20260923T032348Z-offset-continuation-007
+2026-09-23T04:12:46.208Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Revoke previously assigned partitions barcode-events-2
+2026-09-23T04:12:46.208Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Revoke previously assigned partitions barcode-events-0
+2026-09-23T04:12:46.208Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Revoke previously assigned partitions barcode-events-1
+2026-09-23T04:12:46.208Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: partitions revoked: [barcode-events-2]
+2026-09-23T04:12:46.208Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: partitions revoked: [barcode-events-1]
+2026-09-23T04:12:46.209Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: partitions revoked: [barcode-events-0]
+2026-09-23T04:12:46.209Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Member consumer-barcode-processing-group-3-df2151c0-165c-45f8-85cb-a216d1897088 sending LeaveGroup request to coordinator broker-b:39092 (id: 2147483446 rack: null) due to the consumer unsubscribed from all topics
+2026-09-23T04:12:46.209Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Member consumer-barcode-processing-group-2-b7c0c34f-3dfa-4af0-847a-8655acc68f7b sending LeaveGroup request to coordinator broker-b:39092 (id: 2147483446 rack: null) due to the consumer unsubscribed from all topics
+2026-09-23T04:12:46.209Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Member consumer-barcode-processing-group-1-0fd70a57-5e51-4343-b76c-32f33957d14b sending LeaveGroup request to coordinator broker-b:39092 (id: 2147483446 rack: null) due to the consumer unsubscribed from all topics
+2026-09-23T04:12:46.209Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-09-23T04:12:46.209Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-09-23T04:12:46.209Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Request joining group due to: consumer pro-actively leaving the group
+2026-09-23T04:12:46.209Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Request joining group due to: consumer pro-actively leaving the group
+2026-09-23T04:12:46.209Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Unsubscribed all topics or patterns and assigned partitions
+2026-09-23T04:12:46.209Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Unsubscribed all topics or patterns and assigned partitions
+2026-09-23T04:12:46.209Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-09-23T04:12:46.209Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Request joining group due to: consumer pro-actively leaving the group
+2026-09-23T04:12:46.209Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Unsubscribed all topics or patterns and assigned partitions
+2026-09-23T04:12:46.210Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-09-23T04:12:46.210Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Request joining group due to: consumer pro-actively leaving the group
+2026-09-23T04:12:46.210Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-09-23T04:12:46.210Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Request joining group due to: consumer pro-actively leaving the group
+2026-09-23T04:12:46.210Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-09-23T04:12:46.210Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Request joining group due to: consumer pro-actively leaving the group
+2026-09-23T04:12:46.255Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-09-23T04:12:46.255Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-09-23T04:12:46.255Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-09-23T04:12:46.255Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-09-23T04:12:46.255Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-09-23T04:12:46.255Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-09-23T04:12:46.255Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-09-23T04:12:46.256Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-09-23T04:12:46.256Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-09-23T04:12:46.256Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-09-23T04:12:46.256Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-09-23T04:12:46.256Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-09-23T04:12:46.266Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-barcode-processing-group-2 unregistered
+2026-09-23T04:12:46.267Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-barcode-processing-group-1 unregistered
+2026-09-23T04:12:46.267Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.consumer for consumer-barcode-processing-group-3 unregistered
+2026-09-23T04:12:46.267Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: Consumer stopped
+2026-09-23T04:12:46.267Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: Consumer stopped
+2026-09-23T04:12:46.269Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: Consumer stopped
+2026-09-23T04:12:46.269Z  INFO 1 --- [barcode-processing-service] [ionShutdownHook] o.s.b.w.embedded.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-23T04:12:46.271Z  INFO 1 --- [barcode-processing-service] [ netty-shutdown] o.s.b.w.embedded.netty.GracefulShutdown  : Graceful shutdown complete
+Picked up JAVA_TOOL_OPTIONS: -Xms64m -Xmx224m
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.7)
+
+2026-09-23T04:30:00.555Z  INFO 1 --- [barcode-processing-service] [           main] .b.b.BarcodeProcessingServiceApplication : Starting BarcodeProcessingServiceApplication v0.0.1-SNAPSHOT using Java 21.0.12 with PID 1 (/app/app.jar started by root in /app)
+2026-09-23T04:30:00.556Z DEBUG 1 --- [barcode-processing-service] [           main] .b.b.BarcodeProcessingServiceApplication : Running with Spring Boot v3.5.7, Spring v6.2.12
+2026-09-23T04:30:00.557Z  INFO 1 --- [barcode-processing-service] [           main] .b.b.BarcodeProcessingServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2026-09-23T04:30:01.004Z  INFO 1 --- [barcode-processing-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-09-23T04:30:01.005Z  INFO 1 --- [barcode-processing-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-09-23T04:30:01.022Z  INFO 1 --- [barcode-processing-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2026-09-23T04:30:01.660Z  INFO 1 --- [barcode-processing-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2026-09-23T04:30:01.878Z  INFO 1 --- [barcode-processing-service] [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 8082 (http)
+2026-09-23T04:30:01.897Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [broker-b:39092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-barcode-processing-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = barcode-processing-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-09-23T04:30:01.917Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-23T04:30:02.027Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2026-09-23T04:30:02.028Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2026-09-23T04:30:02.028Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1790137802026
+2026-09-23T04:30:02.034Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Subscribed to topic(s): barcode-events
+2026-09-23T04:30:02.038Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [broker-b:39092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-barcode-processing-group-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = barcode-processing-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-09-23T04:30:02.038Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-23T04:30:02.043Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2026-09-23T04:30:02.043Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2026-09-23T04:30:02.043Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1790137802043
+2026-09-23T04:30:02.046Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Subscribed to topic(s): barcode-events
+2026-09-23T04:30:02.048Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.include.jmx.reporter = true
+	auto.offset.reset = earliest
+	bootstrap.servers = [broker-b:39092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-barcode-processing-group-3
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	enable.metrics.push = true
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = barcode-processing-group
+	group.instance.id = null
+	group.protocol = classic
+	group.remote.assignor = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metadata.recovery.strategy = none
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.max.ms = 1000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.header.urlencode = false
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
+
+2026-09-23T04:30:02.048Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-09-23T04:30:02.052Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.9.1
+2026-09-23T04:30:02.052Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: f745dfdcee2b9851
+2026-09-23T04:30:02.052Z  INFO 1 --- [barcode-processing-service] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1790137802052
+2026-09-23T04:30:02.055Z  INFO 1 --- [barcode-processing-service] [           main] o.a.k.c.c.i.ClassicKafkaConsumer         : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Subscribed to topic(s): barcode-events
+2026-09-23T04:30:02.065Z  INFO 1 --- [barcode-processing-service] [           main] .b.b.BarcodeProcessingServiceApplication : Started BarcodeProcessingServiceApplication in 1.748 seconds (process running for 1.991)
+2026-09-23T04:30:02.272Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Cluster ID: NqnEdODVKkiLTfJvqd1uqQ
+2026-09-23T04:30:02.272Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Cluster ID: NqnEdODVKkiLTfJvqd1uqQ
+2026-09-23T04:30:02.272Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Cluster ID: NqnEdODVKkiLTfJvqd1uqQ
+2026-09-23T04:30:02.272Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Discovered group coordinator broker-b:39092 (id: 2147483446 rack: null)
+2026-09-23T04:30:02.272Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Discovered group coordinator broker-b:39092 (id: 2147483446 rack: null)
+2026-09-23T04:30:02.272Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Discovered group coordinator broker-b:39092 (id: 2147483446 rack: null)
+2026-09-23T04:30:02.274Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] (Re-)joining group
+2026-09-23T04:30:02.274Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] (Re-)joining group
+2026-09-23T04:30:02.274Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] (Re-)joining group
+2026-09-23T04:30:02.283Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Request joining group due to: need to re-join with the given member-id: consumer-barcode-processing-group-2-acedefa8-4cc6-4d33-bab2-96d392cfac50
+2026-09-23T04:30:02.283Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Request joining group due to: need to re-join with the given member-id: consumer-barcode-processing-group-3-9aebe9ea-98be-4cd1-8a04-b2367c62ada1
+2026-09-23T04:30:02.283Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] (Re-)joining group
+2026-09-23T04:30:02.283Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] (Re-)joining group
+2026-09-23T04:30:02.284Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Request joining group due to: need to re-join with the given member-id: consumer-barcode-processing-group-1-f53766c7-0273-47f3-91c3-c991314fdff4
+2026-09-23T04:30:02.284Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] (Re-)joining group
+2026-09-23T04:30:02.285Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Successfully joined group with generation Generation{generationId=3, memberId='consumer-barcode-processing-group-2-acedefa8-4cc6-4d33-bab2-96d392cfac50', protocol='range'}
+2026-09-23T04:30:02.285Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Successfully joined group with generation Generation{generationId=3, memberId='consumer-barcode-processing-group-3-9aebe9ea-98be-4cd1-8a04-b2367c62ada1', protocol='range'}
+2026-09-23T04:30:02.288Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Finished assignment for group at generation 3: {consumer-barcode-processing-group-2-acedefa8-4cc6-4d33-bab2-96d392cfac50=Assignment(partitions=[barcode-events-0, barcode-events-1]), consumer-barcode-processing-group-3-9aebe9ea-98be-4cd1-8a04-b2367c62ada1=Assignment(partitions=[barcode-events-2])}
+2026-09-23T04:30:02.293Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] SyncGroup failed: The group began another rebalance. Need to re-join the group. Sent generation was Generation{generationId=3, memberId='consumer-barcode-processing-group-2-acedefa8-4cc6-4d33-bab2-96d392cfac50', protocol='range'}
+2026-09-23T04:30:02.293Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] SyncGroup failed: The group began another rebalance. Need to re-join the group. Sent generation was Generation{generationId=3, memberId='consumer-barcode-processing-group-3-9aebe9ea-98be-4cd1-8a04-b2367c62ada1', protocol='range'}
+2026-09-23T04:30:02.293Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'The group is rebalancing, so a rejoin is needed.' (RebalanceInProgressException)
+2026-09-23T04:30:02.293Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] (Re-)joining group
+2026-09-23T04:30:02.293Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Request joining group due to: rebalance failed due to 'The group is rebalancing, so a rejoin is needed.' (RebalanceInProgressException)
+2026-09-23T04:30:02.293Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] (Re-)joining group
+2026-09-23T04:30:02.299Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Successfully joined group with generation Generation{generationId=4, memberId='consumer-barcode-processing-group-2-acedefa8-4cc6-4d33-bab2-96d392cfac50', protocol='range'}
+2026-09-23T04:30:02.299Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Successfully joined group with generation Generation{generationId=4, memberId='consumer-barcode-processing-group-3-9aebe9ea-98be-4cd1-8a04-b2367c62ada1', protocol='range'}
+2026-09-23T04:30:02.300Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Finished assignment for group at generation 4: {consumer-barcode-processing-group-2-acedefa8-4cc6-4d33-bab2-96d392cfac50=Assignment(partitions=[barcode-events-1]), consumer-barcode-processing-group-1-f53766c7-0273-47f3-91c3-c991314fdff4=Assignment(partitions=[barcode-events-0]), consumer-barcode-processing-group-3-9aebe9ea-98be-4cd1-8a04-b2367c62ada1=Assignment(partitions=[barcode-events-2])}
+2026-09-23T04:30:02.299Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Successfully joined group with generation Generation{generationId=4, memberId='consumer-barcode-processing-group-1-f53766c7-0273-47f3-91c3-c991314fdff4', protocol='range'}
+2026-09-23T04:30:02.305Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Successfully synced group in generation Generation{generationId=4, memberId='consumer-barcode-processing-group-3-9aebe9ea-98be-4cd1-8a04-b2367c62ada1', protocol='range'}
+2026-09-23T04:30:02.306Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Notifying assignor about the new Assignment(partitions=[barcode-events-2])
+2026-09-23T04:30:02.306Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Successfully synced group in generation Generation{generationId=4, memberId='consumer-barcode-processing-group-2-acedefa8-4cc6-4d33-bab2-96d392cfac50', protocol='range'}
+2026-09-23T04:30:02.306Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Successfully synced group in generation Generation{generationId=4, memberId='consumer-barcode-processing-group-1-f53766c7-0273-47f3-91c3-c991314fdff4', protocol='range'}
+2026-09-23T04:30:02.306Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Notifying assignor about the new Assignment(partitions=[barcode-events-1])
+2026-09-23T04:30:02.306Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Notifying assignor about the new Assignment(partitions=[barcode-events-0])
+2026-09-23T04:30:02.307Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Adding newly assigned partitions: barcode-events-2
+2026-09-23T04:30:02.307Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-barcode-processing-group-2, groupId=barcode-processing-group] Adding newly assigned partitions: barcode-events-1
+2026-09-23T04:30:02.307Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Adding newly assigned partitions: barcode-events-0
+2026-09-23T04:30:02.311Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Found no committed offset for partition barcode-events-2
+2026-09-23T04:30:02.312Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Found no committed offset for partition barcode-events-0
+2026-09-23T04:30:02.313Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.a.k.c.c.internals.ConsumerUtils        : Setting offset for partition barcode-events-1 to the committed offset FetchPosition{offset=37, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[broker-b:39092 (id: 201 rack: null)], epoch=2}}
+2026-09-23T04:30:02.315Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: partitions assigned: [barcode-events-1]
+2026-09-23T04:30:02.323Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-barcode-processing-group-3, groupId=barcode-processing-group] Resetting offset for partition barcode-events-2 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[broker-b:39092 (id: 201 rack: null)], epoch=2}}.
+2026-09-23T04:30:02.324Z  INFO 1 --- [barcode-processing-service] [ntainer#0-2-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: partitions assigned: [barcode-events-2]
+2026-09-23T04:30:02.324Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-barcode-processing-group-1, groupId=barcode-processing-group] Resetting offset for partition barcode-events-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[broker-b:39092 (id: 201 rack: null)], epoch=2}}.
+2026-09-23T04:30:02.324Z  INFO 1 --- [barcode-processing-service] [ntainer#0-0-C-1] o.s.k.l.KafkaMessageListenerContainer    : barcode-processing-group: partitions assigned: [barcode-events-0]
+2026-09-23T04:30:02.366Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Received barcode event - Key: SEOUL-CENTER-PC-001, Partition: 1, Offset: 37
+2026-09-23T04:30:02.367Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Barcode: BIP-FR-006-MR-20260923T042048Z-b-publish-031, Device: SEOUL-CENTER-PC-001, scanTime: 1790137724031
+2026-09-23T04:30:02.367Z DEBUG 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeConverter           : Converted BIP-FR-006-MR-20260923T042048Z-b-publish-031 → DLV-SEOUL-CENTER-PC-001-260923-01M368E7KZS68FKWGM24HC4785
+2026-09-23T04:30:02.443Z DEBUG 1 --- [barcode-processing-service] [ioEventLoop-5-1] c.b.b.service.BarcodeEventConsumer       : New barcode, proceeding: BIP-FR-006-MR-20260923T042048Z-b-publish-031
+2026-09-23T04:30:02.444Z  INFO 1 --- [barcode-processing-service] [ntainer#0-1-C-1] c.b.b.service.BarcodeEventConsumer       : Successfully processed barcode: BIP-FR-006-MR-20260923T042048Z-b-publish-031

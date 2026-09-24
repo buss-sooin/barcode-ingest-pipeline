@@ -1,0 +1,6 @@
+captured_at_utc=2026-09-23T04:07:00Z
+command=curl --silent --show-error --max-time 5 http://127.0.0.1:18083/connectors 
+
+curl: (56) Recv failure: Connection reset by peer
+
+exit_code=56

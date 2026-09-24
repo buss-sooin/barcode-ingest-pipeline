@@ -1,0 +1,25 @@
+captured_at_utc=2026-09-23T04:25:27Z
+command=docker compose --env-file /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/.env -f /Users/sooinlee/Documents/CodexProjects/barcode-ingest-pipeline/docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/docker-compose.validation.yml exec -T broker-b kafka-console-consumer --bootstrap-server broker-b:39092 --topic barcode-events --from-beginning --timeout-ms 3000 --property print.partition=true --property print.offset=true --property print.key=true --property key.separator=: 
+
+Partition:1:Offset:0:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-PF-20260923T032348Z-baseline-001","scanTime":1790136313001,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:1:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-PF-20260923T032348Z-baseline-002","scanTime":1790136313002,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:2:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-PF-20260923T032348Z-baseline-003","scanTime":1790136313003,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:3:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-PF-20260923T032348Z-baseline-004","scanTime":1790136314004,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:4:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-PF-20260923T032348Z-baseline-005","scanTime":1790136314005,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:5:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-PF-20260923T032348Z-baseline-006","scanTime":1790136314006,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:6:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-PF-20260923T032348Z-offset-continuation-007","scanTime":1790136724007,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:7:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-MR-20260923T042048Z-healthy-001","scanTime":1790137476001,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:8:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-MR-20260923T042048Z-healthy-002","scanTime":1790137476002,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:9:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-MR-20260923T042048Z-healthy-003","scanTime":1790137476003,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:10:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-MR-20260923T042048Z-healthy-004","scanTime":1790137476004,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:11:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-MR-20260923T042048Z-healthy-005","scanTime":1790137476005,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:12:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-MR-20260923T042048Z-healthy-006","scanTime":1790137476006,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:13:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-MR-20260923T042048Z-healthy-007","scanTime":1790137476007,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:14:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-MR-20260923T042048Z-healthy-008","scanTime":1790137476008,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:15:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-MR-20260923T042048Z-healthy-009","scanTime":1790137476009,"deviceId":"SEOUL-CENTER-PC-001"}
+Partition:1:Offset:16:SEOUL-CENTER-PC-001:{"barcode":"BIP-FR-006-MR-20260923T042048Z-healthy-010","scanTime":1790137476010,"deviceId":"SEOUL-CENTER-PC-001"}
+[2026-09-23 04:25:31,612] ERROR Error processing message, terminating consumer process:  (org.apache.kafka.tools.consumer.ConsoleConsumer)
+org.apache.kafka.common.errors.TimeoutException: null
+Processed a total of 17 messages
+
+exit_code=0

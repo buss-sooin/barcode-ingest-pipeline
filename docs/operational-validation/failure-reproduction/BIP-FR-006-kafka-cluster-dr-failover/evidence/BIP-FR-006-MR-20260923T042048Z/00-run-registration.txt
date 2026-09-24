@@ -1,0 +1,15 @@
+material_run_id=BIP-FR-006-MR-20260923T042048Z
+contract_id=BIP-FR-006-RC
+contract_revision=BIP-FR-006-RC-R1
+registered_at_utc=2026-09-23T04:20:48Z
+starting_git_revision=761afd9facf25266e31e15f2b3ffc5b88a94c4af
+starting_branch=validation/bip-fr-006-kafka-cluster-dr-failover
+compose_sha256=e1ed7a4457141334de7cf76db7d5bdca66af072844a674e0700f7124957c66c9
+mm2_sha256=bc9fce50d86c43783e313a578eacc09fa1407921395a18120f4d93c22ef49aa2
+topology=local same-host Docker; Cluster A dedicated controller 1 + brokers 3; Cluster B combined broker/controller 1; MM2 A-to-B; Redis; MySQL; one persistence worker
+cluster_a_application_topics=partitions=3,replication.factor=3,min.insync.replicas=2
+cluster_b_application_topics=partitions=3,replication.factor=1,min.insync.replicas=1
+failover_mode=explicit manual operational responsibility transfer
+evidence_directory=docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/evidence/BIP-FR-006-MR-20260923T042048Z
+preflight_evidence_directory=docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/evidence/PREFLIGHT-20260923T032348Z
+preflight_result=PASS
