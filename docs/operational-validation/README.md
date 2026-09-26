@@ -37,6 +37,29 @@ Failure Injection
 
 Broker 또는 container가 다시 실행된 사실만으로 복구 완료(Recovery Complete)를 선언하지 않습니다. 실제 흐름이 재개되고, retry와 각 계층의 백로그가 수렴하며, 생성된 logical identity 전체가 설명 가능한 terminal state에 도달해야 합니다.
 
+## Operational Validation Documentation Closure Contract
+
+BIP는 앞으로 운영 검증 시나리오의 문서 완료에 이 Project-level 계약을 적용한다. 재현 종료와 문서 완료는 서로 다른 책임이며, Reproduction Closure 이후 다음 순서로 진행한다. FR-001~005의 과거 산출물은 이 계약이 명문화되기 전에 작성되어 파일 구성이 다를 수 있다.
+
+`Reproduction Closure → Scenario Communication Artifacts → Human Review / Confirmation → Scenario Documentation Complete → README Integration PENDING → Separate README Integration Responsibility`
+
+각 시나리오의 Communication Artifact는 아래 네 파일이다.
+
+1. `AI-USAGE-EXPLANATION.md` — AI 사용과 사람·AI 책임 경계
+2. `SCENARIO-EXPLANATION.md` — 장애 원리, 관측 결과와 주장 한계
+3. `HUMAN-RESPONSE-GUIDE.md` — 운영자의 진단·복구 판단
+4. `README-SECTION-DRAFT.md` — 별도 README 통합 작업을 위한 후보 문안
+
+`README-SECTION-DRAFT.md` 작성은 루트 `README.md` 수정의 승인이나 수행을 뜻하지 않는다. 루트 README 반영은 별도의 책임으로 라우팅한다. 세 상태 축은 독립적으로 기록한다.
+
+| 상태 축 | 프로젝트 추적 값 | 판정 책임 |
+|---|---|---|
+| Reproduction | `OPEN` → 계약별 실행·검증 → `CLOSED / VERIFIED / SYNCHRONIZED` | 재현 계약, Record와 Evidence의 종료 판정 |
+| Documentation | `PENDING HUMAN REVIEW` → `HUMAN CONFIRMED` | 네 Communication Artifact의 내용 검토·확인 |
+| README Integration | `PENDING` → `INTEGRATED`; 명시적으로 제외된 경우 `BRANCH-ONLY / NOT PLANNED` | 별도 루트 README 통합·검증 또는 승인된 제외 범위 |
+
+재현이 종료돼도 네 문서와 Human 확인이 없으면 Documentation은 `PENDING HUMAN REVIEW`로 둔다. 문서가 확인돼도 루트 README 통합이 예정된 경우 별도 완료 전까지 README Integration은 `PENDING`이다. 기존 branch-only trial처럼 루트 반영 제외가 명시된 산출물은 그 결정을 보존하며, 과거 상태를 소급해서 완료로 표시하지 않는다.
+
 ## Scenario Index
 
 | Scenario | Failure Boundary | Result | Primary Report |
