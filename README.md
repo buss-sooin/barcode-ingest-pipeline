@@ -5,13 +5,18 @@
 1. [프로젝트 개요](#프로젝트-개요) — 기술 스택
 2. [문제 상황](#문제-상황) — 핵심 문제 정의
 3. [설계 결정](#설계-결정)
-4. [검증 설계](#검증-설계) — 성능, 장애 전파, 유실, 중복
+4. [검증 설계](#검증-설계) — 성능과 장애 전파
+5. [데이터 정합성 검증](#데이터-정합성-검증) — 유실, 중복, 기초 중단·복구
+6. [운영 장애 검증](#운영-장애-검증) — 장애 위치별 처리와 복구
+7. [AI를 활용한 엔지니어링](#ai를-활용한-엔지니어링)
 
 <br>
 
 ## 프로젝트 개요
 
-Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입하여 기존 동기식 DB 병목 현상과 시스템 동시성(Concurrency) 문제를 해결하고, 장애가 특정 구간을 넘어 번지지 않도록 격리하고, 중단 시에도 유실 없이 복구되는 처리 흐름을 설계했습니다.
+Kafka와 Redis Streams 기반의 비동기 부하 분산 아키텍처를 도입하여 기존 동기식 DB 병목 현상과 시스템 동시성(Concurrency) 문제를 해결하고, 장애가 특정 구간을 넘어 번지지 않도록 격리하며, 중단 후 미완료 데이터를 다시 처리하는 흐름을 설계했습니다.
+
+기존 구조와 성능·장애 전파를 비교하고, 데이터 정합성 및 제한된 로컬 운영 장애 조건에서의 처리·복구 결과를 별도로 검증했습니다.
 
 <br>
 
@@ -80,6 +85,7 @@ Kafka는 파티션 분산 배치로 바코드 스캔 데이터가 폭발적으�
 
 | 구성 요소 | 역할 | 책임 |
 | :--- | :--- | :--- |
+| barcode-input-simulator | 센터의 바코드 스캔 요청 생성 | 입력 부하와 재전송 경로 재현 |
 | barcode-ingest-service | 수신 즉시 Kafka로 전달, 응답 반환 | 응답 시간을 DB 지연에서 분리 |
 | Kafka | 유입과 처리 사이의 완충 큐 | 이후 처리 단계에 장애가 생겨도 원본 데이터 보존 |
 | barcode-processing-service | 바코드 이벤트 소비 후 사내 바코드 채번 | 바코드 중복 선별 |
@@ -96,7 +102,7 @@ Kafka는 파티션 분산 배치로 바코드 스캔 데이터가 폭발적으�
 - 건별 INSERT의 배치 전환 — JdbcTemplate의 batchUpdate 메서드와 rewriteBatchedStatements 설정을 활성화해, 다중 INSERT가 하나의 INSERT SQL로 실행되도록 했습니다.
 - 소비의 분산 — barcode-persistence-worker를 여러 인스턴스로 띄워, 한 인스턴스가 막혀도 다른 인스턴스가 소비를 이어갑니다.
 
-기존의 자바 애플리케이션의 비즈니스 서비스와 DB 트랜잭션 단위로 묶인 처리를 메시지 큐와 같은 별도 시스템으로 분리하면, 큐를 통한 전송이란 트레이드 오프로 데이터 전송 간의 유실과 중복이라는 부수적인 문제가 발생합니다. 이 두 가지는 아래 별도 절에서 설계와 검증을 함께 다룹니다.
+DB 트랜잭션에 묶여 있던 처리를 메시지 큐와 여러 서비스로 분리하면 응답 지연과 장애 전파를 줄일 수 있습니다. 대신 각 전달 경계에서 유실과 중복을 다뤄야 합니다. 이를 아래 데이터 정합성 검증에서 확인했습니다.
 
 [목차로 돌아가기](#목차)
 
@@ -199,19 +205,23 @@ worker-1의 커넥션 풀이 60초간 한계에 머무는 장애 구간(worker-2
 
 ![신규 — 워커 포화 중에도 다른 워커가 소비를 이어받음](docs/images/redis-pel-isolation.png)
 
-같은 구간에서 worker-1의 미처리 메시지(PEL)는 최대 9건, 15초 만에 해소되고 worker-2는 내내 0을 유지. 한 인스턴스가 막혀도 다른 워커가 이어받아 병목이 확산되지 않습니다.
+같은 구간에서 worker-1의 보류 항목 목록(Pending Entries List, PEL)은 최대 9건, 15초 만에 해소되고 worker-2는 내내 0을 유지. 한 인스턴스가 막혀도 다른 워커가 이어받아 병목이 확산되지 않습니다.
 
 두 경우 모두 에러 없이(0%) 재현했고, 장애 해소 후 정상 수준으로 회복됨을 확인했습니다.
 
 <br>
 
-## 유실 대비
+## 데이터 정합성 검증
+
+비동기 처리에서는 스캔 요청에 응답한 시점과 MySQL 저장이 끝난 시점이 다릅니다. 따라서 중간 구성 요소가 멈춰도 남은 데이터가 최종 저장까지 이어지는지, 재전송이나 재처리로 같은 바코드가 중복 저장되지 않는지 각각 확인했습니다.
+
+### 유실 대비 및 기초 중단·복구 검증
 
 **설계**
 
 - Kafka: 받은 메시지를 디스크 로그에 남기고 보존 기간 동안 유지. 브로커가 강제로 종료돼도 재기동 후 그 로그에서 이어감
 - Redis Streams: AOF로 쓰기 명령을 디스크에 기록. 재기동 시 스트림 복원
-- ack와 PEL: barcode-persistence-worker가 읽어 간 메시지는 PEL에 남고, MySQL 저장을 마친 건만 ack해 목록에서 빠짐. 워커가 중간에 멈추면 ack되지 않은 건만 다른 워커가 가져가 다시 처리
+- `XACK`와 PEL: barcode-persistence-worker가 읽어 간 항목은 PEL에 남고, MySQL 저장을 마친 뒤 `XACK`해야 목록에서 빠짐. 워커가 중간에 멈추면 미완료 항목을 다시 가져와 처리
 - DLT·DLQ: 재시도로도 처리하지 못한 건은 따로 빼내 격리
 
 **검증**
@@ -229,22 +239,20 @@ flowchart LR
 
 중단 구간을 하나씩 바꿔 가며 같은 절차를 반복한 검증 흐름입니다.
 
-| 중단 구간 | 투입 | 저장 | DLQ·DLT |
+| 중단 구간 | 스캔 입력(건) | MySQL 최종 저장(건) | DLQ·DLT(건) |
 | :--- | :--- | :--- | :--- |
 | Kafka | 3,657 | 3,657 | 0건 |
 | barcode-processing-service | 3,655 | 3,655 | 0건 |
 | Redis | 3,658 | 3,658 | 0건 |
 | barcode-persistence-worker(2개 동시) | 3,635 | 3,635 | 0건 |
 
-이 검증은 Kafka와 Redis의 컨테이너만 중단했다 다시 띄우는 경우만을 상정했습니다. 프로세스만 멈췄을 뿐 디스크에 쌓인 Kafka의 로그 파일과 Redis의 AOF 파일은 그대로 남아 있었고, 복구가 된 것도 그 파일들이 있었기 때문입니다.
-
-컨테이너 자체를 지우는 경우와 Kafka 브로커들이 죽는 경우는 다루지 않았습니다. 컨테이너 자체를 지우는 경우는 데이터를 컨테이너 밖의 저장소에 두어야 대비되고, Kafka 브로커들이 죽는 경우는 브로커를 한 대만 두지 않고 복제본을 둬야 대비됩니다. 다만 복제본을 두더라도, 리더 브로커가 죽고 새 리더를 뽑는 사이에 아직 복제되지 않은 메시지가 사라질 수 있어 유실을 막는 방식 자체가 달라집니다.
+기초 검증은 하나의 로컬 실행 환경에서 서버와 저장 장치를 정상 상태로 유지하고, 애플리케이션 또는 컨테이너를 중단한 뒤 재기동했습니다. Kafka 디스크 로그와 Redis AOF를 보존한 상태에서 밀린 데이터 처리를 확인했으며, Redis 소비자 그룹의 PEL도 미완료 항목을 추적하는 경계로 사용했습니다. 물리 서버나 저장 장치의 장애를 재현한 결과는 아닙니다.
 
 DLT와 DLQ도 지금은 실패한 건이 쌓이기만 하고 보존 기간이 지나면 지워집니다. 운영에서는 이를 따로 보관하고, 쌓였을 때 운영자에게 알리는 장치가 필요합니다.
 
 <br>
 
-## 중복 대비
+### 중복 대비
 
 **설계**
 
@@ -272,6 +280,65 @@ flowchart LR
 | Kafka 재소비(오프셋 되감김) | Redis SETNX 키가 남아 있는 상태 | 0 (Redis SETNX에서 차단) | 0건 |
 | Redis 키 소실 후 재소비 | SETNX 키를 지운 상태 | 0 (MySQL 유니크 제약에서 차단) | 0건 |
 
-중복은 어느 경로로 들어와도 한 건만 저장됩니다.
+표의 세 재전송 경로에서는 같은 바코드가 추가로 저장되지 않았습니다. 이는 모든 장애에서 정확히 한 번 처리된다는 보장은 아닙니다.
+
+[목차로 돌아가기](#목차)
+
+<br>
+
+## 운영 장애 검증
+
+기초 중단·복구 검증은 저장 장치를 유지한 채 구성 요소를 다시 실행하고 밀린 데이터가 저장되는지 확인했습니다. 이후에는 장애가 발생한 위치와 범위에 따라 데이터 흐름이 어디서 멈추는지, 남은 구성 요소가 처리를 이어 가는지, 복구 후 미완료 데이터가 최종 저장까지 도달하는지 확인했습니다.
+
+하나의 로컬 Docker 환경에서 Kafka broker와 controller, Redis, MySQL, 애플리케이션을 역할별로 분리했습니다. 필요한 시나리오에는 대체 Kafka 클러스터도 준비해 운영 구성의 장애 조건을 축소 재현했습니다. 데이터 흐름, 복제 상태, 장애 영향 범위와 복구 후 정합성을 관측했으며 실제 운영 규모의 장비나 데이터센터를 검증한 것은 아닙니다.
+
+```mermaid
+flowchart LR
+  subgraph BASIC[기초 중단·복구 검증]
+    B1[로컬 서버·저장 장치 유지] --> B2[애플리케이션·컨테이너 중단]
+    B2 --> B3[기존 Kafka 로그·Redis AOF로 재기동]
+    B3 --> B4[밀린 데이터의 최종 저장 확인]
+  end
+  subgraph OP[운영 장애 검증]
+    O1[역할별 구성과 장애 위치 지정] --> O2[복제 상태·데이터 흐름 관측]
+    O2 --> O3[남은 경로의 처리 또는 중단 확인]
+    O3 --> O4[복구·우회 뒤 미완료 데이터와 최종 저장 대조]
+  end
+```
+
+| 시나리오 | 예상 장애 상황 | 관측한 장애 흐름 | 확인 결과 |
+| :--- | :--- | :--- | :--- |
+| [BIP-FR-001](https://github.com/buss-sooin/barcode-ingest-pipeline/blob/6f2a0017deb91b24566457f62b2c5c4ded7b18ad/docs/operational-validation/failure-reproduction/BIP-FR-001-kafka-ingress-unavailable/TECHNICAL-REPORT.md) | 단일 Kafka broker를 사용할 수 없음 | `barcode-ingest-service`의 발행 실패 → `barcode-input-simulator`의 스캔 요청 재시도 → Kafka 복구 후 후속 처리 재개 | 고유 바코드 820개, Kafka 레코드 1,235개 중 재시도에 따른 전송 중복 415개, MySQL 고유 저장 820건. DLQ·DLT·미처리·미설명 0건 |
+| [BIP-FR-002](https://github.com/buss-sooin/barcode-ingest-pipeline/blob/6f2a0017deb91b24566457f62b2c5c4ded7b18ad/docs/operational-validation/failure-reproduction/BIP-FR-002-kafka-ha-broker-failure/TECHNICAL-REPORT.md) | 복제된 Kafka의 leader broker 1대 중단 | 동기화된 복제본이 새 leader가 되고 남은 broker가 복제 조건을 충족해 쓰기·후속 처리 지속 | 고유 바코드 66개, Kafka 레코드 75개 중 요청 재전송 중복 9개, MySQL 고유 저장 66건. 최종 사용 불가·복제 부족 파티션 0개 |
+| [BIP-FR-003](https://github.com/buss-sooin/barcode-ingest-pipeline/blob/96b815a5613642bc9ae9ad8824e47eb8718daeb4/docs/operational-validation/failure-reproduction/BIP-FR-003-kafka-insufficient-isr/TECHNICAL-REPORT.md) | 동기화 복제본 집합(ISR)이 1개로 감소 | leader는 살아 있지만 `min.insync.replicas=2`를 충족하지 못해 쓰기 거부 → broker 복구로 ISR 2개가 되자 설정 완화나 애플리케이션 재시작 없이 쓰기 재개 | 시험한 고유 바코드 54개 중 1개는 의도한 쓰기 거부, Kafka에 기록된 고유 바코드와 MySQL 고유 저장은 각각 53개. 업무 데이터 중복·미설명 0건 |
+| [BIP-FR-004](https://github.com/buss-sooin/barcode-ingest-pipeline/blob/b113a9a8208a3ab7f520cde2e00b15d04eb15072/docs/operational-validation/failure-reproduction/BIP-FR-004-mysql-persistence-unavailable/TECHNICAL-REPORT.md) | MySQL 중단으로 저장 실패 | `barcode-persistence-worker`가 Redis Stream 항목을 읽었으나 MySQL 저장 실패로 `XACK`하지 못함 → PEL에 미완료 항목 유지 → MySQL 복구 뒤 명시적 ID로 회수·재처리 | 수용한 고유 바코드 750개가 MySQL 고유 750건으로 저장됨. 최종 PEL 항목·소비자 그룹 지연, DLQ·DLT·미설명·상태 충돌은 모두 0건 |
+| [BIP-FR-005](https://github.com/buss-sooin/barcode-ingest-pipeline/blob/45d3b699aa0028dd148d4c244d2e7b88f712e9c4/docs/operational-validation/failure-reproduction/BIP-FR-005-redis-streams-unavailability/REPRODUCTION-RECORD.md) | Redis Streams를 사용할 수 없음 | Kafka를 소비하는 `barcode-processing-service`의 Redis 전달 실패 → 재시도 한도 도달 → DLT로 처리 책임 이전 | 장애 중 Redis Stream 유입이 멈췄고, Redis 복구 후 제한된 재처리로 해당 데이터가 MySQL에 저장됨. 이 시나리오의 주 신호는 PEL이 아니라 전달 실패·재시도·DLT임 |
+| [BIP-FR-006](https://github.com/buss-sooin/barcode-ingest-pipeline/blob/6f2a0017deb91b24566457f62b2c5c4ded7b18ad/docs/operational-validation/failure-reproduction/BIP-FR-006-kafka-cluster-dr-failover/REPRODUCTION-RECORD.md) | 주 Kafka 클러스터 전체를 사용할 수 없음 | 주 클러스터의 생산·소비 중단 → 미리 준비한 대체 Kafka 클러스터로 처리 책임을 수동 이전 → Redis·worker·MySQL 경로 재개 | 수용한 고유 바코드 41개가 MySQL 고유 41건으로 저장됐고 미설명 0건 |
+
+FR-002는 파티션 3개, 복제 계수 3, `min.insync.replicas=2`, producer `acks=all` 조건에서 검증했습니다. Kafka 레코드 9개가 추가된 원인은 요청 재전송 경로이며 leader 선출 자체가 레코드를 복제해서 만든 결과는 아닙니다. FR-003은 같은 복제 조건에서도 ISR이 기준 아래로 내려가면 안전한 쓰기를 거부한다는 차이를 보여줍니다.
+
+FR-006의 첫 대체 클러스터 생산 확인은 장애 시작 약 103.613초 뒤, 대체 경로의 첫 MySQL 저장은 약 181.420272초 뒤였습니다. 이번 실행에서 주 클러스터가 수용했지만 대체 경로와 최종 저장에서 확인되지 않은 바코드는 0개였습니다. 모두 동일 호스트의 제한된 로컬 실행에서 얻은 관측값이며, 자동 전환이나 운영 환경의 복구 시간·무손실을 보장하지 않습니다.
+
+장애 위치를 데이터 흐름과 함께 추적해 정상 처리가 이어진 범위, 멈춘 지점, 복구 후 남은 데이터가 최종 저장에 도달한 결과를 구분했습니다. 상세 조건과 판정은 각 시나리오의 연결 문서에 기록했습니다.
+
+[목차로 돌아가기](#목차)
+
+<br>
+
+## AI를 활용한 엔지니어링
+
+이 프로젝트는 [AI-Native Engineering Framework](https://github.com/buss-sooin/ai-native-engineering-framework)의 사람·AI 책임 분리와 근거 기반 검증 원칙을 적용했습니다. 작업의 목적, 변경 범위와 외부에 주장할 수 있는 결과는 개발자가 결정하고, 설계 분석·파일 검토·구현·반복 실행은 작업에 필요한 역량과 권한에 맞춰 분담했습니다. 확정된 결정과 결과는 대화에만 두지 않고 저장소 문서와 검증 근거에 남겼습니다.
+
+| 실행 환경 | 이 프로젝트에서 맡은 작업 |
+| :--- | :--- |
+| ChatGPT 일반 Chat | 요구사항 분석, 설계 대안과 장애 시나리오 검토, 실행 결과 해석 |
+| ChatGPT Work mode | 실제 저장소 파일과 문서의 직접 검토, 문서 간 대조, 산출물 수정과 독립 검토 |
+| Codex CLI | 코드·설정 구현, 명령 실행, 테스트와 반복 가능한 사전 점검·검증 근거 수집, Git 작업 |
+
+실제 사용 모델은 `GPT-5.6 Sol`, `GPT-6.0 Sol`입니다. Framework 자체는 이 모델이나 특정 ChatGPT 실행 환경에 종속되지 않습니다.
+
+운영 장애 검증에서는 먼저 장애 목표와 성공·실패 판정 기준을 정한 뒤 실제 저장소와 실행 환경을 확인했습니다. 필요한 검증 도구를 구현하고, 사전 점검·장애 실행·로그와 상태·데이터 수집을 반복 가능하게 수행했습니다. 구현 작업과 결과 판정의 책임을 구분해, 실행이 끝났다는 보고만으로 성공을 선언하지 않았습니다.
+
+예를 들어 BIP-FR-004의 유효하지 않은 실행은 성공 근거로 사용하지 않았습니다. 최종 실행에서도 MySQL 고유 저장 750건과 PEL 소진을 확인했지만, 개별 Redis 항목이 DB 실패부터 최종 `XACK`까지 이동한 전 과정을 직접 연결한 근거가 부족해 판정을 `PARTIALLY_REPRODUCED`로 유지했습니다. BIP-FR-006의 수동 전환 결과도 로컬 Kafka 전환 경로의 관측값으로만 설명하며 실제 데이터센터 재해 복구 성능으로 확대하지 않았습니다.
 
 [목차로 돌아가기](#목차)
